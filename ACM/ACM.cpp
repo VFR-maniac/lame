@@ -22,7 +22,7 @@
  
 /*!
 	\author Steve Lhomme
-	\version \$Id: ACM.cpp,v 1.8 2002/01/30 23:25:49 robux4 Exp $
+	\version \$Id: ACM.cpp,v 1.9 2002/02/01 17:08:53 robux4 Exp $
 */
 
 #if !defined(STRICT)
@@ -673,6 +673,9 @@ my_debug.OutPut(DEBUG_LEVEL_FUNC_CODE, "Suggest succeed A");
 			{
                 a_FormatSuggest->pwfxDst->nChannels = a_FormatSuggest->pwfxSrc->nChannels;
             }
+
+			if (a_FormatSuggest->pwfxSrc->nChannels != 1 && a_FormatSuggest->pwfxSrc->nChannels != 2)
+				return MMSYSERR_INVALPARAM;
 
 
 my_debug.OutPut(DEBUG_LEVEL_FUNC_CODE, "Suggest succeed B");
