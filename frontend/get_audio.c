@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.50 2001/02/13 18:21:12 markt Exp $ */
+/* $Id: get_audio.c,v 1.51 2001/02/20 01:56:15 markt Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -105,10 +105,8 @@ static int  fskip ( FILE* fp, long offset, int whence )
 #endif
     int read;
     
-#ifdef KLEMM_06
     if ( 0 == fseek ( fp, offset, whence ) )
         return 0;
-#endif	
     
     if ( whence != SEEK_CUR  ||  offset < 0 ) {
         fprintf ( stderr, "fskip problem: Mostly the return status of functions is not evaluate so it is more secure to polute <stderr>.\n" );
