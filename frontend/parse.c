@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.85 2001/06/13 22:46:36 robert Exp $ */
+/* $Id: parse.c,v 1.86 2001/06/14 23:09:55 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -750,7 +750,8 @@ char* const inPath, char* const outPath, char **nogap_inPath, int *num_nogap)
 	    nextArg = i+1 < argc  ?  argv[i+1]  :  "";
 	    
             if (! *token) { /* The user wants to use stdin and/or stdout. */
-	        if (inPath [0] == '\0')
+	        input_file = 1;
+                if (inPath [0] == '\0')
 		    strncpy (inPath, argv[i],MAX_NAME_SIZE);
 	        else 
 		if (outPath[0] == '\0') 
