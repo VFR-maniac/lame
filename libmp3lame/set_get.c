@@ -20,14 +20,14 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.10 2001/06/08 21:29:34 markt Exp $ */
+/* $Id: set_get.c,v 1.11 2001/06/11 23:42:49 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
 
 #include <assert.h>
-#include "lame.h"
+#include "util.h"
 
 #ifdef WITH_DMALLOC
 #include <dmalloc.h>
