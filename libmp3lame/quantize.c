@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.96 2002/05/05 13:01:17 robert Exp $ */
+/* $Id: quantize.c,v 1.97 2002/05/05 13:33:02 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1401,10 +1401,8 @@ VBR_iteration_loop (
             }
       
             if (gfp->VBR == vbr_mtrh) {
-                ret = VBR_noise_shaping (gfp, cod_info->xr, xrpow,
-					 cod_info->l3_enc,
+                ret = VBR_noise_shaping (gfc, xrpow,
 					 min_bits[gr][ch], max_bits[gr][ch], 
-					 &cod_info->scalefac,
 					 &l3_xmin[gr][ch], gr, ch );
                 if (ret < 0)
                     cod_info->part2_3_length = 100000;
