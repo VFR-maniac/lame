@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.107 2002/04/10 12:55:47 bouvigne Exp $ */
+/* $Id: lame.h,v 1.108 2002/04/21 16:56:50 takehiro Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -403,6 +403,10 @@ int CDECL lame_get_useTemporal(const lame_global_flags *);
 // use temporal masking effect (default = 1)
 int CDECL lame_set_interChRatio(lame_global_flags *, float);
 int CDECL lame_get_interChRatio(const lame_global_flags *);
+
+// substep shaping method
+int CDECL lame_set_substep(lame_global_flags *, int);
+int CDECL lame_get_substep(const lame_global_flags *);
 
 // disable short blocks
 int CDECL lame_set_no_short_blocks(lame_global_flags *, int);

@@ -18,7 +18,7 @@
  * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: bitstream.c,v 1.49 2002/04/21 13:57:04 takehiro Exp $
+ * $Id: bitstream.c,v 1.50 2002/04/21 16:56:50 takehiro Exp $
  */
 
 
@@ -862,8 +862,8 @@ void  add_dummy_byte ( lame_global_flags* const gfp, unsigned char val )
   */
 int
 format_bitstream(lame_global_flags *gfp, int bitsPerFrame,
-      int              l3_enc[2][2][576],
-  	III_scalefac_t   scalefac[2][2] )
+	int              l3_enc[2][2][576],
+	III_scalefac_t   scalefac[2][2] )
 {
     lame_internal_flags *gfc=gfp->internal_flags;
     int bits,nbytes;

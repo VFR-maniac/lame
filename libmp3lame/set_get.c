@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.36 2002/04/10 12:55:47 bouvigne Exp $ */
+/* $Id: set_get.c,v 1.37 2002/04/21 16:56:50 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1272,6 +1272,28 @@ lame_get_interChRatio( const lame_global_flags*  gfp )
     return gfp->interChRatio;
 }
 
+
+/* Use pseudo substep shaping method */
+int
+lame_set_substep( lame_global_flags*  gfp,
+		  int                 method )
+{
+    lame_internal_flags *gfc = gfp->internal_flags;
+    /* default = 0.0 (no inter-cahnnel maskin) */
+    if (! (0 <= method && method <= 2))
+        return -1;
+
+    gfc->substep_shaping = method;
+    return 0;
+}
+
+int
+lame_get_substep(const lame_global_flags*  gfp )
+{
+    lame_internal_flags *gfc = gfp->internal_flags;
+    assert(0 <= gfc->substep_shaping && gfc->substep_shaping <= 2);
+    return gfc->substep_shaping;
+}
 
 /* Disable short blocks. */
 int
