@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.120 2005/01/22 18:15:16 bouvigne Exp $ */
+/* $Id: quantize_pvt.c,v 1.121 2005/01/29 18:11:46 bouvigne Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -737,6 +737,10 @@ int  calc_noise(
             }
         }
 
+        if (prev_noise) {
+            /* save noise values */
+            prev_noise->global_gain = cod_info->global_gain;;
+        }
 
 
 	    /*tot_noise *= Max(noise, 1E-20); */
