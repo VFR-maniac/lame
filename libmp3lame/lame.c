@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.135 2001/07/01 11:50:06 robert Exp $ */
+/* $Id: lame.c,v 1.136 2001/07/01 13:11:56 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1130,7 +1130,10 @@ lame_init_params(lame_global_flags * const gfp)
 
         /*  automatic ATH adjustment on, VBR modes need it
          */
-        gfc->ATH->use_adjust = 3;
+        if ( gfp->adjust_type < 0 )
+            gfc->ATH->use_adjust = 3;
+        else
+            gfc->ATH->use_adjust = gfp->adjust_type;
 
         /*  sfb21 extra only with MPEG-1 at higher sampling rates
          */
