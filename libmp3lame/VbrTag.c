@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.30 2001/09/11 07:47:59 potsticker Exp $ */
+/* $Id: VbrTag.c,v 1.31 2001/09/17 20:05:16 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -767,6 +767,12 @@ int PutLameVBR(lame_global_flags *gfp, FILE *fpStream, u_char *pbtStreamBuffer, 
 	else
 		pbtStreamBuffer[nBytesWritten] = nABRBitrate;
 	nBytesWritten++;
+
+        {
+            int enc_delay=lame_get_encoder_delay(gfp);       // encoder delay
+            int enc_padding=lame_get_encoder_padding(gfp);   // encoder padding 
+
+        }
 
 	memset(pbtStreamBuffer+nBytesWritten,0, 3);		//encoder delay stuff..TODO
 	nBytesWritten+=3;

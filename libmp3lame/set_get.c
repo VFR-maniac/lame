@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.17 2001/08/28 18:51:36 markt Exp $ */
+/* $Id: set_get.c,v 1.18 2001/09/17 20:05:16 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1303,6 +1303,13 @@ int
 lame_get_encoder_delay( const lame_global_flags*  gfp )
 {
     return gfp->encoder_delay;
+}
+
+/* padding added to the end of the input */
+int
+lame_get_encoder_padding( const lame_global_flags*  gfp )
+{
+    return gfp->encoder_padding;
 }
 
 
