@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lametime.c,v 1.12 2001/06/23 17:56:10 robert Exp $ */
+/* $Id: lametime.c,v 1.13 2002/05/14 16:19:34 markt Exp $ */
 
 /*
  * name:        GetCPUTime ( void )
@@ -58,6 +58,12 @@ double GetCPUTime ( void )
 #else
     t = clock ();
 #endif    
+
+    /*
+fprintf(stderr,"clock_t t = %lli \n\n",(int64_t) t);
+fprintf(stderr,"output: %f \n\n",t/(double)CLOCKS_PER_SEC);
+    */
+
     return t / (double) CLOCKS_PER_SEC;
 }
 
