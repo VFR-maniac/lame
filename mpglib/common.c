@@ -1,4 +1,4 @@
-/* $Id: common.c,v 1.21 2000/10/29 12:41:09 aleidinger Exp $ */
+/* $Id: common.c,v 1.22 2000/11/02 12:57:38 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -43,7 +43,7 @@ unsigned char *pcm_sample;
 int pcm_point = 0;
 
 
-#if defined( USE_LAYER_1 ) || defined ( USE_LAYER_1 )
+#if defined( USE_LAYER_1 ) || defined ( USE_LAYER_2 )
   real muls[27][64];
 #endif
 
