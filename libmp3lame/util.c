@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.113 2004/02/25 21:41:59 robert Exp $ */
+/* $Id: util.c,v 1.114 2004/02/25 22:10:21 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -790,12 +790,15 @@ void init_log_table(void)
 
 ieee754_float32_t fast_log2(ieee754_float32_t x)
 {
-  int i = *(int*)&x;
-  ieee754_float32_t log2val;
-  int mantisse = i & 0x7FFFFF;
-  ieee754_float32_t partial;
-
-  log2val = ((i>>23) & 0xFF)-0x7f;
+  ieee754_float32_t log2val, partial;
+  union {
+    ieee754_float32_t f;
+    int     i;
+  } fi;
+  int mantisse;
+  fi.f = x;
+  mantisse = fi.i & 0x7fffff;
+  log2val = ((fi.i>>23) & 0xFF)-0x7f;
   partial = (mantisse & ((1<<(23-LOG2_SIZE_L2))-1));
   partial *= 1.0f/((1<<(23-LOG2_SIZE_L2)));
 
