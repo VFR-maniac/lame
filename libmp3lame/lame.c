@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.189 2002/09/09 21:43:17 robert Exp $ */
+/* $Id: lame.c,v 1.190 2002/10/08 19:30:00 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -2227,6 +2227,7 @@ lame_init_old(lame_global_flags * gfp)
     gfp->asm_optimizations.amd3dnow = 1;
     gfp->asm_optimizations.sse = 1;
 
+    gfp->preset = 0;
     return 0;
 }
 

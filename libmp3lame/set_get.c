@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.40 2002/09/15 17:47:32 bouvigne Exp $ */
+/* $Id: set_get.c,v 1.41 2002/10/08 19:30:01 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1619,6 +1619,7 @@ lame_set_preset_notune( lame_global_flags*  gfp, int preset_notune )
 int
 lame_set_preset( lame_global_flags*  gfp, int preset )
 {
+    gfp->preset = preset;
     return apply_preset(gfp, preset);
 }
 
