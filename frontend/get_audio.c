@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.44 2000/12/19 07:46:47 markt Exp $ */
+/* $Id: get_audio.c,v 1.45 2001/01/02 06:02:05 markt Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -759,7 +759,7 @@ static int  read_samples_pcm ( FILE* const musicin, short sample_buffer [2304], 
         break;
     }
 
-    return sample_read;
+    return samples_read;
 }
 
 
