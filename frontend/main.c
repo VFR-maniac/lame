@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.69 2001/10/17 19:29:53 robert Exp $ */
+/* $Id: main.c,v 1.70 2001/10/23 14:06:46 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -46,6 +46,10 @@ char   *strchr(), *strrchr();
 
 #ifdef HAVE_FCNTL_H
 # include <fcntl.h>
+#endif
+
+#if defined(_WIN32)
+# include <windows.h>
 #endif
 
 
