@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.83 2002/04/20 19:50:24 takehiro Exp $ */
+/* $Id: quantize.c,v 1.84 2002/04/20 19:54:40 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -95,6 +95,7 @@ init_outer_loop(
              *  MPEG-2(.5):  sfbs 0-5 long block, 3-12 short blocks
              */ 
             cod_info->sfb_lmax    = gfc->is_mpeg1 ? 8 : 6;
+	    cod_info->psy_lmax    = gfc->is_mpeg1 ? 8 : 6;
 	    cod_info->sfb_smin    = 3;
 	}
     } else {
