@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.60 2001/09/08 18:40:51 potsticker Exp $ */
+/* $Id: main.c,v 1.61 2001/09/17 21:17:53 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -504,7 +504,15 @@ main(int argc, char **argv)
 #if macintosh
     argc = ccommand(&argv);
 #endif
-
+#if defined(_MSC_VER)
+    {
+   /* set affinity to a single CPU.  Fix for EAC/lame on SMP systems from
+     "Todd Richmond" <todd.richmond@openwave.com> */
+    SYSTEM_INFO si;
+    GetSystemInfo(&si);
+    SetProcessAffinityMask(GetCurrentProcess(), si.dwActiveProcessorMask);
+    }
+#endif
 #ifdef __EMX__
     /* This gives wildcard expansion on Non-POSIX shells with OS/2 */
     _wildcard(&argc, &argv);

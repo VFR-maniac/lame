@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.88 2001/09/17 20:05:16 markt Exp $ */
+/* $Id: lame.h,v 1.89 2001/09/17 21:17:53 markt Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -387,7 +387,7 @@ int CDECL lame_get_encoder_delay(const lame_global_flags *);
 // padding appended to the input to make sure decoder can fully decode
 // all input.  Note that this value can only be calculated during the
 // call to lame_encoder_flush().  Before lame_encoder_flush() has
-// been called, the value of encoder_padding = -1.
+// been called, the value of encoder_padding = 0.
 int CDECL lame_get_encoder_padding(const lame_global_flags *);
 
 // size of MPEG frame

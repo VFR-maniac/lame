@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.147 2001/09/17 20:05:16 markt Exp $ */
+/* $Id: lame.c,v 1.148 2001/09/17 21:17:53 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -2062,7 +2062,7 @@ lame_init_old(lame_global_flags * gfp)
      * encode the 576 samples we are interested in.
      */
     gfc->mf_samples_to_encode = ENCDELAY + POSTDELAY;
-    gfp->encoder_padding = -1;
+    gfp->encoder_padding = 0;
     gfc->mf_size = ENCDELAY - MDCTDELAY; /* we pad input with this many 0's */
 
 #ifdef KLEMM_44
