@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.258 2004/03/09 19:04:16 bouvigne Exp $ */
+/* $Id: lame.c,v 1.259 2004/03/11 19:35:24 olcios Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -674,9 +674,10 @@ lame_init_params(lame_global_flags * const gfp)
         return -6;
     }
 
+#ifdef DECODE_ON_THE_FLY
     if (gfc->decode_on_the_fly && !gfp->decode_only)
       lame_decode_init();  /* initialize the decoder  */
-
+#endif
 
     gfc->mode_gr = gfp->out_samplerate <= 24000 ? 1 : 2; /* Number of granules per frame */
     gfp->framesize = 576 * gfc->mode_gr;
