@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.240 2003/12/03 02:18:35 olcios Exp $ */
+/* $Id: lame.c,v 1.241 2003/12/20 14:33:29 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -610,7 +610,7 @@ lame_init_params(lame_global_flags * const gfp)
         }
         }
 
-        if (gfp->mode == MONO)
+        if (gfp->mode == MONO && (gfp->VBR == vbr_off || gfp->VBR == vbr_abr))
             lowpass *= 1.5;
 
         if (gfp->out_samplerate == 0)
