@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.181 2002/05/20 22:21:25 robert Exp $ */
+/* $Id: lame.c,v 1.182 2002/05/24 17:28:35 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1481,6 +1481,13 @@ lame_encode_frame(lame_global_flags * gfp,
  * mp3buffer_size in bytes = 1.25*num_samples + 7200
  *
  * return code = number of bytes output in mp3buffer.  can be 0
+ *
+ * NOTE: this routine uses LAME's internal PCM data representation,
+ * 'sample_t'.  It should not be used by any application.  
+ * applications should use lame_encode_buffer(), 
+ *                         lame_encode_buffer_float()
+ *                         lame_encode_buffer_int()
+ * etc... depending on what type of data they are working with.  
 */
 int
 lame_encode_buffer_sample_t(lame_global_flags * gfp,
