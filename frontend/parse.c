@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.39 2000/12/19 07:43:25 markt Exp $ */
+/* $Id: parse.c,v 1.40 2000/12/25 10:49:36 shibatch Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -864,6 +864,45 @@ int  parse_args ( lame_global_flags* gfp, int argc, char** argv, char* const inP
 		
 		T_ELIF ("nssafejoint")
 		    gfp->exp_nspsytune |= 2;
+		
+		T_ELIF ("ns-bass")
+		    argUsed=1;
+		    {
+		      double d;
+		      int k;
+		      d = atof( nextArg );
+		      k = (int)(d * 4);
+		      if (k < -32) k = -32;
+		      if (k >  31) k =  31;
+		      if (k < 0) k += 64;
+		      gfp->exp_nspsytune |= (k << 2);
+		    }
+		
+		T_ELIF ("ns-alto")
+		    argUsed=1;
+		    {
+		      double d;
+		      int k;
+		      d = atof( nextArg );
+		      k = (int)(d * 4);
+		      if (k < -32) k = -32;
+		      if (k >  31) k =  31;
+		      if (k < 0) k += 64;
+		      gfp->exp_nspsytune |= (k << 8);
+		    }
+		
+		T_ELIF ("ns-treble")
+		    argUsed=1;
+		    {
+		      double d;
+		      int k;
+		      d = atof( nextArg );
+		      k = (int)(d * 4);
+		      if (k < -32) k = -32;
+		      if (k >  31) k =  31;
+		      if (k < 0) k += 64;
+		      gfp->exp_nspsytune |= (k << 14);
+		    }
 		
 		/* some more GNU-ish options could be added
 		 * version       => complete name, version and license info (normal exit)  
