@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.92 2001/07/16 19:35:10 robert Exp $ */
+/* $Id: parse.c,v 1.93 2001/07/18 20:16:38 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -803,8 +803,8 @@ char* const inPath, char* const outPath, char **nogap_inPath, int *num_nogap)
                  */
                 T_ELIF ("remix")
                     lame_set_VBR(gfp,vbr_mtrh); 
-                    lame_set_VBR_q(gfp,3);
-                    lame_set_quality( gfp, 0 );
+                    lame_set_VBR_q(gfp,1);
+                    lame_set_quality( gfp, 2 );
                     lame_set_lowpassfreq(gfp,19500);
                     lame_set_mode( gfp, JOINT_STEREO );
                     lame_set_ATHtype( gfp, 3 );
