@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.33 2000/11/25 18:56:35 robert Exp $ */
+/* $Id: quantize.c,v 1.34 2000/11/25 20:40:45 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -427,7 +427,7 @@ amp_scalefac_bands(
                 distort_thresh = pow (distort_thresh, 0.20f);
             else 
                 /* amplify only bands near 95% of maximum noise */
-                distort_thresh = powf (distort_thresh, 1.05f);
+                distort_thresh = pow (distort_thresh, 1.05f);
             break;
     case amp_mode_mid:
             if (distort_thresh > 1.0f) 
