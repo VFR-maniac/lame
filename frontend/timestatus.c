@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: timestatus.c,v 1.32 2001/03/11 11:24:25 aleidinger Exp $ */
+/* $Id: timestatus.c,v 1.33 2001/05/19 16:13:00 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -166,7 +166,7 @@ void timestatus_klemm ( const lame_global_flags* const gfp )
 {
     static double  last_time = 0.;
 
-    if ( !silent )
+    if ( silent <= 0 )
         if ( gfp->frameNum == 0  ||  
   	     gfp->frameNum == 9  ||
   	     GetRealTime () - last_time >= update_interval  ||
