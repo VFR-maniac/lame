@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.138 2003/04/27 15:18:36 bouvigne Exp $ */
+/* $Id: quantize.c,v 1.139 2003/05/08 12:58:58 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -265,10 +265,15 @@ void psfb21_analogsilence(
     } else if (cod_info->block_type == SHORT_TYPE) {
         /*note: short blocks coeffs are reordered*/
         int block;
-        int sfb12_size = gfc->scalefac_band.s[13] - gfc->scalefac_band.s[12];
-        int sfb12_start = gfc->scalefac_band.s[12]*3;
  
-        for (block = 0; block<3; block++) {
+/*
+I am disabling the code for psfb12 analog
+silence detection, as it produces some kind of
+dropouts. It probably means that there is a bug
+somewhere inside.
+*/
+        
+/*        for (block = 0; block<3; block++) {
 
             int gsfb;
             int stop=0;
@@ -291,7 +296,7 @@ void psfb21_analogsilence(
                     }
                 }
             }
-        }
+        }*/
     }
 
 }
