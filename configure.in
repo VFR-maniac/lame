@@ -1,4 +1,4 @@
-dnl $Id: configure.in,v 1.96 2002/10/27 14:36:44 aleidinger Exp $
+dnl $Id: configure.in,v 1.97 2002/11/17 11:11:27 aleidinger Exp $
 dnl
 dnl
 dnl don't forget to set ASM_FOR_ARCH to a space delimited list of
@@ -25,7 +25,7 @@ dnl check system
 AC_CANONICAL_HOST
 
 dnl automake
-AM_INIT_AUTOMAKE(lame,3.93)
+AM_INIT_AUTOMAKE(lame,3.94)
 AM_CONFIG_HEADER(config.h)
 AM_MAINTAINER_MODE
 AM_MAKE_INCLUDE
