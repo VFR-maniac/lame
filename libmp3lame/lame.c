@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.43 2000/11/10 23:18:51 pfk Exp $ */
+/* $Id: lame.c,v 1.44 2000/11/11 04:40:47 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -843,6 +843,7 @@ int    lame_encode_buffer (
   sample_t* fn_buffer [2];
 
   if ( gfc->Class_ID != LAME_ID ) return -3;
+  if (nsamples==0) return 0;
   
   fn_buffer [0] = in_buffer [0] = calloc ( sizeof(sample_t), nsamples );
   fn_buffer [1] = in_buffer [1] = calloc ( sizeof(sample_t), nsamples );

@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.29 2000/11/07 23:06:40 pfk Exp $ */
+/* $Id: parse.c,v 1.30 2000/11/11 04:40:47 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -535,8 +535,9 @@ static int local_strcasecmp ( const char* s1, const char* s2 )
 }
 
 
-// buggy: Should analyze file contents instead of directory contents (file name)
-
+// LAME is a simple frontend which just uses the file extension
+// to determine the file type.  Trying to analyze the file
+// contents is well beyond the scope of LAME and should not be added.
 static int filename_to_type ( const char* FileName )
 {
     size_t len = strlen (FileName);
