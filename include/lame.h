@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.145 2003/11/19 13:00:39 bouvigne Exp $ */
+/* $Id: lame.h,v 1.146 2003/11/20 11:08:51 bouvigne Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -258,7 +258,7 @@ MPEG_mode CDECL lame_get_mode(const lame_global_flags *);
 /*
   mode_automs.  Use a M/S mode with a switching threshold based on
   compression ratio
-  default = 0 (disabled)
+  DEPRECATED
 */
 int CDECL lame_set_mode_automs(lame_global_flags *, int);
 int CDECL lame_get_mode_automs(const lame_global_flags *);

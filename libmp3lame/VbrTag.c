@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.70 2003/10/16 13:26:59 bouvigne Exp $ */
+/* $Id: VbrTag.c,v 1.71 2003/11/20 11:08:52 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -724,9 +724,6 @@ int PutLameVBR(lame_global_flags *gfp, FILE *fpStream, uint8_t *pbtStreamBuffer,
 		nStereoMode = 7;
 		break;
 	}
-
-	if (gfp->mode_automs)
-		nStereoMode = 5;
 
 	/*Intensity stereo : nStereoMode = 6. IS is not implemented */
 

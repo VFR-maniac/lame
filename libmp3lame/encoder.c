@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: encoder.c,v 1.83 2003/09/12 13:00:17 bouvigne Exp $ */
+/* $Id: encoder.c,v 1.84 2003/11/20 11:08:52 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -484,14 +484,6 @@ int  lame_encode_mp3_frame (				/* Output */
 	  ms_ratio_ave2 = 0.50 * ( gfc->ms_ratio[0] + gfc->ms_ratio[1] );
       }
       
-      if (gfp->mode_automs && gfp->compression_ratio < 11.025 )
-	{
-	  /* 11.025 => 1, 6.3 => 0 */
-	  double thr = (gfp->compression_ratio - 6.3) / (11.025 - 6.3);
-	  if (thr<0) thr=0;
-	  threshold1   *= thr;
-	  threshold2   *= thr;
-	}
 
       if (ms_ratio_ave1 >= threshold1 || ms_ratio_ave2 >= threshold2)
 	check_ms_stereo = 0;

@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.234 2003/11/20 10:57:54 bouvigne Exp $ */
+/* $Id: lame.c,v 1.235 2003/11/20 11:08:52 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -775,12 +775,6 @@ lame_init_params(lame_global_flags * const gfp)
     */
     if (gfp->mode == NOT_SET) {
         gfp->mode = JOINT_STEREO;
-    }
-
-    /* KLEMM's jstereo with ms threshold adjusted via compression ratio */
-    if (gfp->mode_automs) {
-        if (gfp->mode != MONO && gfp->compression_ratio < 6.6)
-            gfp->mode = STEREO;
     }
 
 

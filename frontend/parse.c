@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.185 2003/11/19 13:00:36 bouvigne Exp $ */
+/* $Id: parse.c,v 1.186 2003/11/20 11:08:51 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1613,9 +1613,7 @@ char* const inPath, char* const outPath, char **nogap_inPath, int *num_nogap)
                                   break;
                         case 'm': (void) lame_set_mode( gfp, MONO         );
                                   break;
-                        case 'a': (void) lame_set_mode_automs( gfp, 1 );
-                                  /* lame picks mode and uses variable MS
-                                     threshold */
+                        case 'a': (void) lame_set_mode( gfp, JOINT_STEREO );
                                   break; 
                         default : fprintf(stderr,"%s: -m mode must be s/d/j/f/m not %s\n", ProgramName, arg);
                             err = 1;
