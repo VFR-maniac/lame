@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.56 2001/03/10 18:29:47 markt Exp $ */
+/* $Id: get_audio.c,v 1.57 2001/03/10 18:33:13 markt Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -932,7 +932,7 @@ read_samples_pcm(FILE * musicin, short sample_buffer[2304], int frame_size,
         samples_read = fread(temp, 1, samples_to_read, musicin);
         for (i = 0; i < samples_read; ++i) {
             /* note: 8bit .wav samples are unsigned */
-            sample_buffer[i] = ((short int) temp[i] - 128) * 256;
+            sample_buffer[i] = ((short int)temp[i] - 128)*256 + 127;
         }
     }
     else {
