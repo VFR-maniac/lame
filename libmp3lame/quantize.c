@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.111 2002/05/07 20:15:13 robert Exp $ */
+/* $Id: quantize.c,v 1.112 2002/05/07 21:11:47 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -178,7 +178,8 @@ typedef enum {
     BINSEARCH_DOWN
 } binsearchDirection_t;
 
-int 
+inline
+static int 
 bin_search_StepSize(
           lame_internal_flags * const gfc,
           gr_info * const cod_info,
@@ -247,7 +248,8 @@ bin_search_StepSize(
  *
  ***************************************************************************/ 
 
-int 
+inline
+static int 
 inner_loop(
           lame_internal_flags * const gfc,
           gr_info * const cod_info,
