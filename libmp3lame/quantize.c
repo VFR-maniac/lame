@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.37 2000/12/11 14:48:35 aleidinger Exp $ */
+/* $Id: quantize.c,v 1.38 2000/12/12 04:50:34 shibatch Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1298,6 +1298,8 @@ calc_min_bits (
     lame_internal_flags *gfc=gfp->internal_flags;
     int min_bits, min_pe_bits;
     
+    if (((lame_internal_flags*)gfp->internal_flags)->nsPsy.use) return 1;
+
     /*  base amount of minimum bits
      */
     min_bits = Max (125, min_mean_bits);
