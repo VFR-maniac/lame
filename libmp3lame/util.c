@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.62 2001/03/11 11:23:23 aleidinger Exp $ */
+/* $Id: util.c,v 1.63 2001/03/13 06:15:48 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -494,7 +494,7 @@ int fill_buffer_resample(
   filter_l += intratio;
 
   BLACKSIZE = filter_l+1;  /* size of data needed for FIR */
-
+  assert(len > BLACKSIZE);
   
   if ( gfc->fill_buffer_resample_init == 0 ) {
     gfc->inbuf_old[0]=calloc(BLACKSIZE,sizeof(gfc->inbuf_old[0][0]));
