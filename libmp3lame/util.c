@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.59 2001/02/27 11:33:08 aleidinger Exp $ */
+/* $Id: util.c,v 1.60 2001/03/04 05:51:26 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -49,9 +49,17 @@
 
 void  freegfc ( lame_internal_flags* const gfc )   /* bit stream structure */
 {
-#ifndef KLEMM_44
     int  i;
- 
+
+#ifdef KLEMM_44
+    if (gfc->resample_in != NULL) {
+        resample_close(gfc->resample_in);
+        gfc->resample_in = NULL;
+    }
+    free(gfc->mfbuf[0]);
+    free(gfc->mfbuf[1]);
+#endif
+
     for ( i = 0 ; i <= 2*BPC; i++ )
         if ( gfc->blackfilt[i] != NULL ) {
             free ( gfc->blackfilt[i] );
@@ -65,7 +73,6 @@ void  freegfc ( lame_internal_flags* const gfc )   /* bit stream structure */
         free ( gfc->inbuf_old[1] );
 	gfc->inbuf_old[1] = NULL;
     }
-#endif
 
     if ( gfc->bs.buf != NULL ) {
         free ( gfc->bs.buf );
