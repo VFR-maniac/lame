@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: takehiro.c,v 1.9 2000/10/29 19:15:18 robert Exp $ */
+/* $Id: takehiro.c,v 1.10 2000/10/29 20:03:14 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -660,7 +660,7 @@ void best_scalefac_store(
     const context * const gfc,
     const int             gr,
     const int             ch,
-    const int             l3_enc[2][2][576],
+          int             l3_enc[2][2][576],
           III_side_info_t * const l3_side,
           III_scalefac_t          scalefac[2][2] )
 {
