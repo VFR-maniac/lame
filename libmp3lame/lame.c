@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.39 2000/11/06 23:19:46 markt Exp $ */
+/* $Id: lame.c,v 1.40 2000/11/07 00:14:27 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -214,7 +214,6 @@ int lame_init_params ( lame_global_flags* const gfp )
     int                  j;
     lame_internal_flags* gfc = gfp -> internal_flags;
 
-    gfc -> gfp                = gfp;
     gfc -> Class_ID           = 0;
   
     gfc -> CPU_features_i387  = has_i387  ();
