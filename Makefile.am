@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.6 2000/10/28 10:40:51 aleidinger Exp $
+## $Id: Makefile.am,v 1.7 2000/11/06 08:22:05 markt Exp $
 
 SUBDIRS = mpglib libmp3lame frontend Dll doc include misc
 
@@ -42,7 +42,7 @@ testcase.new.mp3: testcase.wav frontend/lame
 test: testcase.mp3 testcase.new.mp3
 	cmp -l testcase.new.mp3 testcase.mp3 | wc
 
-testg: frontend/lame ../test/castanets.wav
+testg: frontend/mp3x ../test/castanets.wav
 	frontend/mp3x -h ../test/castanets.wav
 
 update:

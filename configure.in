@@ -1,4 +1,4 @@
-dnl $Id: configure.in,v 1.30 2000/11/05 17:13:08 takehiro Exp $
+dnl $Id: configure.in,v 1.31 2000/11/06 08:22:05 markt Exp $
 dnl
 dnl Process this file with autoconf to produce a configure script.
 dnl
@@ -166,6 +166,7 @@ fi
 
 
 dnl check if we should remove hooks for analyzer code in library
+dnl default library must include these hooks
 AC_DEFINE(ANALYSIS, 1, build with hooks for analyzer)
 
 
