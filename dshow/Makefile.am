@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.1 2000/11/11 17:25:44 aleidinger Exp $
+## $Id: Makefile.am,v 1.2 2000/11/13 14:10:53 aleidinger Exp $
 
 AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
 
@@ -18,5 +18,6 @@ EXTRA_DIST =
 	REG.H \
 	UIDS.H \
 	dshow.dsp \
+	dshow.dsw \
 	iaudioprops.h \
 	resource.h 
