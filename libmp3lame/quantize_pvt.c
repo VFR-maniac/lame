@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.118 2005/01/10 09:23:56 takehiro Exp $ */
+/* $Id: quantize_pvt.c,v 1.119 2005/01/13 18:20:49 bouvigne Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -678,12 +678,9 @@ int  calc_noise(
     FLOAT tot_noise_db  = 0; /*    0 dB relative to masking */
     FLOAT max_noise = -20.0; /* -200 dB relative to masking */
     int j = 0;
-    int i;
     const int *ix = cod_info->l3_enc;
     const int *scalefac = cod_info->scalefac;
     FLOAT sfb_noise[39];
-    FLOAT mean_noise;
-    FLOAT var_noise = 0;
    
     res->over_SSD = 0;
 
@@ -770,18 +767,6 @@ int  calc_noise(
     res->tot_noise   = tot_noise_db;
     res->over_noise  = over_noise_db;
     res->max_noise   = max_noise;
-
-
-    /*compute noise variance*/
-
-    mean_noise = tot_noise_db / cod_info->psymax;
-    for (i = 0; i<cod_info->psymax; i++) {
-        FLOAT val;
-        val = sfb_noise[i] - mean_noise;
-        var_noise += val*val;
-    }
-    var_noise /= (cod_info->psymax);
-    res->var_noise = var_noise;
 
     return over;
 }
@@ -914,7 +899,6 @@ void set_pinfo (
     gfc->pinfo->max_noise [gr][ch] = noise.max_noise * 10.0;
     gfc->pinfo->over_noise[gr][ch] = noise.over_noise * 10.0;
     gfc->pinfo->tot_noise [gr][ch] = noise.tot_noise * 10.0;
-    gfc->pinfo->var_noise [gr][ch] = noise.var_noise * 10.0;
     gfc->pinfo->over_SSD [gr][ch] = noise.over_SSD;
 }
 
