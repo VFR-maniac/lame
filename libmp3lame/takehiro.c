@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: takehiro.c,v 1.18 2001/02/27 09:59:18 robert Exp $ */
+/* $Id: takehiro.c,v 1.19 2001/06/24 02:04:26 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -408,7 +408,7 @@ int count_bits(
     const FLOAT8  * const xr,
           gr_info * const cod_info)  
 {
-  int bits=0,i;
+  int bits,i;
   /* since quantize_xrpow uses table lookup, we need to check this first: */
   FLOAT8 w = (IXMAX_VAL) / IPOW20(cod_info->global_gain);
   for ( i = 0; i < 576; i++ )  {
@@ -517,8 +517,6 @@ recalc_divide_sub(
 
 void best_huffman_divide(
     const lame_internal_flags * const gfc,
-    const int             gr, 
-    const int             ch,
           gr_info * const gi,
           int     * const ix )
 {
