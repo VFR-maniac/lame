@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.182 2003/09/27 06:16:27 takehiro Exp $ */
+/* $Id: parse.c,v 1.183 2003/10/02 09:25:10 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -329,13 +329,6 @@ int  usage ( const lame_global_flags* gfp, FILE* const fp, const char* ProgramNa
 int  short_help ( const lame_global_flags* gfp, FILE* const fp, const char* ProgramName )  /* print short syntax help */
 {
     lame_version_print ( fp );
-#if defined(WIN32)
-              "    --priority type  sets the process priority\n"
-              "                     0,1 = Low priority\n"
-              "                     2   = normal priority\n"
-              "                     3,4 = High priority\n"
-              "\n"
-#endif
     fprintf ( fp,
               "usage: %s [options] <infile> [outfile]\n"
               "\n"
@@ -359,6 +352,13 @@ int  short_help ( const lame_global_flags* gfp, FILE* const fp, const char* Prog
               "                    the value specified, appropriate quality settings will be used.\n"
               "                    \"--preset help\" gives some more infos on these\n"
               "\n"
+#if defined(WIN32)
+              "    --priority type  sets the process priority\n"
+              "                     0,1 = Low priority\n"
+              "                     2   = normal priority\n"
+              "                     3,4 = High priority\n"
+              "\n"
+#endif
 #if defined(__OS2__)
               "    --priority type  sets the process priority\n"
               "                     0 = Low priority\n"
