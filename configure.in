@@ -1,4 +1,4 @@
-dnl $Id: configure.in,v 1.71 2001/09/15 09:49:24 aleidinger Exp $
+dnl $Id: configure.in,v 1.72 2001/10/02 03:53:14 markt Exp $
 dnl
 dnl
 dnl don't forget to set ASM_FOR_ARCH to a space delimited list of
@@ -346,9 +346,9 @@ AC_MSG_RESULT($CONFIG_DECODER)
 dnl vorbis
 WARNING=
 AC_ARG_WITH(vorbis, 
-  [  --with-vorbis              Use vorbis library for ogg files]
-  [                           [default: no]],
-  CONFIG_VORBIS="${withval}", CONFIG_VORBIS="no")
+  [  --with-vorbis              Use vorbis library to decode ogg files]
+  [                           [default: yes]],
+  CONFIG_VORBIS="${withval}", CONFIG_VORBIS="yes")
 AC_ARG_WITH(vorbis-prefix,
   [  --with-vorbis-prefix=DIR   Alternate location for vorbis],
   CONFIG_VORBIS_PREFIX="${withval}", CONFIG_VORBIS_PREFIX="")

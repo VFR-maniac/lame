@@ -1,4 +1,4 @@
-/* $Id: vorbis_interface.c,v 1.17 2001/08/27 20:56:31 aleidinger Exp $ */
+/* $Id: vorbis_interface.c,v 1.18 2001/10/02 03:53:14 markt Exp $ */
 
 
 /* Compile lame with
@@ -28,7 +28,7 @@ You can also do this with the "--with-vorbis" options in configure.
 #include <limits.h>
 #include <time.h>
 #include "vorbis/codec.h"
-#include "modes/modes.h"
+//#include "modes/modes.h"
 #include "lame.h"
 #include "util.h"
 
@@ -329,7 +329,7 @@ int lame_decode_ogg_fromfile( lame_global_flags*  gfp,
 
 
 
-
+#if HAVE_VORBIS_ENCODER
 
 
 ogg_stream_state  os2;  // take physical pages, weld into a logical stream of packets
@@ -563,7 +563,7 @@ int  lame_encode_ogg_frame (
   (gfp -> frameNum)++;
   return bytes;
 }
-
+#endif
 #endif
 
 /* end of vorbis_interface.c */

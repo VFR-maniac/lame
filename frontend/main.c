@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.65 2001/09/28 21:29:13 markt Exp $ */
+/* $Id: main.c,v 1.66 2001/10/02 03:53:14 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -585,7 +585,7 @@ main(int argc, char **argv)
     }
 
 
-#ifdef HAVE_VORBIS
+#ifdef HAVE_VORBIS_ENCODER
     if (lame_get_ogg(gf)) {
         lame_encode_ogg_init(gf);
         lame_set_VBR(gf, vbr_off); /* ignore lame's various VBR modes */
