@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: vbrquantize.c,v 1.15 2000/11/07 00:14:27 markt Exp $ */
+/* $Id: vbrquantize.c,v 1.16 2000/11/13 10:48:40 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -32,12 +32,6 @@
 #include "reservoir.h"
 #include "quantize_pvt.h"
 #include "lame-analysis.h"
-
-
-/* if your machine is IEEE754 compatible, this may make faster binary */
-#if (defined(__i386__))
-#define TAKEHIRO_IEEE754_HACK
-#endif
 
 
 typedef union {
@@ -280,7 +274,9 @@ find_scalefac(const FLOAT8 *xr, const FLOAT8 *xr34, const int sfb,
     }
   } 
   assert(sf_ok!=10000);
-  //  assert(delsf==1);  /* when for loop goes up to 7 */
+#if 0
+  assert(delsf==1);  /* when for loop goes up to 7 */
+#endif
 
   return sf;
 }
