@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: brhist.c,v 1.40 2002/10/18 22:54:33 robert Exp $ */
+/* $Id: brhist.c,v 1.41 2002/10/19 02:11:49 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -347,20 +347,20 @@ void  brhist_disp_total ( const lame_global_flags* gf )
 
     if (bl_type[5] > 0 && silent <= -5 && silent > -10) {
         fprintf ( Console_IO.Console_fp, "block type");
-        fprintf ( Console_IO.Console_fp,  " long: %#5.4g%%", 100. * bl_type[0] / bl_type[5] );
-        fprintf ( Console_IO.Console_fp, " start: %#5.4g%%", 100. * bl_type[1] / bl_type[5] );
-        fprintf ( Console_IO.Console_fp, " short: %#5.4g%%", 100. * bl_type[2] / bl_type[5] );
-        fprintf ( Console_IO.Console_fp,  " stop: %#5.4g%%", 100. * bl_type[3] / bl_type[5] );
-        fprintf ( Console_IO.Console_fp, " mixed: %#5.4g%%", 100. * bl_type[4] / bl_type[5] );
-        fprintf ( Console_IO.Console_fp, "\n" );
+        fprintf ( Console_IO.Console_fp,  " long: %#4.3f", 100. * bl_type[0] / bl_type[5] );
+        fprintf ( Console_IO.Console_fp, " start: %#4.3f", 100. * bl_type[1] / bl_type[5] );
+        fprintf ( Console_IO.Console_fp, " short: %#4.3f", 100. * bl_type[2] / bl_type[5] );
+        fprintf ( Console_IO.Console_fp,  " stop: %#4.3f", 100. * bl_type[3] / bl_type[5] );
+        fprintf ( Console_IO.Console_fp, " mixed: %#4.3f", 100. * bl_type[4] / bl_type[5] );
+        fprintf ( Console_IO.Console_fp, " (%%)\n" );
     }
     else if (bl_type[5] > 0 && silent <= -10) {
-        fprintf ( Console_IO.Console_fp, "block types   granules  percent\n" );
-        fprintf ( Console_IO.Console_fp, "      long: % 10d (%#5.4g%%)\n", bl_type[0], 100. * bl_type[0] / bl_type[5] );
-        fprintf ( Console_IO.Console_fp, "     start: % 10d (%#5.4g%%)\n", bl_type[1], 100. * bl_type[1] / bl_type[5] );
-        fprintf ( Console_IO.Console_fp, "     short: % 10d (%#5.4g%%)\n", bl_type[2], 100. * bl_type[2] / bl_type[5] );
-        fprintf ( Console_IO.Console_fp, "      stop: % 10d (%#5.4g%%)\n", bl_type[3], 100. * bl_type[3] / bl_type[5] );
-        fprintf ( Console_IO.Console_fp, "     mixed: % 10d (%#5.4g%%)\n", bl_type[4], 100. * bl_type[4] / bl_type[5] );
+        fprintf ( Console_IO.Console_fp, "block types   granules   percent\n" );
+        fprintf ( Console_IO.Console_fp, "      long: % 10d  % 8.3f%%\n", bl_type[0], 100. * bl_type[0] / bl_type[5] );
+        fprintf ( Console_IO.Console_fp, "     start: % 10d  % 8.3f%%\n", bl_type[1], 100. * bl_type[1] / bl_type[5] );
+        fprintf ( Console_IO.Console_fp, "     short: % 10d  % 8.3f%%\n", bl_type[2], 100. * bl_type[2] / bl_type[5] );
+        fprintf ( Console_IO.Console_fp, "      stop: % 10d  % 8.3f%%\n", bl_type[3], 100. * bl_type[3] / bl_type[5] );
+        fprintf ( Console_IO.Console_fp, "     mixed: % 10d  % 8.3f%%\n", bl_type[4], 100. * bl_type[4] / bl_type[5] );
     }
     fflush  ( Console_IO.Console_fp );
 }
