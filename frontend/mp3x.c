@@ -1,4 +1,4 @@
-/* $Id: mp3x.c,v 1.18 2002/10/15 09:33:43 aleidinger Exp $ */
+/* $Id: mp3x.c,v 1.19 2005/03/13 17:01:54 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -42,7 +42,7 @@ int main(int argc, char **argv)
 
   gf=lame_init();
   if(argc <=1 ) {
-    usage(gf, stderr, argv[0]);  /* no command-line args  */
+    usage(stderr, argv[0]);  /* no command-line args  */
     return -1;
   }
   ret = parse_args(gf,argc, argv, inPath, outPath,NULL,NULL); 
