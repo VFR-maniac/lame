@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.37 2000/12/19 07:00:09 markt Exp $ */
+/* $Id: main.c,v 1.38 2000/12/19 07:43:25 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -317,7 +317,7 @@ int main(int argc, char **argv)
       }
 
       fwrite(mp3buffer,1,imp3,outf);
-      lame_mp3_tags_fid(&gf,outf);       /* add ID3 version 1 or VBR tags to mp3 file */
+      lame_mp3_tags_fid(&gf,outf);       /* add VBR tags to mp3 file */
       lame_close(&gf);
       fclose(outf);
     }
