@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.38 2002/06/09 16:01:31 takehiro Exp $ */
+/* $Id: set_get.c,v 1.39 2002/09/05 16:53:48 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -417,6 +417,7 @@ lame_set_free_format( lame_global_flags*  gfp,
         return -1;
 
     gfp->free_format = free_format;
+    gfp->disable_reservoir = 1;
 
     return 0;
 }
