@@ -1,4 +1,4 @@
-/* $Id: interface.c,v 1.44 2004/01/10 10:27:28 takehiro Exp $ */
+/* $Id: interface.c,v 1.45 2004/02/06 16:56:01 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -342,12 +342,8 @@ int decodeMP3_clipchoice( PMPSTR mp,unsigned char *in,int isize,char *out,
 {
 	int i,iret,bits,bytes;
 
-	if(in) {
-		if(addbuf(mp,in,isize) == NULL) {
-			return MP3_ERR;
-		}
-	}
-
+	if (in && isize && addbuf(mp,in,isize) == NULL)
+	    return MP3_ERR;
 
 	/* First decode header */
 	if(!mp->header_parsed) {

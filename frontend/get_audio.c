@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.97 2004/01/13 18:35:09 glessard Exp $ */
+/* $Id: get_audio.c,v 1.98 2004/02/06 16:56:01 takehiro Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -1455,7 +1455,7 @@ lame_decode_initfile(FILE * fd, mp3data_struct * mp3data)
             return -1;  /* failed */
     }
 
-    if ((buf[3] & 0xf0)==0) {
+    if ((buf[2] & 0xf0)==0) {
 	fprintf(stderr,"Input file is freeformat.\n");
 	freeformat = 1;
     }
