@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: timestatus.c,v 1.28 2001/01/07 22:35:28 markt Exp $ */
+/* $Id: timestatus.c,v 1.29 2001/01/07 22:53:00 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -211,7 +211,7 @@ void decoder_progress ( const lame_global_flags* const gfp, const mp3data_struct
         last = curr;
     } else {
         fprintf ( stderr, "         " );
-        last = 0;
+	//        last = 0;
     }
 //    fprintf ( stderr, "%s", Console_IO.str_clreoln );
       fprintf ( stderr, "        \b\b\b\b\b\b\b\b" );
