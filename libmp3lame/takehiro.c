@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: takehiro.c,v 1.50 2004/05/26 21:37:21 bouvigne Exp $ */
+/* $Id: takehiro.c,v 1.51 2004/05/27 23:52:05 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -357,7 +357,7 @@ static void quantize_xrpow(const FLOAT8 *xp, int *pi, FLOAT8 istep, gr_info * co
                     sizeof(int)*(576-cod_info->max_nonzero_coeff));
                 l = usefullsize;
 
-                // no need to compute higher sfb values 
+                /* no need to compute higher sfb values */
                 sfb = sfbmax + 1;
             }
             if ( l <= 0 ) {
