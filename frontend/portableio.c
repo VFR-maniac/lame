@@ -43,7 +43,7 @@
  * conversions, and accommodated conversions involving +/- infinity,
  * NaN's, and denormalized numbers.
  *
- * $Id: portableio.c,v 1.10 2001/01/05 15:20:33 aleidinger Exp $
+ * $Id: portableio.c,v 1.11 2001/01/07 23:47:38 markt Exp $
  */
 
 #ifdef HAVE_CONFIG_H
@@ -244,11 +244,11 @@ Read24BitsHighLow(FILE *fp)
 
 int  Read32Bits ( FILE* fp )
 {
-    int  low  = ReadByte         (fp);
+    int  low  = ReadByteUnsigned (fp);
     int  medl = ReadByteUnsigned (fp);
     int  medh = ReadByteUnsigned (fp);
-    int  high = ReadByteUnsigned (fp);
-    
+    int  high = ReadByte         (fp);
+
     return (high << 24) | (medh << 16) | (medl << 8) | low;
 }
 
