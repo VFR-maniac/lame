@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.39 2001/01/06 23:12:00 markt Exp $ */
+/* $Id: psymodel.c,v 1.40 2001/01/07 22:28:56 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -197,8 +197,8 @@ int L3psycho_anal( lame_global_flags * gfp,
     default:    ERRORF("error, invalid sampling frequency: %d Hz\a\n",
 			gfp->out_samplerate);
     return -1;
-#endif
     }
+#endif
 
     gfc->ms_ener_ratio_old=.25;
     gfc->blocktype_old[0]=STOP_TYPE;
