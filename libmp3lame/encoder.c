@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: encoder.c,v 1.40 2001/03/10 19:06:03 markt Exp $ */
+/* $Id: encoder.c,v 1.41 2001/03/10 19:15:16 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -283,7 +283,7 @@ int  lame_encode_mp3_frame (				// Output
 	for (ch=0; ch< gfc->channels_out; ++ch) 
 	    max_val=Max(max_val,tot_ener[gr][ch]);
 	// scale to 0..1, and then rescale to 0..32767 
-	max_val *= 32767/9e12;
+	max_val *= 32767/1e13;
         
         /*  adjust ATH depending on range of maximum value
          */
