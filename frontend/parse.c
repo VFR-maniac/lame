@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.186 2003/11/20 11:08:51 bouvigne Exp $ */
+/* $Id: parse.c,v 1.187 2003/11/20 11:16:30 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1157,7 +1157,7 @@ char* const inPath, char* const outPath, char **nogap_inPath, int *num_nogap)
                     input_format=sf_mp3;
                 
                 T_ELIF ("ogginput")
-		    fprintf(stderr, "sorry, vorbis support in LAME is desperated.\n");
+                    fprintf(stderr, "sorry, vorbis support in LAME is deprecated.\n");
                     return -1;
                 T_ELIF ("phone")
                     if (presets_set( gfp, 0, 0, token, ProgramName ) < 0)
@@ -1843,7 +1843,7 @@ char* const inPath, char* const outPath, char **nogap_inPath, int *num_nogap)
 #endif
 
     if ( input_format == sf_ogg ) {
-        fprintf(stderr, "sorry, vorbis support in LAME is desperated.\n");
+        fprintf(stderr, "sorry, vorbis support in LAME is deprecated.\n");
         return -1;
     }
     /* default guess for number of channels */

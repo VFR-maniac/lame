@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.61 2003/11/20 11:08:52 bouvigne Exp $ */
+/* $Id: set_get.c,v 1.62 2003/11/20 11:16:31 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -274,6 +274,7 @@ lame_get_decode_only( const lame_global_flags*  gfp )
 
 
 /* encode a Vorbis .ogg file */
+/* DEPRECATED */
 int
 lame_set_ogg( lame_global_flags*  gfp,
               int                 ogg )

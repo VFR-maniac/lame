@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.83 2003/05/09 14:06:40 aleidinger Exp $ */
+/* $Id: main.c,v 1.84 2003/11/20 11:16:29 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -212,10 +212,6 @@ lame_decoder(lame_global_flags * gfp, FILE * outf, int skip, char *inPath,
         skip += 240 + 1;
         if (silent < 10) fprintf(stderr, "MPEG-%u%s Layer %s", 2 - lame_get_version(gfp),
                 lame_get_out_samplerate( gfp ) < 16000 ? ".5" : "", "I");
-        break;
-    case sf_ogg:
-        if (silent < 10) fprintf(stderr, "Ogg Vorbis");
-        skip = 0;       /* other formats have no delay *//* is += 0 not better ??? */
         break;
     case sf_raw:
         if (silent < 10) fprintf(stderr, "raw PCM data");
