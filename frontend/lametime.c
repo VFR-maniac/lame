@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lametime.c,v 1.10 2001/02/26 18:57:20 markt Exp $ */
+/* $Id: lametime.c,v 1.11 2001/06/12 12:47:35 aleidinger Exp $ */
 
 /*
  * name:        GetCPUTime ( void )
@@ -38,8 +38,8 @@
 # include <config.h>
 #endif
 
-#include <stdio.h>
 #include <assert.h>
+#include <stdio.h>
 #include <time.h>
 
 #ifdef WITH_DMALLOC
@@ -112,7 +112,7 @@ double GetRealTime ( void )			/* conforming:  SVr4, SVID, POSIX, X/OPEN, BSD 4.3
 #endif
                               
 
-#ifdef _WIN32
+#if defined(_WIN32) || defined(__CYGWIN__)
 # include <io.h>
 # include <fcntl.h>
 #else
