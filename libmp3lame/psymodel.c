@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.96 2001/10/16 18:07:49 afaber Exp $ */
+/* $Id: psymodel.c,v 1.97 2001/11/03 09:31:57 jd- Exp $ */
 
 
 /*
@@ -377,9 +377,9 @@ int L3psycho_anal( lame_global_flags * gfp,
 
 
     /**********************************************************************
-     * compute loudness approximation (used for adaptive ATH adjust) 
+     * compute loudness approximation (used for ATH auto-level adjustment) 
      **********************************************************************/
-    if( gfp->adapt_thres_type == 2 ) {
+    if( gfp->athaa_loudapprox == 2 ) {
       if( chn < 2 ) {		/* no loudness for mid and side channels */
 	gfc->loudness_sq[gr_out][chn] = gfc->loudness_sq_save[chn];
 	gfc->loudness_sq_save[chn]
@@ -1326,9 +1326,9 @@ int L3psycho_anal_ns( lame_global_flags * gfp,
     
 
     /**********************************************************************
-     * compute loudness approximation (used for adaptive ATH adjust) 
+     * compute loudness approximation (used for ATH auto-level adjustment) 
      **********************************************************************/
-    if( gfp->adapt_thres_type == 2 ) {
+    if( gfp->athaa_loudapprox == 2 ) {
       if( chn < 2 ) {		/* no loudness for mid and side channels */
 	gfc->loudness_sq[gr_out][chn] = gfc->loudness_sq_save[chn];
 	gfc->loudness_sq_save[chn]

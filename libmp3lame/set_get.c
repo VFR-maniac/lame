@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.20 2001/10/13 14:02:27 aleidinger Exp $ */
+/* $Id: set_get.c,v 1.21 2001/11/03 09:31:57 jd- Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1120,37 +1120,37 @@ lame_get_adjust_type( const lame_global_flags*  gfp )
 }
 
 
-/* Select adaptive ATH level adjustment scheme. */
+/* Select the loudness approximation used by the ATH adaptive auto-leveling. */
 int
-lame_set_adapt_thres_type( lame_global_flags*  gfp,
-                           int                 adapt_thres_type )
+lame_set_athaa_loudapprox( lame_global_flags*  gfp,
+                           int                 athaa_loudapprox )
 {
-    gfp->adapt_thres_type = adapt_thres_type;
+    gfp->athaa_loudapprox = athaa_loudapprox;
 
     return 0;
 }
 
 int
-lame_get_adapt_thres_type( const lame_global_flags*  gfp )
+lame_get_athaa_loudapprox( const lame_global_flags*  gfp )
 {
-    return gfp->adapt_thres_type;
+    return gfp->athaa_loudapprox;
 }
 
 
 /* Adjust (in dB) the point below which adaptive ATH level adjustment occurs. */
 int
-lame_set_adapt_thres_level( lame_global_flags*  gfp,
-                            float               adapt_thres_level )
+lame_set_athaa_sensitivity( lame_global_flags*  gfp,
+                            float               athaa_sensitivity )
 {
-    gfp->adapt_thres_level = adapt_thres_level;
+    gfp->athaa_sensitivity = athaa_sensitivity;
 
     return 0;
 }
 
 float
-lame_get_adapt_thres_level( const lame_global_flags*  gfp )
+lame_get_athaa_sensitivity( const lame_global_flags*  gfp )
 {
-    return gfp->adapt_thres_level;
+    return gfp->athaa_sensitivity;
 }
 
 

@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: encoder.c,v 1.60 2001/10/11 12:21:06 aleidinger Exp $ */
+/* $Id: encoder.c,v 1.61 2001/11/03 09:31:57 jd- Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -63,7 +63,7 @@ adjust_ATH( lame_global_flags* const  gfp,
         return;
     }
     
-    switch( gfp->adapt_thres_type ) {
+    switch( gfp->athaa_loudapprox ) {
     case 1:
                                 /* flat approximation for loudness (squared) */
         max_pow = 0;
@@ -95,13 +95,13 @@ adjust_ATH( lame_global_flags* const  gfp,
 
     default:                    /* jd - 2001 mar 27, 31, jun 30 */
                                 /* no adaptive threshold */
-        max_pow = 1.0 / gfc->adapt_thres_level_p;
+        max_pow = 1.0 / gfc->athaa_sensitivity_p;
         break;
     }
 
                                 /* jd - 2001 mar 31, jun 30 */
                                 /* user tuning of ATH adjustment region */
-    max_pow *= gfc->adapt_thres_level_p;
+    max_pow *= gfc->athaa_sensitivity_p;
 
     /*  adjust ATH depending on range of maximum value
      */
