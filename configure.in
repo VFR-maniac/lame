@@ -1,4 +1,4 @@
-dnl $Id: configure.in,v 1.69 2001/08/26 19:01:35 markt Exp $
+dnl $Id: configure.in,v 1.70 2001/08/27 20:55:40 aleidinger Exp $
 dnl
 dnl
 dnl don't forget to set ASM_FOR_ARCH to a space delimited list of
@@ -580,8 +580,7 @@ if test "x$GCC" = "xyes"; then
 
 
 
-	#OPTIMIZATION_NORM="-malign-double -fschedule-insns2"
-        OPTIMIZATION_NORM="-fschedule-insns2"
+	OPTIMIZATION_NORM="-fschedule-insns2"
 
 	OPTIMIZATION_FULL="-fmove-all-movables -freduce-all-givs \
 			-fsched-interblock -fbranch-count-reg -fforce-addr"
