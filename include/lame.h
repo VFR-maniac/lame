@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.86 2001/07/16 19:35:10 robert Exp $ */
+/* $Id: lame.h,v 1.87 2001/08/29 20:08:57 bouvigne Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -426,6 +426,7 @@ int CDECL lame_init_params(lame_global_flags *);
  */
 const char*  CDECL get_lame_version       ( void );
 const char*  CDECL get_lame_short_version ( void );
+const char*  CDECL get_lame_very_short_version ( void );
 const char*  CDECL get_psy_version        ( void );
 const char*  CDECL get_mp3x_version       ( void );
 const char*  CDECL get_lame_url           ( void );

@@ -26,7 +26,7 @@
   Contains functions which describe the version of LAME.
 
   \author A.L. Faber
-  \version \$Id: version.c,v 1.18 2001/03/29 18:31:38 cisc Exp $
+  \version \$Id: version.c,v 1.19 2001/08/29 20:08:57 bouvigne Exp $
   \ingroup libmp3lame
 
   \todo The mp3x version should be located in the mp3x source,
@@ -124,6 +124,31 @@ const char*  get_lame_short_version ( void )
     return str;
 }
 
+//! Get the _very_ short LAME version string.
+/*!
+  It's used in the LAME VBR tag only.
+
+  \param void   
+  \return a pointer to the short version of the LAME version string.
+*/
+const char*  get_lame_very_short_version ( void )
+{
+    /* adding date and time to version string makes it harder for output
+       validation */
+
+#if   LAME_ALPHA_VERSION > 0
+    static /*@observer@*/ const char *const str =
+       "LAME" XSTR(LAME_MAJOR_VERSION) "." XSTR(LAME_MINOR_VERSION) "a";
+#elif LAME_BETA_VERSION > 0
+    static /*@observer@*/ const char *const str =
+       "LAME" XSTR(LAME_MAJOR_VERSION) "." XSTR(LAME_MINOR_VERSION) "b";
+#else
+    static /*@observer@*/ const char *const str =
+       "LAME" XSTR(LAME_MAJOR_VERSION) "." XSTR(LAME_MINOR_VERSION) " ";
+#endif
+
+    return str;
+}
 
 //! Get the version string for GPSYCHO.
 /*!
