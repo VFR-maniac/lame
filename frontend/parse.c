@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.19 2000/10/31 12:18:41 robert Exp $ */
+/* $Id: parse.c,v 1.20 2000/11/01 17:32:28 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -192,7 +192,7 @@ int  long_help ( const lame_global_flags* gfp, FILE* const fp, const char* Progr
               "    <infile> and/or <outfile> can be \"-\", which means stdin/stdout.\n"
               "\n"
               "RECOMMENDED:\n"
-              "    lame -h input.mp3 output.wav\n"
+              "    lame -h input.wav output.mp3\n"
               "\n"
               "OPTIONS:\n"
               "  Input options:\n"
