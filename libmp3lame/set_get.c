@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.45 2002/12/25 12:13:11 takehiro Exp $ */
+/* $Id: set_get.c,v 1.46 2002/12/27 04:21:13 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1377,6 +1377,16 @@ lame_get_force_short_blocks( const lame_global_flags*  gfp )
     }
 }
 
+int
+lame_set_short_threshold( lame_global_flags*  gfp,
+			  float lrm, float s)
+{
+    lame_internal_flags *gfc = gfp->internal_flags;
+    gfc->nsPsy.attackthre   = lrm;
+    gfc->nsPsy.attackthre_s = s;
+    return 0;
+}
+
 
 /*
  * Input PCM is emphased PCM
@@ -1564,8 +1574,7 @@ lame_set_preset_expopts( lame_global_flags*  gfp, int preset_expopts )
 
     /* default = 0 (disabled) */
     gfp->preset_expopts = preset_expopts;
-    gfc->nsPsy.attackthre   =  3.5;
-    gfc->nsPsy.attackthre_s = 15.0;
+    lame_set_short_threshold(gfp, 3.5f, 15.0f);
 
     switch (preset_expopts)
     {
