@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.80 2001/12/18 16:14:08 dibrom Exp $ */
+/* $Id: quantize.c,v 1.81 2002/03/15 23:16:48 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1226,9 +1226,8 @@ VBR_prepare (
   
     gfc->bitrate_index = gfc->VBR_max_bitrate;
     getframebits (gfp, &bpf, &avg);
-    bpf = ResvFrameBegin (gfp, &gfc->l3_side, avg, bpf );
-    avg = (bpf - 8*gfc->sideinfo_len) / gfc->mode_gr;
-
+    avg = ResvFrameBegin (gfp, &gfc->l3_side, avg, bpf ) / gfc->mode_gr;
+    
     get_framebits (gfp, analog_mean_bits, min_mean_bits, frameBits);
     
     for (gr = 0; gr < gfc->mode_gr; gr++) {
