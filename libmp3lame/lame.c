@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.244 2004/01/02 19:53:05 bouvigne Exp $ */
+/* $Id: lame.c,v 1.245 2004/01/04 11:04:02 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -239,6 +239,10 @@ optimum_samplefreq(int lowpassfreq, int input_samplefreq)
  *
  */
     int suggested_samplefreq = input_samplefreq;
+
+    if (lowpassfreq == -1)
+        return suggested_samplefreq;
+
     if (lowpassfreq <= 15960)
         suggested_samplefreq = 44100;
     if (lowpassfreq <= 15250)
