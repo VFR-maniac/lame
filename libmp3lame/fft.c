@@ -31,7 +31,7 @@
 **           Takehiro  - some dirty hack for speed up
 */
 
-/* $Id: fft.c,v 1.8 2000/11/01 18:06:13 markt Exp $ */
+/* $Id: fft.c,v 1.9 2000/11/14 12:20:35 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -50,7 +50,7 @@ static const FLOAT costab[TRI_SIZE*2] = {
   9.999811752826011e-01, 6.135884649154475e-03
 };
 
-static INLINE void fht(FLOAT *fz, int n)
+inline static void fht(FLOAT *fz, int n)
 {
     const FLOAT *tri = costab;
     int           k4;

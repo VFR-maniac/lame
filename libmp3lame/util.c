@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.30 2000/11/11 05:56:01 markt Exp $ */
+/* $Id: util.c,v 1.31 2000/11/14 12:20:36 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -321,7 +321,7 @@ void freorder(int scalefac_band[],FLOAT8 ix_orig[576]) {
 
 
 /* resampling via FIR filter, blackman window */
-INLINE double blackman(int i,double offset,double fcn,int l)
+inline static double blackman(int i,double offset,double fcn,int l)
 {
   /* This algorithm from:
 SIGNAL PROCESSING ALGORITHMS IN FORTRAN AND C
