@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.188 2002/09/02 11:51:46 takehiro Exp $ */
+/* $Id: lame.c,v 1.189 2002/09/09 21:43:17 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -614,6 +614,7 @@ lame_init_params(lame_global_flags * const gfp)
 
     if (gfp->VBR != vbr_off) {
         gfp->free_format = 0; /* VBR can't be mixed with free format */
+        gfp->padding_type = PAD_NO;    
     }
 
     if (gfp->VBR == vbr_off && gfp->brate == 0) {
