@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: vbrquantize.c,v 1.30 2001/01/24 21:33:18 robert Exp $ */
+/* $Id: vbrquantize.c,v 1.31 2001/01/26 22:47:54 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1158,7 +1158,7 @@ VBR_noise_shaping2 (
     
     gfc->use_best_huffman = best_huffman;
 
-    if (ret != 0) /* Houston, we have a problem */
+    if (ret == -1) /* Houston, we have a problem */
         return -1;
 
     if (cod_info->part2_3_length < minbits) {
