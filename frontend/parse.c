@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.164 2003/02/02 14:45:03 bouvigne Exp $ */
+/* $Id: parse.c,v 1.165 2003/02/02 18:50:42 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1170,6 +1170,10 @@ char* const inPath, char* const outPath, char **nogap_inPath, int *num_nogap)
                 T_ELIF ("athlower")
                     argUsed=1;
                     (void) lame_set_ATHlower( gfp, atof( nextArg ) );
+                
+                T_ELIF ("maskingadjust")
+                    argUsed=1;
+                    (void) lame_set_maskingadjust( gfp, atof( nextArg ) );
                 
                 T_ELIF ("athtype")
                     argUsed=1;

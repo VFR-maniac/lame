@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.126 2003/02/02 14:45:03 bouvigne Exp $ */
+/* $Id: lame.h,v 1.127 2003/02/02 18:50:41 bouvigne Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -395,6 +395,10 @@ int CDECL lame_get_highpasswidth(const lame_global_flags *);
  * psycho acoustics and other arguments which you should not change 
  * unless you know what you are doing
  ***********************************************************************/
+
+int CDECL lame_set_maskingadjust( lame_global_flags *, float);
+float CDECL lame_get_maskingadjust( const lame_global_flags *);
+
 /* only use ATH for masking */
 int CDECL lame_set_ATHonly(lame_global_flags *, int);
 int CDECL lame_get_ATHonly(const lame_global_flags *);
