@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.201 2002/12/15 12:56:10 bouvigne Exp $ */
+/* $Id: lame.c,v 1.202 2002/12/26 05:43:53 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1987,6 +1987,8 @@ lame_init_old(lame_global_flags * gfp)
     gfc->CurrentStep[0] = 4;
     gfc->CurrentStep[1] = 4;
     gfc->masking_lower = 1;
+    gfc->nsPsy.attackthre   = NSATTACKTHRE;
+    gfc->nsPsy.attackthre_s = NSATTACKTHRE_S;
 
     gfp->athaa_type = -1;
     gfp->ATHtype = -1;  /* default = -1 = set in lame_init_params */
