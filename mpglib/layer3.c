@@ -5,7 +5,7 @@
  * All rights reserved. See also 'README'
  */ 
 
-/* $Id: layer3.c,v 1.42 2001/01/05 15:20:34 aleidinger Exp $ */
+/* $Id: layer3.c,v 1.43 2001/06/04 10:01:35 afaber Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -386,7 +386,8 @@ static void III_get_side_info_1(struct III_sideinfo *si,int stereo,
 
          if(gr_infos->block_type == 0) {
            fprintf(stderr,"Blocktype == 0 and window-switching == 1 not allowed.\n");
-           exit(1);
+		   /* error seems to be very good recoverable, so don't exit */
+           /* exit(1); */
          }
          /* region_count/start parameters are implicit in this case. */       
          gr_infos->region1start = 36>>1;
@@ -476,7 +477,8 @@ static void III_get_side_info_2(struct III_sideinfo *si,int stereo,
 
          if(gr_infos->block_type == 0) {
            fprintf(stderr,"Blocktype == 0 and window-switching == 1 not allowed.\n");
-           exit(1);
+		   /* error seems to be very good recoverable, so don't exit */
+           /* exit(1); */
          }
          /* region_count/start parameters are implicit in this case. */       
 /* check this again! */
