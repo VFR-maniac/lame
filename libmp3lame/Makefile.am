@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.16 2001/06/12 03:31:59 markt Exp $
+## $Id: Makefile.am,v 1.17 2001/06/12 12:45:16 aleidinger Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -7,7 +7,7 @@ SUBDIRS = i386
 lib_LTLIBRARIES = libmp3lame.la
 
 if HAVE_NASM
-nasm_ldadd = $(top_builddir)/libmp3lame/@CPUTYPE@/liblameasmroutines.la
+nasm_ldadd = $(top_builddir)/libmp3lame/@CPUTYPE@/liblameasmroutines.a
 else
 nasm_ldadd =
 endif
