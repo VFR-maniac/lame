@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.159 2005/01/13 19:17:15 bouvigne Exp $ */
+/* $Id: quantize.c,v 1.160 2005/01/20 16:38:23 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -821,12 +821,12 @@ amp_scalefac_bands(
     }
 
     noise_shaping_amp = gfc->noise_shaping_amp;
-    if (noise_shaping_amp == 3)
+    if (noise_shaping_amp == 3) {
         if (bRefine == 1)
             noise_shaping_amp = 2;
         else
             noise_shaping_amp = 1;
-
+    }
     switch (noise_shaping_amp) {
     case 2:
 	/* amplify exactly 1 band */
