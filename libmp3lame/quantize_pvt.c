@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.83 2002/05/04 13:55:43 takehiro Exp $ */
+/* $Id: quantize_pvt.c,v 1.84 2002/05/04 13:58:20 takehiro Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -930,7 +930,6 @@ void set_frame_pinfo(
     unsigned int          sfb;
     int                   ch;
     int                   gr;
-    int                   act_l3enc[576];
     III_scalefac_t        act_scalefac [2];
     int scsfi[2] = {0,0};
     
@@ -955,7 +954,6 @@ void set_frame_pinfo(
      */
     for (gr = 0; gr < gfc->mode_gr; gr ++) {
         for (ch = 0; ch < gfc->channels_out; ch ++) {
-            int i;
             gr_info *cod_info = &gfc->l3_side.tt[gr][ch];
             
             if (gr == 1 && scsfi[ch]) 
