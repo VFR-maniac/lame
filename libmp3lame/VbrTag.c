@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.67 2003/05/25 15:34:48 bouvigne Exp $ */
+/* $Id: VbrTag.c,v 1.68 2003/06/01 09:14:07 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -170,7 +170,6 @@ static void Xing_seek_table(VBR_seek_info_t * v, unsigned char *t)
     }
 }
 
-#if 0
 void print_seeking(unsigned char *t)
 {
     int i;
@@ -181,7 +180,6 @@ void print_seeking(unsigned char *t)
     }
     printf("\n");
 }
-#endif
 
 
 
@@ -937,8 +935,14 @@ int PutVbrTag(lame_global_flags *gfp,FILE *fpStream,int nVbrScale)
 	/* Clear all TOC entries */
 	memset(btToc,0,sizeof(btToc));
 
-        Xing_seek_table (&gfc->VBR_seek_table, btToc);
-        /* print_seeking (btToc); */
+    if (gfp->free_format) {
+        int i;
+        for (i = 1; i < NUMTOCENTRIES; ++i)
+            btToc[i] = 255*i/100;
+    } else {
+        Xing_seek_table(&gfc->VBR_seek_table, btToc);
+    }
+    /*print_seeking (btToc);*/
 
 	/* Start writing the tag after the zero frame */
 	nStreamIndex=gfc->sideinfo_len;
