@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.140 2001/07/20 01:01:23 robert Exp $ */
+/* $Id: lame.c,v 1.141 2001/07/26 23:05:47 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1056,7 +1056,7 @@ lame_init_params(lame_global_flags * const gfp)
             gfc->VBR->smooth = 1;   // not finally
         }
         else {
-            static float const dbQ[10] = { -4., -3., -2., -1., 0., 0.5, 1., 1.5, 2., 2.5 };
+            static const float dbQ[10]={-2.,-1.0,-.66,-.33,0.,0.33,.66,1.0,1.33,1.66};
             gfc->VBR->mask_adjust = dbQ[gfp->VBR_q];
             gfc->VBR->gain_adjust = 0;
             gfc->VBR->smooth = 1;
@@ -1152,9 +1152,16 @@ lame_init_params(lame_global_flags * const gfp)
 
     default:
 
-        /*  automatic ATH adjustment off, not so important for CBR code
+        if (gfp->ATHtype == -1)
+            gfp->ATHtype = 2;
+
+        /*  automatic ATH adjustment off by default
+         *  not so important for CBR code?
          */
-        gfc->ATH->use_adjust = 0;
+        if ( gfp->adjust_type < 0 )
+            gfc->ATH->use_adjust = 0;
+        else
+            gfc->ATH->use_adjust = gfp->adjust_type;
 
 
         /*  no sfb21 extra with CBR code
