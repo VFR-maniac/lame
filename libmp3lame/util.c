@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.67 2001/03/20 00:42:56 markt Exp $ */
+/* $Id: util.c,v 1.68 2001/03/26 20:46:17 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -448,7 +448,7 @@ void fill_buffer(lame_global_flags *gfp,
     }
 
     /* user selected scaling of the samples */
-    if (gfp->scale != 0) {
+    if (gfp->scale != 0 && gfp->scale != 1.0) {
 	for (i=0 ; i<*n_out; ++i) {
 	    mfbuf[0][gfc->mf_size+i] *= gfp->scale;
 	    if (gfc->channels_out == 2)
