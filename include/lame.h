@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.85 2001/06/18 18:51:52 markt Exp $ */
+/* $Id: lame.h,v 1.86 2001/07/16 19:35:10 robert Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -360,6 +360,10 @@ int CDECL lame_get_useTemporal(const lame_global_flags *);
 // disable short blocks
 int CDECL lame_set_no_short_blocks(lame_global_flags *, int);
 int CDECL lame_get_no_short_blocks(const lame_global_flags *);
+
+// force short blocks
+int CDECL lame_set_force_short_blocks(lame_global_flags *, int);
+int CDECL lame_get_force_short_blocks(const lame_global_flags *);
 
 /* Input PCM is emphased PCM (for instance from one of the rarely
    emphased CDs), it is STRONGLY not recommended to use this, because
