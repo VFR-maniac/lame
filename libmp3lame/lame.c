@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.248 2004/01/15 01:24:55 olcios Exp $ */
+/* $Id: lame.c,v 1.249 2004/01/15 11:15:13 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -2106,16 +2106,13 @@ lame_init_old(lame_global_flags * gfp)
     gfp->encoder_padding = 0;
     gfc->mf_size = ENCDELAY - MDCTDELAY; /* we pad input with this many 0's */
 
-#ifdef DECODE_ON_THE_FLY
     gfc->decode_on_the_fly = 0;
     gfp->findPeakSample = 0;
-#endif
 
     gfc->findReplayGain = 0;
     gfp->ReplayGain_input = 1;
-#ifdef DECODE_ON_THE_FLY
     gfp->ReplayGain_decode = 0;
-#endif
+
     gfc->RadioGain = 0.0;
     gfc->AudiophileGain = 0.0;
 
