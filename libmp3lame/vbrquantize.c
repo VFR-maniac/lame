@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: vbrquantize.c,v 1.68 2002/05/05 13:59:08 takehiro Exp $ */
+/* $Id: vbrquantize.c,v 1.69 2002/05/07 20:15:13 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -640,7 +640,7 @@ VBR_quantize_granule(
     }
   
     /* quantize xr34 */
-    cod_info->part2_3_length = count_bits(gfc, xr34, cod_info);
+    cod_info->part2_3_length = count_bits(gfc,cod_info->l3_enc,xr34,cod_info);
     if (cod_info->part2_3_length >= LARGE_BITS) return -2;
     cod_info->part2_3_length += cod_info->part2_length;
 
@@ -1349,15 +1349,21 @@ do {
     if (cod_info->part2_3_length < minbits) {
         huffbits = minbits - cod_info->part2_length;
         bits = bin_search_StepSize (gfc, cod_info, huffbits, 
-                                    gfc->OldValue[ch], xr34);
+                                    gfc->OldValue[ch], xr34, cod_info->l3_enc);
         gfc->OldValue[ch] = cod_info->global_gain;
+        cod_info->part2_3_length  = bits + cod_info->part2_length;
     }
     if (cod_info->part2_3_length > maxbits) {
         huffbits = maxbits - cod_info->part2_length;
         if (huffbits < 0) huffbits = 0;
         bits = bin_search_StepSize (gfc, cod_info, huffbits, 
-                                    gfc->OldValue[ch], xr34);
+                                    gfc->OldValue[ch], xr34, cod_info->l3_enc);
         gfc->OldValue[ch] = cod_info->global_gain;
+        cod_info->part2_3_length = bits;
+        if (bits > huffbits) {
+            bits = inner_loop (gfc, cod_info, huffbits, xr34, cod_info->l3_enc);
+            cod_info->part2_3_length  = bits;
+        }
         if (bits >= LARGE_BITS) /* Houston, we have a problem */
             return -2;
         cod_info->part2_3_length += cod_info->part2_length;

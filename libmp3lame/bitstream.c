@@ -18,7 +18,7 @@
  * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: bitstream.c,v 1.56 2002/05/06 15:30:38 takehiro Exp $
+ * $Id: bitstream.c,v 1.57 2002/05/07 20:15:13 robert Exp $
  */
 
 
@@ -55,30 +55,6 @@ const int scfsi_band[5] = { 0, 6, 11, 16, 21 };
 static int hoge, hogege;
 #endif
 
-
-
-
-
-/***********************************************************************
- * compute bitsperframe and mean_bits for a layer III frame 
- **********************************************************************/
-int getframebits(const lame_global_flags * gfp)
-{
-    lame_internal_flags *gfc=gfp->internal_flags;
-    int  bit_rate;
-
-    /* get bitrate in kbps [?] */
-    if (gfc->bitrate_index) 
-	bit_rate = bitrate_table[gfp->version][gfc->bitrate_index];
-    else
-	bit_rate = gfp->brate;
-    assert ( bit_rate <= 550 );
-
-    /* main encoding routine toggles padding on and off */
-    /* one Layer3 Slot consists of 8 bits */
-    return 8 * ((gfp->version+1)*72000*bit_rate / gfp->out_samplerate
-		+ gfc->padding);
-}
 
 
 
@@ -768,7 +744,7 @@ compute_flushbits( const lame_global_flags * gfp, int *total_bytes_output )
 {
   lame_internal_flags *gfc=gfp->internal_flags;
   int flushbits,remaining_headers;
-  int bitsPerFrame;
+  int bitsPerFrame, mean_bits;
   int last_ptr,first_ptr;
   first_ptr=gfc->w_ptr;           /* first header to add to bitstream */
   last_ptr = gfc->h_ptr - 1;   /* last header to add to bitstream */
@@ -792,7 +768,7 @@ compute_flushbits( const lame_global_flags * gfp, int *total_bytes_output )
    * these bits are not necessary to decode the last frame, but
    * some decoders will ignore last frame if these bits are missing 
    */
-  bitsPerFrame = getframebits(gfp);
+  getframebits(gfp,&bitsPerFrame,&mean_bits);
   flushbits += bitsPerFrame;
   *total_bytes_output += bitsPerFrame;
   // round up:  
@@ -830,6 +806,7 @@ flush_bitstream(lame_global_flags *gfp)
   III_side_info_t *l3_side;
   int nbytes;
   int flushbits;
+  int bitsPerFrame, mean_bits;
   int last_ptr,first_ptr;
   first_ptr=gfc->w_ptr;           /* first header to add to bitstream */
   last_ptr = gfc->h_ptr - 1;   /* last header to add to bitstream */
@@ -841,8 +818,8 @@ flush_bitstream(lame_global_flags *gfp)
   drain_into_ancillary(gfc, flushbits);
 
   /* check that the 100% of the last frame has been written to bitstream */
-  assert (gfc->header[last_ptr].write_timing + getframebits(gfp)
-	  == gfc->bs.totbit);
+  getframebits(gfp,&bitsPerFrame,&mean_bits);
+  assert (gfc->header[last_ptr].write_timing + bitsPerFrame  == gfc->bs.totbit);
 
   /* we have padded out all frames with ancillary data, which is the
      same as filling the bitreservoir with ancillary data, so : */
@@ -877,15 +854,13 @@ void  add_dummy_byte ( lame_global_flags* const gfp, unsigned char val )
   in the IS).
   */
 int
-format_bitstream(lame_global_flags *gfp)
+format_bitstream(lame_global_flags *gfp, int bitsPerFrame)
 {
     lame_internal_flags *gfc=gfp->internal_flags;
     int bits,nbytes;
     III_side_info_t *l3_side;
-    int bitsPerFrame;
     l3_side = &gfc->l3_side;
 
-    bitsPerFrame = getframebits(gfp);
     drain_into_ancillary(gfc, l3_side->resvDrain_pre);
 
     encodeSideInfo2(gfp,bitsPerFrame);
