@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.93 2002/05/04 15:48:28 takehiro Exp $ */
+/* $Id: quantize.c,v 1.94 2002/05/05 11:53:50 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -51,7 +51,7 @@
  *
  ************************************************************************/
 
-static int 
+int 
 init_xrpow(
     lame_internal_flags *gfc,
     gr_info *const cod_info, 
@@ -79,7 +79,7 @@ init_xrpow(
     return 0;
 }
 
-static void
+void
 init_outer_loop(
     lame_internal_flags *gfc,
     gr_info *const cod_info)
