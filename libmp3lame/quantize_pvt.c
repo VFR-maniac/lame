@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.130 2005/03/14 21:53:10 robert Exp $ */
+/* $Id: quantize_pvt.c,v 1.131 2005/03/19 15:04:17 bouvigne Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -371,7 +371,8 @@ iteration_init( lame_global_flags *gfp)
 	    FLOAT f;
 	    if      (i <=  5) f = bass;
 	    else if (i <= 10) f = alto;
-	    else              f = treble;
+	    else if (i <= 11) f = treble;
+	    else              f = sfb21;
 
 	    gfc->nsPsy.shortfact[i] = f;
 	}
