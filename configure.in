@@ -1,4 +1,4 @@
-dnl $Id: configure.in,v 1.67 2001/08/08 10:51:55 aleidinger Exp $
+dnl $Id: configure.in,v 1.68 2001/08/26 18:59:39 markt Exp $
 dnl
 dnl
 dnl don't forget to set ASM_FOR_ARCH to a space delimited list of
@@ -830,17 +830,17 @@ fi
 ###########################################################################
 if test "$UNAME" = "AmigaOS" ; then
 	CC="gcc -noixemul"
-	OPTIMIZATION=$OPTIMIZATION -m68020-60 -m68881
+	OPTIMIZATION="$OPTIMIZATION -m68020-60 -m68881"
 	MAKEDEP="-MM"
 	if test "$ARCH" = "WOS"; then
 		CC="ppc-amigaos-gcc -warpup"
-		OPTIMIZATION=$OPTIMIZATION -mmultiple -mcpu=603e"
+		OPTIMIZATION="$OPTIMIZATION -mmultiple -mcpu=603e"
 		AR="ppc-amigaos-ar"
 		RANLIB="ppc-amigaos-ranlib"
 	fi
 	if test "$ARCH",PPC; then
 		CC="ppc-amigaos-gcc"
-		OPTIMIZATION=$OPTIMIZATION -mmultiple -mcpu=603e"
+		OPTIMIZATION="$OPTIMIZATION -mmultiple -mcpu=603e"
 		AR="ppc-amigaos-ar"
 		RANLIB="ppc-amigaos-ranlib"
 	fi
