@@ -22,7 +22,7 @@
  
 /*!
 	\author Steve Lhomme
-	\version \$Id: AEncodeProperties.h,v 1.4 2002/04/07 10:17:37 robux4 Exp $
+	\version \$Id: AEncodeProperties.h,v 1.5 2002/04/07 13:31:35 robux4 Exp $
 */
 
 #if !defined(_AENCODEPROPERTIES_H__INCLUDED_)
@@ -40,6 +40,10 @@
 #include "tinyxml/tinyxml.h"
 //#include "AParameters/AParameters.h"
 
+typedef const struct {
+	UINT id;
+	const char *tip;
+} ToolTipItem;
 /**
   \class AEncodeProperties
   \brief the AEncodeProperties class is responsible for handling all the encoding properties
@@ -376,6 +380,7 @@ public:
 	*/
 	void UpdateDlgFromSlides(HWND parent_window) const;
 
+	static ToolTipItem Tooltips[13];
 private:
 
 	bool bCopyright;
