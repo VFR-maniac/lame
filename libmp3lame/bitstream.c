@@ -18,7 +18,7 @@
  * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: bitstream.c,v 1.60 2003/10/22 07:33:49 takehiro Exp $
+ * $Id: bitstream.c,v 1.61 2004/01/26 12:05:59 olcios Exp $
  */
 
 
@@ -35,9 +35,7 @@
 #include "quantize_pvt.h"
 #include "version.h"
 #include "VbrTag.h"
-#ifdef DECODE_ON_THE_FLY
 #include "gain_analysis.h"
-#endif
 
 #ifdef WITH_DMALLOC
 #include <dmalloc.h>
@@ -825,6 +823,31 @@ flush_bitstream(lame_global_flags *gfp)
   gfc->ResvSize=0;
   l3_side->main_data_begin = 0;
 
+
+  /* save the ReplayGain value */
+  if (gfp->internal_flags->findReplayGain) {
+    FLOAT RadioGain = (FLOAT) GetTitleGain();
+    assert(RadioGain != GAIN_NOT_ENOUGH_SAMPLES); 
+    gfp->internal_flags->RadioGain = (int) floor( RadioGain * 10.0 + 0.5 ); /* round to nearest */
+  }
+
+  /* find the gain and scale change required for no clipping */
+  if (gfp->findPeakSample) {
+    gfc->noclipGainChange = (int) ceil(log10(gfc->PeakSample / 32767.0) *20.0*10.0);  /* round up */
+    
+    if (gfc->noclipGainChange > 0.0) { /* clipping occurs */
+      if (gfp->scale == 1.0 || gfp->scale == 0.0) 
+	gfc->noclipScale = floor( (32767.0 / gfc->PeakSample) * 100.0 ) / 100.0;  /* round down */
+      else
+        /* the user specified his own scaling factor. We could suggest 
+         * the scaling factor of (32767.0/gfp->PeakSample)*(gfp->scale)
+         * but it's usually very inaccurate. So we'd rather not advice him
+         * on the scaling factor. */
+        gfc->noclipScale = -1;
+    }
+    else  /* no clipping */
+      gfc->noclipScale = -1;
+  }
 }
 
 
