@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: gtkanal.c,v 1.18 2001/02/27 06:14:56 markt Exp $ */
+/* $Id: gtkanal.c,v 1.19 2001/03/11 11:24:25 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -113,7 +113,7 @@ int gtkmakeframe(void)
   static int frameNum=0;
 
   pinfo->frameNum = frameNum;
-  pinfo->sampfreq=gfp->out_samplerate;
+  pinfo->sampfreq = lame_get_out_samplerate ( gfp );
   pinfo->framesize=576*gfc->mode_gr;
   pinfo->stereo = gfc->channels_out;
 

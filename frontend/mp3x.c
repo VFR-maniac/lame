@@ -1,4 +1,4 @@
-/* $Id: mp3x.c,v 1.14 2001/01/11 22:37:25 markt Exp $ */
+/* $Id: mp3x.c,v 1.15 2001/03/11 11:24:25 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -49,7 +49,7 @@ int main(int argc, char **argv)
   if (ret < 0)
     return ret == -2 ? 0 : 1;
   
-  gf->analysis=1;
+  (void) lame_set_analysis( gf, 1 );
 
   init_infile(gf,inPath);
   lame_init_params(gf);
