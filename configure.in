@@ -1,4 +1,4 @@
-dnl $Id: configure.in,v 1.80 2002/01/20 15:05:05 aleidinger Exp $
+dnl $Id: configure.in,v 1.81 2002/01/21 21:33:12 markt Exp $
 dnl
 dnl
 dnl don't forget to set ASM_FOR_ARCH to a space delimited list of
@@ -829,6 +829,15 @@ if test "$UNAME" = "Rhapsody"; then
 #   CC="cc"   # should be handled already by autoconf
    MAKEDEP="-make"
 fi
+
+###########################################################################
+# MAC OSX  Darwin PPC
+###########################################################################
+if test "$UNAME" = "Darwin"; then
+   MAKEDEP="-make"
+   CFLAGS="$CFLAGS -fno-common"
+fi
+
 
 ##########################################################################
 # OS/2
