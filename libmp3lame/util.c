@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.73 2001/04/28 15:37:20 robert Exp $ */
+/* $Id: util.c,v 1.74 2001/05/03 20:13:15 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -84,6 +84,9 @@ void  freegfc ( lame_internal_flags* const gfc )   /* bit stream structure */
     }
     if ( gfc->ATH ) {
         free ( gfc->ATH );
+    }
+    if ( gfc->VBR ) {
+        free ( gfc->VBR );
     }
     free ( gfc );
 }
