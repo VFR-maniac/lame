@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.109 2003/11/10 15:41:00 bouvigne Exp $ */
+/* $Id: util.c,v 1.110 2003/11/20 10:57:54 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -602,14 +602,6 @@ void  lame_errorf (const lame_internal_flags *gfc, const char* format, ... )
  *
  ***********************************************************************/
 
-int  has_i387 ( void )
-{
-#ifdef HAVE_NASM 
-    return 1;
-#else
-    return 0;   /* don't know, assume not */
-#endif
-}    
 
 int  has_MMX ( void )
 {
