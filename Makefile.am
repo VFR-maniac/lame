@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.11 2000/11/18 10:48:20 aleidinger Exp $
+## $Id: Makefile.am,v 1.12 2000/12/11 00:34:23 markt Exp $
 
 SUBDIRS = mpglib libmp3lame frontend Dll doc include misc dshow
 
@@ -24,7 +24,6 @@ EXTRA_DIST = \
 	lame.spec.in \
 	lame4dos.bat \
 	mlame \
-	mlame_corr.c \
 	testcase.mp3 \
 	testcase.wav
 
