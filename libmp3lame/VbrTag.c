@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.69 2003/10/16 12:55:38 bouvigne Exp $ */
+/* $Id: VbrTag.c,v 1.70 2003/10/16 13:26:59 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -812,7 +812,7 @@ int PutLameVBR(lame_global_flags *gfp, FILE *fpStream, uint8_t *pbtStreamBuffer,
 	nBytesWritten++;
 
 
-	pbtStreamBuffer[nBytesWritten++] = 0;	/*unused in rev1 */
+	pbtStreamBuffer[nBytesWritten++] = 0;	/*unused in rev0 */
 
 	CreateI2(&pbtStreamBuffer[nBytesWritten], gfp->preset);
 	nBytesWritten+=2;
