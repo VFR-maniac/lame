@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.103 2003/10/17 14:39:31 bouvigne Exp $ */
+/* $Id: quantize_pvt.c,v 1.104 2003/10/20 07:20:37 bouvigne Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -801,7 +801,7 @@ void set_pinfo (
     calc_noise_result noise;
 
     calc_xmin (gfp, ratio, cod_info, l3_xmin);
-    calc_noise (gfc, cod_info, l3_xmin, xfsf, &noise);
+    calc_noise (gfc, cod_info, l3_xmin, xfsf, &noise, 0);
 
     j = 0;
     sfb2 = cod_info->sfb_lmax;
