@@ -1,6 +1,8 @@
-## $Id: Makefile.am,v 1.19 2001/03/14 10:56:38 aleidinger Exp $
+## $Id: Makefile.am,v 1.20 2001/06/22 08:49:02 aleidinger Exp $
 
 include $(top_srcdir)/Makefile.am.global
+
+.PHONY: test
 
 SUBDIRS = mpglib libmp3lame frontend Dll debian doc include misc dshow
 
