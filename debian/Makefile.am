@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.3 2002/04/15 06:57:56 markt Exp $
+## $Id: Makefile.am,v 1.4 2003/05/20 12:14:50 aleidinger Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -12,3 +12,7 @@ EXTRA_DIST = \
 	lame.docs \
 	lame.files \
 	rules
+
+dist-hook:
+	chmod +x $(distdir)/rules
+
