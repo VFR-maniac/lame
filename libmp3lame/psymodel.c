@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.97 2001/11/03 09:31:57 jd- Exp $ */
+/* $Id: psymodel.c,v 1.98 2001/11/26 15:19:56 takehiro Exp $ */
 
 
 /*
@@ -2005,9 +2005,7 @@ int *npart_l_orig,int *npart_l,int *npart_s_orig,int *npart_s)
 
   FLOAT8 bval_l[CBANDS], bval_s[CBANDS];
   FLOAT8 bval_l_width[CBANDS], bval_s_width[CBANDS];
-  int   cbmax=0;
   int  i,j;
-  int freq_scale=1;
   int partition[HBLKSIZE]; 
 
 
