@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: gtkanal.c,v 1.19 2001/03/11 11:24:25 aleidinger Exp $ */
+/* $Id: gtkanal.c,v 1.20 2001/04/21 22:23:15 jd- Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -126,7 +126,7 @@ int gtkmakeframe(void)
   if (input_format == sf_mp1 ||
       input_format == sf_mp2 ||
       input_format == sf_mp3) {
-    iread = get_audio(gfp,Buffer);
+    iread = get_audio16(gfp,Buffer);
 
 
     /* add a delay of framesize-DECDELAY, which will make the total delay
@@ -152,7 +152,7 @@ int gtkmakeframe(void)
 	lame_decode_init();
       }
       
-      iread = get_audio(gfp,Buffer);
+      iread = get_audio16(gfp,Buffer);
       if (iread > gfp->framesize) {
 	/* NOTE: frame analyzer requires that we encode one frame 
 	 * for each pass through this loop.  If lame_encode_buffer()
