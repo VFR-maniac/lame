@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.94 2002/05/05 11:53:50 takehiro Exp $ */
+/* $Id: quantize.c,v 1.95 2002/05/05 11:58:47 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -91,7 +91,6 @@ init_outer_loop(
     cod_info->count1              = 0;
     cod_info->global_gain         = 210;
     cod_info->scalefac_compress   = 0;
-    /* window_switching_flag was set in psymodel.c? */
     /* block_type            was set in psymodel.c? */
     /* mixed_block_flag      would be set in ^      */
     cod_info->table_select [0]    = 0;

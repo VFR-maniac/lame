@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: encoder.c,v 1.69 2002/05/04 15:48:27 takehiro Exp $ */
+/* $Id: encoder.c,v 1.70 2002/05/05 11:58:47 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -445,10 +445,6 @@ int  lame_encode_mp3_frame (				// Output
     for ( ch = 0; ch < gfc->channels_out; ch++ ) {
       gr_info *cod_info = &gfc->l3_side.tt[gr][ch];
       cod_info->mixed_block_flag = 0;     /* never used by this model */
-      if (cod_info->block_type == NORM_TYPE )
-	cod_info->window_switching_flag = 0;
-      else
-	cod_info->window_switching_flag = 1;
     }
   }
 
