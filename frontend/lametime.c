@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lametime.c,v 1.3 2000/10/29 12:45:54 aleidinger Exp $ */
+/* $Id: lametime.c,v 1.4 2000/10/31 12:18:41 robert Exp $ */
 
 /*
  * name:        GetCPUTime ( void )
@@ -131,11 +131,12 @@ int  lame_set_stream_binary_mode ( FILE* const fp )
 # include <kernel.h>
 # include <sys/swis.h>
 #elif defined(_WIN32)
+# include <sys/types.h>
 # include <sys/stat.h>
-# include <unistd.h>
+//# include <unistd.h>
 #else
 # include <sys/stat.h>
-# include <unistd.h>
+//# include <unistd.h>
 #endif
 
 off_t  lame_get_file_size ( const char* const filename )

@@ -19,13 +19,14 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: timestatus.c,v 1.16 2000/10/29 12:45:54 aleidinger Exp $ */
+/* $Id: timestatus.c,v 1.17 2000/10/31 12:18:41 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
  
-#define KLEMM_07
+/*#define KLEMM_07
+ disabled as long as there is no proper solution for Console_IO, RH */
 #ifdef KLEMM_07
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////

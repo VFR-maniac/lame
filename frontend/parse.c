@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.18 2000/10/29 12:45:54 aleidinger Exp $ */
+/* $Id: parse.c,v 1.19 2000/10/31 12:18:41 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -46,7 +46,12 @@
 
 static int  lame_version_print ( FILE* const fp )
 {
+/* 
    fprintf ( fp, "%sLAME%s version %s    (%s)\n\n", Console_IO.str_emph, Console_IO.str_norm, get_lame_version (), LAME_URL );
+    ^- disabled as long as there is no proper solution for Console_IO, RH 
+ */
+   fprintf ( fp, "LAME version %s    (%s)\n\n", get_lame_version (), LAME_URL );
+
    return 0;
 }
 
