@@ -8,7 +8,7 @@
  *
  */
 
-/* $Id: layer1.c,v 1.11 2000/10/29 12:41:10 aleidinger Exp $ */
+/* $Id: layer1.c,v 1.12 2000/11/07 23:06:41 pfk Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -24,6 +24,7 @@ void I_step_one(unsigned int balloc[], unsigned int scale_index[2][SBLIMIT],stru
   unsigned int *ba=balloc;
   unsigned int *sca = (unsigned int *) scale_index;
 
+  assert ( fr->stereo == 0 || fr->stereo == 1 );
   if(fr->stereo) {
     int i;
     int jsbound = fr->jsbound;
@@ -68,6 +69,7 @@ void I_step_two(real fraction[2][SBLIMIT],unsigned int balloc[2*SBLIMIT],
   register unsigned int *ba;
   register unsigned int *sca = (unsigned int *) scale_index;
 
+  assert ( fr->stereo == 0 || fr->stereo == 1 );
   if(fr->stereo) {
     int jsbound = fr->jsbound;
     register real *f0 = fraction[0];

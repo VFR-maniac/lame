@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.29 2000/11/07 15:31:27 aleidinger Exp $ */
+/* $Id: get_audio.c,v 1.30 2000/11/07 23:06:40 pfk Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -327,7 +327,7 @@ int read_samples_ogg(lame_global_flags *gfp,FILE *musicin,short int mpg123pcm[2]
 
 int read_samples_mp3(lame_global_flags *gfp,FILE *musicin,short int mpg123pcm[2][1152],int stereo)
 {
-#if (defined  AMIGA_MPEGA || defined HAVEMPGLIB)
+#if (defined  AMIGA_MPEGA || defined HAVE_MPGLIB)
   int out;
 
   out=lame_decode_fromfile(musicin,mpg123pcm[0],mpg123pcm[1],&mp3input_data);

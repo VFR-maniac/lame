@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: timestatus.c,v 1.22 2000/11/05 22:27:10 pfk Exp $ */
+/* $Id: timestatus.c,v 1.23 2000/11/07 23:06:40 pfk Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -34,7 +34,7 @@
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 
-#if 1
+#ifdef __unix__                 /* first hack: assume UNIX = ISO, better is to read enviroment etc. */
 # define SPEED_CHAR	"\xD7"	/* multiply sign in ANSI, ISO-8859-1 */
 # define SPEED_MULT	1.
 #elif 1

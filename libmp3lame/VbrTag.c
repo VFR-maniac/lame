@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.12 2000/11/06 19:22:49 cisc Exp $ */
+/* $Id: VbrTag.c,v 1.13 2000/11/07 23:06:40 pfk Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -431,7 +431,7 @@ int PutVbrTag(lame_global_flags *gfp,FILE *fpStream,int nVbrScale)
 	/* Read the header (first valid frame) */
 	fread(pbtStreamBuffer,4,1,fpStream);
 
-	/* the default VBR header.  48kbs layer III, no padding, no crc */
+	/* the default VBR header. 48 kbps layer III, no padding, no crc */
 	/* but sampling freq, mode andy copyright/copy protection taken */
 	/* from first valid frame */
 	pbtStreamBuffer[0]=(u_char) 0xff;
@@ -516,10 +516,10 @@ int PutVbrTag(lame_global_flags *gfp,FILE *fpStream,int nVbrScale)
 	CreateI4(&pbtStreamBuffer[nStreamIndex],nVbrScale);
 	nStreamIndex+=4;
 
-	/* Put LAME id */
-	get_lame_short_version(str1, sizeof(str1), "LAME");
-	strncpy((char *)&pbtStreamBuffer[nStreamIndex],str1,(size_t) 20);
-	nStreamIndex+=20;
+	/* Put LAME ID */
+        sprintf ( str1, "LAME%s", get_lame_short_version () );
+        strncpy ( pbtStreamBuffer + nStreamIndex, str1, 20 );
+        nStreamIndex += 20;
 
 
 #ifdef DEBUG_VBRTAG

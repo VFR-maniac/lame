@@ -29,7 +29,7 @@
  * NOTE: See http://id3.org/ for more information about ID3 tag formats.
  */
 
-/* $Id: id3tag.c,v 1.10 2000/11/06 01:13:41 pfk Exp $ */
+/* $Id: id3tag.c,v 1.11 2000/11/07 23:06:41 pfk Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -558,7 +558,7 @@ id3tag_write_v1(lame_global_flags *gfp)
 
 
 
-
+#if 0
 
 /* would use real "strcasecmp" but it isn't portable */
 int local_strcasecmp ( const char* s1, const char* s2 )  /* Move to frontend */
@@ -577,3 +577,7 @@ int local_strcasecmp ( const char* s1, const char* s2 )  /* Move to frontend */
     } while (c1 == c2);
     return c1 - c2;
 }
+
+#endif
+
+/* end of id3tag.c */

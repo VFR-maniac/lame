@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.41 2000/11/07 15:33:12 aleidinger Exp $ */
+/* $Id: lame.c,v 1.42 2000/11/07 23:06:41 pfk Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -714,11 +714,8 @@ void lame_print_config ( const lame_global_flags* gfp )
     lame_internal_flags* gfc = gfp->internal_flags;
     double    out_samplerate = gfp->out_samplerate;
     double    in_samplerate  = gfp->out_samplerate * gfc->resample_ratio;
-    char version[80], url[80];
 
-    get_lame_version ( version, sizeof(version), NULL );
-    get_lame_url ( url, sizeof(url), NULL );
-    MSGF ( "LAME version %s    (%s)\n", version, url );
+    MSGF ( "LAME version %s    (%s)\n", get_lame_version (), get_lame_url () );
 
     if ( gfc->CPU_features_MMX  ||  gfc->CPU_features_3DNow  ||  gfc->CPU_features_SIMD  ||  gfc->CPU_features_SIMD2 ) {
         MSGF ("CPU features:"); 
@@ -745,7 +742,7 @@ void lame_print_config ( const lame_global_flags* gfp )
     }
     
     if (gfc->resample_ratio != 1.) {
-	MSGF ("Resampling:  input=%g kHz  output=%g kHz\n", 1.e-3 * in_samplerate, 1.e-3 * out_samplerate );
+	MSGF ("Resampling:  input %g kHz  output %g kHz\n", 1.e-3 * in_samplerate, 1.e-3 * out_samplerate );
     }
     
     if (gfc->filter_type == 0) {
