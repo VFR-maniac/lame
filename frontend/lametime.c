@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lametime.c,v 1.11 2001/06/12 12:47:35 aleidinger Exp $ */
+/* $Id: lametime.c,v 1.12 2001/06/23 17:56:10 robert Exp $ */
 
 /*
  * name:        GetCPUTime ( void )
@@ -93,9 +93,9 @@ double GetRealTime ( void )			/* conforming:  SVr4, BSD 4.3 */
 
 double GetRealTime ( void )			/* conforming:  Win 95, Win NT */
 {
-    struct _timeb  t;
+    struct timeb  t;
     
-    _ftime ( &t );
+    ftime ( &t );
     return t.time + 1.e-3 * t.millitm;
 }
 
