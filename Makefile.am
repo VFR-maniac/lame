@@ -1,10 +1,10 @@
-## $Id: Makefile.am,v 1.24 2002/04/08 18:41:11 aleidinger Exp $
+## $Id: Makefile.am,v 1.25 2002/05/28 08:04:12 aleidinger Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
 .PHONY: test
 
-SUBDIRS = mpglib libmp3lame frontend Dll debian doc include misc dshow ACM
+SUBDIRS = mpglib libmp3lame frontend Dll debian doc include misc dshow ACM mac
 
 CLEANFILES = testcase.new.mp3
 
