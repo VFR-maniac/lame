@@ -22,7 +22,7 @@
  
 /*!
 	\author Steve Lhomme
-	\version \$Id: AEncodeProperties.h,v 1.3 2002/04/06 11:34:22 robux4 Exp $
+	\version \$Id: AEncodeProperties.h,v 1.4 2002/04/07 10:17:37 robux4 Exp $
 */
 
 #if !defined(_AENCODEPROPERTIES_H__INCLUDED_)
@@ -371,6 +371,10 @@ public:
 
 	ADbg              my_debug;
 
+	/**
+		\brief Update the slides value (on scroll)
+	*/
+	void UpdateDlgFromSlides(HWND parent_window) const;
 
 private:
 
@@ -423,6 +427,7 @@ private:
 	void SaveValuesToElement(TiXmlElement * the_element) const;
 	inline void SetAttributeBool(TiXmlElement * the_elt,const std::string & the_string, const bool the_value) const;
 	void UpdateConfigs(const HWND HwndDlg);
+	void EnableAbrOptions(HWND hDialog, bool enable);
 
 	HMODULE my_hModule;
 
