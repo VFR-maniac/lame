@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.2 2001/01/15 09:38:36 aleidinger Exp $
+## $Id: Makefile.am,v 1.3 2001/02/20 18:20:45 aleidinger Exp $
 
 AUTOMAKE_OPTIONS = foreign ansi2knr
 
@@ -8,6 +8,7 @@ htmldir = $(docdir)/html
 pkghtmldir = $(pkgdocdir)/html
 
 pkghtml_DATA = \
+        basic.html \
 	contributors.html \
 	examples.html \
 	history.html \
