@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.189 2003/12/09 15:05:15 bouvigne Exp $ */
+/* $Id: parse.c,v 1.190 2003/12/09 17:19:54 olcios Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1847,9 +1847,10 @@ char* const inPath, char* const outPath, char **nogap_inPath, int *num_nogap)
           input_format == sf_mp3) && 
 	  lame_get_ReplayGain_decode( gfp ) ){
 
-        fprintf(stderr, "Error: input cannot be MPEG if a feature requiring "
-	    	        "decoding on the fly,\nlike --replaygain-accurate, "
-		        "is used\n");
+        fprintf(stderr, "\nError: input cannot be MPEG when --replaygain-accurate is used\n"
+	    	        "\n--replaygain-accurate requires decoding of MPEG *output* on the fly which\n"
+			"cannot be performed simultaneously with decoding MPEG *input*.\n"
+			"\nUse a plain .wav file as input with --replaygain-accurate.\n");
 
 	return -1;
     }
@@ -1859,9 +1860,10 @@ char* const inPath, char* const outPath, char **nogap_inPath, int *num_nogap)
           input_format == sf_mp3) && 
 	  lame_get_findPeakSample( gfp ) ){
 
-	fprintf(stderr, "Error: input cannot be MPEG if a feature requiring "
-			    "decoding on the fly,\nlike --clipdetect, "
-			    "is used\n");
+        fprintf(stderr, "\nError: input cannot be MPEG when --clipdetect is used\n"
+	    	        "\n--clipdetect requires decoding of MPEG *output* on the fly which\n"
+			"cannot be performed simultaneously with decoding of MPEG *input*.\n"
+			"\nUse a plain .wav file as input with --clipdetect.\n");
 
 	return -1;
     }
