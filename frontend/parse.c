@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.40 2000/12/25 10:49:36 shibatch Exp $ */
+/* $Id: parse.c,v 1.41 2001/01/03 13:06:47 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -38,6 +38,10 @@
 #include "parse.h"
 #include "main.h"
 #include "get_audio.h"
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
+#endif
 
 /************************************************************************
 *

@@ -8,7 +8,7 @@
  *
  */
 
-/* $Id: layer1.c,v 1.14 2000/11/18 10:52:49 aleidinger Exp $ */
+/* $Id: layer1.c,v 1.15 2001/01/03 13:06:51 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -21,6 +21,10 @@
 #include <assert.h>
 #include "common.h"
 #include "decode_i386.h"
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
+#endif
 
 void I_step_one(unsigned int balloc[], unsigned int scale_index[2][SBLIMIT],struct frame *fr)
 {

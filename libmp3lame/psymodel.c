@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.34 2001/01/03 11:51:17 shibatch Exp $ */
+/* $Id: psymodel.c,v 1.35 2001/01/03 13:06:49 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -34,6 +34,10 @@
 #include <assert.h>
 #include "tables.h"
 #include "fft.h"
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
+#endif
 
 #ifdef M_LN10
 #define		LN_TO_LOG10		(M_LN10/10)

@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: gtkanal.c,v 1.14 2000/12/11 14:48:35 aleidinger Exp $ */
+/* $Id: gtkanal.c,v 1.15 2001/01/03 13:06:47 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -40,6 +40,10 @@
 #include "main.h"
 #include "get_audio.h"
 #include "gtkanal.h"
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
+#endif
 
 plotting_data *pinfo;
 plotting_data *pplot;

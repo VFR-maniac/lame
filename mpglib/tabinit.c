@@ -1,4 +1,4 @@
-/* $Id: tabinit.c,v 1.9 2000/11/18 10:52:49 aleidinger Exp $ */
+/* $Id: tabinit.c,v 1.10 2001/01/03 13:06:51 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -9,6 +9,10 @@
 #include <stdlib.h>
 #include "tabinit.h"
 #include "mpg123.h"
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
+#endif
 
 real decwin[512+32];
 static real cos64[16],cos32[8],cos16[4],cos8[2],cos4[1];

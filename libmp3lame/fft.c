@@ -31,7 +31,7 @@
 **           Takehiro  - some dirty hack for speed up
 */
 
-/* $Id: fft.c,v 1.13 2000/12/11 16:03:06 aleidinger Exp $ */
+/* $Id: fft.c,v 1.14 2001/01/03 13:06:48 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -42,6 +42,10 @@
 #include <math.h>
 #include "util.h"
 #include "fft.h"
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
+#endif
 
 #define TRI_SIZE (5-1) /* 1024 =  4**5 */
 

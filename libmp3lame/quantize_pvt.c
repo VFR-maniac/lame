@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.31 2000/12/25 10:49:37 shibatch Exp $ */
+/* $Id: quantize_pvt.c,v 1.32 2001/01/03 13:06:49 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -33,6 +33,10 @@
 #include "tables.h"
 #include "reservoir.h"
 #include "quantize_pvt.h"
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
+#endif
 
 
 #define NSATHSCALE 100 // Assuming dynamic range=96dB, this value should be 92

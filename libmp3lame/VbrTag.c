@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.14 2000/11/18 10:51:50 aleidinger Exp $ */
+/* $Id: VbrTag.c,v 1.15 2001/01/03 13:06:48 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -38,6 +38,10 @@
 #include "bitstream.h"
 #include "VbrTag.h"
 #include	<assert.h>
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
+#endif
 
 
 #ifdef _DEBUG

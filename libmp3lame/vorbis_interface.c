@@ -1,4 +1,4 @@
-/* $Id: vorbis_interface.c,v 1.8 2000/12/11 16:03:07 aleidinger Exp $ */
+/* $Id: vorbis_interface.c,v 1.9 2001/01/03 13:06:50 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -14,6 +14,10 @@
 #include "vorbis/modes.h"
 #include "lame.h"
 //#include "util.h"
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
+#endif
 
 short int convbuffer[4096]; /* take 8k out of the data segment, not the stack */
 int convsize;

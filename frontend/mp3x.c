@@ -1,4 +1,4 @@
-/* $Id: mp3x.c,v 1.10 2000/11/20 20:45:33 robert Exp $ */
+/* $Id: mp3x.c,v 1.11 2001/01/03 13:06:47 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -18,6 +18,11 @@
 #include "lametime.h"
 
 #include "main.h"
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
+#endif
+
 /* GLOBAL VARIABLES.  set by parse_args() */
 /* we need to clean this up */
 sound_file_format input_format;   

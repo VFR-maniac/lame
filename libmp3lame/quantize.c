@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.39 2000/12/19 13:09:23 aleidinger Exp $ */
+/* $Id: quantize.c,v 1.40 2001/01/03 13:06:49 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -36,7 +36,9 @@
 #include "quantize_pvt.h"
 #include "lame-analysis.h"
 
-
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
+#endif
 
 
 /************************************************************************

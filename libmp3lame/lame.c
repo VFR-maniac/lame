@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.64 2000/12/25 10:49:37 shibatch Exp $ */
+/* $Id: lame.c,v 1.65 2001/01/03 13:06:48 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -44,6 +44,10 @@
 #endif
 #ifdef __riscos__
 #include "asmstuff.h"
+#endif
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
 #endif
 
 

@@ -1,4 +1,4 @@
-/* $Id: interface.c,v 1.30 2000/12/11 16:03:07 aleidinger Exp $ */
+/* $Id: interface.c,v 1.31 2001/01/03 13:06:50 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -20,6 +20,10 @@
 
 #ifdef USE_LAYER_2
 	#include "layer2.h"
+#endif
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
 #endif
 
 

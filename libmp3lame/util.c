@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.41 2000/12/12 04:50:34 shibatch Exp $ */
+/* $Id: util.c,v 1.42 2001/01/03 13:06:50 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -35,6 +35,10 @@
 
 #ifdef LAME_STD_PRINT
 #include <stdarg.h>
+#endif
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
 #endif
 
 /***********************************************************************

@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: gpkplotting.c,v 1.5 2000/11/18 10:50:56 aleidinger Exp $ */
+/* $Id: gpkplotting.c,v 1.6 2001/01/03 13:06:47 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -29,6 +29,10 @@
 
 #include "gpkplotting.h"
 #include "string.h"
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
+#endif
 
 static gint num_plotwindows = 0;
 static gint max_plotwindows = 10;

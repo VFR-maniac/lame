@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.45 2001/01/02 06:02:05 markt Exp $ */
+/* $Id: get_audio.c,v 1.46 2001/01/03 13:06:47 aleidinger Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -42,6 +42,10 @@
 #include "portableio.h"
 #include "timestatus.h"
 #include "lametime.h"
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
+#endif
 
 
 /* global data for get_audio.c. */

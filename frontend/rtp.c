@@ -1,4 +1,4 @@
-/* $Id: rtp.c,v 1.6 2000/12/19 07:43:25 markt Exp $ */
+/* $Id: rtp.c,v 1.7 2001/01/03 13:06:47 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -15,6 +15,10 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
+#endif
 
 struct rtpbits {
     int     sequence:16;     /* sequence number: random */

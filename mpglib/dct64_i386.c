@@ -6,7 +6,7 @@
  * even for Intel processors.
  */
 
-/* $Id: dct64_i386.c,v 1.7 2000/11/18 10:52:49 aleidinger Exp $ */
+/* $Id: dct64_i386.c,v 1.8 2001/01/03 13:06:50 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -16,6 +16,10 @@
 
 #include "dct64_i386.h"
 #include "tabinit.h"
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
+#endif
 
 static void dct64_1(real *out0,real *out1,real *b1,real *b2,real *samples)
 {

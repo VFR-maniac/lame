@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.13 2000/12/14 10:04:34 aleidinger Exp $
+## $Id: Makefile.am,v 1.14 2001/01/03 13:06:45 aleidinger Exp $
 
 SUBDIRS = mpglib libmp3lame frontend Dll doc include misc dshow
 
@@ -9,7 +9,6 @@ EXTRA_DIST = \
 	API HACKING \
 	INSTALL.configure \
 	LICENSE \
-	Lame.vbs \
 	Makefile.B32 \
 	Makefile.DJGPP \
 	Makefile.MSVC \
@@ -18,12 +17,9 @@ EXTRA_DIST = \
 	README.DJGPP \
 	STYLEGUIDE \
 	USAGE \
-	auenc \
 	configMS.h \
 	lame.bat \
 	lame.spec.in \
-	lame4dos.bat \
-	mlame \
 	testcase.mp3 \
 	testcase.wav
 

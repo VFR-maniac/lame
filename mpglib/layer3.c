@@ -5,7 +5,7 @@
  * All rights reserved. See also 'README'
  */ 
 
-/* $Id: layer3.c,v 1.40 2000/11/18 10:52:49 aleidinger Exp $ */
+/* $Id: layer3.c,v 1.41 2001/01/03 13:06:51 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -18,6 +18,10 @@
 #include "huffman.h"
 #include "lame-analysis.h"
 #include "decode_i386.h"
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
+#endif
 
 #define MPEG1
 

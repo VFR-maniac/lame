@@ -1,4 +1,4 @@
-/* $Id: mp3rtp.c,v 1.12 2000/12/19 07:43:25 markt Exp $ */
+/* $Id: mp3rtp.c,v 1.13 2001/01/03 13:06:47 aleidinger Exp $ */
 
 /* Still under work ..., need a client for test, where can I get one? */
 
@@ -26,6 +26,10 @@
 #include "timestatus.h"
 #include "get_audio.h"
 #include "rtp.h"
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
+#endif
 
 #define MAX_NAME_SIZE   2048  /* current value of Linux */
 

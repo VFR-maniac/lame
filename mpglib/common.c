@@ -1,4 +1,4 @@
-/* $Id: common.c,v 1.23 2000/11/18 10:52:49 aleidinger Exp $ */
+/* $Id: common.c,v 1.24 2001/01/03 13:06:50 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -20,6 +20,10 @@
 #endif
 
 #include "common.h"
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
+#endif
 
 // In C++ the array first must be prototyped, why ?
 

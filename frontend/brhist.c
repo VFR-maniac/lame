@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: brhist.c,v 1.30 2000/12/19 07:46:47 markt Exp $ */
+/* $Id: brhist.c,v 1.31 2001/01/03 13:06:47 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -47,6 +47,10 @@
 #endif
 
 #include "brhist.h"
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
+#endif
 
 /* Structure holding all data related to the Console I/O 
  * may be this should be a more global frontend structure. So it

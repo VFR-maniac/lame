@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.38 2000/12/19 07:43:25 markt Exp $ */
+/* $Id: main.c,v 1.39 2001/01/03 13:06:47 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -51,6 +51,10 @@
 /* PLL 14/04/2000 */
 #if macintosh
 #include <console.h>
+#endif
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
 #endif
 
 

@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: takehiro.c,v 1.13 2000/11/18 10:51:52 aleidinger Exp $ */
+/* $Id: takehiro.c,v 1.14 2001/01/03 13:06:49 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -32,6 +32,10 @@
 #include "l3side.h"
 #include "tables.h"
 #include "quantize_pvt.h"
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
+#endif
 
 static const struct
 {

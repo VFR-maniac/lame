@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: version.c,v 1.13 2000/11/18 10:51:52 aleidinger Exp $ */
+/* $Id: version.c,v 1.14 2001/01/03 13:06:50 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -30,6 +30,10 @@
 
 #include <stdio.h>
 #include "version.h"    /* macros of version numbers */
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
+#endif
 
 #define STR(x)  #x
 #define XSTR(x) STR(x)

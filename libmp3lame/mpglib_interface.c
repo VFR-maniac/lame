@@ -1,4 +1,4 @@
-/* $Id: mpglib_interface.c,v 1.15 2000/12/11 16:03:06 aleidinger Exp $ */
+/* $Id: mpglib_interface.c,v 1.16 2001/01/03 13:06:48 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -14,6 +14,10 @@
 
 #include "interface.h"
 #include "lame.h"
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
+#endif
 
 
 MPSTR           mp;

@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: encoder.c,v 1.24 2001/01/03 11:51:18 shibatch Exp $ */
+/* $Id: encoder.c,v 1.25 2001/01/03 13:06:48 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -38,6 +38,9 @@
 #include "bitstream.h"
 #include "VbrTag.h"
 
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
+#endif
 
 /************************************************************************
 *

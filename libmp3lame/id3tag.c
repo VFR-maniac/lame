@@ -29,7 +29,7 @@
  * NOTE: See http://id3.org/ for more information about ID3 tag formats.
  */
 
-/* $Id: id3tag.c,v 1.13 2000/11/18 10:51:50 aleidinger Exp $ */
+/* $Id: id3tag.c,v 1.14 2001/01/03 13:06:48 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -44,6 +44,10 @@
 #include "id3tag.h"
 #include "util.h"
 #include "bitstream.h"
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
+#endif
 
 
 static const char *const  genre_names [] = {

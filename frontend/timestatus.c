@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: timestatus.c,v 1.24 2000/11/18 10:50:57 aleidinger Exp $ */
+/* $Id: timestatus.c,v 1.25 2001/01/03 13:06:47 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -57,6 +57,10 @@
 
 #if defined(BRHIST)
 # include "brhist.h"
+#endif
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
 #endif
 
 typedef struct {
@@ -241,6 +245,10 @@ void decoder_progress_finish ( const lame_global_flags* const gfp )
 #include "timestatus.h"
 #include "lametime.h"
 #include "main.h"
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
+#endif
+
 
 #if defined(CLOCKS_PER_SEC)
 /* ANSI/ISO systems */

@@ -43,7 +43,7 @@
  * conversions, and accommodated conversions involving +/- infinity,
  * NaN's, and denormalized numbers.
  *
- * $Id: portableio.c,v 1.8 2000/12/05 15:37:26 aleidinger Exp $
+ * $Id: portableio.c,v 1.9 2001/01/03 13:06:47 aleidinger Exp $
  */
 
 #ifdef HAVE_CONFIG_H
@@ -59,6 +59,10 @@
 #include	<math.h>
 #endif
 #include	"portableio.h"
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
+#endif
 
 /****************************************************************
  * Big/little-endian independent I/O routines.

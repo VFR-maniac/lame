@@ -10,7 +10,7 @@
  * even for Intel processors.
  */
 
-/* $Id: decode_i386.c,v 1.12 2000/11/18 10:52:49 aleidinger Exp $ */
+/* $Id: decode_i386.c,v 1.13 2001/01/03 13:06:50 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -29,6 +29,10 @@
 #include "decode_i386.h"
 #include "dct64_i386.h"
 #include "tabinit.h"
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
+#endif
 
 
  /* old WRITE_SAMPLE */

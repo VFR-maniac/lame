@@ -24,7 +24,7 @@
  *         Special Thanks to Patrick De Smet for your advices.
  */
 
-/* $Id: newmdct.c,v 1.21 2000/12/11 16:03:06 aleidinger Exp $ */
+/* $Id: newmdct.c,v 1.22 2001/01/03 13:06:48 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -35,6 +35,10 @@
 #include "util.h"
 #include "l3side.h"
 #include "newmdct.h"
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
+#endif
 
 #define SCALE (32768.0/ 2.384e-06)
 

@@ -5,7 +5,7 @@
  *
  */
 
-/* $Id: layer2.c,v 1.16 2000/11/18 10:52:49 aleidinger Exp $ */
+/* $Id: layer2.c,v 1.17 2001/01/03 13:06:51 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -20,6 +20,10 @@
 #include "layer2.h"
 #include "l2tables.h"
 #include "decode_i386.h"
+
+#ifdef WITH_DMALLOC
+#include <dmalloc.h>
+#endif
 
 static int grp_3tab[32 * 3] = { 0, };   /* used: 27 */
 static int grp_5tab[128 * 3] = { 0, };  /* used: 125 */
