@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.68 2001/03/27 12:04:23 jd- Exp $ */
+/* $Id: lame.h,v 1.69 2001/04/01 02:11:06 jd- Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -472,6 +472,10 @@ int CDECL lame_get_ATHtype(const lame_global_flags *);
 // lower ATH by this many db
 int CDECL lame_set_ATHlower(lame_global_flags *, float);
 float CDECL lame_get_ATHlower(const lame_global_flags *);
+
+// select adaptive ATH level adjustment scheme
+int CDECL lame_set_adapt_thres_type( lame_global_flags *, int);
+int CDECL lame_get_adapt_thres_type( const lame_global_flags *);
 
 // predictability limit (ISO tonality formula)
 int CDECL lame_set_cwlimit(lame_global_flags *, int);
