@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.109 2001/05/06 15:11:40 robert Exp $ */
+/* $Id: lame.c,v 1.110 2001/05/11 22:14:45 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1002,8 +1002,8 @@ lame_init_params(lame_global_flags * const gfp)
             gfc->nsPsy.pefirbuf[i] = 700;
 
         if (gfp->VBR == vbr_mtrh || gfp->VBR == vbr_mt) {
-            ERRORF(gfc, "\n**** nspsytune doesn't support --vbr-new **** \n\n");
-            gfp->VBR = vbr_rh;
+            ERRORF(gfc, "\n**** nspsytune was tuned for --vbr-old **** \n\n");
+            //gfp->VBR = vbr_rh;
         }
 
         if (gfp->ATHtype == -1)
