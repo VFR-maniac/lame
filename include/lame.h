@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.117 2002/10/17 13:03:22 aleidinger Exp $ */
+/* $Id: lame.h,v 1.118 2002/10/18 22:54:33 robert Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -762,6 +762,13 @@ void CDECL lame_bitrate_stereo_mode_hist (
         const lame_global_flags * const gfp, 
         int  bitrate_stmode_count [14] [4] );
 
+void CDECL lame_block_type_hist (
+        const lame_global_flags * const gfp, 
+        int btype_count[6] );
+
+void CDECL lame_bitrate_block_type_hist ( 
+        const lame_global_flags * const gfp, 
+        int bitrate_btype_count[14][6] );
 
 /*
  * OPTIONAL:
