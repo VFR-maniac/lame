@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: vbrquantize.c,v 1.57 2001/12/15 07:31:16 dibrom Exp $ */
+/* $Id: vbrquantize.c,v 1.58 2001/12/18 16:14:08 dibrom Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -946,7 +946,7 @@ short_block_scalefacs (
     }
 
     if ((gfc->noise_shaping == 2) && (!(gfc->presetTune.use &&
-                                      gfc->ATH->adjust < gfc->presetTune.athadapt_noiseshaping_thre)))
+                                      gfc->ATH->adjust < gfc->presetTune.athadjust_switch_level)))
         /* allow scalefac_scale=1 */
         mover = Min (maxover0, maxover1);
     else
@@ -1047,7 +1047,7 @@ long_block_scalefacs (
 
     mover = Min (maxover0, maxover0p);
     if ((gfc->noise_shaping == 2) && (!(gfc->presetTune.use &&
-		                               gfc->ATH->adjust < gfc->presetTune.athadapt_noiseshaping_thre))) {
+		                               gfc->ATH->adjust < gfc->presetTune.athadjust_switch_level))) {
         /* allow scalefac_scale=1 */
         mover = Min (mover, maxover1);
         mover = Min (mover, maxover1p);
