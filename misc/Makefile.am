@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.9 2001/12/27 12:49:31 aleidinger Exp $
+## $Id: Makefile.am,v 1.10 2002/01/25 11:23:23 aleidinger Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -8,6 +8,7 @@ CLEANFILES = $(EXTRA_PROGRAMS)
 
 EXTRA_SCRIPTS = \
 	auenc \
+	lameid3.pl \
 	mugeco.sh \
 	mlame
 
