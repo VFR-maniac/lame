@@ -8,7 +8,7 @@
  *
  */
 
-/* $Id: layer1.c,v 1.16 2001/01/05 15:20:34 aleidinger Exp $ */
+/* $Id: layer1.c,v 1.17 2002/12/08 17:02:30 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -131,7 +131,7 @@ void I_step_two(real fraction[2][SBLIMIT],unsigned int balloc[2*SBLIMIT],
   }
 }
 
-//int do_layer1(struct frame *fr,int outmode,struct audio_info_struct *ai)
+/*int do_layer1(struct frame *fr,int outmode,struct audio_info_struct *ai) */
 int do_layer1(PMPSTR mp, unsigned char *pcm_sample,int *pcm_point)
 {
   int clip=0;
@@ -168,3 +168,4 @@ int do_layer1(PMPSTR mp, unsigned char *pcm_sample,int *pcm_point)
 }
 
 #endif
+

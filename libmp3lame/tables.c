@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: tables.c,v 1.18 2001/10/28 22:24:57 markt Exp $ */
+/* $Id: tables.c,v 1.19 2002/12/08 17:02:25 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -506,4 +506,8 @@ const char* version_string  [3] = { "2", "1", "2.5" };
 
 const unsigned  header_word [3] = { 0xFFF00000, 0xFFF80000, 0xFFE00000 };
 
-/* end of tables.h */
+/* This is the scfsi_band table from 2.4.2.7 of the IS */
+const int scfsi_band[5] = { 0, 6, 11, 16, 21 };
+
+/* end of tables.c */
+

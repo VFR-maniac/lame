@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.25 2002/11/17 10:16:38 aleidinger Exp $
+## $Id: Makefile.am,v 1.26 2002/12/08 17:02:18 takehiro Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -32,9 +32,6 @@ EXTRA_DIST = \
 	gain_analysis.h \
 	libmp3lame.dsp \
 	libmp3lame_vc6.dsp \
-	lameerror.h \
-	tools.c \
-	tools.h \
 	vbrquantize.h
 
 libmp3lame_la_SOURCES = \
@@ -68,7 +65,6 @@ noinst_HEADERS= \
 	l3side.h \
 	lame-analysis.h \
 	lame_global_flags.h \
-	lameerror.h \
 	machine.h \
 	newmdct.h \
 	psymodel.h \
