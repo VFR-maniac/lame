@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.133 2001/06/30 00:26:50 robert Exp $ */
+/* $Id: lame.c,v 1.134 2001/07/01 05:24:46 jd- Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1179,8 +1179,8 @@ lame_init_params(lame_global_flags * const gfp)
 #endif
 
     /* initialize internal adaptive ATH settings  -jd */
-    gfc->adapt_thres_level_v = pow( 10.0, gfp->adapt_thres_level / -20.0 );
-    
+    gfc->adapt_thres_level_p = pow( 10.0, gfp->adapt_thres_level / -10.0 );
+
 
     gfc->PSY->cwlimit = gfp->cwlimit <= 0 ? 8871.7f : gfp->cwlimit;
     gfc->PSY->force_same_blocks = gfc->channels_out > 1 &&
