@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.124 2003/04/20 12:33:16 bouvigne Exp $ */
+/* $Id: psymodel.c,v 1.125 2003/09/12 13:00:19 bouvigne Exp $ */
 
 
 /*
@@ -1953,19 +1953,19 @@ int psymodel_init(lame_global_flags *gfp)
     /* setup temporal masking */
     gfc->decay = exp(-1.0*LOG10/(temporalmask_sustain_sec*sfreq/192.0));
 
-    if (gfc->nsPsy.use) {
-	FLOAT8 msfix;
-	msfix = NS_MSFIX;
-	if (gfp->exp_nspsytune & 2) msfix = 1.0;
-	if (gfp->msfix != 0.0) msfix = gfp->msfix;
-	gfp->msfix = msfix;
+    if (gfp->psymodel == PSY_NSPSYTUNE) {
+        FLOAT8 msfix;
+        msfix = NS_MSFIX;
+        if (gfp->exp_nspsytune & 2) msfix = 1.0;
+        if (gfp->msfix != 0.0) msfix = gfp->msfix;
+        gfp->msfix = msfix;
 
-	/* spread only from npart_l bands.  Normally, we use the spreading
-	 * function to convolve from npart_l down to npart_l bands 
-	 */
-	for (b=0;b<gfc->npart_l;b++)
-	    if (gfc->s3ind[b][1] > gfc->npart_l-1)
-		gfc->s3ind[b][1] = gfc->npart_l-1;
+        /* spread only from npart_l bands.  Normally, we use the spreading
+        * function to convolve from npart_l down to npart_l bands 
+        */
+        for (b=0;b<gfc->npart_l;b++)
+            if (gfc->s3ind[b][1] > gfc->npart_l-1)
+                gfc->s3ind[b][1] = gfc->npart_l-1;
     }
 
     /*  prepare for ATH auto adjustment:

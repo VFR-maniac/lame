@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.142 2003/08/10 12:48:04 bouvigne Exp $ */
+/* $Id: lame.h,v 1.143 2003/09/12 13:00:25 bouvigne Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -102,6 +102,13 @@ typedef enum asm_optimizations_e {
     AMD_3DNOW = 2,
     SSE = 3
 } asm_optimizations;
+
+
+/* psychoacoustic model */
+typedef enum Psy_model_e {
+    PSY_GPSYCHO = 1,
+    PSY_NSPSYTUNE = 2
+} Psy_model;
 
 
 struct lame_global_struct;

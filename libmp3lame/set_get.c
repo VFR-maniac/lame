@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.57 2003/08/20 16:16:52 bouvigne Exp $ */
+/* $Id: set_get.c,v 1.58 2003/09/12 13:00:24 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1144,6 +1144,21 @@ lame_get_highpasswidth( const lame_global_flags*  gfp )
  * psycho acoustics and other arguments which you should not change 
  * unless you know what you are doing
  */
+
+
+int
+lame_set_psy_model( lame_global_flags*  gfp,
+                   int               psy )
+{
+    gfp->psymodel = psy;
+    return 0;
+}
+
+int
+lame_get_psy_model( const lame_global_flags*  gfp )
+{
+    return gfp->psymodel;
+}
 
 int
 lame_set_vbr_smooth( lame_global_flags*  gfp,

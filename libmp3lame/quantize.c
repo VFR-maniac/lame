@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.141 2003/05/11 09:49:33 bouvigne Exp $ */
+/* $Id: quantize.c,v 1.142 2003/09/12 13:00:22 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1390,7 +1390,7 @@ calc_min_bits (
     lame_internal_flags *gfc=gfp->internal_flags;
     int min_bits, min_pe_bits;
     
-    if (gfc->nsPsy.use) return 126;
+    if (gfp->psymodel == PSY_NSPSYTUNE) return 126;
                     /*  changed minimum from 1 to 126 bits
                      *  the iteration loops require a minimum of bits
                      *  for each granule to start with; robert 2001-07-02 */
