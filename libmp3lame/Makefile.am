@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.14 2001/01/31 12:53:41 aleidinger Exp $
+## $Id: Makefile.am,v 1.15 2001/03/11 11:21:22 aleidinger Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -45,6 +45,7 @@ libmp3lame_la_SOURCES = \
 	quantize.c \
 	quantize_pvt.c \
 	reservoir.c \
+	set_get.c \
 	tables.c \
 	takehiro.c \
 	util.c \
