@@ -2,9 +2,12 @@
  * ISO MPEG Audio Subgroup Software Simulation Group (1996)
  * ISO 13818-3 MPEG-2 Audio Encoder - Lower Sampling Frequency Extension
  *
- * $Id: reservoir.c,v 1.3 2000/01/07 06:13:05 markt Exp $
+ * $Id: reservoir.c,v 1.4 2000/01/09 23:10:24 markt Exp $
  *
  * $Log: reservoir.c,v $
+ * Revision 1.4  2000/01/09 23:10:24  markt
+ * moved more globalflags into the gf. struct
+ *
  * Revision 1.3  2000/01/07 06:13:05  markt
  * Robert's cw_lower_limit, upper_limit code back in.  Default is compute
  * cw[] up to 8.9Khz.  set with --cwlimit <freq>
@@ -63,7 +66,7 @@ ResvFrameBegin( frame_params *fr_ps, III_side_info_t *l3_side, int mean_bits, in
     int fullFrameBits, mode_gr;
     int expectedResvSize, resvLimit;
 
-    if (frameNum==0) {
+    if (gf.frameNum==0) {
       ResvSize=0;
     }
 
@@ -113,7 +116,7 @@ ResvFrameBegin( frame_params *fr_ps, III_side_info_t *l3_side, int mean_bits, in
 	ResvMax = resvLimit;
 
 #ifdef HAVEGTK
-  if (gtkflag){
+  if (gf.gtkflag){
     pinfo->mean_bits=mean_bits/2;  /* expected bits per channel per granule */
     pinfo->resvsize=ResvSize;
   }
