@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.47 2001/01/19 09:08:34 shibatch Exp $ */
+/* $Id: psymodel.c,v 1.48 2001/01/22 04:35:14 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -2203,11 +2203,6 @@ int *npart_l_orig,int *npart_l,int *npart_s_orig,int *npart_s)
 	  tempx += 0.474;
 	  tempy = 15.811389 + 7.5*tempx - 17.5*sqrt(1.0+tempx*tempx);
 
-#ifdef NEWS3
-	  if (j>=i) tempy = (bval_l[j] - bval_l[i])*(-15);
-	  else    tempy = (bval_l[j] - bval_l[i])*25;
-	  x=0; 
-#endif
 	  /*
 	  if ((i==cbmax/2)  && (fabs(bval_l[j] - bval_l[i])) < 3) {
 	    DEBUGF("bark=%f   x+tempy = %f  \n",bval_l[j] - bval_l[i],x+tempy);
@@ -2338,11 +2333,6 @@ i,*npart_s_orig,freq,numlines_s[i],j2-j,j,j2-1,bark1,bark2);
 	  else x = 0.0;
 	  tempx += 0.474;
 	  tempy = 15.811389 + 7.5*tempx - 17.5*sqrt(1.0+tempx*tempx);
-#ifdef NEWS3
-	  if (j>=i) tempy = (bval_s[j] - bval_s[i])*(-15);
-	  else    tempy = (bval_s[j] - bval_s[i])*25;
-	  x=0; 
-#endif
 	  if (tempy <= -60.0) s3_s[i][j] = 0.0;
 	  else                s3_s[i][j] = exp( (x + tempy)*LN_TO_LOG10 );
 	}

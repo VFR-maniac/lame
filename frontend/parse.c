@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.48 2001/01/15 15:16:08 aleidinger Exp $ */
+/* $Id: parse.c,v 1.49 2001/01/22 04:35:14 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1011,7 +1011,7 @@ int  parse_args ( lame_global_flags* gfp, int argc, char** argv, char* const inP
 			case 'f': gfp->force_ms = 1;               /* fall through */
 			case 'j': gfp->mode = MPG_MD_JOINT_STEREO; break;
 			case 'm': gfp->mode = MPG_MD_MONO;         break;
-			case 'a': gfp->mode_automs = 1;            /* lame picks mode, and uses variable MS threshold*/
+			case 'a': gfp->mode_automs = 1;            break; /* lame picks mode, and uses variable MS threshold*/
 			default : fprintf(stderr,"%s: -m mode must be s/d/j/f/m not %s\n", ProgramName, arg);
 			    err = 1;
 			    break;
