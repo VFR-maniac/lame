@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.98 2002/05/05 13:43:34 takehiro Exp $ */
+/* $Id: quantize.c,v 1.99 2002/05/05 13:48:38 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -252,7 +252,7 @@ bin_search_StepSize(
  *
  ***************************************************************************/ 
 
-int 
+static int 
 inner_loop(
           lame_internal_flags * const gfc,
           gr_info * const cod_info,
