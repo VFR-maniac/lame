@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.95 2001/11/03 09:31:57 jd- Exp $ */
+/* $Id: lame.h,v 1.96 2001/11/03 10:51:31 jd- Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -344,9 +344,9 @@ int CDECL lame_get_ATHtype(const lame_global_flags *);
 int CDECL lame_set_ATHlower(lame_global_flags *, float);
 float CDECL lame_get_ATHlower(const lame_global_flags *);
 
-// select adaptive ATH type
-int CDECL lame_set_adjust_type( lame_global_flags *, int);
-int CDECL lame_get_adjust_type( const lame_global_flags *);
+// select ATH adaptive adjustment type
+int CDECL lame_set_athaa_type( lame_global_flags *, int);
+int CDECL lame_get_athaa_type( const lame_global_flags *);
 
 // select the loudness approximation used by the ATH adaptive auto-leveling 
 int CDECL lame_set_athaa_loudapprox( lame_global_flags *, int);

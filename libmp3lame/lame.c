@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.163 2001/11/03 09:31:57 jd- Exp $ */
+/* $Id: lame.c,v 1.164 2001/11/03 10:51:31 jd- Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1045,10 +1045,10 @@ lame_init_params(lame_global_flags * const gfp)
         else
             gfc->sfb21_extra = (gfp->out_samplerate > 44000);
         
-        if ( gfp->adjust_type < 0 )
+        if ( gfp->athaa_type < 0 )
             gfc->ATH->use_adjust = 3;
         else
-            gfc->ATH->use_adjust = gfp->adjust_type;
+            gfc->ATH->use_adjust = gfp->athaa_type;
         
         break;
         
@@ -1085,10 +1085,10 @@ lame_init_params(lame_global_flags * const gfp)
 
         /*  automatic ATH adjustment on, VBR modes need it
          */
-        if ( gfp->adjust_type < 0 )
+        if ( gfp->athaa_type < 0 )
             gfc->ATH->use_adjust = 3;
         else
-            gfc->ATH->use_adjust = gfp->adjust_type;
+            gfc->ATH->use_adjust = gfp->athaa_type;
 
         /*  sfb21 extra only with MPEG-1 at higher sampling rates
          */
@@ -1123,10 +1123,10 @@ lame_init_params(lame_global_flags * const gfp)
         /*  automatic ATH adjustment off by default
          *  not so important for CBR code?
          */
-        if ( gfp->adjust_type < 0 )
+        if ( gfp->athaa_type < 0 )
             gfc->ATH->use_adjust = 0;
         else
-            gfc->ATH->use_adjust = gfp->adjust_type;
+            gfc->ATH->use_adjust = gfp->athaa_type;
 
 
         /*  no sfb21 extra with CBR code
@@ -2057,7 +2057,7 @@ lame_init_old(lame_global_flags * gfp)
     gfc->CurrentStep = 4;
     gfc->masking_lower = 1;
 
-    gfp->adjust_type = -1;
+    gfp->athaa_type = -1;
     gfp->ATHtype = -1;  /* default = -1 = set in lame_init_params */
     gfp->athaa_loudapprox = -1;	/* 1 = flat loudness approx. (total energy) */
                                 /* 2 = equal loudness curve */
