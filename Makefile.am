@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.16 2001/01/15 15:16:06 aleidinger Exp $
+## $Id: Makefile.am,v 1.17 2001/02/27 11:36:49 aleidinger Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -38,7 +38,7 @@ EXTRA_DIST = \
 #  should be at most 30.
 #
 testcase.new.mp3: testcase.wav frontend/lame$(EXEEXT)
-	time frontend/lame$(EXEEXT) --nores -h $(top_srcdir)/testcase.wav testcase.new.mp3
+	time frontend/lame$(EXEEXT) --nores -h $(top_srcdir)/testcase.wav testcase.new.mp3 || $(RM_F) testcase.new.mp3
 
 test: testcase.mp3 testcase.new.mp3
 	cmp -l testcase.new.mp3 $(top_srcdir)/testcase.mp3 | wc -l
