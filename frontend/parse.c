@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.135 2002/04/10 12:55:46 bouvigne Exp $ */
+/* $Id: parse.c,v 1.136 2002/04/15 11:51:24 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1126,6 +1126,7 @@ static int  dm_presets( lame_t gfp, int fast, int cbr, const char* preset_name, 
                 lame_set_VBR_mean_bitrate_kbps(gfp, (actual_bitrate));
                 lame_set_VBR_mean_bitrate_kbps(gfp, Min(lame_get_VBR_mean_bitrate_kbps(gfp), 320)); 
                 lame_set_VBR_mean_bitrate_kbps(gfp, Max(lame_get_VBR_mean_bitrate_kbps(gfp), 8)); 
+                lame_set_brate(gfp, lame_get_VBR_mean_bitrate_kbps(gfp));
             }
 
             lame_set_exp_nspsytune(gfp, lame_get_exp_nspsytune(gfp) | 1);
