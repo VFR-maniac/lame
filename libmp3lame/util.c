@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.39 2000/12/11 16:03:07 aleidinger Exp $ */
+/* $Id: util.c,v 1.40 2000/12/12 01:11:27 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -248,7 +248,7 @@ int samplerate)   /* convert bitrate in kbps to index */
 {
     int  i;
 
-    for ( i = 1; i <= 14; i++)
+    for ( i = 0; i <= 14; i++)
         if ( bitrate_table [version] [i] == bRate )
             return i;
 	    

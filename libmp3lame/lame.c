@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.58 2000/12/11 16:03:06 aleidinger Exp $ */
+/* $Id: lame.c,v 1.59 2000/12/12 01:11:26 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -736,9 +736,11 @@ int lame_init_params ( lame_global_flags* const gfp )
   if( gfc->samplerate_index < 0) {
     return -1;
   }
-  if (gfp->free_format) {
+
+  if (gfp->free_format || gfp->VBR!=vbr_off) {
     gfc->bitrate_index=0;
   }else{
+    /* lookup the bitrate index */
     if( (gfc->bitrate_index = BitrateIndex(gfp->brate, gfp->version,gfp->out_samplerate)) < 0) {
       return -1;
     }
