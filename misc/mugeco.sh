@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# $Id: mugeco.sh,v 1.3 2000/11/12 22:18:01 aleidinger Exp $
+
 # set -x
 
 my_name=$(basename $0)
