@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.250 2004/01/26 12:05:59 olcios Exp $ */
+/* $Id: lame.c,v 1.251 2004/01/31 20:05:14 olcios Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -643,18 +643,20 @@ lame_init_params(lame_global_flags * const gfp)
                                                             VBR_mean_bitrate_kbps);
     }
 
+    /* do not compute ReplayGain values and do not find the peak sample
+       if we can't store them */
+    if (!gfp->bWriteVbrTag){
+	gfp->ReplayGain_input = 0;
+        gfp->ReplayGain_decode = 0;	
+        gfp->findPeakSample = 0;	
+    }
+
     
     if (gfp->ReplayGain_decode || gfp->findPeakSample) {
       gfc->decode_on_the_fly = 1;
       gfp->ReplayGain_input = 0;
       gfp->ReplayGain_decode = 1;
       gfp->findPeakSample = 1;
-    }
-
-    /* do not compute ReplayGain values if we can't store them */
-    if (!gfp->bWriteVbrTag){
-	gfp->ReplayGain_input = 0;
-        gfp->ReplayGain_decode = 0;	
     }
 
 
