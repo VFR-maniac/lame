@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.57 2001/02/27 06:14:57 markt Exp $ */
+/* $Id: util.c,v 1.58 2001/02/27 09:59:18 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -565,7 +565,7 @@ int fill_buffer_resample(
 *  Message Output
 *
 ***********************************************************************/
-int  lame_debugf (lame_internal_flags *gfc, const char* format, ... )
+int  lame_debugf (const lame_internal_flags *gfc, const char* format, ... )
 {
     va_list  args;
     int      ret;
@@ -580,7 +580,7 @@ int  lame_debugf (lame_internal_flags *gfc, const char* format, ... )
 }
 
 
-int  lame_msgf (lame_internal_flags *gfc, const char* format, ... )
+int  lame_msgf (const lame_internal_flags *gfc, const char* format, ... )
 {
     va_list  args;
     int      ret;
@@ -595,7 +595,7 @@ int  lame_msgf (lame_internal_flags *gfc, const char* format, ... )
 }
 
 
-int  lame_errorf (lame_internal_flags *gfc, const char* format, ... )
+int  lame_errorf (const lame_internal_flags *gfc, const char* format, ... )
 {
     va_list  args;
     int      ret;

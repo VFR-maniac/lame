@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.92 2001/02/27 06:14:57 markt Exp $ */
+/* $Id: lame.c,v 1.93 2001/02/27 09:59:18 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -789,7 +789,8 @@ lame_init_params(lame_global_flags * const gfp)
         case MPG_MD_STEREO:
             channels = 3.;
             break;
-        default:
+        default:    
+            channels = 1.;  // just to make data flow analysis happy :-)
             assert(0);
             break;
         }

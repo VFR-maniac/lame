@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.19 2001/02/27 06:14:56 markt Exp $ */
+/* $Id: VbrTag.c,v 1.20 2001/02/27 09:59:16 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -164,7 +164,7 @@ void AddVbrFrame(lame_global_flags *gfp)
         }
         else {
             gfc->VBR_seek_table.size = 0;
-            ERRORF (gfp,"Error: can't allocate VbrFrames buffer\n");
+            ERRORF (gfc,"Error: can't allocate VbrFrames buffer\n");
             return;
         }   
     }
