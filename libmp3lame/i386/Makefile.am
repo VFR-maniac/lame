@@ -1,8 +1,8 @@
-## $Id: Makefile.am,v 1.5 2000/11/05 14:52:20 aleidinger Exp $
+## $Id: Makefile.am,v 1.6 2000/11/13 10:57:52 aleidinger Exp $
 
 AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
 
-DEFS = @DEFS@ @CONFIG_DEFS@ @ENCODER_DEFS@
+DEFS = @DEFS@ @CONFIG_DEFS@
 
 noinst_LTLIBRARIES = liblameasmroutines.la
 
