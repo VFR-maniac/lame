@@ -1,4 +1,4 @@
-/* $Id: mp3rtp.c,v 1.14 2001/01/05 15:20:33 aleidinger Exp $ */
+/* $Id: mp3rtp.c,v 1.15 2001/01/07 09:14:59 markt Exp $ */
 
 /* Still under work ..., need a client for test, where can I get one? */
 
@@ -97,11 +97,6 @@ void levelmessage ( unsigned maxvalue )
     fwrite ( buff, 1, sizeof(buff)-1, stderr );
 }
 
-sound_file_format input_format;
-int     swapbytes;           /* force byte swapping   default=0 */
-int     silent;
-int     brhist;
-float   update_interval;     /* to use Frank's time status display */
 
 /************************************************************************
 *

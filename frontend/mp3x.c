@@ -1,4 +1,4 @@
-/* $Id: mp3x.c,v 1.12 2001/01/05 15:20:33 aleidinger Exp $ */
+/* $Id: mp3x.c,v 1.13 2001/01/07 09:14:59 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -20,14 +20,6 @@
 #ifdef WITH_DMALLOC
 #include <dmalloc.h>
 #endif
-
-/* GLOBAL VARIABLES.  set by parse_args() */
-/* we need to clean this up */
-sound_file_format input_format;   
-int swapbytes;              /* force byte swapping   default=0*/
-int silent;
-int brhist;
-float update_interval;      /* to use Frank's time status display */
 
 
 
