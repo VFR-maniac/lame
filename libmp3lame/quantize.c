@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.130 2003/01/25 11:02:49 bouvigne Exp $ */
+/* $Id: quantize.c,v 1.131 2003/02/14 17:41:44 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -305,6 +305,8 @@ init_outer_loop(
     cod_info->slen[1]             = 0;
     cod_info->slen[2]             = 0;
     cod_info->slen[3]             = 0;
+    
+    cod_info->max_nonzero_coeff = 0;
 
     /*  fresh scalefactors are all zero
      */

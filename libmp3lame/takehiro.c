@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: takehiro.c,v 1.31 2002/12/15 11:10:09 takehiro Exp $ */
+/* $Id: takehiro.c,v 1.32 2003/02/14 17:41:46 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -596,9 +596,10 @@ int count_bits(
     int *const ix = gi->l3_enc;
     /* since quantize_xrpow uses table lookup, we need to check this first: */
     FLOAT8 w = (IXMAX_VAL) / IPOW20(gi->global_gain);
-    for ( i = 0; i < 576; i++ )  {
-	if (xr[i] > w)
-	    return LARGE_BITS;
+    int max_coeff = gi->max_nonzero_coeff;
+    for ( i = 0; i <= max_coeff; i++ )  {
+	    if (xr[i] > w)
+	        return LARGE_BITS;
     }
 
     if (gfc->quantization) 
