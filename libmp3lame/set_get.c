@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.5 2001/04/01 03:22:57 jd- Exp $ */
+/* $Id: set_get.c,v 1.6 2001/04/13 15:13:12 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -657,6 +657,7 @@ lame_get_noATH( const lame_global_flags*  gfp ){
 int
 lame_set_ATHtype( lame_global_flags*  gfp,
                   int                 ATHtype ){
+// ATHtype should be converted to an enum
     gfp->ATHtype=ATHtype;
     return 0;
 }
@@ -770,6 +771,7 @@ int
 lame_set_emphasis( lame_global_flags*  gfp,
                    int                 emphasis )
 {
+// emphasis should be converted to an enum
     if (emphasis<0 || emphasis>3) return -1;
     gfp->emphasis = emphasis;
     return 0;
