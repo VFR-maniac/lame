@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.53 2001/02/20 18:18:36 aleidinger Exp $ */
+/* $Id: util.c,v 1.54 2001/02/21 17:06:06 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -683,8 +683,8 @@ int select_kth_int(int a[], int N, int k)
 {
     int i, j, l, r, v, w;
     
-    l = 1;
-    r = N;
+    l = 0;
+    r = N-1;
     while (r > l) {
         v = a[r];
         i = l-1;
