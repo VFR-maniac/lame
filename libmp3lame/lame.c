@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.80 2001/02/13 16:58:43 robert Exp $ */
+/* $Id: lame.c,v 1.81 2001/02/16 10:33:58 pgubanov Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1248,7 +1248,20 @@ int    lame_encode_buffer_interleaved (
   assert(MFSIZE>=mf_needed);
 
   if (gfp->num_channels == 1) {
-    return lame_encode_buffer(gfp,buffer,NULL,nsamples,mp3buf,mp3buf_size);
+    /*
+      return lame_encode_buffer(gfp,buffer,NULL,nsamples,mp3buf,mp3buf_size);
+
+      Putting NULL for the second channel causes access violation in lame_encode_buffer
+      for (i = 0; i < nsamples; i++) {
+  
+        in_buffer [0] [i] = buffer_l [i];
+        in_buffer [1] [i] = buffer_r [i];		<--- right here
+      }
+
+      If we just duplicate the buffer here, everything should work fine.
+	  But I don't know whether this is correct.
+    */
+    return lame_encode_buffer(gfp,buffer,buffer,nsamples,mp3buf,mp3buf_size);
   }
 
   if (gfc->resample_ratio != 1.0)  {
