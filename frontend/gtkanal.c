@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: gtkanal.c,v 1.31 2004/04/25 12:33:18 bouvigne Exp $ */
+/* $Id: gtkanal.c,v 1.32 2004/06/06 14:15:49 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -556,22 +556,24 @@ void plot_frame(void)
 
     /* draw some hash marks showing scalefactor bands */
     if (gtkinfo.sfblines) {
-      int fac,nsfb, *scalefac;
-      if (blocktype[gr][ch]==SHORT_TYPE) {
-	nsfb=SBMAX_s;
-	fac=3;
-	scalefac = gfc->scalefac_band.s;
-      }else{
-	nsfb=SBMAX_l;
-	fac=1;
-	scalefac = gfc->scalefac_band.l;
-      }
-      for (i=nsfb-7 ; i<nsfb; i++) {
-	ycord[0] = .8*ymx;  ycord[1] = ymn;
-	xcord[0] = fac*scalefac[i];
-	xcord[1] = xcord[0];
-	gpk_rectangle_draw(mdctbox[gr],xcord,ycord,xmn,ymn,xmx,ymx,&yellow);
-      }
+        int fac,nsfb, *scalefac;
+            if (blocktype[gr][ch]==SHORT_TYPE) {
+            nsfb=SBMAX_s;
+            i = nsfb-7;
+            fac=3;
+            scalefac = gfc->scalefac_band.s;
+        }else{
+            nsfb=SBMAX_l;
+            i = nsfb-10;
+            fac=1;
+            scalefac = gfc->scalefac_band.l;
+        }
+        for ( ; i<nsfb; i++) {
+            ycord[0] = .8*ymx;  ycord[1] = ymn;
+            xcord[0] = fac*scalefac[i];
+            xcord[1] = xcord[0];
+            gpk_rectangle_draw(mdctbox[gr],xcord,ycord,xmn,ymn,xmx,ymx,&yellow);
+        }
     }   
 
 
