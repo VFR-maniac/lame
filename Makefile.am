@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.32 2004/02/08 14:08:16 bouvigne Exp $
+## $Id: Makefile.am,v 1.33 2004/05/14 19:11:10 aleidinger Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -40,10 +40,13 @@ testcase.new.mp3: testcase.wav frontend/lame$(EXEEXT)
 	time frontend/lame$(EXEEXT) --nores $(top_srcdir)/testcase.wav testcase.new.mp3 || $(RM_F) testcase.new.mp3
 
 test: testcase.mp3 testcase.new.mp3
-	cmp -l testcase.new.mp3 $(top_srcdir)/testcase.mp3 | wc -l
+	@echo
+	@echo "The following output has value only for a LAME-developer, do not make _any_"
+	@echo "assumptions about what this number means. You do not need to care about it."
+	@cmp -l testcase.new.mp3 $(top_srcdir)/testcase.mp3 | wc -l
 
 testupdate: testcase.mp3 testcase.new.mp3
-	cp testcase.new.mp3 testcase.mp3
+	cp testcase.new.mp3 $(top_srcdir)/testcase.mp3
 
 testg: frontend/mp3x$(EXEEXT) $(top_srcdir)/../test/castanets.wav
 	frontend/mp3x$(EXEEXT) -h $(top_srcdir)/../test/castanets.wav
