@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: tables.c,v 1.17 2001/03/12 20:40:36 markt Exp $ */
+/* $Id: tables.c,v 1.18 2001/10/28 22:24:57 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -497,9 +497,9 @@ const int  bitrate_table    [3] [16] = {
 };
 
 const int  samplerate_table [3]  [4] = { 
-    { 22050, 24000, 16000, -1 },
-    { 44100, 48000, 32000, -1 },
-    { 11025, 12000,  8000, -1 },
+    { 22050, 24000, 16000, -1 },      /* MPEG 2 */
+    { 44100, 48000, 32000, -1 },      /* MPEG 1 */  
+    { 11025, 12000,  8000, -1 },      /* MPEG 2.5 */
 };
 
 const char* version_string  [3] = { "2", "1", "2.5" };

@@ -1,4 +1,4 @@
-/* $Id: interface.c,v 1.37 2001/08/26 18:38:43 markt Exp $ */
+/* $Id: interface.c,v 1.38 2001/10/28 22:24:57 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -371,6 +371,7 @@ int decodeMP3( PMPSTR mp,unsigned char *in,int isize,char *out,
 		    /* read in Xing header.  Buffer data in case it
 		     * is used by a non zero main_data_begin for the next
 		     * frame, but otherwise dont decode Xing header */
+                    /*fprintf(stderr,"found xing header, skipping %i\n",vbrbytes+bytes);*/
 		    for (i=0; i<vbrbytes+bytes; ++i) read_buf_byte(mp);
 		    /* now we need to find another syncword */
 		    /* just return and make user send in more data */

@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.48 2001/10/25 11:54:35 roelvdb Exp $ */
+/* $Id: VbrTag.c,v 1.49 2001/10/28 22:24:56 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -329,8 +329,8 @@ int GetVbrTag(VBRTAGDATA *pTagData,  unsigned char *buf)
 	pTagData->h_id = h_id;
 	pTagData->samprate = samplerate_table[h_id][h_sr_index];
 
-	if( h_id == 0 )
-		pTagData->samprate >>= 1;
+        //	if( h_id == 0 )
+        //		pTagData->samprate >>= 1;
 
 	head_flags = pTagData->flags = ExtractI4(buf); buf+=4;      /* get flags */
 
@@ -405,7 +405,7 @@ int InitVbrTag(lame_global_flags *gfp)
 
 
 	/* Clear Frame position array variables */
-	gfp->pVbrFrames=NULL;
+	//gfp->pVbrFrames=NULL;
 	gfp->nVbrNumFrames=0;
 	gfp->nVbrFrameBufferSize=0;
 
@@ -444,7 +444,8 @@ int InitVbrTag(lame_global_flags *gfp)
 			bitrate = gfp->brate;
 	
 	gfp->TotalFrameSize= 
-	  ((gfp->version+1)*72000*bitrate) / gfp->out_samplerate;
+  	  ((gfp->version+1)*72000*bitrate) / gfp->out_samplerate;
+
 	tot = (gfc->sideinfo_len+LAMEHEADERSIZE);
 	
 	assert(gfp->TotalFrameSize >= tot );
@@ -937,9 +938,8 @@ int PutVbrTag(lame_global_flags *gfp,FILE *fpStream,int nVbrScale)
 		return -1;
 	}
 	/* Save to delete the frame buffer */
-	free(gfp->pVbrFrames);
-
-	gfp->pVbrFrames=NULL;
+	//free(gfp->pVbrFrames);  see HACKING for instructions on how
+	//gfp->pVbrFrames=NULL;   memory in 'gfp' is allocated/free'd
 
 	return 0;       /* success */
 }

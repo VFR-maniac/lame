@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.90 2001/10/13 14:02:27 aleidinger Exp $ */
+/* $Id: util.c,v 1.91 2001/10/28 22:24:57 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -361,8 +361,6 @@ void getframebits(const lame_global_flags * gfp, int *bitsPerFrame, int *mean_bi
   // bytes_per_frame = bitrate * ( gfp->version == 1  ?  1152/8*1000  :  576/8*1000 ) / gfp->out_samplerate;
   
   whole_SpF = (gfp->version+1)*72000*bit_rate / gfp->out_samplerate;
-  
-  // There must be somewhere code toggling gfc->padding on and off
   
   /* main encoding routine toggles padding on and off */
   /* one Layer3 Slot consists of 8 bits */
