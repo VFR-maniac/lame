@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.65 2001/08/01 21:45:02 robert Exp $ */
+/* $Id: quantize_pvt.c,v 1.66 2001/08/14 21:46:20 robert Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -572,7 +572,8 @@ int calc_xmin(
             else {
                 if      (sfb <=  6) xmin *= gfc->nsPsy.bass;
                 else if (sfb <= 13) xmin *= gfc->nsPsy.alto;
-                else                xmin *= gfc->nsPsy.treble;
+                else if (sfb <= 20) xmin *= gfc->nsPsy.treble;
+                else                xmin *= gfc->nsPsy.sfb21;
                 if ((gfp->VBR == vbr_off || gfp->VBR == vbr_abr) && gfp->quality <= 1)
                     xmin *= 0.001;
             }
