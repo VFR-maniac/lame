@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.37 2002/04/21 16:56:50 takehiro Exp $ */
+/* $Id: set_get.c,v 1.38 2002/06/09 16:01:31 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1264,7 +1264,7 @@ lame_set_interChRatio( lame_global_flags*  gfp,
     return 0;
 }
 
-int
+float
 lame_get_interChRatio( const lame_global_flags*  gfp )
 {
     assert( 0 <= gfp->interChRatio && gfp->interChRatio <= 1.0);
