@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.66 2001/03/05 01:25:01 markt Exp $ */
+/* $Id: psymodel.c,v 1.67 2001/03/05 01:26:53 markt Exp $ */
 
 
 /*
@@ -156,7 +156,7 @@ blocktype_d[2]        block type to use for previous granule
 #endif
 
 #define NSFIRLEN 21
-#undef NOTABLES
+#define NOTABLES
 #define rpelev 2
 #define rpelev2 16
 
