@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.13 2000/10/29 18:12:32 robert Exp $ */
+/* $Id: quantize_pvt.c,v 1.14 2000/10/29 21:11:38 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -358,7 +358,7 @@ int targ_bits[2],int mean_bits, int gr)
   int max_bits;  /* maximum allowed bits for this granule */
 
   /* allocate targ_bits for granule */
-  ResvMaxBits(gfc->gfp, mean_bits, &tbits, &extra_bits);
+  ResvMaxBits (gfc, mean_bits, &tbits, &extra_bits);
   max_bits=tbits+extra_bits;
 
   bits=0;
