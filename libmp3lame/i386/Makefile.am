@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.4 2000/11/04 18:15:47 pfk Exp $
+## $Id: Makefile.am,v 1.5 2000/11/05 14:52:20 aleidinger Exp $
 
 AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
 
@@ -18,6 +18,11 @@ nasm_sources = \
 	choose_table.nas \
 	cpu_feat.nas \
 	scalar.nas
+
+CLEANFILES = \
+	choose_table.lst \
+	cpu_feat.lst \
+	scalar.lst
 
 if HAVE_NASM
 liblameasmroutines_la_SOURCES = $(nasm_sources)
