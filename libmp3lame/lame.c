@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.169 2001/12/14 07:00:57 dibrom Exp $ */
+/* $Id: lame.c,v 1.170 2002/01/28 18:18:55 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1121,10 +1121,10 @@ lame_init_params(lame_global_flags * const gfp)
          */
         gfc->sfb21_extra = 0;
 
-        /*  default quality setting for CBR/ABR is 5
+        /*  default quality setting for CBR/ABR is 2
          */
         if (gfp->quality < 0)
-            gfp->quality = 5;
+            gfp->quality = 2;
 
         break;
     }
