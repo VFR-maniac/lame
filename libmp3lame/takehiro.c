@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: takehiro.c,v 1.32 2003/02/14 17:41:46 bouvigne Exp $ */
+/* $Id: takehiro.c,v 1.33 2003/10/22 08:26:50 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -891,7 +891,7 @@ void best_scalefac_store(
 	}
     }
 
-    if (!gi->preflag && gi->block_type != SHORT_TYPE) {
+    if (!gi->preflag && gi->block_type != SHORT_TYPE && gfc->mode_gr==2) {
 	for (sfb = 11; sfb < SBPSY_l; sfb++)
 	    if (gi->scalefac[sfb] < pretab[sfb] && gi->scalefac[sfb] != -2)
 		break;
