@@ -19,10 +19,12 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.22 2000/11/13 10:47:39 aleidinger Exp $ */
+/* $Id: quantize_pvt.c,v 1.23 2000/11/18 10:51:51 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+# include <config.h>
+#elif defined(HAVE_CONFIG_MS_H)
+# include <configMS.h>
 #endif
 
 #include <assert.h>

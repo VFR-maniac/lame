@@ -19,10 +19,12 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: encoder.c,v 1.15 2000/11/14 12:18:35 aleidinger Exp $ */
+/* $Id: encoder.c,v 1.16 2000/11/18 10:51:50 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
+#elif defined(HAVE_CONFIG_MS_H)
+# include <configMS.h>
 #endif
 
 #include <assert.h>

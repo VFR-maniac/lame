@@ -29,10 +29,12 @@
  * NOTE: See http://id3.org/ for more information about ID3 tag formats.
  */
 
-/* $Id: id3tag.c,v 1.12 2000/11/09 00:29:13 pfk Exp $ */
+/* $Id: id3tag.c,v 1.13 2000/11/18 10:51:50 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+# include <config.h>
+#elif defined(HAVE_CONFIG_MS_H)
+# include <configMS.h>
 #endif
 
 #include <stddef.h>

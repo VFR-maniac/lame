@@ -19,10 +19,12 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: vbrquantize.c,v 1.16 2000/11/13 10:48:40 aleidinger Exp $ */
+/* $Id: vbrquantize.c,v 1.17 2000/11/18 10:51:52 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+# include <config.h>
+#elif defined(HAVE_CONFIG_MS_H)
+# include <configMS.h>
 #endif
 
 #include <assert.h>

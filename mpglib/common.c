@@ -1,7 +1,9 @@
-/* $Id: common.c,v 1.22 2000/11/02 12:57:38 aleidinger Exp $ */
+/* $Id: common.c,v 1.23 2000/11/18 10:52:49 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
+#elif defined(HAVE_CONFIG_MS_H)
+# include <configMS.h>
 #endif
 
 #include <ctype.h>

@@ -19,10 +19,12 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: gtkanal.c,v 1.8 2000/11/06 19:22:49 cisc Exp $ */
+/* $Id: gtkanal.c,v 1.9 2000/11/18 10:50:56 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+# include <config.h>
+#elif defined(HAVE_CONFIG_MS_H)
+# include <configMS.h>
 #endif
 
 #include <math.h>

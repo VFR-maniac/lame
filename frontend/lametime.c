@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lametime.c,v 1.4 2000/10/31 12:18:41 robert Exp $ */
+/* $Id: lametime.c,v 1.5 2000/11/18 10:50:56 aleidinger Exp $ */
 
 /*
  * name:        GetCPUTime ( void )
@@ -35,7 +35,9 @@
  */
 
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+# include <config.h>
+#elif defined(HAVE_CONFIG_MS_H)
+# include <configMS.h>
 #endif
 
 #include <stdio.h>

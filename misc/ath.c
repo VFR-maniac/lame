@@ -1,4 +1,4 @@
-/* $Id: ath.c,v 1.8 2000/11/13 10:45:10 aleidinger Exp $ */
+/* $Id: ath.c,v 1.9 2000/11/18 10:52:25 aleidinger Exp $ */
 /*
  * Known bugs (sorted by importance): 
  *     - human delay (ca. 200 ms or more???) and buffering delay (341 ms @48 kHz/64 KByte)
@@ -13,6 +13,8 @@
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
+#elif defined(HAVE_CONFIG_MS_H)
+# include <configMS.h>
 #endif
 
 #include <assert.h>

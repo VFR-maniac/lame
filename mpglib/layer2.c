@@ -5,10 +5,12 @@
  *
  */
 
-/* $Id: layer2.c,v 1.15 2000/10/29 12:41:10 aleidinger Exp $ */
+/* $Id: layer2.c,v 1.16 2000/11/18 10:52:49 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+# include <config.h>
+#elif defined(HAVE_CONFIG_MS_H)
+# include <configMS.h>
 #endif
 
 #ifdef USE_LAYER_2

@@ -19,10 +19,12 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.28 2000/11/14 12:20:35 aleidinger Exp $ */
+/* $Id: quantize.c,v 1.29 2000/11/18 10:51:51 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+# include <config.h>
+#elif defined(HAVE_CONFIG_MS_H)
+# include <configMS.h>
 #endif
 
 #include <math.h>

@@ -6,10 +6,12 @@
  * even for Intel processors.
  */
 
-/* $Id: dct64_i386.c,v 1.6 2000/10/29 12:41:10 aleidinger Exp $ */
+/* $Id: dct64_i386.c,v 1.7 2000/11/18 10:52:49 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
+#elif defined(HAVE_CONFIG_MS_H)
+# include <configMS.h>
 #endif
 
 #include "dct64_i386.h"

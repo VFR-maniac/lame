@@ -31,10 +31,12 @@
 **           Takehiro  - some dirty hack for speed up
 */
 
-/* $Id: fft.c,v 1.9 2000/11/14 12:20:35 aleidinger Exp $ */
+/* $Id: fft.c,v 1.10 2000/11/18 10:51:50 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+# include <config.h>
+#elif defined(HAVE_CONFIG_MS_H)
+# include <configMS.h>
 #endif
 
 #include <math.h>

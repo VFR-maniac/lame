@@ -8,10 +8,12 @@
  *
  */
 
-/* $Id: layer1.c,v 1.13 2000/11/08 19:59:14 aleidinger Exp $ */
+/* $Id: layer1.c,v 1.14 2000/11/18 10:52:49 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+# include <config.h>
+#elif defined(HAVE_CONFIG_MS_H)
+# include <configMS.h>
 #endif
 
 #ifdef USE_LAYER_1

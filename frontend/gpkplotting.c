@@ -19,10 +19,12 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: gpkplotting.c,v 1.4 2000/10/29 12:45:54 aleidinger Exp $ */
+/* $Id: gpkplotting.c,v 1.5 2000/11/18 10:50:56 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+# include <config.h>
+#elif defined(HAVE_CONFIG_MS_H)
+# include <configMS.h>
 #endif
 
 #include "gpkplotting.h"

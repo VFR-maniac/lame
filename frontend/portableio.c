@@ -43,47 +43,13 @@
  * conversions, and accommodated conversions involving +/- infinity,
  * NaN's, and denormalized numbers.
  *
- * $Id: portableio.c,v 1.4 2000/11/18 04:30:59 markt Exp $
- *
- * $Log: portableio.c,v $
- * Revision 1.4  2000/11/18 04:30:59  markt
- * Makefiles:  removed ieeefloat.* from makefiles.
- * get_audio.c: replaced DetermineByteOrder with original routine.
- *
- * Revision 1.3  2000/11/18 04:24:06  markt
- * Removed ieeefloat.*
- *
- * Revision 1.2  2000/10/29 12:45:54  aleidinger
- * support for config.h
- *
- * Revision 1.1  2000/09/28 16:36:53  takehiro
- * moved frontend staffs into frontend/
- * Need to debug vorbis/mpglib/analyzer/bitrate histgram.
- * still long way to go...
- *
- * HAVEGTK is changed ANALYSIS(library side) and HAVEGTK(frontend side)
- *
- * BRHIST is deleted from library. all the bitrate histogram works are
- * now in frontend(but not works properly, yet).
- *
- * timestatus things are also moved to frontend.
- *
- * parse.c is now out of library.
- *
- * Revision 1.2  2000/06/07 22:56:02  sbellon
- * added support for FPA10 hardware (RISC OS only)
- *
- * Revision 1.1.1.1  1999/11/24 08:43:35  markt
- * initial checkin of LAME
- * Starting with LAME 3.57beta with some modifications
- *
- * Revision 2.6  91/04/30  17:06:02  malcolm
+ * $Id: portableio.c,v 1.5 2000/11/18 10:50:57 aleidinger Exp $
  */
 
-/* $Id: portableio.c,v 1.4 2000/11/18 04:30:59 markt Exp $ */
-
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+# include <config.h>
+#elif defined(HAVE_CONFIG_MS_H)
+# include <configMS.h>
 #endif
 
 #include	<stdio.h>

@@ -19,10 +19,12 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.31 2000/11/14 12:20:36 aleidinger Exp $ */
+/* $Id: util.c,v 1.32 2000/11/18 10:51:52 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+# include <config.h>
+#elif defined(HAVE_CONFIG_MS_H)
+# include <configMS.h>
 #endif
 
 #define PRECOMPUTE

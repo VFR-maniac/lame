@@ -1,4 +1,4 @@
-/* $Id: abx.c,v 1.3 2000/11/13 10:45:10 aleidinger Exp $ */
+/* $Id: abx.c,v 1.4 2000/11/18 10:52:25 aleidinger Exp $ */
 /*
  * Usage: abx original_file test_file
  * Ask you as long as the probability is below the given percentage
@@ -22,6 +22,8 @@
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
+#elif defined(HAVE_CONFIG_MS_H)
+# include <configMS.h>
 #endif
 
 #include <stdio.h>

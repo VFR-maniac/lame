@@ -1,7 +1,9 @@
-/* $Id: mp3x.c,v 1.8 2000/10/29 12:45:54 aleidinger Exp $ */
+/* $Id: mp3x.c,v 1.9 2000/11/18 10:50:57 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+# include <config.h>
+#elif defined(HAVE_CONFIG_MS_H)
+# include <configMS.h>
 #endif
 
 #include "lame.h"

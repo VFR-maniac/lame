@@ -19,11 +19,13 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.37 2000/11/18 05:40:31 markt Exp $ */
+/* $Id: get_audio.c,v 1.38 2000/11/18 10:50:56 aleidinger Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+# include <config.h>
+#elif defined(HAVE_CONFIG_MS_H)
+# include <configMS.h>
 #endif
 
 #include <assert.h>
