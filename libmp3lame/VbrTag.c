@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.25 2001/09/03 23:45:09 potsticker Exp $ */
+/* $Id: VbrTag.c,v 1.26 2001/09/04 00:06:07 potsticker Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -84,12 +84,13 @@
 const static char	VBRTag[]={"Xing"};
 
 
+//<<<<<<< VbrTag.c
 
 
 
-/* Lookup table for fast CRC computation*/
-/* See 'CRC_update_lookup'
-/* Uses the polynomial x^16+x^15+x^2+1 */
+/* Lookup table for fast CRC computation
+ * See 'CRC_update_lookup'
+ * Uses the polynomial x^16+x^15+x^2+1 */
 
 unsigned int crc16_lookup[256] =
 {
@@ -586,7 +587,7 @@ int PutLameVBR(lame_global_flags *gfp, FILE *fpStream, u_char *pbtStreamBuffer, 
 	else
 		nVBR = 0x00;		//unknown.
 
-	nRevMethod = 0x10 * 0x00 + nVBR; 
+	nRevMethod = 0x10 * nRevision + nVBR; 
 	
 	/*Validate lowpass*/
 	if (gfp->lowpassfreq < 100 || gfp->lowpassfreq > 25500)
@@ -962,6 +963,7 @@ int PutVbrTag(lame_global_flags *gfp,FILE *fpStream,int nVbrScale)
 	}
 	/* Save to delete the frame buffer */
 	free(gfp->pVbrFrames);
+
 	gfp->pVbrFrames=NULL;
 
 	return 0;       /* success */
