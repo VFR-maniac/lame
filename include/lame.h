@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.69 2001/04/01 02:11:06 jd- Exp $ */
+/* $Id: lame.h,v 1.70 2001/04/01 03:22:57 jd- Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -156,6 +156,7 @@ typedef struct  {
   int ATHtype;                    /* select ATH formula                   */
   float ATHlower;                 /* lower ATH by this many db            */
   int adapt_thres_type;           /* select ATH auto-level adjust formula */
+  float adapt_thres_level;        /* dB, tune active region of auto-level */
   int cwlimit;                    /* predictability limit                 */
   int allow_diff_short;           /* allow blocktypes to differ between
                                      channels?                            */
@@ -476,6 +477,10 @@ float CDECL lame_get_ATHlower(const lame_global_flags *);
 // select adaptive ATH level adjustment scheme
 int CDECL lame_set_adapt_thres_type( lame_global_flags *, int);
 int CDECL lame_get_adapt_thres_type( const lame_global_flags *);
+
+// adjust (in dB) the point below which adaptive ATH level adjustment occurs
+int CDECL lame_set_adapt_thres_level( lame_global_flags *, float);
+float CDECL lame_get_adapt_thres_level( const lame_global_flags* );
 
 // predictability limit (ISO tonality formula)
 int CDECL lame_set_cwlimit(lame_global_flags *, int);

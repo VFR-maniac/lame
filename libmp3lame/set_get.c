@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.4 2001/03/31 23:44:32 jd- Exp $ */
+/* $Id: set_get.c,v 1.5 2001/04/01 03:22:57 jd- Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -691,6 +691,20 @@ lame_set_adapt_thres_type( lame_global_flags* gfp,
 int
 lame_get_adapt_thres_type( const lame_global_flags* gfp ) {
     return gfp->adapt_thres_type;
+}
+
+
+// adjust (in dB) the point below which adaptive ATH level adjustment occurs
+int
+lame_set_adapt_thres_level( lame_global_flags* gfp,
+                            float adapt_thres_level ) {
+    gfp->adapt_thres_level = adapt_thres_level;
+    return 0;
+}
+
+float
+lame_get_adapt_thres_level( const lame_global_flags* gfp ) {
+    return gfp->adapt_thres_level;
 }
 
 
