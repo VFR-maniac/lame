@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.171 2003/04/20 12:33:16 bouvigne Exp $ */
+/* $Id: parse.c,v 1.172 2003/04/20 12:53:20 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -760,37 +760,14 @@ static int  presets_set( lame_t gfp, int fast, int cbr, const char* preset_name,
         preset_name = "256";
     }
 
-    if (strcmp(preset_name, "dm-radio") == 0) {
-	/*if (fast > 0) */
-	/*      lame_set_preset(gfp, DM_RADIO_FAST); */
-	/*else */
-	lame_set_preset(gfp, DM_RADIO);
-	return 0;
-    }
-
     if (strcmp(preset_name, "portable") == 0) {
-	/*if (fast > 0) */
-	/*      lame_set_preset(gfp, PORTABLE_FAST); */
-	/*else */
-	lame_set_preset(gfp, PORTABLE);
+        lame_set_preset(gfp, PORTABLE);
 
 	return 0;
     }
 
     if (strcmp(preset_name, "portable1") == 0) {
-	/*if (fast > 0) */
-	/*      lame_set_preset(gfp, PORTABLE_FAST); */
-	/*else */
-	lame_set_preset(gfp, PORTABLE1);
-
-	return 0;
-    }
-
-    if (strcmp(preset_name, "dm-medium") == 0) {
-	/*if (fast > 0) */
-	/*    lame_set_preset(gfp, DM_MEDIUM_FAST); */
-	/*else */
-	lame_set_preset(gfp, DM_MEDIUM);
+        lame_set_preset(gfp, PORTABLE1);
 
 	return 0;
     }
