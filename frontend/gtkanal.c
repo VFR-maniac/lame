@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: gtkanal.c,v 1.7 2000/11/06 00:58:38 cisc Exp $ */
+/* $Id: gtkanal.c,v 1.8 2000/11/06 19:22:49 cisc Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -1114,16 +1114,16 @@ static void text_window (GtkWidget *widget, gpointer data)
     gtk_window_set_title (GTK_WINDOW (textwindow), "About");
     gtk_widget_set_usize(box,350,260);
 
-    get_lame_url(url, sizeof(url));
-    get_lame_version(version, sizeof(version));
+    get_lame_url(url, sizeof(url), NULL);
+    get_lame_version(version, sizeof(version), NULL);
     sprintf(text,"LAME version %s \n%s\n\n",version,url);
     gtk_text_insert(GTK_TEXT(box),NULL,NULL,NULL,text,-1);
 
-    get_psy_version(version, sizeof(version));
+    get_psy_version(version, sizeof(version), NULL);
     sprintf(text,"psycho-acoustic model:  GPSYCHO version %s\n",version);
     gtk_text_insert(GTK_TEXT(box),NULL,NULL,NULL,text,-1);
     
-    get_mp3x_version(version, sizeof(version));
+    get_mp3x_version(version, sizeof(version), NULL);
     sprintf(text,"frame analyzer: MP3x version %s\n\n",version);
     gtk_text_insert(GTK_TEXT(box),NULL,NULL,NULL,text,-1);
     

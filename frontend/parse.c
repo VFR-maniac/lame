@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.26 2000/11/06 00:58:38 cisc Exp $ */
+/* $Id: parse.c,v 1.27 2000/11/06 19:22:49 cisc Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -48,10 +48,10 @@
 
 static int  lame_version_print ( FILE* const fp )
 {
-   char version[80],url[80];
+   char version[80], url[80];
 
-   get_lame_url ( url, sizeof(url));
-   get_lame_version ( version, sizeof(version));
+   get_lame_url ( url, sizeof(url), NULL);
+   get_lame_version ( version, sizeof(version), NULL);
 /* 
    fprintf ( fp, "%sLAME%s version %s    (%s)\n\n", Console_IO.str_emph, Console_IO.str_norm, version, url );
     ^- disabled as long as there is no proper solution for Console_IO, RH 

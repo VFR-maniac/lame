@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.11 2000/11/06 00:58:38 cisc Exp $ */
+/* $Id: VbrTag.c,v 1.12 2000/11/06 19:22:49 cisc Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -380,7 +380,7 @@ int PutVbrTag(lame_global_flags *gfp,FILE *fpStream,int nVbrScale)
 	char abyte,bbyte;
 	u_char		btToc[NUMTOCENTRIES];
 	u_char pbtStreamBuffer[MAXFRAMESIZE];
-	char str1[80] = "LAME";
+	char str1[80];
         unsigned char id3v2Header[10];
         size_t id3v2TagSize;
 
@@ -517,7 +517,7 @@ int PutVbrTag(lame_global_flags *gfp,FILE *fpStream,int nVbrScale)
 	nStreamIndex+=4;
 
 	/* Put LAME id */
-	get_lame_short_version(str1+4, sizeof(str1)-4);
+	get_lame_short_version(str1, sizeof(str1), "LAME");
 	strncpy((char *)&pbtStreamBuffer[nStreamIndex],str1,(size_t) 20);
 	nStreamIndex+=20;
 

@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.37 2000/11/06 00:58:38 cisc Exp $ */
+/* $Id: lame.c,v 1.38 2000/11/06 19:22:49 cisc Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -717,8 +717,8 @@ void lame_print_config ( const lame_global_flags* gfp )
     double    in_samplerate  = gfp->out_samplerate * gfc->resample_ratio;
     char version[80], url[80];
 
-    get_lame_version ( version, sizeof(version) );
-    get_lame_url ( url, sizeof(url) );
+    get_lame_version ( version, sizeof(version), NULL );
+    get_lame_url ( url, sizeof(url), NULL );
     MSGF ( "LAME version %s    (%s)\n", version, url );
 
     if ( gfc->CPU_features_MMX  ||  gfc->CPU_features_3DNow  ||  gfc->CPU_features_SIMD  ||  gfc->CPU_features_SIMD2 ) {
