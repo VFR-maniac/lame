@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.42 2001/01/07 08:28:07 markt Exp $ */
+/* $Id: quantize.c,v 1.43 2001/01/14 05:36:45 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1091,7 +1091,8 @@ VBR_prepare (
           int             bands         [2][2] )
 {
     lame_internal_flags *gfc=gfp->internal_flags;
-    static const FLOAT8 dbQ   [10] = {-4.,-3.,-2.,-1.,0.,0.5,1.,1.5,2.,2.5};
+    static const FLOAT8 dbQ[10]={-2.,-1.0,-.66,-.33,0.,0.33,.66,1.0,1.33,1.66};
+
     
     FLOAT8   masking_lower_db, adjust;
     int      gr, ch;

@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: vbrquantize.c,v 1.28 2001/01/08 18:07:14 aleidinger Exp $ */
+/* $Id: vbrquantize.c,v 1.29 2001/01/14 05:36:45 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1223,8 +1223,8 @@ VBR_quantize(lame_global_flags *gfp,
   qadjust=0;   /* start with -1 db quality improvement over quantize.c VBR */
 
   l3_side = &gfc->l3_side;
-  gfc->ATH_vbrlower = (4-gfp->VBR_q)*4.0; 
-  if (gfc->ATH_vbrlower < 0) gfc->ATH_vbrlower=0;
+  //gfc->ATHlower += (4-gfp->VBR_q)*4.0; 
+  //if (gfc->ATHlower < 0) gfc->ATHlower=0;
 
 
   /* now find out: if the frame can be considered analog silent
