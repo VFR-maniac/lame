@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.28 2002/12/08 17:02:14 takehiro Exp $
+## $Id: Makefile.am,v 1.29 2003/05/18 15:05:29 takehiro Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -65,3 +65,5 @@ frontend/lame$(EXEEXT):
 
 frontend/mp3x$(EXEEXT): frontend/lame$(EXEEXT)
 
+dist-hook:
+	chmod +x debian/rules
