@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.124 2001/06/04 23:29:32 markt Exp $ */
+/* $Id: lame.c,v 1.125 2001/06/07 19:14:44 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -583,7 +583,7 @@ lame_init_params(lame_global_flags * const gfp)
 
     if (gfp->error_protection) {
 	ERRORF(gfc,"Error: CRC is temporarily broken as of 5/2001!!!");
-	return -1;
+	return -2;
     }
 
     gfc->gfp = gfp;
