@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.254 2004/02/17 00:37:22 robert Exp $ */
+/* $Id: lame.c,v 1.255 2004/02/22 21:17:22 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -506,6 +506,11 @@ lame_init_params(lame_global_flags * const gfp)
     if (NULL == gfc->PSY)
         return -2;
         
+    if (NULL == gfc->rgdata)
+        gfc->rgdata = calloc(1, sizeof(replaygain_t));
+    if (NULL == gfc->rgdata)
+        return -2;
+        
     gfc->channels_in = gfp->num_channels;
     if (gfc->channels_in == 1)
         gfp->mode = MONO;
@@ -665,7 +670,7 @@ lame_init_params(lame_global_flags * const gfp)
 
 
     if (gfc->findReplayGain) {
-      if (InitGainAnalysis(gfp->out_samplerate) == INIT_GAIN_ANALYSIS_ERROR)
+      if (InitGainAnalysis(gfc->rgdata, gfp->out_samplerate) == INIT_GAIN_ANALYSIS_ERROR)
         return -6;
     }
 
@@ -1460,7 +1465,7 @@ lame_encode_buffer_sample_t(lame_global_flags * gfp,
 
         /* compute ReplayGain of resampled input if requested */
         if (gfp->ReplayGain_input) 
-            if (AnalyzeSamples(mfbuf[0], mfbuf[1], n_out, gfc->channels_out) == GAIN_ANALYSIS_ERROR) 
+            if (AnalyzeSamples(gfc->rgdata, mfbuf[0], mfbuf[1], n_out, gfc->channels_out) == GAIN_ANALYSIS_ERROR) 
                 return -6;
 
 

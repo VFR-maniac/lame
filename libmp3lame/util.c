@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.111 2003/12/21 10:16:36 bouvigne Exp $ */
+/* $Id: util.c,v 1.112 2004/02/22 21:17:23 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -84,6 +84,9 @@ void  freegfc ( lame_internal_flags* const gfc )   /* bit stream structure */
     }
     if ( gfc->PSY ) {
         free ( gfc->PSY );
+    }
+    if ( gfc->rgdata ) {
+        free ( gfc->rgdata );
     }
     if ( gfc->s3_ll ) {
         /* XXX allocated in psymodel_init() */
