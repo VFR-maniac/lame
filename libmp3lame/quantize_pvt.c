@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.110 2004/02/08 12:44:44 bouvigne Exp $ */
+/* $Id: quantize_pvt.c,v 1.111 2004/02/22 21:16:29 bouvigne Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -703,10 +703,15 @@ int  calc_noise(
             l = cod_info->width[sfb] >> 1;
 
             if ((j+cod_info->width[sfb])>cod_info->max_nonzero_coeff) {
-                unsigned int usefullsize;
+                int usefullsize;
                 usefullsize = cod_info->max_nonzero_coeff - j +1;
-                l = usefullsize >> 1;
+
+                if (usefullsize > 0)
+                    l = usefullsize >> 1;
+                else 
+                    l = 0;
             }
+
 
 	        while (l--) {
                 FLOAT8 temp;
