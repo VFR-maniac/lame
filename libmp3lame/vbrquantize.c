@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: vbrquantize.c,v 1.83 2003/10/21 09:05:10 bouvigne Exp $ */
+/* $Id: vbrquantize.c,v 1.84 2004/01/02 19:49:42 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1216,7 +1216,7 @@ VBR_noise_shaping(lame_internal_flags * gfc, FLOAT8 * xr34orig, int minbits, int
 	} else {
 	    /* quantize xr34 */
 	    block_xr34(gfc, cod_info, xr34orig, xr34);
-	    cod_info->part2_3_length = count_bits(gfc, xr34, cod_info);
+	    cod_info->part2_3_length = count_bits(gfc, xr34, cod_info, 0);
 
 	    if (cod_info->part2_3_length >= LARGE_BITS)
 		ret = -2;
