@@ -2,9 +2,12 @@
  * ISO MPEG Audio Subgroup Software Simulation Group (1996)
  * ISO 13818-3 MPEG-2 Audio Encoder - Lower Sampling Frequency Extension
  *
- * $Id: l3bitstream.h,v 1.3 2000/02/01 11:26:32 takehiro Exp $
+ * $Id: l3bitstream.h,v 1.4 2000/03/14 20:45:04 markt Exp $
  *
  * $Log: l3bitstream.h,v $
+ * Revision 1.4  2000/03/14 20:45:04  markt
+ * removed "info" sturct.   Removing fr_ps struct
+ *
  * Revision 1.3  2000/02/01 11:26:32  takehiro
  * scalefactor's structure changed
  *
@@ -27,7 +30,6 @@
 #include "util.h"
 
 void III_format_bitstream( int              bitsPerFrame,
-			   frame_params     *in_fr_ps,
 			   int              l3_enc[2][2][576],
                            III_side_info_t  *l3_side,
 			   III_scalefac_t   scalefac[2][2],
