@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.44 2001/01/15 14:19:34 shibatch Exp $ */
+/* $Id: psymodel.c,v 1.45 2001/01/17 13:26:05 shibatch Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1812,6 +1812,11 @@ int L3psycho_anal_ns( lame_global_flags * gfp,
   /*************************************************************** 
    * determine final block type
    ***************************************************************/
+
+  for(chn=0;chn<numchn;chn++)
+    if (gfc->nsPsy.pe_l[chn] > gfc->nsPsy.pe_s[chn]) uselongblock[chn] = 0;
+
+  if (uselongblock[2] == 0 || uselongblock[3] == 0) uselongblock[2] = uselongblock[3] = 0;
 
   for (chn=0; chn<gfc->channels_out; chn++) {
     blocktype[chn] = NORM_TYPE;
