@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.70 2001/04/01 03:22:57 jd- Exp $ */
+/* $Id: lame.h,v 1.71 2001/04/16 08:27:38 takehiro Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -198,7 +198,6 @@ typedef struct  {
 
   /* VBR tags.  This data is here because VBR header is writen after
    * input file is closed and *internal_flags struct is free'd */
-  int nZeroStreamSize;
   int TotalFrameSize;
   int* pVbrFrames;
   int nVbrNumFrames;
