@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.257 2004/02/25 21:41:42 robert Exp $ */
+/* $Id: lame.c,v 1.258 2004/03/09 19:04:16 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1186,7 +1186,7 @@ lame_print_config(const lame_global_flags * gfp)
         if (0. < gfc->lowpass1 && gfc->lowpass1 < 1.) {
             MSGF
                 (gfc,
-                 "Using polyphase lowpass  filter, transition band: %5.0f Hz - %5.0f Hz\n",
+                 "Using polyphase lowpass filter, transition band: %5.0f Hz - %5.0f Hz\n",
                  0.5 * gfc->lowpass1 * out_samplerate,
                  0.5 * gfc->lowpass2 * out_samplerate);
         }
