@@ -22,7 +22,7 @@
  
 /*!
 	\author Steve Lhomme
-	\version \$Id: ACM.h,v 1.3 2002/01/23 20:39:46 robux4 Exp $
+	\version \$Id: ACM.h,v 1.4 2002/01/24 19:38:12 robux4 Exp $
 */
 
 #if !defined(_ACM_H__INCLUDED_)
@@ -34,10 +34,13 @@
 
 #include <windows.h>
 #include <mmsystem.h>
+#include <mmreg.h>
+#include <msacm.h>
+#include <msacmdrv.h>
 
 #include "ADbg/ADbg.h"
 
-#include "AEncodeProperties.h"
+class AEncodeProperties;
 
 class ACM  
 {
@@ -46,6 +49,8 @@ public:
 	virtual ~ACM();
 
 	LONG DriverProcedure(const HDRVR hdrvr, const UINT msg, LONG lParam1, LONG lParam2);
+
+	static const char * GetVersionString(void) {return VersionString;}
 
 protected:
 //	inline DWORD Configure( HWND hParentWindow, LPDRVCONFIGINFO pConfig );
@@ -69,6 +74,8 @@ protected:
 	HICON   my_hIcon;
 	ADbg    my_debug;
 	AEncodeProperties my_EncodingProperties;
+
+	static char VersionString[20];
 
 };
 

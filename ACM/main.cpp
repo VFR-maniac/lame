@@ -22,7 +22,7 @@
  
 /*!
 	\author Steve Lhomme
-	\version \$Id: main.cpp,v 1.2 2002/01/22 19:45:02 robux4 Exp $
+	\version \$Id: main.cpp,v 1.3 2002/01/24 19:38:12 robux4 Exp $
 */
 
 #if !defined(STRICT)
@@ -50,6 +50,7 @@ void operator delete(void *block) {
 
 #include <assert.h>
 
+#include "AEncodeProperties.h"
 #include "ACM.h"
 #include "resource.h"
 #include "adebug.h"

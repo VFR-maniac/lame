@@ -22,7 +22,7 @@
  
 /*!
 	\author Steve Lhomme
-	\version \$Id: AEncodeProperties.h,v 1.1 2002/01/23 20:39:46 robux4 Exp $
+	\version \$Id: AEncodeProperties.h,v 1.2 2002/01/24 19:38:12 robux4 Exp $
 */
 
 #if !defined(_AENCODEPROPERTIES_H__INCLUDED_)
@@ -90,6 +90,10 @@ public:
 		\brief Check wether the Encode process should use the Private bit
 	*/
 	inline const bool GetPrivateMode() const { return bPrivate; }
+	/**
+		\brief Check wether the Encode process should use the Private bit
+	*/
+	inline const bool GetSmartOutputMode() const { return bSmartOutput; }
 
 	/**
 		\brief Check wether the Encode process shouldn't use the Bit Reservoir
@@ -132,6 +136,11 @@ public:
 		\brief Set wether the Encode process should use the Private bit
 	*/
 	inline void SetPrivateMode(const bool bMode) { bPrivate = bMode; }
+
+	/**
+		\brief Set wether the Encode process should use the Copyright bit
+	*/
+	inline void SetSmartOutputMode(const bool bMode) { bSmartOutput = bMode; }
 
 	/**
 		\brief Set wether the Encode process shouldn't use the Bit Reservoir
@@ -349,6 +358,7 @@ private:
 	bool bXingFrame;
 	bool bForceChannel;
 	bool bResample;
+	bool bSmartOutput;
 
 	int VbrQuality;
 	int AverageBitrate;
