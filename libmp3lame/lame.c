@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.38 2000/11/06 19:22:49 cisc Exp $ */
+/* $Id: lame.c,v 1.39 2000/11/06 23:19:46 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -889,7 +889,7 @@ int    lame_encode_buffer (
     /* copy in new samples into mfbuf, with resampling if necessary */
     if (gfc->resample_ratio != 1.0)  {
       for (ch=0; ch<gfc->stereo; ch++) {
-	n_out = fill_buffer_resample(gfc,&mfbuf[ch][gfc->mf_size],gfp->framesize, in_buffer[ch],nsamples,&n_in,ch);
+	n_out = fill_buffer_resample(gfp,&mfbuf[ch][gfc->mf_size],gfp->framesize, in_buffer[ch],nsamples,&n_in,ch);
 	in_buffer[ch] += n_in;
       }
     }else{
