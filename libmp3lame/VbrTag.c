@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.62 2003/01/11 04:16:56 markt Exp $ */
+/* $Id: VbrTag.c,v 1.63 2003/01/11 17:41:02 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -442,7 +442,7 @@ int InitVbrTag(lame_global_flags *gfp)
 
         /* we shold also count the vbr tag itself */
 	gfp->nVbrNumFrames=1;
-	gfp->nVbrFrameBufferSize=0;
+	/*gfp->nVbrFrameBufferSize=0;*/
 
 
 	/* Clear stream buffer */

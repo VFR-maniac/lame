@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.121 2003/01/02 18:27:13 bouvigne Exp $ */
+/* $Id: lame.h,v 1.122 2003/01/11 17:41:01 markt Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -813,7 +813,8 @@ int  CDECL lame_close (lame_global_flags *);
  * OBSOLETE:
  * lame_encode_finish combines lame_encode_flush() and lame_close() in
  * one call.  However, once this call is made, the statistics routines
- * will no longer work because the data will have been cleared
+ * will no longer work because the data will have been cleared, and
+ * lame_mp3_tags_fid() cannot be called to add data to the VBR header  
  */
 int CDECL lame_encode_finish(
         lame_global_flags*  gfp,
