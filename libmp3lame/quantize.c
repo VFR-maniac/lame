@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.65 2001/06/04 19:59:02 robert Exp $ */
+/* $Id: quantize.c,v 1.66 2001/06/12 00:48:24 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1303,7 +1303,7 @@ void bitpressure_strategy1(
 inline
 void bitpressure_strategy2( 
     lame_internal_flags * gfc,
-    int bpf, int used, int const save_bits[2][2],
+    int bpf, int used, int save_bits[2][2],
     int min_bits[2][2], int max_bits[2][2] )  
 {
     int gr, ch;
