@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.61 2001/05/15 01:24:48 robert Exp $ */
+/* $Id: quantize_pvt.c,v 1.62 2001/05/24 22:25:49 robert Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -474,7 +474,7 @@ int calc_xmin(
     if (cod_info->block_type == SHORT_TYPE) {
 
         for ( j = 0, sfb = 0; sfb < SBMAX_s; sfb++ ) {
-            tmpATH = gfp->experimentalY || gfp->VBR == vbr_mtrh
+            tmpATH = gfp->experimentalY
             ? athAdjust( gfc->ATH->adjust, gfc->ATH->s[sfb], gfc->ATH->floor )
             : gfc->ATH->adjust * gfc->ATH->s[sfb];
         
@@ -529,7 +529,7 @@ int calc_xmin(
     else {
         
         for ( sfb = 0; sfb < SBMAX_l; sfb++ ){
-            tmpATH = gfp->experimentalY || gfp->VBR == vbr_mtrh
+            tmpATH = gfp->experimentalY
             ? athAdjust( gfc->ATH->adjust, gfc->ATH->l[sfb], gfc->ATH->floor )
             : gfc->ATH->adjust * gfc->ATH->l[sfb];
           
