@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.109 2001/10/13 14:02:27 aleidinger Exp $ */
+/* $Id: parse.c,v 1.110 2001/10/18 19:55:28 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -435,7 +435,7 @@ int  long_help ( const lame_global_flags* gfp, FILE* const fp, const char* Progr
               "    -b <bitrate>    specify minimum allowed bitrate, default  32 kbps\n"
               "    -B <bitrate>    specify maximum allowed bitrate, default 320 kbps\n"
               "    -F              strictly enforce the -b option, for use with players that\n"
-              "                    do not support low bitrate mp3 (Apex AD600-A DVD/mp3 player)\n"
+              "                    do not support low bitrate mp3\n"
               "    -t              disable writing LAME Tag\n"
               , lame_get_VBR_q(gfp) );
   
