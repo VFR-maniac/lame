@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.220 2003/05/01 15:23:54 bouvigne Exp $ */
+/* $Id: lame.c,v 1.221 2003/05/03 14:34:34 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -975,6 +975,7 @@ lame_init_params(lame_global_flags * const gfp)
         if ( gfc->nsPsy.use ) {
             gfc->PSY->mask_adjust = gfp->maskingadjust;
             gfc->PSY->mask_adjust_short = gfp->maskingadjust_short;
+            gfc->VBR->smooth = gfp->VBR_smooth;
         }
 
         

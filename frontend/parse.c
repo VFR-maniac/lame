@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.174 2003/05/02 17:38:51 bouvigne Exp $ */
+/* $Id: parse.c,v 1.175 2003/05/03 14:34:34 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1072,6 +1072,10 @@ char* const inPath, char* const outPath, char **nogap_inPath, int *num_nogap)
                         y = x;
                     (void) lame_set_short_threshold( gfp, x, y);
                 }
+
+                T_ELIF_INTERNAL ("vbr-smooth")
+                    argUsed=1;
+                    (void) lame_set_vbr_smooth( gfp, atof( nextArg ) );
 
                 T_ELIF_INTERNAL ("maskingadjust")
                     argUsed=1;
