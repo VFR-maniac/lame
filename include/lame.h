@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.101 2001/11/12 17:36:26 aleidinger Exp $ */
+/* $Id: lame.h,v 1.102 2001/11/14 16:25:18 aleidinger Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -240,11 +240,11 @@ int CDECL lame_get_error_protection(const lame_global_flags *);
 int CDECL lame_set_padding_type(lame_global_flags *, Padding_type);
 Padding_type CDECL lame_get_padding_type(const lame_global_flags *);
 
-// MP3 'private extension' bit  Meaningless
+// MP3 'private extension' bit  Meaningless.  default=0
 int CDECL lame_set_extension(lame_global_flags *, int);
 int CDECL lame_get_extension(const lame_global_flags *);
 
-// enforce strict ISO complience.  default=0
+// enforce strict ISO compliance.  default=0
 int CDECL lame_set_strict_ISO(lame_global_flags *, int);
 int CDECL lame_get_strict_ISO(const lame_global_flags *);
  
