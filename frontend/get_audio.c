@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.74 2001/06/18 18:51:52 markt Exp $ */
+/* $Id: get_audio.c,v 1.75 2001/06/23 12:15:00 robert Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -379,7 +379,8 @@ get_audio_common( lame_global_flags * const gfp,
 	}
     }
 
-    if( (input_format == sf_mp3) || (input_format == sf_ogg) ) {
+    if( input_format == sf_mp1 || input_format == sf_mp2 || 
+        input_format == sf_mp3 || input_format == sf_ogg ) {
 				/* LAME mp3 and ogg input routines currently */
 				/*  only accept up to 16 bit samples */
 	if( buffer != NULL ) {
