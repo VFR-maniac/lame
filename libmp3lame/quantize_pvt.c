@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.36 2001/01/14 09:31:01 takehiro Exp $ */
+/* $Id: quantize_pvt.c,v 1.37 2001/01/18 22:18:10 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -269,16 +269,20 @@ void compute_ath( lame_global_flags *gfp, FLOAT8 ATH_l[], FLOAT8 ATH_s[] )
         }
     }
 
-
+#if 0
     /*  kludge for sfb21:
      *  lowering the ATH seems to be problematic for sfb21
      *  where the ATH is the only masking we currently have
      *  so this patch reverts back ATH-lowering for the last 
      *  scalefactor bands
      */
+     
+    /*  RH 2001-01-18:
+     *  disabled kludge, because of the newly used ATH
+     */
     ATH_l[SBMAX_l-1] *= pow( 10.0, gfp->ATHlower/10.0 );
     ATH_s[SBMAX_s-1] *= pow( 10.0, gfp->ATHlower/10.0 );
-
+#endif
 
     /*  no-ATH mode:
      *  reduce ATH to -200 dB, but leave ATH for the last scalefactor band, 
