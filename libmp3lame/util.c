@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.81 2001/08/31 18:41:03 markt Exp $ */
+/* $Id: util.c,v 1.82 2001/09/14 17:18:51 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -905,6 +905,13 @@ void disable_FPE(void) {
 #if defined(ABORTFP)
 #if defined(_MSC_VER)
     {
+
+   /* set affinity to a single CPU.  Fix for EAC/lame on SMP systems from
+     "Todd Richmond" <todd.richmond@openwave.com> */
+    SYSTEM_INFO si;
+    GetSystemInfo(&si);
+    SetProcessAffinityMask(GetCurrentProcess(), si.dwActiveProcessorMask);
+
 #include <float.h>
         unsigned int mask;
         mask = _controlfp(0, 0);
