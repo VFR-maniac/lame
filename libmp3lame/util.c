@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.44 2001/01/06 23:12:00 markt Exp $ */
+/* $Id: util.c,v 1.45 2001/01/07 05:25:18 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -378,11 +378,13 @@ int fill_buffer_resample(
   if (bpc>BPC) bpc = BPC;
 
   intratio=( fabs(gfc->resample_ratio - floor(.5+gfc->resample_ratio)) < .0001 );
-  fcn = .90/gfc->resample_ratio;
-  if (fcn>.90) fcn=.90;
+  fcn = 1.00/gfc->resample_ratio;
+  if (fcn>1.00) fcn=1.00;
   filter_l = gfp->quality < 7 ? 31 : 7;
-  filter_l = 19;
+  filter_l = 31;
   if (0==filter_l % 2 ) --filter_l;  /* must be odd */
+
+
 
   /* if resample_ratio = int, filter_l should be even */
   filter_l += intratio;
