@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.148 2002/10/18 22:54:33 robert Exp $ */
+/* $Id: parse.c,v 1.149 2002/10/21 01:27:17 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1687,7 +1687,9 @@ char* const inPath, char* const outPath, char **nogap_inPath, int *num_nogap)
     }
         
     if ( inPath[0] == '-' ) 
-        silent = 1;  /* turn off status - it's broken for stdin */
+        /* turn off status - it's broken for stdin */
+        silent = (silent <= 1 ? 1 : silent);
+
 #ifdef WIN32
     else
         dosToLongFileName( inPath );
