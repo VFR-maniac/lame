@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.106 2001/10/09 14:26:05 aleidinger Exp $ */
+/* $Id: parse.c,v 1.107 2001/10/09 22:34:20 roelvdb Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1009,7 +1009,7 @@ char* const inPath, char* const outPath, char **nogap_inPath, int *num_nogap)
 
                 T_ELIF ("r3mix")
                     lame_set_exp_nspsytune(gfp, lame_get_exp_nspsytune(gfp) | 1); /*nspsytune*/
-                    lame_set_experimentalX(gfp,1);
+/*                    lame_set_experimentalX(gfp,1); (test CVS) */
 
                     (void) lame_set_scale( gfp, 0.98 ); /* --scale 0.98*/
 
