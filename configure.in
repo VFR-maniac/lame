@@ -1,4 +1,4 @@
-dnl $Id: configure.in,v 1.51 2001/02/14 16:38:23 aleidinger Exp $
+dnl $Id: configure.in,v 1.52 2001/02/20 18:34:57 aleidinger Exp $
 dnl
 dnl
 dnl don't forget to set ASM_FOR_ARCH to a space delimited list of
@@ -193,6 +193,8 @@ ASM_FOR_ARCH="i386"
 
 dnl Checks for libraries.
 
+AC_CHECK_HEADERS(termcap.h)
+AC_CHECK_HEADERS(ncurses/termcap.h)
 AC_CHECK_LIB(termcap, initscr, HAVE_TERMCAP="termcap")
 AC_CHECK_LIB(curses, initscr, HAVE_TERMCAP="curses")
 AC_CHECK_LIB(ncurses, initscr, HAVE_TERMCAP="ncurses")
