@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.144 2001/08/15 00:37:39 robert Exp $ */
+/* $Id: lame.c,v 1.145 2001/08/15 21:58:08 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -505,26 +505,9 @@ lame_init_qval(lame_global_flags * gfp)
 
     /* modifications to the above rules: */
 
-    /* -Z option enables scalefactor_scale: */
-    if (gfp->experimentalZ > 0) {
+    /* -Z option toggles scalefactor_scale: */
+    if (gfp->experimentalZ & 1 > 0) {
         gfc->noise_shaping = 2;
-    }
-
-    if (gfp->exp_nspsytune & 1) {
-        if (gfp->quality <= 2)
-            gfc->noise_shaping = 2; /* use scalefac_scale */
-    }
-
-    /*  because nspsytune is hard coded with -Z, here is a way
-        to turn scalefac_scale off again, needed for testing; robert */    
-    if (gfp->experimentalZ > 1) {   /*  a way to turn it off again */
-        if (gfp->exp_nspsytune & 1) { 
-            gfp->experimentalZ = 0;
-            gfc->noise_shaping = 1;
-        }
-        else {
-            gfp->experimentalZ = 1;
-        }
     }
 }
 
