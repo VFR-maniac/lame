@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.83 2001/06/11 18:49:57 markt Exp $ */
+/* $Id: parse.c,v 1.84 2001/06/12 21:58:42 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -69,6 +69,36 @@ int mp3_delay_set;          /* user specified the value of the mp3 encoder
 int disable_wav_header;
 
 
+
+/**  
+ *  Long Filename support for the WIN32 platform
+ *  
+ */
+#ifdef WIN32
+#include <winbase.h>
+static void  
+dosToLongFileName( char *fn )
+{
+    const int MSIZE = MAX_NAME_SIZE-4;  //  we wanna add ".mp3" later
+    WIN32_FIND_DATAA lpFindFileData;
+    if ( FindFirstFileA( fn, &lpFindFileData ) ) {
+        int   a;
+        char *q;
+        for ( a = 0; a < MSIZE; a++ ) {
+            if ( 0 == lpFindFileData.cFileName[a] ) break;
+        }
+        if ( a >= MSIZE ) return;
+        q = strrchr(fn,'\\');
+        if ( q == NULL ) q = strrchr(fn,':');
+        if ( q == NULL ) strncpy( fn, lpFindFileData.cFileName, a+1 );
+        else {
+            a += q-fn +2;
+            if (a < MSIZE)
+                strncpy( ++q, lpFindFileData.cFileName, MSIZE-a );
+        }
+    }
+}
+#endif
 
 /************************************************************************
 *
@@ -1311,7 +1341,10 @@ char* const inPath, char* const outPath, char **nogap_inPath, int *num_nogap)
 	    /* if input is stdin, default output is stdout */
 	    strcpy(outPath,"-");
 	} else {
-	    strncpy(outPath, inPath, MAX_NAME_SIZE - 4);
+#ifdef WIN32
+        dosToLongFileName( inPath );
+#endif
+		strncpy(outPath, inPath, MAX_NAME_SIZE - 4);
 	    if ( lame_get_decode_only( gfp ) ) {
 	        strncat (outPath, ".wav", 4 );
 	    } else if( lame_get_ogg( gfp ) ) {
