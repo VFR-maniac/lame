@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# $Id: mugeco.sh,v 1.3 2000/11/12 22:18:01 aleidinger Exp $
+# $Id: mugeco.sh,v 1.4 2000/11/13 10:35:58 aleidinger Exp $
 
 # set -x
 
@@ -95,6 +95,8 @@ iterate=0
 
 cp ${base}.wav ${SECURE}.wav
 
+start=$(date)
+
 while [ "${iterate}" != "${num}" ]; do
 	gen="$((${iterate}+1))"
 
@@ -106,10 +108,16 @@ while [ "${iterate}" != "${num}" ]; do
 	iterate=$(echo ${iterate} | awk '{i=$1 + 1; printf "%d", i}')
 done
 
+end=$(date)
+
 mv "${SECURE}.wav" "${base}_generation_${num}.wav"
 
 # cleanup
 rm "${SECURE}.mp3"
+
+echo
+echo "Start: ${start}"
+echo "Stop : ${end}"
 
 exit 0
 
