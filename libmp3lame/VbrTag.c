@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.73 2003/12/21 10:16:36 bouvigne Exp $ */
+/* $Id: VbrTag.c,v 1.74 2004/01/06 13:53:23 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -406,8 +406,7 @@ int InitVbrTag(lame_global_flags *gfp)
 
 
 
-        /* we shold also count the vbr tag itself */
-	gfp->nVbrNumFrames=1;
+	gfp->nVbrNumFrames=0;
 	/*gfp->nVbrFrameBufferSize=0;*/
 
 
@@ -461,9 +460,7 @@ int InitVbrTag(lame_global_flags *gfp)
 	  add_dummy_byte(gfp,0);
 
 
-        /* TOC should also take into account the size of the VBR header
-           itself.  so initial value of .sum should be the kbps of the header */
-        gfc->VBR_seek_table.sum  = kbps_header;
+        gfc->VBR_seek_table.sum  = 0;
         
         gfc->VBR_seek_table.seen = 0;
         gfc->VBR_seek_table.want = 1;
