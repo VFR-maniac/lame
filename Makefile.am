@@ -1,6 +1,6 @@
-## $Id: Makefile.am,v 1.7 2000/11/06 08:22:05 markt Exp $
+## $Id: Makefile.am,v 1.8 2000/11/11 17:28:43 aleidinger Exp $
 
-SUBDIRS = mpglib libmp3lame frontend Dll doc include misc
+SUBDIRS = mpglib libmp3lame frontend Dll doc include misc dshow
 
 CLEANFILES = testcase.new.mp3
 AUTOMAKE_OPTIONS = foreign ansi2knr
@@ -46,10 +46,10 @@ testg: frontend/mp3x ../test/castanets.wav
 	frontend/mp3x -h ../test/castanets.wav
 
 update:
-	CVS_RSH=ssh cvs -z3 -q update -d -A -P
+	CVS_RSH=ssh cvs -z3 -q update -d -A -P || true
 
 diff:
-	CVS_RSH=ssh cvs -z3 diff -u
+	CVS_RSH=ssh cvs -z3 diff -u || true
 
 frontend/lame:
 	$(MAKE) $(MAKEFLAGS)
