@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.141 2003/06/01 17:20:34 bouvigne Exp $ */
+/* $Id: lame.h,v 1.142 2003/08/10 12:48:04 bouvigne Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -353,6 +353,7 @@ int CDECL lame_set_exp_nspsytune(lame_global_flags *, int);
 int CDECL lame_get_exp_nspsytune(const lame_global_flags *);
 
 void CDECL lame_set_msfix(lame_global_flags *, double);
+float CDECL lame_get_msfix(const lame_global_flags *);
 
 int lame_set_exp_nspsytune2_int( lame_global_flags*, int, int);
 float lame_set_exp_nspsytune2_real( lame_global_flags*, int, float);

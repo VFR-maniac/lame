@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.55 2003/06/01 17:20:34 bouvigne Exp $ */
+/* $Id: set_get.c,v 1.56 2003/08/10 12:48:04 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1267,7 +1267,7 @@ lame_set_ATHcurve( lame_global_flags*  gfp,
     return 0;
 }
 
-int
+float
 lame_get_ATHcurve( const lame_global_flags*  gfp )
 {
     return gfp->ATHcurve;
@@ -1417,7 +1417,7 @@ int
 lame_set_interChRatio( lame_global_flags*  gfp,
 			float               ratio )
 {
-    /* default = 0.0 (no inter-cahnnel maskin) */
+    /* default = 0.0 (no inter-channel maskin) */
     if (! (0 <= ratio && ratio <= 1.0))
         return -1;
 
@@ -1553,12 +1553,43 @@ lame_get_force_short_blocks( const lame_global_flags*  gfp )
 }
 
 int
+lame_set_short_threshold_lrm( lame_global_flags*  gfp,
+			  float lrm)
+{
+    lame_internal_flags *gfc = gfp->internal_flags;
+    gfc->nsPsy.attackthre = lrm;
+    return 0;
+}
+
+float
+lame_get_short_threshold_lrm( const lame_global_flags*  gfp)
+{
+    lame_internal_flags *gfc = gfp->internal_flags;
+    return gfc->nsPsy.attackthre;
+}
+
+int
+lame_set_short_threshold_s( lame_global_flags*  gfp,
+			  float s)
+{
+    lame_internal_flags *gfc = gfp->internal_flags;
+    gfc->nsPsy.attackthre_s = s;
+    return 0;
+}
+
+float
+lame_get_short_threshold_s( const lame_global_flags*  gfp)
+{
+    lame_internal_flags *gfc = gfp->internal_flags;
+    return gfc->nsPsy.attackthre_s;
+}
+
+int
 lame_set_short_threshold( lame_global_flags*  gfp,
 			  float lrm, float s)
 {
-    lame_internal_flags *gfc = gfp->internal_flags;
-    gfc->nsPsy.attackthre   = lrm;
-    gfc->nsPsy.attackthre_s = s;
+    lame_set_short_threshold_lrm(gfp, lrm);    
+    lame_set_short_threshold_s(gfp, s);    
     return 0;
 }
 
@@ -1711,7 +1742,7 @@ lame_set_preset( lame_global_flags*  gfp, int preset )
 {
     extern int apply_preset();
     gfp->preset = preset;
-    return apply_preset(gfp, preset);
+    return apply_preset(gfp, preset, 1);
 }
 
 
@@ -1797,7 +1828,12 @@ lame_set_msfix( lame_global_flags*  gfp, double msfix )
 {
     /* default = 0 */
     gfp->msfix = msfix;
+}
 
+float
+lame_get_msfix( const lame_global_flags*  gfp )
+{
+    return gfp->msfix;
 }
 
 int
