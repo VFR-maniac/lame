@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.1 2000/10/22 11:39:44 aleidinger Exp $
+## $Id: Makefile.am,v 1.2 2001/01/15 09:38:36 aleidinger Exp $
 
 AUTOMAKE_OPTIONS = foreign ansi2knr
 
@@ -15,9 +15,7 @@ pkghtml_DATA = \
 	index.html \
 	lame.css \
 	modes.html \
-	node5.html \
 	node6.html \
-	node7.html \
 	switchs.html
 
 EXTRA_DIST = $(pkghtml_DATA)
