@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.26 2000/11/07 00:14:27 markt Exp $ */
+/* $Id: quantize.c,v 1.27 2000/11/10 14:31:11 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -497,6 +497,7 @@ amp_scalefac_bands(
     int sfb;
     FLOAT8 ifqstep34;
     FLOAT8 distort_thresh[4] = {-1.f, -1.f, -1.f, -1.f};
+    lame_internal_flags *gfc = gfp->internal_flags;
 
     if (cod_info->scalefac_scale == 0) 
         ifqstep34 = 1.29683955465100964055; /* 2**(.75*0.5)*/
