@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: vbrquantize.c,v 1.99 2005/02/06 23:05:56 robert Exp $ */
+/* $Id: vbrquantize.c,v 1.100 2005/03/05 18:26:48 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #  include <config.h>
@@ -1040,7 +1040,7 @@ static int
 quantizeAndCountBits(const algo_t * that)
 {
     that->quantize(that);
-    that->cod_info->part2_3_length = noquant_count_bits(that->gfc, that->cod_info);
+    that->cod_info->part2_3_length = noquant_count_bits(that->gfc, that->cod_info, 0);
     return that->cod_info->part2_3_length;
 }
 

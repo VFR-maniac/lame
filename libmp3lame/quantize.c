@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.166 2005/03/05 13:45:42 bouvigne Exp $ */
+/* $Id: quantize.c,v 1.167 2005/03/05 18:26:47 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -686,7 +686,7 @@ trancate_smallspectrums(
 	} while (--width > 0);
     } while (++sfb < gi->psymax);
 
-    gi->part2_3_length = noquant_count_bits(gfc, gi);
+    gi->part2_3_length = noquant_count_bits(gfc, gi, 0);
 }
 
 
