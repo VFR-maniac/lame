@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.105 2003/01/11 17:56:40 markt Exp $ */
+/* $Id: util.c,v 1.106 2003/02/02 17:10:35 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -51,14 +51,6 @@ void  freegfc ( lame_internal_flags* const gfc )   /* bit stream structure */
 {
     int  i;
 
-#ifdef KLEMM_44
-    if (gfc->resample_in != NULL) {
-        resample_close(gfc->resample_in);
-        gfc->resample_in = NULL;
-    }
-    free(gfc->mfbuf[0]);
-    free(gfc->mfbuf[1]);
-#endif
 
     for ( i = 0 ; i <= 2*BPC; i++ )
         if ( gfc->blackfilt[i] != NULL ) {
@@ -342,7 +334,6 @@ int SmpFrqIndex ( int sample_freq, int* const version )
 
 
 
-#ifndef KLEMM_44
 
 
 /* resampling via FIR filter, blackman window */
@@ -543,7 +534,6 @@ int fill_buffer_resample(
 }
 
 
-#endif /* ndef KLEMM_44 */
 
 
 
