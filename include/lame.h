@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.112 2002/07/21 15:15:30 aleidinger Exp $ */
+/* $Id: lame.h,v 1.113 2002/07/26 18:56:56 markt Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -885,6 +885,8 @@ int CDECL lame_decode1_headersB(
         int              *enc_padding );
 
 
+/* cleanup call to exit decoder  */
+int CDECL lame_decode_exit(void);
 
 
 

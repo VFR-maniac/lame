@@ -1,4 +1,4 @@
-/* $Id: mpglib_interface.c,v 1.20 2001/10/29 22:00:16 markt Exp $ */
+/* $Id: mpglib_interface.c,v 1.21 2002/07/26 18:56:57 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -20,6 +20,13 @@
 
 MPSTR   mp;
 plotting_data *mpg123_pinfo = NULL;
+
+int
+lame_decode_exit(void)
+{
+    ExitMP3(&mp);
+    return 0;
+}
 
 
 int
