@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: encoder.c,v 1.70 2002/05/05 11:58:47 takehiro Exp $ */
+/* $Id: encoder.c,v 1.71 2002/05/05 13:01:16 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -598,8 +598,6 @@ int  lame_encode_mp3_frame (				// Output
     iteration_loop( gfp,*pe_use,ms_ener_ratio, *masking);
     break;
   case vbr_mt:
-    VBR_quantize( gfp, *pe_use, ms_ener_ratio, *masking);
-    break;
   case vbr_rh:
   case vbr_mtrh:
     VBR_iteration_loop( gfp,*pe_use,ms_ener_ratio, *masking);
