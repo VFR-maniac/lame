@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.90 2001/02/25 22:47:10 markt Exp $ */
+/* $Id: lame.c,v 1.91 2001/02/26 07:38:38 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1610,7 +1610,8 @@ lame_init_old(lame_global_flags * gfp)
     gfc->CurrentStep = 4;
     gfc->masking_lower = 1;
 
-    gfp->ATHtype = -1;  /* default = -1 = set in lame_init_params */
+    gfp->ATHtype = -1;    /* default = -1 = set in lame_init_params */
+    gfp->useTemporal = 1;  
 
     /* The reason for
      *       int mf_samples_to_encode = ENCDELAY + 288;
