@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.236 2003/11/24 13:39:26 bouvigne Exp $ */
+/* $Id: lame.c,v 1.237 2003/11/24 13:52:33 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -611,7 +611,7 @@ lame_init_params(lame_global_flags * const gfp)
         }
 
         if (gfp->mode == MONO)
-            lowpass *= 1.6;
+            lowpass *= 1.5;
 
         if (gfp->out_samplerate == 0)
             gfp->out_samplerate = optimum_samplefreq( (int)lowpass, gfp->in_samplerate);
