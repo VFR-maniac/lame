@@ -11,7 +11,7 @@
  * even for Intel processors.
  */
 
-/* $Id: decode_i386.c,v 1.16 2003/02/19 19:46:14 olcios Exp $ */
+/* $Id: decode_i386.c,v 1.17 2004/04/14 22:15:44 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -123,7 +123,7 @@ int synth_1to1_mono_unclipped(PMPSTR mp, real *bandPtr, unsigned char *out,int *
   mp->synth_bo = bo;                                     \
                                                          \
   {                                                      \
-    register int j;                                      \
+    int j;                                               \
     real *window = decwin + 16 - bo1;                    \
                                                          \
     for (j=16;j;j--,b0+=0x10,window+=0x20,samples+=step) \

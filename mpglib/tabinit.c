@@ -1,4 +1,4 @@
-/* $Id: tabinit.c,v 1.11 2001/01/05 15:20:34 aleidinger Exp $ */
+/* $Id: tabinit.c,v 1.12 2004/04/14 22:15:44 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -16,7 +16,7 @@ real decwin[512+32];
 static real cos64[16],cos32[8],cos16[4],cos8[2],cos4[1];
 real *pnts[] = { cos64,cos32,cos16,cos8,cos4 };
 
-const double dewin[512] = {
+static const double dewin[512] = {
    0.000000000,-0.000015259,-0.000015259,-0.000015259,
   -0.000015259,-0.000015259,-0.000015259,-0.000030518,
   -0.000030518,-0.000030518,-0.000030518,-0.000045776,
