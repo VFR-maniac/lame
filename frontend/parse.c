@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.43 2001/01/07 08:24:17 markt Exp $ */
+/* $Id: parse.c,v 1.44 2001/01/07 09:11:44 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -40,6 +40,21 @@
 #ifdef WITH_DMALLOC
 #include <dmalloc.h>
 #endif
+
+
+/* GLOBAL VARIABLES.  set by parse_args() */
+/* we need to clean this up */
+sound_file_format input_format;   
+int swapbytes;              /* force byte swapping   default=0*/
+int silent;
+int brhist;
+float update_interval;      /* to use Frank's time status display */
+int mp3_delay;              /* to adjust the number of samples truncated
+                               during decode */
+int mp3_delay_set;          /* user specified the value of the mp3 encoder 
+                               delay to assume for decoding */
+
+
 
 /************************************************************************
 *
@@ -613,6 +628,8 @@ int  parse_args ( lame_global_flags* gfp, int argc, char** argv, char* const inP
     /* turn on display options. user settings may turn them off below */
     silent   = 0;
     brhist   = 1;
+    mp3_delay = 0;   
+    mp3_delay_set=0;
     id3tag_init (gfp);
 
     /* process args */
