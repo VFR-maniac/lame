@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.33 2002/02/07 11:58:52 shibatch Exp $ */
+/* $Id: set_get.c,v 1.34 2002/02/17 13:55:57 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1247,6 +1247,29 @@ lame_get_useTemporal( const lame_global_flags*  gfp )
     assert( 0 <= gfp->useTemporal && 1 >= gfp->useTemporal );
 
     return gfp->useTemporal;
+}
+
+
+/* Use temporal masking effect */
+int
+lame_set_interChRatio( lame_global_flags*  gfp,
+			float               ratio )
+{
+    /* default = 0.0 (no inter-cahnnel maskin) */
+    if (! (0 <= ratio && ratio <= 1.0))
+        return -1;
+
+    gfp->interChRatio = ratio;
+
+    return 0;
+}
+
+int
+lame_get_interChRatio( const lame_global_flags*  gfp )
+{
+    assert( 0 <= gfp->interChRatio && gfp->interChRatio <= 1.0);
+
+    return gfp->interChRatio;
 }
 
 
