@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.34 2000/11/26 10:49:59 robert Exp $ */
+/* $Id: main.c,v 1.35 2000/12/03 23:00:13 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -111,7 +111,7 @@ int main(int argc, char **argv)
         { "stereo", "force-ms", "dual-ch", "single-ch" }
     };
     int  ret;
-    unsigned char  mp3buffer [LAME_MAXMP3BUFFER];
+  char mp3buffer[LAME_MAXMP3BUFFER];
   short int Buffer[2][1152];
   int iread,imp3;
   lame_global_flags gf;

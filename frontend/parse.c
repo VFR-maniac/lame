@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.36 2000/11/22 01:09:23 robert Exp $ */
+/* $Id: parse.c,v 1.37 2000/12/03 23:00:13 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -126,7 +126,7 @@ int  usage ( const lame_global_flags* gfp, FILE* const fp, const char* ProgramNa
               "\n"
               "Try  \"%s --help\"     for more information\n" 
               "  or \"%s --longhelp\"\n"
-              "  or \"%s --?\"        for a complete options list\n\n",
+              "  or \"%s -?\"         for a complete options list\n\n",
               ProgramName, ProgramName, ProgramName, ProgramName ); 
     return 0;
 }
@@ -1034,7 +1034,7 @@ int  parse_args ( lame_global_flags* gfp, int argc, char** argv, char* const inP
 		        break;
 			
 		    case '?':   
-		        short_help ( gfp, stderr, ProgramName );
+		        long_help ( gfp, stderr, ProgramName, 0 /* LESSMODE=NO */);
 		        return -1;
 		        
 		    default:    

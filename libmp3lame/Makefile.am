@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.8 2000/11/30 10:07:02 aleidinger Exp $
+## $Id: Makefile.am,v 1.9 2000/12/03 23:00:14 markt Exp $
 
 AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
 
@@ -37,7 +37,6 @@ libmp3lame_la_SOURCES = \
         id3tag.c \
         lame.c \
         newmdct.c \
-	pcm.c \
 	psymodel.c \
 	quantize.c \
 	quantize_pvt.c \
@@ -70,15 +69,7 @@ noinst_HEADERS= \
 
 CLEANFILES = lclint.txt
 
-LCLINTFLAGS= \
-	+posixlib \
-	+showsummary \
-	+showalluses \
-	+whichlib \
-	+forcehints \
-	-fixedformalarray \
-	+matchanyintegral \
-	-Dlint
+LCLINTFLAGS= +posixlib +showsummary +showalluses +whichlib +forcehints -Dlint
 
 lclint.txt: ${libmp3lame_la_SOURCES} ${noinst_HEADERS}
 	@lclint ${LCLINTFLAGS} ${INCLUDES} ${DEFS} ${libmp3lame_la_SOURCES} 2>&1 >lclint.txt || true
