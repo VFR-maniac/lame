@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.184 2003/10/23 12:09:37 bouvigne Exp $ */
+/* $Id: parse.c,v 1.185 2003/11/19 13:00:36 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -792,7 +792,7 @@ static int  presets_set( lame_t gfp, int fast, int cbr, const char* preset_name,
     if (strcmp(preset_name, "fm") == 0) {
         preset_name = "112";
     }
-    if ( /*(strcmp(preset_name, "radio") == 0) ||*/
+    if ( (strcmp(preset_name, "radio") == 0) ||
          (strcmp(preset_name, "tape") == 0)) {
         preset_name = "112";
     }
@@ -804,24 +804,6 @@ static int  presets_set( lame_t gfp, int fast, int cbr, const char* preset_name,
     }
     if (strcmp(preset_name, "studio") == 0) {
         preset_name = "256";
-    }
-
-    if (strcmp(preset_name, "streaming") == 0) {
-        lame_set_preset(gfp, STREAMING);
-
-	return 0;
-    }
-
-    if (strcmp(preset_name, "radio") == 0) {
-        lame_set_preset(gfp, RADIO);
-
-	return 0;
-    }
-
-    if (strcmp(preset_name, "portable") == 0) {
-        lame_set_preset(gfp, PORTABLE);
-
-	return 0;
     }
 
     if (strcmp(preset_name, "medium") == 0) {
