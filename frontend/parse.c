@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.105 2001/10/06 19:05:44 markt Exp $ */
+/* $Id: parse.c,v 1.106 2001/10/09 14:26:05 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1128,7 +1128,7 @@ char* const inPath, char* const outPath, char **nogap_inPath, int *num_nogap)
                 
                 T_ELIF ("nores")
                     lame_set_disable_reservoir(gfp,1);
-                    lame_set_padding_type(gfp,0);
+                    lame_set_padding_type(gfp, PAD_NO);
                 
                 T_ELIF ("strictly-enforce-ISO")
                     lame_set_strict_ISO(gfp,1);
