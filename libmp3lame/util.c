@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.87 2001/09/30 20:36:34 robert Exp $ */
+/* $Id: util.c,v 1.88 2001/10/05 13:00:42 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -309,8 +309,10 @@ FLOAT8 ATHformula(FLOAT8 f,lame_global_flags *gfp)
     case 3:
       return ATHformula_GB(f, 1) +6;     /*modification of GB formula by Roel*/
     case 4:
-      if (!(gfp->VBR == vbr_off || gfp->VBR == vbr_abr)) /*this case should be used with true vbr only*/
-        return ATHformula_GB(f,gfp->VBR_q);
+        if (!(gfp->VBR == vbr_off || gfp->VBR == vbr_abr)){ /*this case should be used with true vbr only*/
+            gfp->ATHtype = 2;
+            return ATHformula_GB(f,gfp->VBR_q);
+        }
     case 5:
       return ATHformula_jd(f);
     }
