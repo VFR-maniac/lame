@@ -1,4 +1,4 @@
-/* $Id: interface.c,v 1.43 2003/02/19 19:46:16 olcios Exp $ */
+/* $Id: interface.c,v 1.44 2004/01/10 10:27:28 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -229,8 +229,8 @@ int check_vbr_header(PMPSTR mp,int bytes)
   for (i=0; i<XING_HEADER_SIZE; ++i) {
     while(pos >= buf->size) {
       buf  = buf->next;
-      pos = buf->pos;
       if(!buf) 	return -1; /* fatal error */
+      pos = buf->pos;
     }
     xing[i] = buf->pnt[pos];
     ++pos;
