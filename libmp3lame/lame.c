@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.42 2000/11/07 23:06:41 pfk Exp $ */
+/* $Id: lame.c,v 1.43 2000/11/10 23:18:51 pfk Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -222,7 +222,7 @@ int lame_init_params ( lame_global_flags* const gfp )
     gfc -> CPU_features_SIMD  = has_SIMD  ();
     gfc -> CPU_features_SIMD2 = 0;
     
-    init_scalar_functions ( gfc );      /* Select the fastest functions for this CPU */
+    //init_scalar_functions ( gfc );      /* Select the fastest functions for this CPU */
 
   if (gfp->num_channels == 1)
       gfp->mode = MPG_MD_MONO;
