@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.53 2001/01/30 11:02:35 robert Exp $ */
+/* $Id: psymodel.c,v 1.54 2001/02/04 23:14:47 shibatch Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1139,6 +1139,11 @@ int L3psycho_anal_ns( lame_global_flags * gfp,
       /*DEBUGF("%i  norm=%f  norm_s=%f \n",b,1/norm,norm_l[b]);*/
     }
     
+#if 1
+    for(b=0;b<gfc->npart_l;b++)
+      if (gfc->s3ind[b][1] > gfc->npart_l-1) gfc->s3ind[b][1] = gfc->npart_l-1;
+#endif
+
     init_fft(gfc);
 
     for(i=0;i<4;i++) {
@@ -1401,14 +1406,23 @@ int L3psycho_anal_ns( lame_global_flags * gfp,
 
 	ecb = 0;
 
+#if 0
 	for ( k = gfc->s3ind[b][0]; k <= gfc->s3ind[b][1]; k++ )
 	  {
 	    ecb = mask_add(ecb,gfc->s3_l[b][k] * eb2[k],k,k-b,gfc);
 	  }
 
 	ecb *= 0.158489319246111; // pow(10,-0.8)
+#endif
 
+#if 1
+	for ( k = gfc->s3ind[b][0]; k <= gfc->s3ind[b][1]; k++ )
+	  {
+	    ecb += gfc->s3_l[k][b] * eb2[k];
+	  }
 
+	ecb *= 0.223872113856834; // pow(10,-0.65);
+#endif
 
 	/****   long block pre-echo control   ****/
 
