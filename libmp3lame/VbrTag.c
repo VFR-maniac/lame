@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.61 2003/01/10 20:07:16 markt Exp $ */
+/* $Id: VbrTag.c,v 1.62 2003/01/11 04:16:56 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -209,7 +209,7 @@ void AddVbrFrame(lame_global_flags *gfp)
 	    kbps_header = XING_BITRATE2;
 	}
         /* TOC should also take into account the size of the VBR header
-           itself.  so initial value of sum should be the kbps of the header */
+           itself.  so initial value of .sum should be the kbps of the header */
         gfc->VBR_seek_table.sum  = kbps_header;
 
         gfc->VBR_seek_table.seen = 0;
