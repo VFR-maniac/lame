@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.9 2000/10/29 21:11:38 robert Exp $ */
+/* $Id: VbrTag.c,v 1.10 2000/11/01 18:06:13 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -356,7 +356,7 @@ int InitVbrTag(lame_global_flags *gfp)
 	assert(gfp->TotalFrameSize <= MAXFRAMESIZE );
 
 	for (i=0; i<gfp->TotalFrameSize; ++i)
-	  add_dummy_byte(gfc,0);
+	  add_dummy_byte(gfp,0);
 	}
 
 	/* Success */

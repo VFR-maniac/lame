@@ -29,7 +29,7 @@
  * NOTE: See http://id3.org/ for more information about ID3 tag formats.
  */
 
-/* $Id: id3tag.c,v 1.7 2000/10/29 21:11:38 robert Exp $ */
+/* $Id: id3tag.c,v 1.8 2000/11/01 18:06:13 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -499,7 +499,7 @@ id3tag_write_v2(lame_global_flags *gfp)
             /* write tag directly into bit stream at current position */
 	    { unsigned int i;
 	    for (i=0 ; i<tag_size; ++i)
-	      add_dummy_byte(gfc,tag[i]);
+	      add_dummy_byte(gfp,tag[i]);
 	    }
 	    /*
             if (fwrite(tag, 1, tag_size, stream) != tag_size) {
@@ -558,7 +558,7 @@ id3tag_write_v1(lame_global_flags *gfp)
         *p++ = spec->genre;
 	{ int i;
 	for (i=0; i<128; ++i)
-	  add_dummy_byte(gfc,tag[i]);
+	  add_dummy_byte(gfp,tag[i]);
 	}
 	return 128;
     }
