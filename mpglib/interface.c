@@ -1,4 +1,4 @@
-/* $Id: interface.c,v 1.29 2000/12/03 23:00:15 markt Exp $ */
+/* $Id: interface.c,v 1.30 2000/12/11 16:03:07 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -67,7 +67,7 @@ void ExitMP3( PMPSTR mp)
 	}
 }
 
-static struct buf *addbuf( PMPSTR mp,char *buf,int size)
+static struct buf *addbuf( PMPSTR mp, unsigned char *buf,int size)
 {
 	struct buf *nbuf;
 
@@ -290,7 +290,7 @@ int sync_buffer(PMPSTR mp,int free_match)
 
 
 
-int decodeMP3( PMPSTR mp,char *in,int isize,char *out,
+int decodeMP3( PMPSTR mp,unsigned char *in,int isize,char *out,
 		int osize,int *done)
 {
 	int i,iret,bits,bytes;

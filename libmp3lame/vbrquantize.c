@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: vbrquantize.c,v 1.23 2000/12/11 14:48:36 aleidinger Exp $ */
+/* $Id: vbrquantize.c,v 1.24 2000/12/11 16:03:07 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -98,7 +98,6 @@ static FLOAT8
 calc_sfb_noise(const FLOAT8 *xr, const FLOAT8 *xr34, const int bw, const int sf)
 {
   int j;
-//  int ix;
   fi_union fi; 
   FLOAT8 temp;
   FLOAT8 xfsf=0;
@@ -109,6 +108,7 @@ calc_sfb_noise(const FLOAT8 *xr, const FLOAT8 *xr34, const int bw, const int sf)
 
   for ( j=0; j < bw ; ++j) {
 #if 0
+    int ix;
     if (xr34[j]*sfpow34 > IXMAX_VAL) return -1;
     ix=floor( xr34[j]*sfpow34);
     temp = fabs(xr[j])- pow43[ix]*sfpow;
