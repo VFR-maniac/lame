@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.68 2003/06/01 09:14:07 bouvigne Exp $ */
+/* $Id: VbrTag.c,v 1.69 2003/10/16 12:55:38 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -634,7 +634,21 @@ int PutLameVBR(lame_global_flags *gfp, FILE *fpStream, uint8_t *pbtStreamBuffer,
 	uint8_t  nFlags			= 0;
 
 	/* if ABR, {store bitrate <=255} else { store "-b"} */
-	int nABRBitrate	= (gfp->VBR==vbr_abr)?gfp->VBR_mean_bitrate_kbps:gfp->brate;
+	int nABRBitrate;
+    switch (gfp->VBR) {
+        case vbr_abr:{
+            nABRBitrate = gfp->VBR_mean_bitrate_kbps;
+            break;
+        }
+        case vbr_off:{
+            nABRBitrate = gfp->brate;
+            break;
+        }
+        default:{ /*vbr modes*/
+            nABRBitrate = gfp->VBR_min_bitrate_kbps;
+        }
+    }
+        
 
 	/*revision and vbr method */
 	if (gfp->VBR>=0 && gfp->VBR < sizeof(vbr_type_translator))
