@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.105 2002/02/17 13:55:57 takehiro Exp $ */
+/* $Id: psymodel.c,v 1.106 2002/02/17 13:59:19 takehiro Exp $ */
 
 
 /*
@@ -1417,7 +1417,9 @@ int L3psycho_anal_ns( lame_global_flags * gfp,
 
 	  for (b=0; b < gfc->npart_l_orig; b++ )
 	    {
-	      fscanf(gfc->nsPsy.pass1fp,"%lf",&eb2[b]);
+	      double e;
+	      fscanf(gfc->nsPsy.pass1fp,"%lf",&e);
+	      eb2[b] = e;
 	    }
 
 	  if (feof(gfc->nsPsy.pass1fp)) abort();
