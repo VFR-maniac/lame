@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.27 2001/09/07 23:42:47 potsticker Exp $ */
+/* $Id: VbrTag.c,v 1.28 2001/09/08 18:27:17 potsticker Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -516,6 +516,21 @@ uint16_t GetMusicCRC(lame_global_flags *gfp, FILE *fpStream, int filesize, int i
 }
 
 
+void ReportVBRProgress(lame_global_flags *gfp,int nStart)
+{
+	if (!gfp->bWriteVbrTag)
+		return;
+
+//	lame_internal_flags *gfc = gfp->internal_flags;
+
+	if (nStart)
+		MSGF( gfp->internal_flags, "Writing Lame Tag...");
+	else
+		MSGF( gfp->internal_flags, "done\n");
+
+}
+
+
 /****************************************************************************
  * Jonathan Dee 2001/08/31
  *
@@ -715,9 +730,9 @@ int PutLameVBR(lame_global_flags *gfp, FILE *fpStream, u_char *pbtStreamBuffer, 
 	//offset: after id3v2 tag, 
 	//and after this frame (i.e. where the music starts).
 	//end: before id3v1.
-	printf("Computing music CRC...");
+	
 	nMusicCRC = GetMusicCRC(gfp,fpStream, nFilesize,id3v2size, bId3v1Present);
-	printf("done.\n");
+	
 
 	/*Write all this information into the stream*/
 	
