@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.21 2001/04/16 08:27:38 takehiro Exp $ */
+/* $Id: VbrTag.c,v 1.22 2001/06/12 05:27:21 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -502,6 +502,12 @@ int PutVbrTag(lame_global_flags *gfp,FILE *fpStream,int nVbrScale)
 
 	/* Start writing the tag after the zero frame */
 	nStreamIndex=gfc->sideinfo_len;
+	/* note! Xing header specifies that Xing data goes in the
+	 * ancillary data with NO ERROR PROTECTION.  If error protecton
+	 * in enabled, the Xing data still starts at the same offset,
+	 * and now it is in sideinfo data block, and thus will not
+	 * decode correctly by non-Xing tag aware players */
+	if (gfp->error_protection) nStreamIndex -= 2;
 
 	/* Put Vbr tag */
 	pbtStreamBuffer[nStreamIndex++]=VBRTag[0];
