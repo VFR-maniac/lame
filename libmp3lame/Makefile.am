@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.9 2000/12/03 23:00:14 markt Exp $
+## $Id: Makefile.am,v 1.10 2000/12/05 15:37:26 aleidinger Exp $
 
 AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
 
@@ -69,7 +69,15 @@ noinst_HEADERS= \
 
 CLEANFILES = lclint.txt
 
-LCLINTFLAGS= +posixlib +showsummary +showalluses +whichlib +forcehints -Dlint
+LCLINTFLAGS= \
+	+posixlib \
+	+showsummary \
+	+showalluses \
+	+whichlib \
+	+forcehints \
+	-fixedformalarray \
+	+matchanyintegral \
+	-Dlint
 
 lclint.txt: ${libmp3lame_la_SOURCES} ${noinst_HEADERS}
 	@lclint ${LCLINTFLAGS} ${INCLUDES} ${DEFS} ${libmp3lame_la_SOURCES} 2>&1 >lclint.txt || true

@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.6 2000/12/03 23:00:15 markt Exp $
+## $Id: Makefile.am,v 1.7 2000/12/05 15:37:26 aleidinger Exp $
 
 AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
 
@@ -32,7 +32,15 @@ noinst_HEADERS = common.h \
 	mpglib.h \
 	tabinit.h
 
-LCLINTFLAGS= +posixlib +showsummary +showalluses +whichlib +forcehints -Dlint
+LCLINTFLAGS= \
+	+posixlib \
+	+showsummary \
+	+showalluses \
+	+whichlib \
+	+forcehints \
+	-fixedformalarray \
+	+matchanyintegral \
+	-Dlint
 
 lclint.txt: ${libmpgdecoder_la_SOURCES} ${noinst_HEADERS}
 	@lclint ${LCLINTFLAGS} ${INCLUDES} ${DEFS} ${libmpgdecoder_la_SOURCES} 2>&1 >lclint.txt || true

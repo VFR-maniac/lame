@@ -1,4 +1,4 @@
-/* $Id: ath.c,v 1.11 2000/11/23 13:06:42 aleidinger Exp $ */
+/* $Id: ath.c,v 1.12 2000/12/05 15:37:26 aleidinger Exp $ */
 /*
  * Known bugs (sorted by importance): 
  *     - human delay (ca. 200 ms or more???) and buffering delay (341 ms @48 kHz/64 KByte)
@@ -29,6 +29,7 @@
 #endif
 
 #include <assert.h>
+#include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -97,12 +98,19 @@ int  open_soundcard (
     int  status;
     
     k->device = device;
-    if ( (k->fd = open ( k->device, O_WRONLY )) < 0 )
+    if ( -1 == (k->fd = open ( k->device, O_WRONLY )) ) {
+        perror("opening of audio device failed");
 	return -1;
+    }
     
-    arg = org = channels;
+    if ( -1 == (status = ioctl (k->fd, SOUND_PCM_SYNC, 0))) {
+        fprintf ( stderr, "%s: SOUND_PCM_SYNC ioctl failed: %s\n", k->device, strerror (errno));
+        return -1;
+    }
+
+    org = arg = channels;
     if ( -1 == (status = ioctl (k->fd, SOUND_PCM_WRITE_CHANNELS, &arg)) ) {
-	fprintf ( stderr, "%s: SOUND_PCM_WRITE_CHANNELS ioctl failed\n" , k->device );
+	fprintf ( stderr, "%s: SOUND_PCM_WRITE_CHANNELS (%d) ioctl failed: %s\n" , k->device, channels, strerror (errno) );
 	return -1;
     }
     if (arg != org) {
