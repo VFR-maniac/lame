@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.77 2002/12/08 17:02:17 takehiro Exp $ */
+/* $Id: main.c,v 1.78 2002/12/13 16:54:34 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -347,10 +347,7 @@ lame_encoder(lame_global_flags * gf, FILE * outf, int nogap, char *inPath,
         fprintf(stderr,
                 "Encoding as %g kHz ", 1.e-3 * lame_get_out_samplerate(gf));
 
-        if (lame_get_ogg(gf)) {
-            fprintf(stderr, "VBR Ogg Vorbis\n");
-        }
-        else {
+	{
             const char *appendix = "";
 
             switch (lame_get_VBR(gf)) {
@@ -692,14 +689,6 @@ main(int argc, char **argv)
     if (silent > 0 || lame_get_VBR(gf) == vbr_off) {
         brhist = 0;     /* turn off VBR histogram */
     }
-
-
-#ifdef HAVE_VORBIS_ENCODER
-    if (lame_get_ogg(gf)) {
-        lame_encode_ogg_init(gf);
-        lame_set_VBR(gf, vbr_off); /* ignore lame's various VBR modes */
-    }
-#endif
 
 
     if (lame_get_decode_only(gf)) {

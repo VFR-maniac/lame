@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.26 2002/12/08 17:02:18 takehiro Exp $
+## $Id: Makefile.am,v 1.27 2002/12/13 16:54:49 takehiro Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -53,8 +53,7 @@ libmp3lame_la_SOURCES = \
 	util.c \
 	vbrquantize.c \
 	version.c \
-	mpglib_interface.c \
-	vorbis_interface.c
+	mpglib_interface.c
 
 noinst_HEADERS= \
 	VbrTag.h \
