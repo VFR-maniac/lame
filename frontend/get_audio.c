@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.66 2001/04/25 06:59:21 markt Exp $ */
+/* $Id: get_audio.c,v 1.67 2001/05/11 01:30:18 robert Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -1016,7 +1016,7 @@ unpack_read_samples - read and unpack signed low-to-high byte or unsigned
  out: sample_buffer  (must be allocated up to samples_to_read upon call)
 returns: number of samples read
 */
-static inline int
+static int
 unpack_read_samples( const int samples_to_read, const int bytes_per_sample,
 		     const int swap_order, int *sample_buffer, FILE *pcm_in )
 {

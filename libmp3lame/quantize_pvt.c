@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.58 2001/04/28 15:37:20 robert Exp $ */
+/* $Id: quantize_pvt.c,v 1.59 2001/05/11 01:30:18 robert Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -636,9 +636,7 @@ int  calc_noise(
   
   int count=0;
   FLOAT8 noise,noise_db;
-  FLOAT8 over_noise = 1;     /*    0 dB relative to masking */
   FLOAT8 over_noise_db = 0;
-  FLOAT8 tot_noise  = 1;     /*    0 dB relative to masking */
   FLOAT8 tot_noise_db  = 0;     /*    0 dB relative to masking */
   FLOAT8 max_noise  = 1E-20; /* -200 dB relative to masking */
   double klemm_noise = 1E-37;
@@ -677,14 +675,10 @@ int  calc_noise(
 	    klemm_noise += penalties (noise);
 
 	    noise_db=10*log10(Max(noise,1E-20));
-            /* multiplying here is adding in dB, but will overflow */
-	    //tot_noise *= Max(noise, 1E-20); 
 	    tot_noise_db += noise_db;
 
             if (noise > 1) {
 		over++;
-	        /* multiplying here is adding in dB, but can overflow */
-		//over_noise *= noise;
 		over_noise_db += noise_db;
 	    }
 	    count++;	    

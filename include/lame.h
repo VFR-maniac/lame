@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.74 2001/05/10 19:01:54 aleidinger Exp $ */
+/* $Id: lame.h,v 1.75 2001/05/11 01:30:18 robert Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -44,8 +44,8 @@ typedef enum vbr_mode_e {
   vbr_rh,
   vbr_abr,
   vbr_mtrh,
-  vbr_max_indicator,  /* Don't use this! It's used for sanity checks.       */
-  vbr_default=vbr_rh  /* change this to change the default VBR mode of LAME */
+  vbr_max_indicator,    /* Don't use this! It's used for sanity checks.       */
+  vbr_default=vbr_mtrh  /* change this to change the default VBR mode of LAME */
 } vbr_mode;
 
 
