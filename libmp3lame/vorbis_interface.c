@@ -1,4 +1,4 @@
-/* $Id: vorbis_interface.c,v 1.12 2001/01/22 19:54:58 aleidinger Exp $ */
+/* $Id: vorbis_interface.c,v 1.13 2001/02/25 22:47:10 markt Exp $ */
 
 
 /* Compile lame with
@@ -14,6 +14,8 @@ make clean
 ../configure
 #echo "#define KLEMM_42  1" >> config.h
 make
+
+You can also do this with the "--with-vorbis" options in configure.
 
  */
 
