@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.24 2001/11/18 22:44:52 robert Exp $ */
+/* $Id: set_get.c,v 1.25 2001/11/19 21:26:02 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1422,20 +1422,8 @@ lame_set_msfix( lame_global_flags*  gfp, double msfix )
 
 }
 
-/*
- *  alternative scaling to prevent clipping problems
- */
-void
-lame_set_gglower( lame_t gfp, int gglower )
-{
-    gfp->gglower = gglower;
-}
 
-int
-lame_get_gglower( lame_t gfp )
-{
-    return gfp->gglower;
-}
+
 
 
 
