@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.46 2001/01/14 22:35:58 markt Exp $ */
+/* $Id: parse.c,v 1.47 2001/01/15 08:58:52 gramps Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -315,7 +315,7 @@ int  long_help ( const lame_global_flags* gfp, FILE* const fp, const char* Progr
               "    --tl <album>    audio/song album (max 30 chars for version 1 tag)\n"
               "    --ty <year>     audio/song year of issue (1 to 9999)\n"
               "    --tc <comment>  user-defined text (max 30 chars for v1 tag, 28 for v1.1)\n"
-              "    --tn <track>    audio/song track number (1 to 99, creates v1.1 tag)\n"
+              "    --tn <track>    audio/song track number (1 to 255, creates v1.1 tag)\n"
               "    --tg <genre>    audio/song genre (name or number in list)\n"
               "    --add-id3v2     force addition of version 2 tag\n"
               "    --id3v1-only    add only a version 1 tag\n"
