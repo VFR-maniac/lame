@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.51 2001/10/29 22:00:16 markt Exp $ */
+/* $Id: VbrTag.c,v 1.52 2001/10/30 20:31:48 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -374,6 +374,10 @@ int GetVbrTag(VBRTAGDATA *pTagData,  unsigned char *buf)
         enc_delay += buf[1] >> 4;
         enc_padding= (buf[1] & 0x0F)<<8;
         enc_padding += buf[2];
+        // check for reasonable values (this may be an old Xing header,
+        // not a INFO tag)
+        if (enc_delay<0 || enc_delay > 3000) enc_delay=-1;
+        if (enc_padding<0 || enc_padding > 3000) enc_padding=-1;
 
         pTagData->enc_delay=enc_delay;
         pTagData->enc_padding=enc_padding;
