@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: timestatus.c,v 1.36 2002/05/14 16:19:34 markt Exp $ */
+/* $Id: timestatus.c,v 1.37 2002/05/14 16:23:36 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -120,6 +120,7 @@ void timestatus ( const int samp_rate,
         proc_time.last_time = GetCPUTime  ();
     }
 
+    // we need rollover protection for GetCPUTime, and maybe GetRealTime():
     tmx=GetRealTime();
     delta=tmx-real_time.last_time;
     if (delta<0) delta=0;  // ignore, clock has rolled over
