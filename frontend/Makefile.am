@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.16 2001/01/15 15:16:08 aleidinger Exp $
+## $Id: Makefile.am,v 1.17 2001/02/27 11:37:35 aleidinger Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -60,7 +60,7 @@ LDADD = @LDADD@ @FRONTEND_LDADD@ \
 
 mp3x_LDADD = $(LDADD) @GTK_LIBS@
 
-CLEANFILES = lclint.txt
+CLEANFILES = lclint.txt $(EXTRA_PROGRAMS)
 
 LCLINTFLAGS= \
 	+posixlib \

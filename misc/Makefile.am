@@ -1,8 +1,10 @@
-## $Id: Makefile.am,v 1.6 2001/01/15 15:16:09 aleidinger Exp $
+## $Id: Makefile.am,v 1.7 2001/02/27 11:37:35 aleidinger Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
 EXTRA_PROGRAMS = abx ath scalartest
+
+CLEANFILES = $(EXTRA_PROGRAMS)
 
 EXTRA_SCRIPTS = \
 	auenc \
