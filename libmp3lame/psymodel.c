@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.17 2000/11/01 18:22:18 markt Exp $ */
+/* $Id: psymodel.c,v 1.18 2000/11/05 13:09:48 pfk Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -1296,7 +1296,7 @@ int *npart_l_orig,int *npart_l,int *npart_s_orig,int *npart_s)
   FLOAT8 freq_tp;
   FLOAT8 bval_l[CBANDS], bval_s[CBANDS];
   int   cbmax=0, cbmax_tp;
-  FLOAT8 *p = (FLOAT8 *)psy_data;
+  const FLOAT* p = psy_data;
   int  sbmax ;
   int  i,j,k2,loop;
   int freq_scale=1;
