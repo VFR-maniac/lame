@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.95 2001/08/14 21:46:19 robert Exp $ */
+/* $Id: parse.c,v 1.96 2001/08/15 00:12:49 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -911,15 +911,23 @@ char* const inPath, char* const outPath, char **nogap_inPath, int *num_nogap)
                     lame_set_VBR(gfp,vbr_mtrh); 
 
                 T_ELIF ("r3mix")
-                    lame_set_VBR(gfp,vbr_rh); 
+                    lame_set_exp_nspsytune(gfp, lame_get_exp_nspsytune(gfp) | 1); /*nspsytune*/
+                    lame_set_experimentalX(gfp,1);
+                    lame_set_experimentalZ(gfp,1);
+                    lame_set_experimentalZ(gfp,1);
+
+                    (void) lame_set_scale( gfp, 0.98 ); /* --scale 0.98*/
+
+                    lame_set_exp_nspsytune(gfp, lame_get_exp_nspsytune(gfp) | (8 << 20));
+
+                    lame_set_VBR(gfp,vbr_mtrh); 
                     lame_set_VBR_q(gfp,1);
                     lame_set_quality( gfp, 2 );
                     lame_set_lowpassfreq(gfp,19500);
                     lame_set_mode( gfp, JOINT_STEREO );
                     lame_set_ATHtype( gfp, 3 );
-                    lame_set_VBR_min_bitrate_kbps(gfp,112);
-                    
-                
+                    lame_set_VBR_min_bitrate_kbps(gfp,96);
+                                    
                 /**
                  *  please, do *not* DOCUMENT this one
                  *  it is a developers only switch (rh)
