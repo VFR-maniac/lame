@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: gtkanal.c,v 1.26 2001/10/06 19:05:44 markt Exp $ */
+/* $Id: gtkanal.c,v 1.27 2001/11/11 14:47:42 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -42,6 +42,18 @@
 #ifdef WITH_DMALLOC
 #include <dmalloc.h>
 #endif
+
+
+//! Stringify \a x.
+#define STR(x)   #x
+//! Stringify \a x, perform macro expansion.
+#define XSTR(x)  STR(x)
+
+#define MP3X_MAJOR_VERSION      0      /* Major version number */
+#define MP3X_MINOR_VERSION     82      /* Minor version number */
+#define MP3X_ALPHA_VERSION      0      /* Set number if this is an alpha version, otherwise zero */
+#define MP3X_BETA_VERSION       0      /* Set number if this is a beta version, otherwise zero */
+
 
 plotting_data *pinfo;
 plotting_data *pplot;
@@ -1017,6 +1029,29 @@ static gint key_press_event (GtkWidget *widget, GdkEventKey *event)
   return 0;
 }
 
+
+//! Get the mp3x version string.
+/*!
+  \param void
+  \return a pointer to a string which describes the version of mp3x.
+*/
+const char*  get_mp3x_version ( void )
+{
+#if   MP3X_ALPHA_VERSION > 0
+    static /*@observer@*/ const char *const str =
+        XSTR(MP3X_MAJOR_VERSION) "." XSTR(MP3X_MINOR_VERSION)
+        " (alpha " XSTR(MP3X_ALPHA_VERSION) ", " __DATE__ " " __TIME__ ")";
+#elif MP3X_BETA_VERSION > 0
+    static /*@observer@*/ const char *const str =
+        XSTR(MP3X_MAJOR_VERSION) "." XSTR(MP3X_MINOR_VERSION)
+        " (beta " XSTR(MP3X_BETA_VERSION) ", " __DATE__ ")";
+#else
+    static /*@observer@*/ const char *const str =
+        XSTR(MP3X_MAJOR_VERSION) "." XSTR(MP3X_MINOR_VERSION);
+#endif
+
+    return str;
+}
 
 
 static void text_window (GtkWidget *widget, gpointer data)
