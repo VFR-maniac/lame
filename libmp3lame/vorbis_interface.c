@@ -1,4 +1,4 @@
-/* $Id: vorbis_interface.c,v 1.16 2001/03/18 14:31:29 aleidinger Exp $ */
+/* $Id: vorbis_interface.c,v 1.17 2001/08/27 20:56:31 aleidinger Exp $ */
 
 
 /* Compile lame with
@@ -8,7 +8,6 @@
 OGGVORBIS_ROOT=/home/cvs/vorbis
 
 export CPPFLAGS="-I${OGGVORBIS_ROOT}/ogg/include -I${OGGVORBIS_ROOT}/vorbis/lib"
-export CONFIG_DEFS="-DUSE_FFT3DN"
 
 make clean
 ../configure
