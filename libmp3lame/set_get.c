@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.8 2001/05/10 19:01:55 aleidinger Exp $ */
+/* $Id: set_get.c,v 1.9 2001/05/29 22:14:24 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1050,6 +1050,23 @@ float
 lame_get_ATHlower( const lame_global_flags*  gfp )
 {
     return gfp->ATHlower;
+}
+
+
+/* Select adaptive ATH scheme. */
+int
+lame_set_adjust_type( lame_global_flags*  gfp,
+                      int                 adjust_type )
+{
+    gfp->adjust_type = adjust_type;
+
+    return 0;
+}
+
+int
+lame_get_adjust_type( const lame_global_flags*  gfp )
+{
+    return gfp->adjust_type;
 }
 
 
