@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.39 2002/09/05 16:53:48 bouvigne Exp $ */
+/* $Id: set_get.c,v 1.40 2002/09/15 17:47:32 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -417,7 +417,6 @@ lame_set_free_format( lame_global_flags*  gfp,
         return -1;
 
     gfp->free_format = free_format;
-    gfp->disable_reservoir = 1;
 
     return 0;
 }
@@ -472,6 +471,10 @@ lame_set_brate( lame_global_flags*  gfp,
                 int                 brate )
 {
     gfp->brate = brate;
+
+    if (brate >= 320) {
+        gfp->disable_reservoir = 1;
+    }
 
     return 0;
 }
