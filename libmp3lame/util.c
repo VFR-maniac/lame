@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.91 2001/10/28 22:24:57 markt Exp $ */
+/* $Id: util.c,v 1.92 2002/02/04 17:10:22 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -526,7 +526,7 @@ void fill_buffer(lame_global_flags *gfp,
     int ch,i;
 
     /* copy in new samples into mfbuf, with resampling if necessary */
-    if (gfc->resample_ratio != 1.0) {
+    if ( (gfc->resample_ratio < .9999) || (gfc->resample_ratio > 1.0001) ){
 	for (ch = 0; ch < gfc->channels_out; ch++) {
 	    *n_out =
 		fill_buffer_resample(gfp, &mfbuf[ch][gfc->mf_size],
