@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.139 2003/05/11 09:49:34 bouvigne Exp $ */
+/* $Id: lame.h,v 1.140 2003/05/11 13:15:29 bouvigne Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -480,6 +480,10 @@ float CDECL lame_get_interChRatio(const lame_global_flags *);
 /* substep shaping method */
 int CDECL lame_set_substep(lame_global_flags *, int);
 int CDECL lame_get_substep(const lame_global_flags *);
+
+/* scalefactors scale */
+int CDECL lame_set_sfscale(lame_global_flags *, int);
+int CDECL lame_get_sfscale(const lame_global_flags *);
 
 /* subblock gain */
 int CDECL lame_set_subblock_gain(lame_global_flags *, int);
