@@ -1,4 +1,4 @@
-dnl $Id: configure.in,v 1.50 2001/01/31 19:44:02 aleidinger Exp $
+dnl $Id: configure.in,v 1.51 2001/02/14 16:38:23 aleidinger Exp $
 dnl
 dnl
 dnl don't forget to set ASM_FOR_ARCH to a space delimited list of
@@ -28,6 +28,7 @@ dnl automake
 AM_INIT_AUTOMAKE(lame,3.88)
 AM_CONFIG_HEADER(config.h)
 AM_MAINTAINER_MODE
+AM_MAKE_INCLUDE
 
 dnl libtool
 AC_DISABLE_SHARED
