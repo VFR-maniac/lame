@@ -22,7 +22,7 @@
  
 /*!
 	\author Steve Lhomme
-	\version \$Id: ACMStream.cpp,v 1.7 2002/06/12 18:36:27 markt Exp $
+	\version \$Id: ACMStream.cpp,v 1.8 2002/12/15 11:59:02 takehiro Exp $
 */
 
 #if !defined(STRICT)
@@ -94,7 +94,7 @@ DebugFileName[0] = '\0';
 ACMStream::~ACMStream()
 {
         // release memory - encoding is finished
-	lame_close( gfp );
+	if (gfp) lame_close( gfp );
 
 	if (my_debug != NULL)
 	{
