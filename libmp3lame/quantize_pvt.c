@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.90 2002/05/07 21:24:52 robert Exp $ */
+/* $Id: quantize_pvt.c,v 1.91 2002/05/11 18:29:37 markt Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -321,6 +321,7 @@ int on_pe( lame_global_flags *gfp, FLOAT8 pe[][2], III_side_info_t *l3_side,
     /* allocate targ_bits for granule */
     ResvMaxBits( gfp, mean_bits, &tbits, &extra_bits );
     max_bits = tbits + extra_bits;
+    mean_bits /= gfc->channels_out;
     if (max_bits > MAX_BITS) /* hard limit per granule */
         max_bits = MAX_BITS;
     
@@ -339,14 +340,14 @@ int on_pe( lame_global_flags *gfp, FLOAT8 pe[][2], III_side_info_t *l3_side,
             add_bits[ch] = (pe[gr][ch]-750) / 1.4;
             /* short blocks us a little extra, no matter what the pe */
             if ( cod_info->block_type == SHORT_TYPE ) {
-	        if (add_bits[ch] < mean_bits/4) 
-                    add_bits[ch] = mean_bits/4;
+	        if (add_bits[ch] < mean_bits/2) 
+                    add_bits[ch] = mean_bits/2;
             }
         }
 
         /* at most increase bits by 1.5*average */
-        if (add_bits[ch] > mean_bits*3/4) 
-            add_bits[ch] = mean_bits*3/4;
+        if (add_bits[ch] > mean_bits*3/2)
+            add_bits[ch] = mean_bits*3/2;
         if (add_bits[ch] < 0) 
             add_bits[ch] = 0;
 
