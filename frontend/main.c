@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.74 2002/10/08 08:44:05 aleidinger Exp $ */
+/* $Id: main.c,v 1.75 2002/10/08 12:58:33 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -66,6 +66,7 @@ char   *strchr(), *strrchr();
 #include "get_audio.h"
 #include "portableio.h"
 #include "timestatus.h"
+#include "VbrTag.h"
 
 /* PLL 14/04/2000 */
 #if macintosh
