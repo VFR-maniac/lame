@@ -1,4 +1,4 @@
-/* $Id: mpglib_interface.c,v 1.19 2001/06/11 16:35:18 markt Exp $ */
+/* $Id: mpglib_interface.c,v 1.20 2001/10/29 22:00:16 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -29,6 +29,16 @@ lame_decode_init(void)
     return 0;
 }
 
+int
+lame_decode1_headers(unsigned char *buffer,
+                     int len,
+                     short pcm_l[], short pcm_r[], mp3data_struct * mp3data)
+{
+    int enc_delay,enc_padding;
+    return lame_decode1_headersB(buffer,len,pcm_l,pcm_r,mp3data,&enc_delay,&enc_padding);
+}
+
+
 /*
  * For lame_decode:  return code
  * -1     error
@@ -37,9 +47,10 @@ lame_decode_init(void)
  */
 
 int
-lame_decode1_headers(unsigned char *buffer,
+lame_decode1_headersB(unsigned char *buffer,
                      int len,
-                     short pcm_l[], short pcm_r[], mp3data_struct * mp3data)
+                     short pcm_l[], short pcm_r[], mp3data_struct * mp3data,
+                     int *enc_delay, int *enc_padding)
 {
     static const int smpls[2][4] = {
         /* Layer   I    II   III */
@@ -100,6 +111,8 @@ lame_decode1_headers(unsigned char *buffer,
             /* Xing VBR header found and num_frames was set */
             mp3data->totalframes = mp.num_frames;
             mp3data->nsamp = mp3data->framesize * mp.num_frames;
+            *enc_delay = mp.enc_delay;
+            *enc_padding = mp.enc_padding;
         }
     }
 

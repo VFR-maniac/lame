@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.161 2001/10/17 01:18:31 roelvdb Exp $ */
+/* $Id: lame.c,v 1.162 2001/10/29 22:00:16 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -903,9 +903,10 @@ lame_init_params(lame_global_flags * const gfp)
 
     }
 
-    /* Do not write VBR tag if VBR flag is not specified */
-    if ((gfp->VBR == vbr_off) && (gfp->brate<64))
-        gfp->bWriteVbrTag = 0;
+    /* for CBR, we will write an "info" tag. */
+    //    if ((gfp->VBR == vbr_off)) 
+    //  gfp->bWriteVbrTag = 0;
+
     if (gfp->ogg)
         gfp->bWriteVbrTag = 0;
 #if defined(HAVE_GTK)

@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.93 2001/10/16 18:07:19 afaber Exp $ */
+/* $Id: lame.h,v 1.94 2001/10/29 22:00:15 markt Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -773,6 +773,17 @@ int CDECL lame_decode1_headers(
         short            pcm_l[],
         short            pcm_r[],
         mp3data_struct*  mp3data );
+
+/* same as lame_decode1_headers, but also returns enc_delay and enc_padding
+   from VBR Info tag, (-1 if no info tag was found) */
+int CDECL lame_decode1_headersB(
+        unsigned char*   mp3buf,
+        int              len,
+        short            pcm_l[],
+        short            pcm_r[],
+        mp3data_struct*  mp3data,
+        int              *enc_delay,
+        int              *enc_padding );
 
 
 
