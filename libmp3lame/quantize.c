@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.22 2000/11/05 17:13:09 takehiro Exp $ */
+/* $Id: quantize.c,v 1.23 2000/11/05 18:29:07 pfk Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -1819,7 +1819,7 @@ void iteration_loop
 #ifdef NORES_TEST
     /* replace ResvAdjust above with this code if you do not want
        the second granule to use bits saved by the first granule.
-       Requires using the --nores.  This is usefull for testing only */
+       Requires using the --nores.  This is useful for testing only */
     for (gr = 0; gr < gfc->mode_gr; gr++) {
         for (ch =  0; ch < gfc->stereo; ch++) {
             cod_info = &l3_side->gr[gr].ch[ch].tt;

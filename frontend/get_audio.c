@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.25 2000/11/04 02:18:59 pfk Exp $ */
+/* $Id: get_audio.c,v 1.26 2000/11/05 18:29:06 pfk Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -254,7 +254,7 @@ int get_audio(lame_global_flags *gfp,short buffer[2][1152])
     assert (framesize <= 1152);
 
     /* if this flag has been set, then we are carefull to read
-     * exactly num_samples and no more.  This is usefull for .wav and .aiff
+     * exactly num_samples and no more.  This is useful for .wav and .aiff
      * files which have id3 or other tags at the end.  Note that if you
      * are using LIBSNDFILE, this is not necessary 
      */
