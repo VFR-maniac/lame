@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.190 2003/12/09 17:19:54 olcios Exp $ */
+/* $Id: parse.c,v 1.191 2003/12/09 17:22:02 olcios Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1862,7 +1862,7 @@ char* const inPath, char* const outPath, char **nogap_inPath, int *num_nogap)
 
         fprintf(stderr, "\nError: input cannot be MPEG when --clipdetect is used\n"
 	    	        "\n--clipdetect requires decoding of MPEG *output* on the fly which\n"
-			"cannot be performed simultaneously with decoding of MPEG *input*.\n"
+			"cannot be performed simultaneously with decoding MPEG *input*.\n"
 			"\nUse a plain .wav file as input with --clipdetect.\n");
 
 	return -1;
