@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.10 2001/01/15 15:16:09 aleidinger Exp $
+## $Id: Makefile.am,v 1.11 2001/08/27 21:06:00 aleidinger Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -48,3 +48,7 @@ lclint.txt: ${libmpgdecoder_la_SOURCES} ${noinst_HEADERS}
 
 lclint: lclint.txt
 	more lclint.txt
+
+#$(OBJECTS): libtool
+#libtool: $(LIBTOOL_DEPS)
+#	$(SHELL) $(top_builddir)/config.status --recheck
