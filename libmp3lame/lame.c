@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.115 2001/05/24 22:25:49 robert Exp $ */
+/* $Id: lame.c,v 1.116 2001/05/26 16:17:35 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1065,7 +1065,11 @@ lame_init_params(lame_global_flags * const gfp)
         
         if (gfp->ATHtype == -1) gfp->ATHtype = 4;
         gfp->allow_diff_short = 1;
-        gfp->quality = 1;   // the usual stuff at level 1
+        if (gfp->quality < 0) gfp->quality = 0;     // the usual stuff at level 0
+        if (gfp->quality > 7) {
+            gfp->quality = 7;     // needs psymodel
+            ERRORF( gfc, "VBR needs a psymodel, switching to quality level 7\n");
+        }
         gfp->experimentalY = 1;        
         break;
         
