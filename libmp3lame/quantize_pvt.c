@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.102 2003/10/17 11:49:24 bouvigne Exp $ */
+/* $Id: quantize_pvt.c,v 1.103 2003/10/17 14:39:31 bouvigne Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -692,8 +692,14 @@ int  calc_noise(
 	    FLOAT8 noise = 0.0;
 
         if (prev_noise && (prev_noise->step[sfb] == step)){
+
+            /* use previously computed values */
             noise = prev_noise->noise[sfb];
             j += cod_info->width[sfb];            
+            *distort++ = noise / *l3_xmin++;
+
+	        noise = prev_noise->noise_log[sfb];
+
         } else {
             l = cod_info->width[sfb] >> 1;
 
@@ -716,13 +722,18 @@ int  calc_noise(
                 prev_noise->step[sfb] = step;
                 prev_noise->noise[sfb] = noise;
             }
+
+            noise = *distort++ = noise / *l3_xmin++;
+
+	        /* multiplying here is adding in dB, but can overflow */
+	        noise = FAST_LOG10(Max(noise,1E-20));
+
+            if (prev_noise) {
+                /* save noise values */
+                prev_noise->noise_log[sfb] = noise;
+            }
         }
 
-
-        noise = *distort++ = noise / *l3_xmin++;
-
-	    /* multiplying here is adding in dB, but can overflow */
-	    noise = FAST_LOG10(Max(noise,1E-20));
 
 
 	    /*tot_noise *= Max(noise, 1E-20); */
