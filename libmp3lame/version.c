@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: version.c,v 1.7 2000/11/03 00:47:59 pfk Exp $ */
+/* $Id: version.c,v 1.8 2000/11/04 18:15:47 pfk Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -38,9 +38,7 @@ const char*  get_lame_version ( void )  // primary for reports on screen
 {
     static char ret [48];
 
-/*
- * Here we can also add informations about compile time configurations 
- */
+    /* Here we can also add informations about compile time configurations */
     
     if (LAME_ALPHA_VERSION > 0)
         sprintf ( ret, "%u.%02d " V1 "(alpha %u, %6.6s %5.5s)", LAME_MAJOR_VERSION, LAME_MINOR_VERSION, LAME_ALPHA_VERSION, __DATE__, __TIME__ );

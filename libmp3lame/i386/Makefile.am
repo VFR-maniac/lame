@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.3 2000/11/03 14:13:23 aleidinger Exp $
+## $Id: Makefile.am,v 1.4 2000/11/04 18:15:47 pfk Exp $
 
 AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
 
@@ -33,4 +33,4 @@ EXTRA_DIST = \
 NASM = @NASM@
 NASMFLAGS=-f elf -i .
 .nas.o:
-	$(NASM) $(NASMFLAGS) $< -o $@
+	$(NASM) $(NASMFLAGS) $< -o $@ -l $<.lst

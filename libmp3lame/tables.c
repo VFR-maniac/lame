@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: tables.c,v 1.4 2000/10/29 12:43:06 aleidinger Exp $ */
+/* $Id: tables.c,v 1.5 2000/11/04 18:15:47 pfk Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -1315,15 +1315,30 @@ const unsigned int table56[4*4] = {
 
 
 
+/* 
+ * 0: MPEG-2 LSF
+ * 1: MPEG-1
+ * 2: MPEG-2.5 LSF FhG extention                  (1995-07-11 shn)
+ */
 
+typedef enum {
+    MPEG_1  = 1,
+    MPEG_2  = 0,
+    MPEG_25 = 2,
+} MPEG_t;
+ 
+const int  bitrate_table    [3] [16] = {
+    { 0,  8, 16, 24, 32, 40, 48, 56,  64,  80,  96, 112, 128, 144, 160, 0 },
+    { 0, 32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, 320, 0 },
+    { 0,  8, 16, 24, 32, 40, 48, 56,  64,  80,  96, 112, 128, 144, 160, 0 },
+};
 
+const int  samplerate_table [3]  [4] = { 
+    { 22050, 24000, 16000, 0 },
+    { 44100, 48000, 32000, 0 },
+    { 11025, 12000,  8000, 0 },
+};
 
-/* 1: MPEG-1, 0: MPEG-2 LSF, 1995-07-11 shn */
-const int  bitrate_table [2] [16] = {
-          {0,8,16,24,32,40,48,56,64,80,96,112,128,144,160},
-          {0,32,40,48,56,64,80,96,112,128,160,192,224,256,320}};
+const char* version_string  [3] = { "2", "1", "2.5" };
 
-const int samplerate_table[2][3] = { {22050, 24000, 16000},
-				     {44100, 48000, 32000}};
-
-
+/* end of tables.h */
