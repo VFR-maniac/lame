@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.60 2001/05/11 23:33:44 robert Exp $ */
+/* $Id: quantize_pvt.c,v 1.61 2001/05/15 01:24:48 robert Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -435,7 +435,7 @@ FLOAT8 athAdjust( FLOAT8 a, FLOAT8 x, FLOAT8 athFloor )
     /*  work in progress
      */
     FLOAT8 const o = 90.30873362;
-    FLOAT8 const p = 96.32946608;
+    FLOAT8 const p = 94.82444863;
     FLOAT8 u = 10. * log10(x); 
     FLOAT8 v = a*a;
     FLOAT8 w = 0.0;   

@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.82 2001/05/13 11:33:36 robert Exp $ */
+/* $Id: psymodel.c,v 1.83 2001/05/15 01:24:48 robert Exp $ */
 
 
 /*
@@ -622,14 +622,14 @@ int L3psycho_anal( lame_global_flags * gfp,
           
             /* stabilize tonality estimation */
             if ( vbr_mtrh == gfp->VBR ) {
-                FLOAT8 w;
-                if ( b > 5 ) {
-                    FLOAT8 const x = 1.77827941; /* pow(10.,2.5/10.) */
-                    w = gfc->PSY->prvTonRed[b/2] * x;
+                if ( b > 5 ) 
+                {
+                    FLOAT8 const x = 1.917973986; /* pow(10.,sqrt(8)/10.) */
+                    FLOAT8 w = gfc->PSY->prvTonRed[b/2] * x;
                     if (tbb > w) 
                         tbb = w;
-                    gfc->PSY->prvTonRed[b] = tbb;
                 }
+                gfc->PSY->prvTonRed[b] = tbb;
             }
             
 	  ecb *= tbb;
