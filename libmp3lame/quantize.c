@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.161 2005/01/25 21:47:35 bouvigne Exp $ */
+/* $Id: quantize.c,v 1.162 2005/02/06 20:23:43 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1123,7 +1123,7 @@ outer_loop (
     int best_part2_3_length = 9999999;
     int bEndOfSearch = 0;
     int bRefine = 0;
-    int best_ggain_pass1;
+    int best_ggain_pass1 = 0;
 
     bin_search_StepSize (gfc, cod_info, targ_bits, ch, xrpow);
 
