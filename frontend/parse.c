@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.140 2002/09/01 16:08:18 bouvigne Exp $ */
+/* $Id: parse.c,v 1.141 2002/09/03 11:34:28 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -275,7 +275,7 @@ int  usage ( const lame_global_flags* gfp, FILE* const fp, const char* ProgramNa
               " or:\n"
               "     \"%s --longhelp\"\n"
               "  or \"%s -?\"              for a complete options list\n\n",
-              ProgramName, ProgramName, ProgramName, ProgramName, ProgramName, ProgramName ); 
+              ProgramName, ProgramName, ProgramName, ProgramName, ProgramName ); 
     return 0;
 }
 
