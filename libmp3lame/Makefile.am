@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.29 2003/02/22 02:21:22 olcios Exp $
+## $Id: Makefile.am,v 1.30 2003/06/01 18:22:23 aleidinger Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -69,6 +69,7 @@ noinst_HEADERS= \
 	quantize.h  \
 	quantize_pvt.h \
 	reservoir.h \
+	set_get.h \
 	tables.h \
 	util.h \
 	vbrquantize.h \
