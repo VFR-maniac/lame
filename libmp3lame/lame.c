@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.106 2001/04/21 22:23:15 jd- Exp $ */
+/* $Id: lame.c,v 1.107 2001/04/23 19:47:26 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1039,20 +1039,16 @@ lame_init_params(lame_global_flags * const gfp)
 
     case vbr_mt:
 
-        /*  use Gaby's ATH for vbr-mtrh by default
-         */
-        if (gfp->ATHtype == -1)
-            gfp->ATHtype = 2;
 
         /*  fall through
          */
 
     case vbr_rh:
 
-        /*  use Roel's tweaked Gaby-ATH for VBR by default
+        /*  use Gabriel's adaptative ATH shape for VBR by default
          */
         if (gfp->ATHtype == -1)
-            gfp->ATHtype = 2;
+            gfp->ATHtype = 4;
 
         /*  automatic ATH adjustment on, VBR modes need it
          */
@@ -1090,10 +1086,6 @@ lame_init_params(lame_global_flags * const gfp)
          */
         gfc->ATH->use_adjust = 0;
 
-        /*  use Frank's ATH for CBR/ABR by default
-         */
-        if (gfp->ATHtype == -1)
-            gfp->ATHtype = 2;
 
         /*  no sfb21 extra with CBR code
          */
