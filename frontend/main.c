@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.91 2005/02/19 22:47:04 robert Exp $ */
+/* $Id: main.c,v 1.92 2005/03/13 14:42:21 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -688,7 +688,7 @@ main(int argc, char **argv)
         return 1;
     }
     if (argc <= 1) {
-        usage(gf, stderr, argv[0]); /* no command-line args, print usage, exit  */
+        usage(stderr, argv[0]); /* no command-line args, print usage, exit  */
         return 1;
     }
 
