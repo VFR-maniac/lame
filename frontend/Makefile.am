@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.8 2000/11/18 04:24:06 markt Exp $
+## $Id: Makefile.am,v 1.9 2000/11/18 12:12:07 aleidinger Exp $
 
 AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
 
@@ -21,7 +21,6 @@ common_sources = \
 noinst_HEADERS = get_audio.h \
 	gtkanal.h \
 	gpkplotting.h \
-	ieeefloat.h \
 	lametime.h \
 	main.h \
 	parse.h \
