@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.114 2002/07/28 09:18:49 takehiro Exp $ */
+/* $Id: lame.h,v 1.115 2002/09/23 07:00:12 bouvigne Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -80,7 +80,9 @@ typedef enum preset_mode_e {
     EXTREME = 1002,
     INSANE = 1003,
     STANDARD_FAST = 1004,
-    EXTREME_FAST = 1005
+    EXTREME_FAST = 1005,
+    MEDIUM = 1006,
+    MEDIUM_FAST = 1007
 } preset_mode;
 
 
