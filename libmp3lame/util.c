@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.60 2001/03/04 05:51:26 markt Exp $ */
+/* $Id: util.c,v 1.61 2001/03/04 15:30:49 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -223,6 +223,7 @@ FLOAT8 ATHformula(FLOAT8 f,lame_global_flags *gfp)
 FLOAT8 freq2bark(FLOAT8 freq)
 {
   /* input: freq in hz  output: barks */
+    if (freq<0) freq=0;
     freq = freq * 0.001;
     return 13.0*atan(.76*freq) + 3.5*atan(freq*freq/(7.5*7.5));
 }
