@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.103 2001/04/04 21:58:56 bouvigne Exp $ */
+/* $Id: lame.c,v 1.104 2001/04/12 17:40:38 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -783,6 +783,8 @@ lame_init_params(lame_global_flags * const gfp)
     if (gfp->allow_diff_short == -1) {
         if (gfp->mode == STEREO)
             gfp->allow_diff_short = 1;
+        else
+            gfp->allow_diff_short = 0;
     }
 
 
