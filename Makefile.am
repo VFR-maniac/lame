@@ -1,6 +1,6 @@
-## $Id: Makefile.am,v 1.9 2000/11/11 23:20:04 pfk Exp $
+## $Id: Makefile.am,v 1.10 2000/11/12 10:56:38 aleidinger Exp $
 
-SUBDIRS = mpglib libmp3lame frontend Dll doc include misc
+SUBDIRS = mpglib libmp3lame frontend Dll doc include misc dshow
 
 CLEANFILES = testcase.new.mp3
 AUTOMAKE_OPTIONS = foreign ansi2knr
