@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.54 2001/03/02 22:39:02 markt Exp $ */
+/* $Id: get_audio.c,v 1.55 2001/03/04 05:02:06 markt Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -1070,7 +1070,7 @@ parse_wave_header(lame_global_flags * gfp, FILE * sf)
         gfp->num_channels = channels;
         gfp->in_samplerate = samples_per_sec;
         pcmbitwidth = bits_per_sample;
-        gfp->num_samples = data_length / (channels * bits_per_sample / 8.0);
+        gfp->num_samples = data_length / (channels * ((bits_per_sample+7) / 8));
     }
     return is_wav;
 }
