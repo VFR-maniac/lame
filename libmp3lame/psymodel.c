@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.88 2001/06/14 00:43:57 robert Exp $ */
+/* $Id: psymodel.c,v 1.89 2001/06/30 00:26:50 robert Exp $ */
 
 
 /*
@@ -714,7 +714,7 @@ int L3psycho_anal( lame_global_flags * gfp,
 	  }
 	
 	/* disable short blocks */
-	if (gfp->no_short_blocks)
+	if (gfp->no_short_blocks || gfc->pe[chn] > 12000)
 	  uselongblock[chn]=1;
       }
     }
