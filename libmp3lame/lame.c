@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.168 2001/11/30 18:05:39 markt Exp $ */
+/* $Id: lame.c,v 1.169 2001/12/14 07:00:57 dibrom Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1164,6 +1164,12 @@ lame_init_params(lame_global_flags * const gfp)
     if ( gfp->experimentalY )
         MSGF(gfc,"\n *** WARNING *** the meaning of the experimental -Y has changed!\n"
                    "                 now it tells LAME to ignore sfb21 noise shaping (VBR)\n\n");
+
+    if ( gfp->preset_expopts && gfc->presetTune.use < 1 )
+        MSGF(gfc,"\n*** WARNING ***\n\n"
+		         "Specialized tunings for the preset you are using have been deactivated.\n"
+                 "This is *NOT* recommended and will lead to a decrease in quality!\n"
+	             "\n*** WARNING ***\n\n");
 
     return 0;
 }
