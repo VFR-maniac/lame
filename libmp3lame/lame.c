@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.212 2003/02/22 02:21:23 olcios Exp $ */
+/* $Id: lame.c,v 1.213 2003/02/23 16:30:40 olcios Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -587,11 +587,18 @@ lame_init_params(lame_global_flags * const gfp)
     }
 #endif
 
-    if (gfc->findReplayGain) {
-      /* initialize ReplayGain analysis */
-      if (InitGainAnalysis(gfp->out_samplerate) == INIT_GAIN_ANALYSIS_ERROR)
+    if (gfp->ReplayGain_input) {
+      if (InitGainAnalysis(gfp->in_samplerate) == INIT_GAIN_ANALYSIS_ERROR)
         return -6;
     }
+#ifdef DECODE_ON_THE_FLY
+    else {
+      if (gfp->ReplayGain_decode) {
+        if (InitGainAnalysis(gfp->out_samplerate) == INIT_GAIN_ANALYSIS_ERROR)
+          return -6;
+      }
+    }
+#endif
 
 #ifdef DECODE_ON_THE_FLY
     if (gfp->findPeakSample) 
@@ -1799,7 +1806,7 @@ lame_init_bitstream(lame_global_flags * gfp)
     if (gfp->bWriteVbrTag) 
         InitVbrTag(gfp);
 
-    
+
     return 0;
 }
 
