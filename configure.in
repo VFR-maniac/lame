@@ -1,4 +1,4 @@
-dnl $Id: configure.in,v 1.90 2002/09/06 10:53:32 aleidinger Exp $
+dnl $Id: configure.in,v 1.91 2002/09/16 16:28:54 takehiro Exp $
 dnl
 dnl
 dnl don't forget to set ASM_FOR_ARCH to a space delimited list of
@@ -764,7 +764,7 @@ if test "x$GCC" = "xyes"; then
 	case "${CONFIG_EXPOPT}" in
 	no)
 		# if someone supplies own CFLAGS, we don't add our own
-		if [ "X${ac_save_CFLAGS}" != "X" ]; then 
+		if test "x${ac_save_CFLAGS}" != "x"; then 
 			OPTIMIZATION=""
 		fi
 		;;
