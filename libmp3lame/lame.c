@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.183 2002/05/25 23:30:35 markt Exp $ */
+/* $Id: lame.c,v 1.184 2002/06/16 20:13:19 domd Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -2094,6 +2094,9 @@ lame_init(void)
 {
     lame_global_flags *gfp;
     int     ret;
+
+
+    init_log_table();
 
     gfp = calloc(1, sizeof(lame_global_flags));
     if (gfp == NULL)
