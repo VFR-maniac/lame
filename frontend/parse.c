@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.34 2000/11/20 15:08:12 robert Exp $ */
+/* $Id: parse.c,v 1.35 2000/11/20 20:45:34 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -49,8 +49,21 @@
 
 static int  lame_version_print ( FILE* const fp )
 {
-   fprintf ( fp, "LAME version %s (%s)\n\n", get_lame_version (), get_lame_url () );
-   return 0;
+    const char * v = get_lame_version ();
+    const char * u = get_lame_url ();
+    const int lenv = strlen (v);
+    const int lenu = strlen (u);
+    const int lw = 80; /* line width of terminal in characters */
+    const int sw = 16; /* static width of text */
+    
+    if (lw >= lenv+lenu+sw || lw < lenu+2)                
+        /* text fits in 80 chars per line, or line even too small for url */
+        fprintf ( fp, "LAME version %s (%s)\n\n", v, u );
+    else            
+        /* text too long, wrap url into next line, right aligned */
+        fprintf ( fp, "LAME version %s\n%*s(%s)\n\n", v, lw-2-lenu, "", u );
+    
+    return 0;
 }
 
 int  print_license ( const lame_global_flags* gfp, FILE* const fp, const char* ProgramName )  /* print version & license */
@@ -113,7 +126,7 @@ int  usage ( const lame_global_flags* gfp, FILE* const fp, const char* ProgramNa
               "\n"
               "Try  \"%s --help\"     for more information\n" 
               "  or \"%s --longhelp\"\n"
-              "  or \"%s --?\"        for a complete options list\n\n",
+              "  or \"%s -?\"         for a complete options list\n\n",
               ProgramName, ProgramName, ProgramName, ProgramName ); 
     return 0;
 }

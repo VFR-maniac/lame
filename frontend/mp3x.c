@@ -1,4 +1,4 @@
-/* $Id: mp3x.c,v 1.9 2000/11/18 10:50:57 aleidinger Exp $ */
+/* $Id: mp3x.c,v 1.10 2000/11/20 20:45:33 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -43,11 +43,17 @@ int main(int argc, char **argv)
   lame_global_flags gf;  
   char outPath[MAX_NAME_SIZE];
   char inPath[MAX_NAME_SIZE];
+  int ret;
 
   lame_init_old(&gf);
-  if(argc==1)  usage(&gf, stderr, argv[0]);  /* no command-line args  */
-
-  parse_args(&gf,argc, argv, inPath, outPath); 
+  if(argc <=1 ) {
+    usage(&gf, stderr, argv[0]);  /* no command-line args  */
+    return -1;
+  }
+  ret = parse_args(&gf,argc, argv, inPath, outPath); 
+  if (ret < 0)
+    return ret == -2 ? 0 : 1;
+  
   gf.analysis=1;
 
   init_infile(&gf,inPath);
