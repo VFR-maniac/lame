@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.19 2001/09/30 20:36:34 robert Exp $ */
+/* $Id: set_get.c,v 1.20 2001/10/13 14:02:27 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -114,6 +114,44 @@ float
 lame_get_scale( const lame_global_flags*  gfp )
 {
     return gfp->scale;
+}
+
+
+/* scale the channel 0 (left) input by this amount before 
+   encoding (not used for decoding) */
+int
+lame_set_scale_left( lame_global_flags*  gfp,
+                     float               scale )
+{
+    /* default = 0 */
+    gfp->scale_left = scale;
+
+    return 0;
+}
+
+float
+lame_get_scale_left( const lame_global_flags*  gfp )
+{
+    return gfp->scale_left;
+}
+
+
+/* scale the channel 1 (right) input by this amount before 
+   encoding (not used for decoding) */
+int
+lame_set_scale_right( lame_global_flags*  gfp,
+                      float               scale )
+{
+    /* default = 0 */
+    gfp->scale_right = scale;
+
+    return 0;
+}
+
+float
+lame_get_scale_right( const lame_global_flags*  gfp )
+{
+    return gfp->scale_right;
 }
 
 

@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.158 2001/10/10 02:17:27 roelvdb Exp $ */
+/* $Id: lame.c,v 1.159 2001/10/13 14:02:27 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1282,6 +1282,8 @@ lame_print_internals( const lame_global_flags * gfp )
     MSGF( gfc, "\nmisc:\n\n" );
     
     MSGF( gfc, "\tscaling: %f\n", gfp->scale );
+    MSGF( gfc, "\tch0 (left) scaling: %f\n", gfp->scale_left );
+    MSGF( gfc, "\tch1 (right) scaling: %f\n", gfp->scale_right );
     MSGF( gfc, "\tfilter type: %d\n", gfc->filter_type );
     pc = gfc->quantization ? "xr^3/4" : "ISO";
     MSGF( gfc, "\tquantization: %s\n", pc );
