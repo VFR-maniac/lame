@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.176 2002/04/15 11:42:20 bouvigne Exp $ */
+/* $Id: lame.c,v 1.177 2002/04/21 17:33:20 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -48,6 +48,7 @@
 #include <dmalloc.h>
 #endif
 
+#define DEFAULT_QUALITY 2
 
 static void
 lame_init_params_ppflt_lowpass(FLOAT8 amp_lowpass[32], FLOAT lowpass1,
@@ -1016,7 +1017,7 @@ lame_init_params(lame_global_flags * const gfp)
     case vbr_mtrh:
 
         if (gfp->ATHtype < 0) gfp->ATHtype = 4;
-        if (gfp->quality < 0) gfp->quality = 2;
+        if (gfp->quality < 0) gfp->quality = DEFALUT_QUALITY;
         if (gfp->quality > 7) {
             gfp->quality = 7;     // needs psymodel
             ERRORF( gfc, "VBR needs a psymodel, switching to quality level 7\n");
@@ -1121,7 +1122,7 @@ lame_init_params(lame_global_flags * const gfp)
         /*  default quality setting is 2
          */
         if (gfp->quality < 0)
-            gfp->quality = 2;
+            gfp->quality = DEFALUT_QUALITY;
 
         break;
 
@@ -1146,7 +1147,7 @@ lame_init_params(lame_global_flags * const gfp)
         /*  default quality setting for CBR/ABR is 2
          */
         if (gfp->quality < 0)
-            gfp->quality = 2;
+            gfp->quality = DEFALUT_QUALITY;
 
         break;
     }
