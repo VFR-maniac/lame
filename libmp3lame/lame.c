@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.224 2003/08/10 12:48:04 bouvigne Exp $ */
+/* $Id: lame.c,v 1.225 2003/08/20 16:45:40 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1066,6 +1066,8 @@ lame_init_params(lame_global_flags * const gfp)
 
 
         vbrmode = lame_get_VBR(gfp);
+        if (vbrmode == vbr_off)
+            lame_set_VBR_mean_bitrate_kbps(gfp, gfp->brate);
         /* second, set parameters depending on bitrate */
         apply_preset(gfp, gfp->VBR_mean_bitrate_kbps, 0);
         lame_set_VBR(gfp, vbrmode);
