@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.41 2001/01/07 05:25:18 markt Exp $ */
+/* $Id: main.c,v 1.42 2001/01/07 08:24:17 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -63,7 +63,8 @@ int swapbytes;              /* force byte swapping   default=0*/
 int silent;
 int brhist;
 float update_interval;      /* to use Frank's time status display */
-
+int mp3_delay;         /* to adjust the number of samples truncated
+                               during decode */
 
 
 
@@ -250,9 +251,11 @@ int main(int argc, char **argv)
 
 
   if (gf->decode_only) {
-
     /* decode an mp3 file to a .wav */
-    lame_decoder(gf,outf,gf->encoder_delay,inPath,outPath);
+    if (mp3_delay < 0) 
+      lame_decoder(gf,outf,gf->encoder_delay,inPath,outPath);
+    else /* user specified an encoder_delay */
+      lame_decoder(gf,outf,mp3_delay,inPath,outPath);
 
   } else {
 

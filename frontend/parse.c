@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.42 2001/01/05 15:20:33 aleidinger Exp $ */
+/* $Id: parse.c,v 1.43 2001/01/07 08:24:17 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -719,6 +719,10 @@ int  parse_args ( lame_global_flags* gfp, int argc, char** argv, char* const inP
 		
 		T_ELIF ("decode")
 		    gfp->decode_only=1;
+
+		T_ELIF ("decode-mp3delay")
+		    mp3_delay = atoi( nextArg );
+		    argUsed=1;
 		
 		T_ELIF ("noath")
 		    gfp->noATH=1;
