@@ -1,11 +1,9 @@
-## $Id: Makefile.am,v 1.2 2000/10/25 14:03:02 aleidinger Exp $
+## $Id: Makefile.am,v 1.3 2000/10/29 12:49:28 aleidinger Exp $
 
 AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
 
 bin_PROGRAMS = lame @WITH_MP3RTP@ @WITH_MP3X@
 EXTRA_PROGRAMS = mp3rtp mp3x
-
-DEFS = @DEFS@ @CONFIG_DEFS@
 
 brhist_sources = brhist.c brhist.h
 
@@ -46,7 +44,7 @@ endif
 CFLAGS = @CFLAGS@ @GTK_CFLAGS@ @FRONTEND_CFLAGS@
 LDFLAGS = @LDFLAGS@ @FRONTEND_LDFLAGS@
 
-INCLUDES = -I$(top_srcdir)/libmp3lame -I$(top_srcdir)/include
+INCLUDES = -I$(top_srcdir)/libmp3lame -I$(top_srcdir)/include -I$(top_srcdir)
 
 LDADD = @LDADD@ @FRONTEND_LDADD@ \
 	$(top_srcdir)/libmp3lame/libmp3lame.la

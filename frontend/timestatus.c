@@ -18,6 +18,12 @@
  * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  */
+
+/* $Id: timestatus.c,v 1.16 2000/10/29 12:45:54 aleidinger Exp $ */
+
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
  
 #define KLEMM_07
 #ifdef KLEMM_07

@@ -19,6 +19,12 @@
  * Boston, MA 02111-1307, USA.
  */
 
+/* $Id: quantize_pvt.c,v 1.10 2000/10/29 12:43:06 aleidinger Exp $ */
+
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <assert.h>
 #include "util.h"
 #include "lame-analysis.h"

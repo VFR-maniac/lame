@@ -24,6 +24,11 @@
  *         Special Thanks to Patrick De Smet for your advices.
  */
 
+/* $Id: newmdct.c,v 1.11 2000/10/29 12:43:06 aleidinger Exp $ */
+
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 
 #include "util.h"
 #include "l3side.h"

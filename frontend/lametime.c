@@ -19,6 +19,8 @@
  * Boston, MA 02111-1307, USA.
  */
 
+/* $Id: lametime.c,v 1.3 2000/10/29 12:45:54 aleidinger Exp $ */
+
 /*
  * name:        GetCPUTime ( void )
  *
@@ -31,6 +33,10 @@
  * There is some old difficult to read code at the end of this file.
  * Can someone integrate this into this function (if useful)?
  */
+
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 
 #include <stdio.h>
 #include <assert.h>

@@ -19,6 +19,12 @@
  * Boston, MA 02111-1307, USA.
  */
 
+/* $Id: get_audio.c,v 1.23 2000/10/29 12:45:54 aleidinger Exp $ */
+
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <stdio.h>
 #include <sys/stat.h>
 #include <stdlib.h>

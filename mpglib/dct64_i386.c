@@ -6,6 +6,12 @@
  * even for Intel processors.
  */
 
+/* $Id: dct64_i386.c,v 1.6 2000/10/29 12:41:10 aleidinger Exp $ */
+
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "dct64_i386.h"
 #include "tabinit.h"
 

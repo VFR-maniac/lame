@@ -19,6 +19,12 @@
  * Boston, MA 02111-1307, USA.
  */
 
+/* $Id: tables.c,v 1.4 2000/10/29 12:43:06 aleidinger Exp $ */
+
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "util.h"
 #include "tables.h"
 

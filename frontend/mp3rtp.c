@@ -1,3 +1,9 @@
+/* $Id: mp3rtp.c,v 1.7 2000/10/29 12:45:54 aleidinger Exp $ */
+
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>

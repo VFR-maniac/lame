@@ -43,9 +43,12 @@
  * conversions, and accommodated conversions involving +/- infinity,
  * NaN's, and denormalized numbers.
  *
- * $Id: portableio.c,v 1.1 2000/09/28 16:36:53 takehiro Exp $
+ * $Id: portableio.c,v 1.2 2000/10/29 12:45:54 aleidinger Exp $
  *
  * $Log: portableio.c,v $
+ * Revision 1.2  2000/10/29 12:45:54  aleidinger
+ * support for config.h
+ *
  * Revision 1.1  2000/09/28 16:36:53  takehiro
  * moved frontend staffs into frontend/
  * Need to debug vorbis/mpglib/analyzer/bitrate histgram.
@@ -69,6 +72,12 @@
  *
  * Revision 2.6  91/04/30  17:06:02  malcolm
  */
+
+/* $Id: portableio.c,v 1.2 2000/10/29 12:45:54 aleidinger Exp $ */
+
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 
 #include	<stdio.h>
 #if defined(__riscos__) && defined(FPA10)

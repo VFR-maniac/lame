@@ -1,3 +1,9 @@
+/* $Id: interface.c,v 1.25 2000/10/29 12:41:10 aleidinger Exp $ */
+
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <stdlib.h>
 #include <stdio.h>
 

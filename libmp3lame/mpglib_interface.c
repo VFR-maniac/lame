@@ -1,3 +1,9 @@
+/* $Id: mpglib_interface.c,v 1.6 2000/10/29 12:43:06 aleidinger Exp $ */
+
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #ifdef HAVEMPGLIB
 
 #include <limits.h>

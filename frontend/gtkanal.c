@@ -19,6 +19,12 @@
  * Boston, MA 02111-1307, USA.
  */
 
+/* $Id: gtkanal.c,v 1.6 2000/10/29 12:45:54 aleidinger Exp $ */
+
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <math.h>
 #include <gtk/gtk.h>
 #include "gpkplotting.h"

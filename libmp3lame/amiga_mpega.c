@@ -5,6 +5,12 @@
  *
  */
 
+/* $Id: amiga_mpega.c,v 1.2 2000/10/29 12:43:06 aleidinger Exp $ */
+
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #ifdef AMIGA_MPEGA
 
 #define __USE_SYSBASE

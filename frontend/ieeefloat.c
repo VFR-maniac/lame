@@ -41,9 +41,12 @@
  * conversions, and accommodated conversions involving +/- infinity,
  * NaN's, and denormalized numbers.
  *
- * $Id: ieeefloat.c,v 1.1 2000/09/28 16:36:53 takehiro Exp $
+ * $Id: ieeefloat.c,v 1.2 2000/10/29 12:45:54 aleidinger Exp $
  *
  * $Log: ieeefloat.c,v $
+ * Revision 1.2  2000/10/29 12:45:54  aleidinger
+ * support for config.h
+ *
  * Revision 1.1  2000/09/28 16:36:53  takehiro
  * moved frontend staffs into frontend/
  * Need to debug vorbis/mpglib/analyzer/bitrate histgram.
@@ -75,6 +78,10 @@
  * Initial revision
  *
  */
+
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 
 #include        <limits.h>
 #include	<stdio.h>

@@ -1,3 +1,9 @@
+/* $Id: common.c,v 1.21 2000/10/29 12:41:09 aleidinger Exp $ */
+
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <ctype.h>
 #include <stdlib.h>
 #include <signal.h>

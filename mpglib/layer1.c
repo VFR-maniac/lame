@@ -8,6 +8,12 @@
  *
  */
 
+/* $Id: layer1.c,v 1.11 2000/10/29 12:41:10 aleidinger Exp $ */
+
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #ifdef USE_LAYER_1
 
 #include "common.h"

@@ -1,7 +1,6 @@
-## $Id: Makefile.am,v 1.1 2000/10/22 11:41:40 aleidinger Exp $
+## $Id: Makefile.am,v 1.2 2000/10/29 12:49:28 aleidinger Exp $
 
 INCLUDES = @INCLUDES@ -I$(top_srcdir)/libmp3lame
-DEFS = @DEFS@ @CONFIG_DEFS@
 
 noinst_LTLIBRARIES = libmpgdecoder.la
 
