@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.13 2001/06/29 20:58:12 robert Exp $ */
+/* $Id: set_get.c,v 1.14 2001/07/01 11:50:06 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -704,7 +704,7 @@ int
 lame_set_experimentalZ( lame_global_flags*  gfp,
                         int                 experimentalZ )
 {
-    gfp->experimentalZ = experimentalZ;
+    gfp->experimentalZ += experimentalZ;
 
     return 0;
 }
