@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.145 2001/08/15 21:58:08 robert Exp $ */
+/* $Id: lame.c,v 1.146 2001/09/07 23:44:25 potsticker Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -934,7 +934,7 @@ lame_init_params(lame_global_flags * const gfp)
     }
 
     /* Do not write VBR tag if VBR flag is not specified */
-    if (gfp->VBR == vbr_off)
+    if ((gfp->VBR == vbr_off) && (gfp->brate<64))
         gfp->bWriteVbrTag = 0;
     if (gfp->ogg)
         gfp->bWriteVbrTag = 0;
@@ -1939,7 +1939,7 @@ lame_encode_finish(lame_global_flags * gfp,
 void
 lame_mp3_tags_fid(lame_global_flags * gfp, FILE * fpStream)
 {
-    if (gfp->bWriteVbrTag && (gfp->VBR != vbr_off)) {
+    if (gfp->bWriteVbrTag) {
         /* Map VBR_q to Xing quality value: 0=worst, 100=best */
         int     nQuality = ((9-gfp->VBR_q) * 100) / 9;
 
