@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: takehiro.c,v 1.39 2004/02/04 20:16:53 bouvigne Exp $ */
+/* $Id: takehiro.c,v 1.40 2004/02/07 19:38:09 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -101,8 +101,8 @@ static void quantize_xrpow(const FLOAT8 *xp, int *pi, FLOAT8 istep, gr_info * co
 {
     /* quantize on xr^(3/4) instead of xr */
     fi_union *fi;
-    int sfb;
-    int sfbmax;
+    unsigned int sfb;
+    unsigned int sfbmax;
     int j=0;
     int prev_data_use;
 
@@ -138,13 +138,13 @@ static void quantize_xrpow(const FLOAT8 *xp, int *pi, FLOAT8 istep, gr_info * co
             fi += cod_info->width[sfb];
             xp += cod_info->width[sfb];
         } else {
-            int l;
-            int remaining;
+            unsigned int l;
+            unsigned int remaining;
 
             l = cod_info->width[sfb] >> 1;
 
             if ((j+cod_info->width[sfb])>cod_info->max_nonzero_coeff) {
-                int usefullsize;
+                unsigned int usefullsize;
                 usefullsize = cod_info->max_nonzero_coeff - j +1;
                 memset(&pi[cod_info->max_nonzero_coeff],0,
                     sizeof(int)*(576-cod_info->max_nonzero_coeff));
