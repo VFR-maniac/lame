@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: brhist.c,v 1.35 2001/02/20 18:34:58 aleidinger Exp $ */
+/* $Id: brhist.c,v 1.36 2001/03/26 00:38:15 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -325,6 +325,8 @@ void  brhist_disp_total ( const lame_global_flags* gf )
     for (i = 0; i < 4; i++) {
         st_frames += st_mode[i];
     }
+
+    if (0==br_frames) return;
 
     fprintf ( Console_IO.Console_fp, "\naverage: %5.1f kbps", sum / br_frames);
 
