@@ -18,18 +18,13 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.151 2004/01/26 12:05:58 olcios Exp $ */
+/* $Id: lame.h,v 1.152 2004/02/02 12:57:06 aleidinger Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
 
 #include <stdio.h>
 #include <stdarg.h>
-
-
-#ifdef HAVE_MPGLIB
-#define DECODE_ON_THE_FLY
-#endif
 
 #if defined(__cplusplus)
 extern "C" {
