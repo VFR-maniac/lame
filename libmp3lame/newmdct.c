@@ -24,7 +24,7 @@
  *         Special Thanks to Patrick De Smet for your advices.
  */
 
-/* $Id: newmdct.c,v 1.12 2000/10/29 20:03:14 robert Exp $ */
+/* $Id: newmdct.c,v 1.13 2000/11/01 18:22:18 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -710,8 +710,7 @@ INLINE static void mdct_long(FLOAT8 *out, FLOAT8 *in)
 }
 
 
-
-void mdct_sub48( context *gfc, sample_t *w0, sample_t *w1, 
+void mdct_sub48( lame_internal_flags *gfc, sample_t *w0, sample_t *w1, 
                  FLOAT8 mdct_freq[2][2][576] )
 {
     int gr, k, ch;
