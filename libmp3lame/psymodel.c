@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.90 2001/07/01 05:24:46 jd- Exp $ */
+/* $Id: psymodel.c,v 1.91 2001/07/01 20:36:50 markt Exp $ */
 
 
 /*
@@ -702,7 +702,7 @@ int L3psycho_anal( lame_global_flags * gfp,
 	
 	/* tuned for t1.wav.  doesnt effect most other samples */
 	if (gfc->pe[chn] > 3000) 
-	  uselongblock[chn]=0;
+	    uselongblock[chn]=0;
 	
 	if ( mx > 30*mn ) 
 	  {/* big surge of energy - always use short blocks */
@@ -714,7 +714,7 @@ int L3psycho_anal( lame_global_flags * gfp,
 	  }
 	
 	/* disable short blocks */
-	if (gfp->no_short_blocks || gfc->pe[chn] > 12000)
+	if (gfp->no_short_blocks /*|| gfc->pe[chn] > 12000*/)
 	  uselongblock[chn]=1;
       }
     }
