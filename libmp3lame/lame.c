@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.215 2003/03/24 20:32:35 bouvigne Exp $ */
+/* $Id: lame.c,v 1.216 2003/04/12 10:20:56 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -2092,7 +2092,7 @@ lame_init_old(lame_global_flags * gfp)
 #endif
 
     gfc->findReplayGain = 0;
-    gfp->ReplayGain_input = 0;
+    gfp->ReplayGain_input = 1;
 #ifdef DECODE_ON_THE_FLY
     gfp->ReplayGain_decode = 0;
 #endif
