@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.53 2001/02/04 23:56:37 robert Exp $ */
+/* $Id: parse.c,v 1.54 2001/02/05 04:58:08 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1223,6 +1223,11 @@ int  parse_args ( lame_global_flags* gfp, int argc, char** argv, char* const inP
 	    fprintf(stderr,"For free format, specify a bitrate between 8 and 320 (550) kbps\n");
 	    return -1;
 	}
+    }
+
+    if (gfp->VBR !=0 && gfp->VBR !=vbr_abr) {
+	fprintf(stderr,"\n**** Warning ****  VBR modes are under heavy development!\n");
+	fprintf(stderr,"In many cases, CBR and ABR will produce better results.\n\n");
     }
     return 0;
 }
