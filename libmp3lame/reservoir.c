@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: reservoir.c,v 1.17 2001/06/21 20:40:16 bouvigne Exp $ */
+/* $Id: reservoir.c,v 1.18 2001/07/07 19:54:37 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -148,7 +148,7 @@ ResvFrameBegin(lame_global_flags *gfp,III_side_info_t *l3_side, int mean_bits, i
 
     fullFrameBits = mean_bits * gfc->mode_gr + Min ( gfc->ResvSize, gfc->ResvMax );
     
-    if ( gfp->strict_ISO  &&  fullFrameBits > maxmp3buf )
+    if ( fullFrameBits > maxmp3buf )
         fullFrameBits = maxmp3buf;
 
     assert ( 0 == gfc->ResvMax % 8 );
