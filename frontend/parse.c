@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.57 2001/02/13 18:21:12 markt Exp $ */
+/* $Id: parse.c,v 1.58 2001/02/13 18:27:55 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -703,7 +703,7 @@ int  parse_args ( lame_global_flags* gfp, int argc, char** argv, char* const inP
                     gfp->mode_fixed=1;
 		    gfp->ATHtype=3;
 		    gfp->VBR_min_bitrate_kbps=64;
-		    gfp->ATH_auto_adjust = 1;
+		    /* gfp->ATH_auto_adjust = 1; */
 		
 		T_ELIF ("abr")
 		    argUsed=1;
