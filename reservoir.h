@@ -2,9 +2,12 @@
  * ISO MPEG Audio Subgroup Software Simulation Group (1996)
  * ISO 13818-3 MPEG-2 Audio Encoder - Lower Sampling Frequency Extension
  *
- * $Id: reservoir.h,v 1.3 2000/03/14 21:01:47 markt Exp $
+ * $Id: reservoir.h,v 1.4 2000/03/21 23:02:17 markt Exp $
  *
  * $Log: reservoir.h,v $
+ * Revision 1.4  2000/03/21 23:02:17  markt
+ * replaced all "gf." by gfp->
+ *
  * Revision 1.3  2000/03/14 21:01:47  markt
  * removed fr_ps struct
  *
@@ -32,9 +35,9 @@
 #ifndef RESERVOIR_H
 #define RESERVOIR_H
 
-int ResvFrameBegin( III_side_info_t *l3_side, int mean_bits, int frameLength );
-void ResvMaxBits2( int mean_bits, int *targ_bits, int *max_bits, int gr);
-void ResvAdjust(gr_info *gi, III_side_info_t *l3_side, int mean_bits );
-void ResvFrameEnd(III_side_info_t *l3_side, int mean_bits );
+int ResvFrameBegin( lame_global_flags *gfp,III_side_info_t *l3_side, int mean_bits, int frameLength );
+void ResvMaxBits( int mean_bits, int *targ_bits, int *max_bits, int gr);
+void ResvAdjust(lame_global_flags *gfp,gr_info *gi, III_side_info_t *l3_side, int mean_bits );
+void ResvFrameEnd(lame_global_flags *gfp,III_side_info_t *l3_side, int mean_bits );
 
 #endif

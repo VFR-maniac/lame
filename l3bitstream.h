@@ -2,9 +2,12 @@
  * ISO MPEG Audio Subgroup Software Simulation Group (1996)
  * ISO 13818-3 MPEG-2 Audio Encoder - Lower Sampling Frequency Extension
  *
- * $Id: l3bitstream.h,v 1.4 2000/03/14 20:45:04 markt Exp $
+ * $Id: l3bitstream.h,v 1.5 2000/03/21 23:02:17 markt Exp $
  *
  * $Log: l3bitstream.h,v $
+ * Revision 1.5  2000/03/21 23:02:17  markt
+ * replaced all "gf." by gfp->
+ *
  * Revision 1.4  2000/03/14 20:45:04  markt
  * removed "info" sturct.   Removing fr_ps struct
  *
@@ -29,7 +32,8 @@
 
 #include "util.h"
 
-void III_format_bitstream( int              bitsPerFrame,
+void III_format_bitstream( lame_global_flags *gfp,
+			   int              bitsPerFrame,
 			   int              l3_enc[2][2][576],
                            III_side_info_t  *l3_side,
 			   III_scalefac_t   scalefac[2][2],
