@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.134 2002/04/09 14:46:59 bouvigne Exp $ */
+/* $Id: parse.c,v 1.135 2002/04/10 12:55:46 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1499,6 +1499,15 @@ char* const inPath, char* const outPath, char **nogap_inPath, int *num_nogap)
                 T_ELIF ("scale")
                     argUsed=1;
                     (void) lame_set_scale( gfp, atof(nextArg) );
+
+                T_ELIF ("noasm")
+                    argUsed=1;
+                    if (!strcmp(nextArg, "mmx")) 
+                        (void) lame_set_asm_optimizations( gfp, MMX, 0 );
+                    if (!strcmp(nextArg, "3dnow")) 
+                        (void) lame_set_asm_optimizations( gfp, AMD_3DNOW, 0 );
+                    if (!strcmp(nextArg, "sse")) 
+                        (void) lame_set_asm_optimizations( gfp, SSE, 0 );
 
 		T_ELIF ("scale-l")
                     argUsed=1;

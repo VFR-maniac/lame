@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.106 2002/04/09 14:46:59 bouvigne Exp $ */
+/* $Id: lame.h,v 1.107 2002/04/10 12:55:47 bouvigne Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -84,6 +84,12 @@ typedef enum preset_mode_e {
 } preset_mode;
 
 
+/*asm optimizations*/
+typedef enum asm_optimizations_e {
+    MMX = 1,
+    AMD_3DNOW = 2,
+    SSE = 3
+} asm_optimizations;
 
 
 struct lame_global_struct;
@@ -240,6 +246,7 @@ float CDECL lame_get_compression_ratio(const lame_global_flags *);
 
 
 int CDECL lame_set_preset( lame_global_flags*  gfp, int );
+int CDECL lame_set_asm_optimizations( lame_global_flags*  gfp, int, int );
 
 
 

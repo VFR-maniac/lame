@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.174 2002/02/17 13:55:57 takehiro Exp $ */
+/* $Id: lame.c,v 1.175 2002/04/10 12:55:47 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -554,10 +554,25 @@ lame_init_params(lame_global_flags * const gfp)
     gfc->report.errorf = gfp->report.errorf;
 
     gfc->CPU_features.i387 = has_i387();
-    gfc->CPU_features.AMD_3DNow = has_3DNow();
-    gfc->CPU_features.MMX = has_MMX();
-    gfc->CPU_features.SIMD = has_SIMD();
-    gfc->CPU_features.SIMD2 = has_SIMD2();
+
+
+    if (gfp->asm_optimizations.amd3dnow )
+        gfc->CPU_features.AMD_3DNow = has_3DNow();
+    else
+        gfc->CPU_features.AMD_3DNow = 0;
+
+    if (gfp->asm_optimizations.mmx )
+        gfc->CPU_features.MMX = has_MMX();
+    else 
+        gfc->CPU_features.MMX = 0;
+
+    if (gfp->asm_optimizations.sse ) {
+        gfc->CPU_features.SIMD = has_SIMD();
+        gfc->CPU_features.SIMD2 = has_SIMD2();
+    } else {
+        gfc->CPU_features.SIMD = 0;
+        gfc->CPU_features.SIMD2 = 0;
+    }
 
 
     if (NULL == gfc->ATH)
@@ -2142,6 +2157,9 @@ lame_init_old(lame_global_flags * gfp)
 #ifdef DECODE_ON_THE_FLY
     lame_decode_init()  // initialize the decoder 
 #endif
+    gfp->asm_optimizations.mmx = 1;
+    gfp->asm_optimizations.amd3dnow = 1;
+    gfp->asm_optimizations.sse = 1;
 
     return 0;
 }

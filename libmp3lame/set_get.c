@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.35 2002/04/09 14:46:59 bouvigne Exp $ */
+/* $Id: set_get.c,v 1.36 2002/04/10 12:55:47 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1598,6 +1598,27 @@ lame_set_preset( lame_global_flags*  gfp, int preset )
 
 
 
+int 
+lame_set_asm_optimizations( lame_global_flags*  gfp, int optim, int mode)
+{
+    mode = (mode == 1? 1 : 0);
+    switch (optim){
+        case MMX: {
+            gfp->asm_optimizations.mmx = mode;
+            return optim;
+        }
+        case AMD_3DNOW: {
+            gfp->asm_optimizations.amd3dnow = mode;
+            return optim;
+        }
+        case SSE: {
+            gfp->asm_optimizations.sse = mode;
+            return optim;
+        }
+        default: return optim;
+    }
+
+}
 
 
 
