@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.7 2000/11/13 10:59:16 aleidinger Exp $
+## $Id: Makefile.am,v 1.8 2000/11/18 04:24:06 markt Exp $
 
 AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
 
@@ -13,7 +13,6 @@ DEFS = @DEFS@ @CONFIG_DEFS@
 
 common_sources = \
 	get_audio.c \
-	ieeefloat.c \
 	lametime.c \
 	parse.c \
 	portableio.c \

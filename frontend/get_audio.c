@@ -19,9 +19,8 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.34 2000/11/15 18:52:09 aleidinger Exp $ */
+/* $Id: get_audio.c,v 1.35 2000/11/18 04:24:06 markt Exp $ */
 
-#define KLEMM_10
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -31,6 +30,7 @@
 #include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 #include <string.h>
 #include <sys/stat.h>
 
@@ -149,57 +149,7 @@ void close_infile(void)
   CloseSndFile(input_format, musicin);
 }
 
-#if defined(KLEMM_10) && defined(SIZEOF_UNSIGNED_LONG)
 
-void SwapBytesInWords ( short* ptr, size_t short_words )  /* Some speedy code */
-{
-    unsigned long  val;
-    unsigned long* p = (unsigned long*) ptr;
-
-#ifndef lint
-# if defined(CHAR_BITS)
-#  if CHAR_BITS != 8
-#   error CHAR_BITS != 8
-#  endif
-# elif defined(CHAR_BIT)
-#  if CHAR_BIT != 8
-#   error CHAR_BIT != 8
-#  endif
-# else
-#  error can not determine number of bits in a char
-# endif
-#endif /* lint */
-
-    assert( sizeof(short) != 2 );
-
-#if SIZEOF_UNSIGNED_LONG == 4
-    for ( ; short_words >= 2; short_words -= 2, p++ ) {
-        val = *p;
-        *p  = ((val<<8) & 0xFF00FF00) | ((val>>8) & 0x00FF00FF);
-    }
-    ptr = (short*)p;
-    for ( ; short_words >= 1; short_words -= 1, ptr++ ) {
-        val   = *ptr;
-        *ptr  = ((val<<8) & 0xFF00) | ((val>>8) & 0x00FF);
-    }
-#elif SIZEOF_UNSIGNED_LONG == 8
-    for ( ; short_words >= 4; short_words -= 4, p++ ) {
-        val = *p;
-        *p  = ((val<<8) & 0xFF00FF00FF00FF00) | ((val>>8) & 0x00FF00FF00FF00FF);
-    }
-    ptr = (short*)p;
-    for ( ; short_words >= 1; short_words -= 1, ptr++ ) {
-        val   = *ptr;
-        *ptr  = ((val<<8) & 0xFF00) | ((val>>8) & 0x00FF);
-    }
-#else
-/* we should use the old code (!defined(KLEMM_10)) here */
-# error sizeof(unsigned long) not known, please undef KLEMM_10
-#endif
-
-    assert ( short_words == 0 );
-}
-#else
 void SwapBytesInWords ( short* loc, size_t words )
 {
     int i;
@@ -214,7 +164,8 @@ void SwapBytesInWords ( short* loc, size_t words )
         dst[1] = src[0];
     }
 }
-#endif
+
+
 
 
 /*****************************************************************************
