@@ -1,4 +1,4 @@
-dnl $Id: configure.in,v 1.109 2004/02/02 12:57:05 aleidinger Exp $
+dnl $Id: configure.in,v 1.110 2004/02/02 13:25:10 aleidinger Exp $
 dnl
 dnl
 dnl don't forget to set ASM_FOR_ARCH to a space delimited list of
@@ -97,6 +97,8 @@ if test "${GCC}" = "yes"; then
 	GCC_version=`${CC} --version | sed -n '1s/^[[^ ]]* (.*) //;s/ .*$//;1p'`
 	AC_MSG_RESULT(${GCC_version})
 fi
+
+AC_SYS_LARGEFILE
 
 AC_CHECK_SIZEOF(short)
 AC_CHECK_SIZEOF(unsigned short)
