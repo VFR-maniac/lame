@@ -1,4 +1,4 @@
-/* $Id: abx.c,v 1.13 2001/01/12 11:13:00 aleidinger Exp $ */
+/* $Id: abx.c,v 1.14 2001/01/14 15:40:01 aleidinger Exp $ */
 
 /*
  *  Usage: abx original_file test_file
@@ -1195,8 +1195,11 @@ int  main ( int argc, char** argv )
     fshift = cross_analyze ( A, B, len );
     shift  = floor ( fshift + 0.5 );
 
-    if ( verbose )
-        fprintf ( stderr, "Delay is %.4f samples\n", fshift );
+    if ( verbose ) {
+        fprintf ( stderr, "Delay Ch1 is %.4f samples\n", fshift );
+	fprintf ( stderr, "Delay Ch2 is %.4f samples\n", 
+	          cross_analyze ( (stereo_t*)(((sample_t*)A)+1), (stereo_t*)(((sample_t*)B)+1), len ) );
+    }
 
     if (shift > 0) {
         if (verbose) 
