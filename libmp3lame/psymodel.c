@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.138 2004/06/27 13:02:24 bouvigne Exp $ */
+/* $Id: psymodel.c,v 1.139 2004/11/29 23:41:19 takehiro Exp $ */
 
 
 /*
@@ -439,7 +439,7 @@ ns_msfix(
 	gfc->thm[3].l[sb] = Min(thmS,gfc->thm[3].l[sb]);
     }
 
-    athlower *= (BLKSIZE_s / BLKSIZE);
+    athlower *= ((FLOAT)BLKSIZE_s / BLKSIZE);
     for ( sb = 0; sb < SBMAX_s; sb++ ) {
 	for ( sblock = 0; sblock < 3; sblock++ ) {
 	    FLOAT thmLR,thmM,thmS,ath;
@@ -511,7 +511,7 @@ compute_masking_s(
     )
 {
     int j, b;
-    athlower *= (BLKSIZE_s / BLKSIZE);
+    athlower *= ((FLOAT)BLKSIZE_s / BLKSIZE);
     for (j = b = 0; b < gfc->npart_s; b++) {
 	FLOAT ecb = fftenergy_s[sblock][j++];
 	int kk = gfc->numlines_s[b];
