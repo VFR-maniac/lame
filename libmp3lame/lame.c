@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.172 2002/02/07 11:58:51 shibatch Exp $ */
+/* $Id: lame.c,v 1.173 2002/02/14 15:38:51 shibatch Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -979,6 +979,11 @@ lame_init_params(lame_global_flags * const gfp)
         if (j >= 32)
             j -= 64;
         gfc->nsPsy.sfb21 = pow(10, (i+j) / 4.0 / 10.0);
+    }
+
+    if (gfp->exp_nspsytune2.pointer[0]) {
+      gfc->nsPsy.pass1fp = gfp->exp_nspsytune2.pointer[0];
+      gfc->nsPsy.use2 = 1;
     }
 
     assert( gfp->VBR_q <= 9 );
