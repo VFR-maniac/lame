@@ -1,3 +1,8 @@
+/* $Id: resample.c,v 1.9 2001/01/05 15:20:33 aleidinger Exp $ */
+
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 
 #include <stdio.h>
 #include <math.h>

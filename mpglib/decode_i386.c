@@ -10,12 +10,10 @@
  * even for Intel processors.
  */
 
-/* $Id: decode_i386.c,v 1.13 2001/01/03 13:06:50 aleidinger Exp $ */
+/* $Id: decode_i386.c,v 1.14 2001/01/05 15:20:34 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
-#elif defined(HAVE_CONFIG_MS_H)
-# include <configMS.h>
 #endif
 
 #include <stdlib.h>

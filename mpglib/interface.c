@@ -1,9 +1,7 @@
-/* $Id: interface.c,v 1.31 2001/01/03 13:06:50 aleidinger Exp $ */
+/* $Id: interface.c,v 1.32 2001/01/05 15:20:34 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
-#elif defined(HAVE_CONFIG_MS_H)
-# include <configMS.h>
 #endif
 
 #include <stdlib.h>

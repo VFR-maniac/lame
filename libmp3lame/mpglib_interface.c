@@ -1,9 +1,7 @@
-/* $Id: mpglib_interface.c,v 1.16 2001/01/03 13:06:48 aleidinger Exp $ */
+/* $Id: mpglib_interface.c,v 1.17 2001/01/05 15:20:33 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
-#elif defined(HAVE_CONFIG_MS_H)
-# include <configMS.h>
 #endif
 
 #ifdef HAVE_MPGLIB

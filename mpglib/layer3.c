@@ -5,12 +5,10 @@
  * All rights reserved. See also 'README'
  */ 
 
-/* $Id: layer3.c,v 1.41 2001/01/03 13:06:51 aleidinger Exp $ */
+/* $Id: layer3.c,v 1.42 2001/01/05 15:20:34 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
-#elif defined(HAVE_CONFIG_MS_H)
-# include <configMS.h>
 #endif
 
 #include <stdlib.h>

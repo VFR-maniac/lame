@@ -24,12 +24,10 @@
  *         Special Thanks to Patrick De Smet for your advices.
  */
 
-/* $Id: newmdct.c,v 1.22 2001/01/03 13:06:48 aleidinger Exp $ */
+/* $Id: newmdct.c,v 1.23 2001/01/05 15:20:33 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
-#elif defined(HAVE_CONFIG_MS_H)
-# include <configMS.h>
 #endif
 
 #include "util.h"

@@ -1,4 +1,4 @@
-/* $Id: mp3rtp.c,v 1.13 2001/01/03 13:06:47 aleidinger Exp $ */
+/* $Id: mp3rtp.c,v 1.14 2001/01/05 15:20:33 aleidinger Exp $ */
 
 /* Still under work ..., need a client for test, where can I get one? */
 
@@ -12,8 +12,6 @@
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
-#elif defined(HAVE_CONFIG_MS_H)
-# include <configMS.h>
 #endif
 
 #include <stdlib.h>
