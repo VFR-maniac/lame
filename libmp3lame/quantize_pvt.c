@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.77 2002/04/20 20:16:02 takehiro Exp $ */
+/* $Id: quantize_pvt.c,v 1.78 2002/04/20 20:40:02 takehiro Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -344,7 +344,7 @@ int on_pe( lame_global_flags *gfp, FLOAT8 pe[][2], III_side_info_t *l3_side,
         /******************************************************************
          * allocate bits for each channel 
          ******************************************************************/
-        cod_info = &l3_side->gr[gr].ch[ch].tt;
+        cod_info = &l3_side->tt[gr][ch];
     
         targ_bits[ch] = Min( MAX_BITS, tbits/gfc->channels_out );
     
@@ -951,7 +951,7 @@ void set_frame_pinfo(
     for (gr = 0; gr < gfc->mode_gr; gr ++) {
         for (ch = 0; ch < gfc->channels_out; ch ++) {
             int i;
-            gr_info *cod_info = &gfc->l3_side.gr[gr].ch[ch].tt;
+            gr_info *cod_info = &gfc->l3_side.tt[gr][ch];
             
             /* revert back the sign of l3enc */
             for ( i = 0; i < 576; i++) {

@@ -18,7 +18,7 @@
  * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: bitstream.c,v 1.47 2002/04/12 19:44:37 markt Exp $
+ * $Id: bitstream.c,v 1.48 2002/04/20 20:40:01 takehiro Exp $
  */
 
 
@@ -294,7 +294,7 @@ encodeSideInfo2(lame_global_flags *gfp,int bitsPerFrame)
 
 	for (gr = 0; gr < 2; gr++) {
 	    for (ch = 0; ch < gfc->channels_out; ch++) {
-		gr_info *gi = &l3_side->gr[gr].ch[ch].tt;
+		gr_info *gi = &l3_side->tt[gr][ch];
 		writeheader(gfc,gi->part2_3_length,       12);
 		writeheader(gfc,gi->big_values / 2,        9);
 		writeheader(gfc,gi->global_gain,           8);
@@ -345,7 +345,7 @@ encodeSideInfo2(lame_global_flags *gfp,int bitsPerFrame)
 
 	gr = 0;
 	for (ch = 0; ch < gfc->channels_out; ch++) {
-	    gr_info *gi = &l3_side->gr[gr].ch[ch].tt;
+	    gr_info *gi = &l3_side->tt[gr][ch];
 	    writeheader(gfc,gi->part2_3_length,       12);
 	    writeheader(gfc,gi->big_values / 2,        9);
 	    writeheader(gfc,gi->global_gain,           8);
@@ -640,7 +640,7 @@ writeMainData ( lame_global_flags * const gfp,
 	/* MPEG 1 */
 	for (gr = 0; gr < 2; gr++) {
 	    for (ch = 0; ch < gfc->channels_out; ch++) {
-		gr_info *gi = &l3_side->gr[gr].ch[ch].tt;
+		gr_info *gi = &l3_side->tt[gr][ch];
 		int slen1 = slen1_tab[gi->scalefac_compress];
 		int slen2 = slen2_tab[gi->scalefac_compress];
 		data_bits=0;
@@ -696,7 +696,7 @@ writeMainData ( lame_global_flags * const gfp,
 	/* MPEG 2 */
 	gr = 0;
 	for (ch = 0; ch < gfc->channels_out; ch++) {
-	    gr_info *gi = &l3_side->gr[gr].ch[ch].tt;
+	    gr_info *gi = &l3_side->tt[gr][ch];
 	    int i, sfb_partition;
 	    assert(gi->sfb_partition_table);
 	    data_bits = 0;
