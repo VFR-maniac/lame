@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.120 2002/08/26 20:38:25 robert Exp $ */
+/* $Id: quantize.c,v 1.121 2002/09/30 16:49:30 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -372,14 +372,19 @@ quant_compare(
         case 2: 
 	    better = calc->tot_noise < best->tot_noise; 
 	    break;
-        case 3: 
-		better = ( calc->tot_noise < (gfc->presetTune.use &&
-                                      block_type != NORM_TYPE ? (best->tot_noise - gfc->presetTune.quantcomp_adjust_rh_tot)
-                                                          :  best->tot_noise ) &&
-                   calc->max_noise < (gfc->presetTune.use &&
-                                      block_type != NORM_TYPE ? (best->max_noise - gfc->presetTune.quantcomp_adjust_rh_max)
-                                                          :  best->max_noise ));
-	    break;
+        case 3: {
+            better = (calc->tot_noise < best->tot_noise) &&
+                     (calc->max_noise < best->max_noise );
+            
+            if (gfc->presetTune.use) {
+                if ( block_type != NORM_TYPE) {
+                    better = (calc->tot_noise < (best->tot_noise - gfc->presetTune.quantcomp_adjust_rh_tot)) &&
+                             (calc->max_noise < (best->max_noise - gfc->presetTune.quantcomp_adjust_rh_max));
+                }            
+            }
+
+            break;
+        }
         case 4: 
 	    better = ( calc->max_noise <= 0  &&
                        best->max_noise >  2 )
