@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.66 2001/02/26 07:38:38 markt Exp $ */
+/* $Id: parse.c,v 1.67 2001/02/26 22:45:39 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -701,7 +701,7 @@ int  parse_args ( lame_global_flags* gfp, int argc, char** argv, char* const inP
 		    gfp->VBR = vbr_rh; 
                     gfp->VBR_q = 1;
                     gfp->quality = 2;
-                    gfp->lowpassfreq = 19000;
+                    gfp->lowpassfreq = 19500;
                     gfp->mode=MPG_MD_JOINT_STEREO;
 		    gfp->ATHtype=3;
 		    gfp->VBR_min_bitrate_kbps=64;
