@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.141 2001/07/26 23:05:47 robert Exp $ */
+/* $Id: lame.c,v 1.142 2001/08/01 21:45:01 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1072,6 +1072,7 @@ lame_init_params(lame_global_flags * const gfp)
             gfc->VBR->smooth = 0;    
             gfc->PSY->tonalityPatch = 0;
         }
+        
         gfc->VBR->bitpressure = 1;
         
         if (gfp->experimentalY)
@@ -1175,6 +1176,8 @@ lame_init_params(lame_global_flags * const gfp)
 
         break;
     }
+    /*  just another daily changing developer switch  */
+    if ( gfp->tune ) gfc->VBR->mask_adjust = gfp->tune_value_a;
 
     /* initialize internal qval settings */
     lame_init_qval(gfp);

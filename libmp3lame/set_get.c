@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.15 2001/07/16 19:35:10 robert Exp $ */
+/* $Id: set_get.c,v 1.16 2001/08/01 21:45:02 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1354,4 +1354,14 @@ lame_get_totalframes( const lame_global_flags*  gfp )
     //        totalframes = gfp->frameNum;
 
     return totalframes;
+}
+
+
+/*
+ *  just another daily changing developer switch  
+ */
+void lame_set_tune( lame_global_flags* gfp, float val ) 
+{
+    gfp->tune_value_a = val;
+    gfp->tune = 1;
 }
