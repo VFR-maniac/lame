@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.8 2001/12/23 12:22:56 aleidinger Exp $
+## $Id: Makefile.am,v 1.9 2001/12/27 12:49:31 aleidinger Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -14,6 +14,7 @@ EXTRA_SCRIPTS = \
 EXTRA_DIST = \
 	$(EXTRA_SCRIPTS) \
 	Lame.vbs \
+	lameGUI.html \
 	lame4dos.bat \
 	mlame_corr.c
 
