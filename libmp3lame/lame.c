@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.218 2003/04/20 13:28:03 bouvigne Exp $ */
+/* $Id: lame.c,v 1.219 2003/04/27 15:18:36 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -850,6 +850,13 @@ lame_init_params(lame_global_flags * const gfp)
 
     for (i = 0; i < SBMAX_s + 1; i++)
         gfc->scalefac_band.s[i] = sfBandIndex[j].s[i];
+
+    for (i = 0; i < PSFB12 + 1; i++){
+        int size = (gfc->scalefac_band.s[ 13 ] - gfc->scalefac_band.s[ 12 ])/PSFB12;
+        int start = gfc->scalefac_band.s[ 12 ] + i*size;
+        gfc->scalefac_band.psfb12[i] = start;
+    }
+    gfc->scalefac_band.psfb12[PSFB12] = 192;
 
     /* determine the mean bitrate for main data */
     if (gfp->version == 1) /* MPEG 1 */
