@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: gtkanal.c,v 1.33 2004/06/06 15:31:54 bouvigne Exp $ */
+/* $Id: gtkanal.c,v 1.34 2005/01/09 17:31:35 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -698,12 +698,13 @@ void plot_frame(void)
       /* en = max energy difference amoung the 3 short FFTs for this granule */
       en = pplot->ers[gr][ch];
       if (en>999) en=999;
-      sprintf(title2,"FFT%1i pe=%5.2fK/%3.1f \nnoise over_b:%i/max:%3.1f/over:%3.1f/tot:%3.1f/var:%3.1f",gr,
+      sprintf(title2,"FFT%1i pe=%5.2fK/%3.1f \nnoise ovr_b:%i/max:%3.1f/ovr:%3.1f/tot:%3.1f/var:%3.1f/ssd:%i",gr,
 	      pplot->pe[gr][ch]/1000,en,pplot->over[gr][ch],
 	      pplot->max_noise[gr][ch],
 	      pplot->over_noise[gr][ch],
 	      pplot->tot_noise[gr][ch],
-	      pplot->var_noise[gr][ch]);
+	      pplot->var_noise[gr][ch],
+          pplot->over_SSD[gr][ch]);
 
       barthick=3;
       if (blocktype[gr][ch]==SHORT_TYPE) barthick=2;
