@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.52 2003/05/03 14:34:34 bouvigne Exp $ */
+/* $Id: set_get.c,v 1.53 2003/05/11 09:49:33 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1456,6 +1456,21 @@ lame_get_substep(const lame_global_flags*  gfp )
     assert(0 <= gfc->substep_shaping && gfc->substep_shaping <= 7);
     return gfc->substep_shaping;
 }
+
+/* subblock gain */
+int
+lame_set_subblock_gain(lame_global_flags *gfp, int sbgain)
+{
+    gfp->internal_flags->subblock_gain = sbgain;
+    return sbgain;
+}
+
+int
+lame_get_subblock_gain(const lame_global_flags * gfp)
+{
+    return gfp->internal_flags->subblock_gain;
+}
+
 
 /* Disable short blocks. */
 int

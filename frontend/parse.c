@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.176 2003/05/04 15:35:21 bouvigne Exp $ */
+/* $Id: parse.c,v 1.177 2003/05/11 09:49:34 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1095,6 +1095,10 @@ char* const inPath, char* const outPath, char **nogap_inPath, int *num_nogap)
                 T_ELIF_INTERNAL ("substep")
                     argUsed=1;
                     (void) lame_set_substep( gfp, atof(nextArg) );
+                       
+                T_ELIF_INTERNAL ("sbgain")
+                    argUsed=1;
+                    (void) lame_set_subblock_gain( gfp, atoi(nextArg) );
                        
                     
                 T_ELIF ("abr")
