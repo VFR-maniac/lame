@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: gtkanal.c,v 1.25 2001/06/11 18:49:57 markt Exp $ */
+/* $Id: gtkanal.c,v 1.26 2001/10/06 19:05:44 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -138,7 +138,7 @@ int gtkmakeframe(void)
     for ( ch = 0; ch < channels_out; ch++ ) {
       for ( j = 0; j < framesize-DECDELAY; j++ )
 	pinfo->pcmdata2[ch][j] = pinfo->pcmdata2[ch][j+framesize];
-      for ( j = 0; j < framesize; j++ )
+      for ( j = 0; j < framesize; j++ ) /*rescale from int to short int */
 	pinfo->pcmdata2[ch][j+framesize-DECDELAY] = Buffer[ch][j];
     }
 
