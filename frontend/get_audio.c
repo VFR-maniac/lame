@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.52 2001/02/26 18:52:17 markt Exp $ */
+/* $Id: get_audio.c,v 1.53 2001/03/02 18:28:03 markt Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -1060,6 +1060,11 @@ parse_wave_header(lame_global_flags * gfp, FILE * sf)
         }
     }
 
+    if (format_tag != 1) {
+	return 0; /* oh no! non-supported format  */
+    }
+
+
     if (is_wav) {
         /* make sure the header is sane */
         gfp->num_channels = channels;
@@ -1229,8 +1234,9 @@ parse_file_header(lame_global_flags * gfp, FILE * sf)
         if (parse_wave_header(gfp, sf)) {
             input_format = sf_wave;
             count_samples_carefully = 1;
+        } else {
+	    fprintf( stderr, "Warning: corrupt or unsupported WAVE format\n"); 
         }
-
     }
     else if (type == IFF_ID_FORM) {
         /* It's probably an AIFF file */
