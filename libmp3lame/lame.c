@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.206 2003/01/26 11:31:59 bouvigne Exp $ */
+/* $Id: lame.c,v 1.207 2003/01/28 00:29:55 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1032,9 +1032,21 @@ lame_init_params(lame_global_flags * const gfp)
     if (gfp->short_blocks == short_block_not_set) {
         gfp->short_blocks =  short_block_allowed;
     }
+
+    /*Note Jan/2003: Many hardware decoders cannot handle short blocks in regular
+      stereo mode unless they are coupled (same type in both channels)
+      it is a rare event (1 frame per min. or so) that LAME would use
+      uncoupled short blocks, so lets turn them off until we decide
+      how to handle this.  No other encoders allow uncoupled short blocks,
+      even though it is in the standard.  
     if (gfp->short_blocks == short_block_allowed && gfp->mode == JOINT_STEREO) {
         gfp->short_blocks =  short_block_coupled;
+    } 
+    */
+    if (gfp->short_blocks == short_block_allowed) {
+        gfp->short_blocks =  short_block_coupled;
     }    
+
     
     if ( gfp->athaa_loudapprox < 0 ) gfp->athaa_loudapprox = 2;
     
