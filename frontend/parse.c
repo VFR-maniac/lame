@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.152 2002/12/13 16:54:42 takehiro Exp $ */
+/* $Id: parse.c,v 1.153 2002/12/15 12:56:11 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -57,6 +57,7 @@ char *strchr (), *strrchr ();
 #include "parse.h"
 #include "main.h"
 #include "get_audio.h"
+#include "version.h"
 
 #ifdef WITH_DMALLOC
 #include <dmalloc.h>
@@ -206,6 +207,10 @@ static int  lame_version_print ( FILE* const fp )
     else            
         /* text too long, wrap url into next line, right aligned */
         fprintf ( fp, "LAME version %s\n%*s(%s)\n\n", v, lw-2-lenu, "", u );
+
+    if (LAME_ALPHA_VERSION)
+        fprintf ( fp, "warning: alpha versions should be used for testing only\n\n");
+
     
     return 0;
 }
