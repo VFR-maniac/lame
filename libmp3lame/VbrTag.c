@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.43 2001/10/17 01:41:23 roelvdb Exp $ */
+/* $Id: VbrTag.c,v 1.44 2001/10/17 13:23:19 roelvdb Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -400,7 +400,7 @@ int InitVbrTag(lame_global_flags *gfp)
 {
 	int nMode,SampIndex;
 	lame_internal_flags *gfc = gfp->internal_flags;
-#define MAXFRAMESIZE 1792
+#define MAXFRAMESIZE 2880 // or 0xB40, the max freeformat 640 32kHz framesize
 	//	uint8_t pbtStreamBuffer[MAXFRAMESIZE];
 	nMode = gfp->mode;
 	SampIndex = gfc->samplerate_index;
@@ -642,7 +642,11 @@ int PutLameVBR(lame_global_flags *gfp, FILE *fpStream, uint8_t *pbtStreamBuffer,
 	if (gfp->short_blocks == short_block_forced 			||
 		gfp->short_blocks == short_block_dispensed 		||
 		((gfp->lowpassfreq == -1) && (gfp->highpassfreq == -1))	|| // "-k"
+		(gfp->scale_left != gfp->scale_right)			||
+		gfp->free_format		|| // "Archive" means you should be able to decode also
 		gfp->disable_reservoir		||
+		gfp->noATH			||
+		gfp->ATHonly			||
 		/*input_format	== sf_mp1	||
 		input_format	== sf_mp2	||
 		input_format	== sf_mp3	||
