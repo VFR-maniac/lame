@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.21 2000/11/07 00:14:27 markt Exp $ */
+/* $Id: quantize_pvt.c,v 1.22 2000/11/13 10:47:39 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -32,11 +32,6 @@
 #include "reservoir.h"
 #include "quantize_pvt.h"
 
-
-/* if your machine is IEEE754 compatible, this may make faster binary */
-#if (defined(__i386__))
-#define TAKEHIRO_IEEE754_HACK
-#endif
 
 #define NSATHSCALE 100 // Assuming dynamic range=96dB, this value should be 92
 
