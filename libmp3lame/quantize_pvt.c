@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.117 2005/01/09 17:31:03 bouvigne Exp $ */
+/* $Id: quantize_pvt.c,v 1.118 2005/01/10 09:23:56 takehiro Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -753,7 +753,7 @@ int  calc_noise(
         if (noise > 0.0) {
             int tmp;
             
-            tmp = max((int)(noise*10 + .5), 1);
+            tmp = Max((int)(noise*10 + .5), 1);
             res->over_SSD += tmp*tmp;
 
 	        over++;
