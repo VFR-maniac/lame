@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.21 2002/04/06 14:08:18 aleidinger Exp $
+## $Id: Makefile.am,v 1.22 2002/04/09 14:46:59 bouvigne Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -43,6 +43,7 @@ libmp3lame_la_SOURCES = \
         lame.c \
         newmdct.c \
 	pcm.c \
+	presets.c \
 	psymodel.c \
 	quantize.c \
 	quantize_pvt.c \
