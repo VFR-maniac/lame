@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.48 2001/01/30 11:02:35 robert Exp $ */
+/* $Id: util.c,v 1.49 2001/02/03 20:10:04 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -618,4 +618,39 @@ void updateStats( lame_internal_flags * const gfc )
         gfc->bitrate_stereoMode_Hist [gfc->bitrate_index] [gfc->mode_ext]++;
 }
 
+
+
+/*  caution: a[] will be resorted!!
+ */
+int select_kth_int(int a[], int N, int k)
+{
+    int i, j, l, r, v, w;
+    
+    l = 1;
+    r = N;
+    while (r > l) {
+        v = a[r];
+        i = l-1;
+        j = r;
+        for (;;) {
+            while (a[++i] < v) /*empty*/;
+            while (a[--j] > v) /*empty*/;
+            if (i >= j) 
+                break;
+            /* swap i and j */
+            w = a[i];
+            a[i] = a[j];
+            a[j] = w;
+        }
+        /* swap i and r */
+        w = a[i];
+        a[i] = a[r];
+        a[r] = w;
+        if (i >= k) 
+            r = i-1;
+        if (i <= k) 
+            l = i+1;
+    }
+    return a[k];
+}
 /* end of util.c */
