@@ -22,7 +22,7 @@
  
 /*!
 	\author Steve Lhomme
-	\version \$Id: AEncodeProperties.cpp,v 1.7 2002/04/07 14:07:57 robux4 Exp $
+	\version \$Id: AEncodeProperties.cpp,v 1.8 2002/04/08 18:43:30 robux4 Exp $
 */
 
 #if !defined(STRICT)
@@ -46,6 +46,10 @@
 #include "AEncodeProperties.h"
 #include "ACM.h"
 //#include "AParameters/AParameters.h"
+
+#ifndef TTS_BALLOON
+#define TTS_BALLOON            0x40
+#endif // TTS_BALLOON
 
 const unsigned int AEncodeProperties::the_Bitrates[18] = {320, 256, 224, 192, 160, 144, 128, 112, 96, 80, 64, 56, 48, 40, 32, 24, 16, 8 };
 const unsigned int AEncodeProperties::the_MPEG1_Bitrates[14] = {320, 256, 224, 192, 160, 128, 112, 96, 80, 64, 56, 48, 40, 32 };

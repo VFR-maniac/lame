@@ -22,7 +22,7 @@
  
 /*!
 	\author Steve Lhomme
-	\version \$Id: ACM.cpp,v 1.13 2002/04/07 14:07:57 robux4 Exp $
+	\version \$Id: ACM.cpp,v 1.14 2002/04/08 18:43:30 robux4 Exp $
 */
 
 #if !defined(STRICT)
@@ -52,6 +52,10 @@
 #endif // ENABLE_DECODING
 
 #include "ACM.h"
+
+#ifndef IDC_HAND
+#define IDC_HAND            MAKEINTRESOURCE(32649)
+#endif // IDC_HAND
 
 char ACM::VersionString[20];
 
