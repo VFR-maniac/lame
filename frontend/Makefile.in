@@ -10,7 +10,7 @@
 # even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 # PARTICULAR PURPOSE.
 
-# $Id: Makefile.in,v 1.14 2000/10/23 15:50:37 takehiro Exp $
+# $Id: Makefile.in,v 1.15 2000/10/24 18:11:36 takehiro Exp $
 
 
 SHELL = @SHELL@
