@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.81 2002/07/30 20:24:42 aleidinger Exp $ */
+/* $Id: get_audio.c,v 1.82 2002/10/16 18:01:09 bouvigne Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -84,7 +84,7 @@ FILE   *musicin;
 int     lame_decode_initfile(const char *fullname,
                              mp3data_struct * const mp3data);
 #else
-int     lame_decode_initfile(FILE * const fd, mp3data_struct * const mp3data);
+int     lame_decode_initfile(FILE * fd, mp3data_struct * mp3data);
 #endif
 
 /* read mp3 file until mpglib returns one frame of PCM data */
@@ -104,10 +104,10 @@ int     lame_decode_ogg_fromfile( lame_global_flags*  gfc,
 
 static int read_samples_pcm(FILE * musicin, int sample_buffer[2304],
                             int frame_size, int samples_to_read);
-static int read_samples_mp3(lame_global_flags * gfp, FILE * musicin,
+static int read_samples_mp3(lame_global_flags * const gfp, FILE * const musicin,
                             short int mpg123pcm[2][1152], int num_chan);
-static int read_samples_ogg(lame_global_flags * gfp, FILE * musicin,
-                            short int mpg123pcm[2][1152], int num_chan);
+static int read_samples_ogg(lame_global_flags * const gfp, FILE * const musicin,
+                            short int mpg123pcm[2][1152], const int num_chan);
 void    CloseSndFile(sound_file_format input, FILE * musicin);
 FILE   *OpenSndFile(lame_global_flags * gfp, char *);
 

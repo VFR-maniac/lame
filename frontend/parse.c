@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.145 2002/10/15 09:33:43 aleidinger Exp $ */
+/* $Id: parse.c,v 1.146 2002/10/16 18:01:09 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -777,8 +777,6 @@ static int  presets_set_r3mix( lame_t gfp, const char* preset_name,
     return -1;
 }
 
-extern void lame_set_msfix( lame_t gfp, double msfix );
-extern int lame_set_preset_expopts( lame_t gfp, int preset_expopts );
 
 
 

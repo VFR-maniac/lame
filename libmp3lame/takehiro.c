@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: takehiro.c,v 1.28 2002/05/07 20:15:13 robert Exp $ */
+/* $Id: takehiro.c,v 1.29 2002/10/16 18:01:11 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -686,7 +686,7 @@ void best_scalefac_store(
 
     /* use scalefac_scale if we can */
     gr_info *gi = &l3_side->tt[gr][ch];
-    int sfb,i,j,j2,l;
+    int sfb,i,j,l;
 
     /* remove scalefacs from bands with ix=0.  This idea comes
      * from the AAC ISO docs.  added mt 3/00 */

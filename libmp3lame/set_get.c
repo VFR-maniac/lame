@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.41 2002/10/08 19:30:01 bouvigne Exp $ */
+/* $Id: set_get.c,v 1.42 2002/10/16 18:01:10 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -33,6 +33,12 @@
 #ifdef WITH_DMALLOC
 #include <dmalloc.h>
 #endif
+
+
+
+extern int apply_preset(lame_global_flags*  gfp, int preset);
+
+
 
 
 /*

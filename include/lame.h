@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.115 2002/09/23 07:00:12 bouvigne Exp $ */
+/* $Id: lame.h,v 1.116 2002/10/16 18:01:10 bouvigne Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -358,6 +358,7 @@ int CDECL lame_get_VBR_hard_min(const lame_global_flags *);
 
 /* for preset */
 int CDECL lame_set_preset_expopts(lame_global_flags *, int);
+int CDECL lame_set_preset_notune(lame_global_flags *, int);
 
 
 /********************************************************************
