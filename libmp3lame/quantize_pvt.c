@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.23 2000/11/18 10:51:51 aleidinger Exp $ */
+/* $Id: quantize_pvt.c,v 1.24 2000/11/22 00:30:06 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -221,7 +221,7 @@ FLOAT8 ATHmdct( lame_global_flags *gfp, FLOAT8 f )
     lame_internal_flags *gfc = gfp->internal_flags;
     FLOAT8 ath;
   
-    ath = ATHformula( f );
+    ath = ATHformula( 1.e3 * f );
 	  
     /* convert to energy */
     if (gfc->nsPsy.use) {

@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.49 2000/11/20 15:08:12 robert Exp $ */
+/* $Id: lame.c,v 1.50 2000/11/22 00:30:06 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -309,7 +309,7 @@ static void  optimum_bandwidth (
 	// fflush (stdout);
 	
 	while ( f_low > f_low_sw ) {
-	    double  dATH = ATHformula (f_low*1.e-3) - ATHformula (f_low_sw*1.e-3);	// [dB]
+	    double  dATH = ATHformula (f_low) - ATHformula (f_low_sw);	// [dB]
 	    double  dNMR = br / f_low - br_sw / f_low_sw;		// bit
 
   	    // printf ("br   =%f  f_low   =%f\n", br   , f_low    );
