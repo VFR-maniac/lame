@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.18 2001/03/02 18:28:03 markt Exp $
+## $Id: Makefile.am,v 1.19 2001/03/14 10:56:38 aleidinger Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -16,6 +16,7 @@ EXTRA_DIST = \
 	Makefile.DJGPP \
 	Makefile.MSVC \
 	Makefile.unix \
+	Makefile.am.global \
 	PRESETS.draft \
 	README.B32 \
 	README.DJGPP \
