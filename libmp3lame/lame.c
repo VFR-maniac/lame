@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.271 2005/02/06 19:49:30 robert Exp $ */
+/* $Id: lame.c,v 1.272 2005/02/19 15:32:20 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1143,7 +1143,11 @@ lame_print_config(const lame_global_flags * gfp)
             MSGF(gfc, ", 3DNow!");
 #endif
         if (gfc->CPU_features.SSE)
+#ifdef HAVE_INTRINSICS_SSE
+            MSGF(gfc, ", SSE (ASM used)");
+#else
             MSGF(gfc, ", SSE");
+#endif
         if (gfc->CPU_features.SSE2)
             MSGF(gfc, ", SSE2");
         MSGF(gfc, "\n");

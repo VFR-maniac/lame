@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.123 2005/02/06 19:49:30 robert Exp $ */
+/* $Id: quantize_pvt.c,v 1.124 2005/02/19 15:32:21 bouvigne Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -329,6 +329,7 @@ iteration_init( lame_global_flags *gfp)
 
     huffman_init(gfc);
     quantize_init(gfc);
+    init_xrpow_core_init(gfc);
 
     if (gfp->psymodel == PSY_NSPSYTUNE) {
 	    FLOAT bass, alto, treble, sfb21;
