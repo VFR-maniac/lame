@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.107 2003/02/27 17:46:57 bouvigne Exp $ */
+/* $Id: util.c,v 1.108 2003/04/20 13:28:03 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -189,9 +189,8 @@ FLOAT8 freq2cbw(FLOAT8 freq)
 #define ABS(A) (((A)>0) ? (A) : -(A))
 
 int FindNearestBitrate(
-int bRate,        /* legal rates from 32 to 448 */
-int version,      /* MPEG-1 or MPEG-2 LSF */
-int samplerate)   /* convert bitrate in kbps to index */
+int bRate,        /* legal rates from 8 to 320 */
+int version)      /* MPEG-1 or MPEG-2 LSF */
 {
     int  bitrate = 0;
     int  i;

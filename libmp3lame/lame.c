@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.217 2003/04/20 12:33:15 bouvigne Exp $ */
+/* $Id: lame.c,v 1.218 2003/04/20 13:28:03 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -540,8 +540,7 @@ lame_init_params(lame_global_flags * const gfp)
 
         if (!gfp->free_format) /* for non Free Format find the nearest allowed bitrate */
             gfp->brate =
-                FindNearestBitrate(gfp->brate, gfp->version,
-                                   gfp->out_samplerate);
+                FindNearestBitrate(gfp->brate, gfp->version);
     }
 
     if (gfp->VBR != vbr_off && gfp->brate >= 320)
