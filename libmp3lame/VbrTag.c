@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.39 2001/10/09 23:09:20 roelvdb Exp $ */
+/* $Id: VbrTag.c,v 1.40 2001/10/10 02:17:27 roelvdb Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -486,7 +486,7 @@ void ReportLameTagProgress(lame_global_flags *gfp,int nStart)
 		return;
 
 	if (nStart)
-		MSGF( gfp->internal_flags, "Writing Lame Tag...");
+		MSGF( gfp->internal_flags, "Writing LAME Tag...");
 	else
 		MSGF( gfp->internal_flags, "done\n");
 

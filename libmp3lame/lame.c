@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.157 2001/10/09 14:26:06 aleidinger Exp $ */
+/* $Id: lame.c,v 1.158 2001/10/10 02:17:27 roelvdb Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1333,7 +1333,7 @@ lame_print_internals( const lame_global_flags * gfp )
     default      : MSGF( gfc, "\t ?? oops, some new one ?? \n" );         break;
     }
     if (gfp->bWriteVbrTag) 
-    MSGF( gfc, "\tusing Xing VBR header\n" );
+    MSGF( gfc, "\tusing LAME Tag\n" );
     MSGF( gfc, "\t...\n" );
     
     /*  everything controlling psychoacoustic settings, like ATH, etc.
