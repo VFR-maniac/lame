@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.34 2000/11/24 17:06:55 robert Exp $ */
+/* $Id: util.c,v 1.35 2000/11/26 20:58:48 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -527,6 +527,15 @@ int  has_SIMD ( void )
 #endif
 }    
 
+int  has_SIMD2 ( void )
+{
+#ifdef HAVE_NASM 
+    extern int has_SIMD2_nasm ( void );
+    return has_SIMD2_nasm ();
+#else
+    return 0;   /* don't know, assume not */
+#endif
+}    
 
 /***********************************************************************
  *
