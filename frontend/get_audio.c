@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.98 2004/02/06 16:56:01 takehiro Exp $ */
+/* $Id: get_audio.c,v 1.99 2004/02/26 17:20:51 takehiro Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -1390,9 +1390,9 @@ is_syncword_mp123(const void *const headerptr)
         return 0;       /* bad bitrate */
     if ((p[2] & 0x0C) == 0x0C)
         return 0;       /* no sample frequency with (32,44.1,48)/(1,2,4)     */
-    if ((p[1] & 0x06) == 0x04) /* illegal Layer II bitrate/Channel Mode comb */
-        if (abl2[p[2] >> 4] & (1 << (p[3] >> 6)))
-            return 0;
+    if ((p[1] & 0x18) == 0x18 && (p[1] & 0x06) == 0x04
+	&& abl2[p[2] >> 4] & (1 << (p[3] >> 6)))
+	return 0;
     if ((p[3] & 3) == 2)
 	return 0;       /* reserved enphasis mode */
     return 1;
