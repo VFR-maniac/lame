@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.247 2004/01/11 15:01:43 bouvigne Exp $ */
+/* $Id: lame.c,v 1.248 2004/01/15 01:24:55 olcios Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -643,6 +643,13 @@ lame_init_params(lame_global_flags * const gfp)
                                                             VBR_mean_bitrate_kbps);
     }
 
+#ifdef DECODE_ON_THE_FLY
+    if (gfp->findPeakSample) {
+      gfc->decode_on_the_fly = 1;
+      gfp->ReplayGain_input = 0;
+      gfp->ReplayGain_decode = 1;
+    }
+#endif
 
     /*do not compute ReplayGain values if we can't store them*/
     if (!gfp->bWriteVbrTag){
@@ -677,9 +684,6 @@ lame_init_params(lame_global_flags * const gfp)
 #endif
 
 #ifdef DECODE_ON_THE_FLY
-    if (gfp->findPeakSample)
-      gfc->decode_on_the_fly = 1;
-
     if (gfc->decode_on_the_fly && !gfp->decode_only)
       lame_decode_init();  /* initialize the decoder  */
 #endif
