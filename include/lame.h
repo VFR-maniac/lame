@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.82 2001/06/11 23:42:49 markt Exp $ */
+/* $Id: lame.h,v 1.83 2001/06/15 21:25:56 markt Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -584,6 +584,14 @@ int CDECL lame_encode_flush_nogap(
         lame_global_flags *  gfp,    /* global context handle                 */
         unsigned char*       mp3buf, /* pointer to encoded MP3 stream         */
         int                  size);  /* number of valid octets in this stream */
+
+/*
+ * OPTIONAL:
+ * after calling flush_nogap, call this routine to add Xing and id3v2
+ * headers into the bitstream.  
+ */
+int CDECL lame_reinit_bitstream(
+        lame_global_flags *  gfp);    /* global context handle                 */
 
 
 
