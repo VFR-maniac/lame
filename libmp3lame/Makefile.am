@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.18 2001/06/27 14:11:15 aleidinger Exp $
+## $Id: Makefile.am,v 1.19 2001/11/11 11:30:52 aleidinger Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -63,6 +63,7 @@ noinst_HEADERS= \
 	l3side.h \
 	lame-analysis.h \
 	lame_global_flags.h \
+	lameerror.h \
 	machine.h \
 	newmdct.h \
 	pcm.h \
@@ -71,7 +72,9 @@ noinst_HEADERS= \
 	quantize_pvt.h \
 	reservoir.h \
 	tables.h \
+	tools.h \
 	util.h \
+	vbrquantize.h \
 	version.h
 
 CLEANFILES = lclint.txt
