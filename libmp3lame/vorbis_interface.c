@@ -1,4 +1,4 @@
-/* $Id: vorbis_interface.c,v 1.11 2001/01/22 01:07:20 robert Exp $ */
+/* $Id: vorbis_interface.c,v 1.12 2001/01/22 19:54:58 aleidinger Exp $ */
 
 
 /* Compile lame with
@@ -560,4 +560,4 @@ int  lame_encode_ogg_frame (
 #endif
 
 /* end of vorbis_interface.c */
- 
+
