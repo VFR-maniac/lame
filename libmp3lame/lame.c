@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.75 2001/01/14 08:13:42 markt Exp $ */
+/* $Id: lame.c,v 1.76 2001/01/14 12:21:55 shibatch Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -916,6 +916,9 @@ int lame_init_params ( lame_global_flags* const gfp )
       i = (gfp->exp_nspsytune >>  2) & 63; if (i >= 32) i -= 64; gfc->nsPsy.bass   = pow(10,i / 4.0 / 10.0);
       i = (gfp->exp_nspsytune >>  8) & 63; if (i >= 32) i -= 64; gfc->nsPsy.alto   = pow(10,i / 4.0 / 10.0);
       i = (gfp->exp_nspsytune >> 14) & 63; if (i >= 32) i -= 64; gfc->nsPsy.treble = pow(10,i / 4.0 / 10.0);
+
+
+      if (gfp->quality <= 2) gfc->noise_shaping = 2; /* use scalefac_scale */
     }
 
     if (gfp->ATHtype == -1) gfp->ATHtype = 1;
