@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.57 2001/02/27 06:14:57 markt Exp $ */
+/* $Id: quantize.c,v 1.58 2001/05/01 22:18:41 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1222,6 +1222,8 @@ VBR_prepare (
     
     static const FLOAT8 dbQmtrh[10]=
         { -4., -3., -2., -1., 0., 0.5, 1., 1.5, 2., 2.5 };
+    static const FLOAT8 dbQmtrhFast[10]=
+        { -10., -7.5, -5., -2.5, 0., 1.25, 2.5, 3.75, 5., 6.25 };
     
     FLOAT8   masking_lower_db, adjust = 0.0;
     int      gr, ch;
@@ -1246,7 +1248,10 @@ VBR_prepare (
                 adjust = 2/(1+exp(3.5-pe[gr][ch]/300.))-0.05;
       
 	    if (vbr_mtrh == gfp->VBR) {
-	        masking_lower_db   = dbQmtrh[gfp->VBR_q] - adjust; 
+	        if ( gfp->quality == 2 )
+                    masking_lower_db   = dbQmtrhFast[gfp->VBR_q] - adjust; 
+                else
+                    masking_lower_db   = dbQmtrh[gfp->VBR_q] - adjust; 
             } 
             else if (gfc->nsPsy.use && gfp->ATHtype == 0) {
 	        masking_lower_db   = dbQns[gfp->VBR_q] - adjust; 
