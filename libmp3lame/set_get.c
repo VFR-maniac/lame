@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.6 2001/04/13 15:13:12 aleidinger Exp $ */
+/* $Id: set_get.c,v 1.7 2001/04/25 06:59:46 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -202,32 +202,6 @@ lame_get_bWriteVbrTag( const lame_global_flags*  gfp )
     return gfp->bWriteVbrTag;
 }
 
-
-/* disable writing a wave header with *decoding* */
-int
-lame_set_disable_waveheader( lame_global_flags*  gfp,
-                             int                 disable_waveheader )
-{
-    /* default = 0 (disabled) */
-
-    /* enforce disable/enable meaning, if we need more than two values
-       we need to switch to an enum to have an apropriate representation
-       of the possible meanings of the value */
-    if ( 0 > disable_waveheader || 1 < disable_waveheader )
-        return -1;
-
-    gfp->disable_waveheader = disable_waveheader;
-
-    return 0;
-}
-
-int
-lame_get_disable_waveheader( const lame_global_flags*  gfp )
-{
-    assert( 0 <= gfp->disable_waveheader && 1 >= gfp->disable_waveheader );
-
-    return gfp->disable_waveheader;
-}
 
 
 /* decode only, use lame/mpglib to convert mp3/ogg to wav */

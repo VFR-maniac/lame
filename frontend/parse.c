@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.72 2001/04/13 15:12:38 aleidinger Exp $ */
+/* $Id: parse.c,v 1.73 2001/04/25 06:59:45 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -66,7 +66,7 @@ int mp3_delay;              /* to adjust the number of samples truncated
                                during decode */
 int mp3_delay_set;          /* user specified the value of the mp3 encoder 
                                delay to assume for decoding */
-
+int disable_wav_header;
 
 
 /************************************************************************
@@ -659,6 +659,7 @@ int  parse_args ( lame_global_flags* gfp, int argc, char** argv, char* const inP
     brhist   = 1;
     mp3_delay = 0;   
     mp3_delay_set=0;
+    disable_wav_header=0;
     id3tag_init (gfp);
 
     /* process args */
@@ -1113,7 +1114,7 @@ int  parse_args ( lame_global_flags* gfp, int argc, char** argv, char* const inP
 			break;	
 		    case 't':  /* dont write VBR tag */
 			(void) lame_set_bWriteVbrTag( gfp, 0 );
-			(void) lame_set_disable_waveheader( gfp, 1 );
+			disable_wav_header=1;
 			break;
 		    case 'r':  /* force raw pcm input file */
 #if defined(LIBSNDFILE)
