@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.131 2002/02/17 13:55:57 takehiro Exp $ */
+/* $Id: parse.c,v 1.132 2002/03/16 00:21:14 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -100,13 +100,15 @@ dosToLongFileName( char *fn )
     HANDLE h = FindFirstFileA( fn, &lpFindFileData );
     if ( h != INVALID_HANDLE_VALUE ) {
         int   a;
-        char *q;
+        char *q, *p;
         FindClose( h );
         for ( a = 0; a < MSIZE; a++ ) {
             if ( '\0' == lpFindFileData.cFileName[a] ) break;
         }
         if ( a >= MSIZE || a == 0 ) return;
         q = strrchr( fn, '\\' );
+        p = strrchr( fn, '/' );
+        if ( p-q > 0 ) q = p;
         if ( q == NULL ) q = strrchr(fn,':');
         if ( q == NULL ) strncpy( fn, lpFindFileData.cFileName, a );
         else {
