@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.56 2002/07/30 20:24:43 aleidinger Exp $ */
+/* $Id: VbrTag.c,v 1.57 2002/09/28 09:30:03 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -40,13 +40,6 @@
 
 #include	<assert.h>
 #include 	<stdlib.h>
-#if HAVE_INTTYPES_H
-# include <inttypes.h>
-#else
-# if HAVE_STDINT_H
-#  include <stdint.h>
-# endif
-#endif
 #include 	<string.h>
 
 #ifdef WITH_DMALLOC
