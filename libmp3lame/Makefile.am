@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.31 2004/01/21 09:41:36 bouvigne Exp $
+## $Id: Makefile.am,v 1.32 2005/02/07 22:02:29 robert Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -22,7 +22,7 @@ libmp3lame_la_LIBADD = $(nasm_ldadd) $(decoder_ldadd)
 libmp3lame_la_LDFLAGS = -version-info @LIB_MAJOR_VERSION@:@LIB_MINOR_VERSION@ \
 			-no-undefined
 
-INCLUDES = @INCLUDES@ -I$(top_srcdir)/mpglib/ -I$(top_builddir)
+INCLUDES = @INCLUDES@ -I$(top_srcdir)/mpglib -I$(top_builddir)
 
 DEFS = @DEFS@ @CONFIG_DEFS@
 
