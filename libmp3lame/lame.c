@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.203 2003/01/02 18:27:04 bouvigne Exp $ */
+/* $Id: lame.c,v 1.204 2003/01/11 12:46:09 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1975,6 +1975,7 @@ lame_init_old(lame_global_flags * gfp)
 
     gfp->VBR = vbr_off;
     gfp->VBR_q = 4;
+    gfp->ATHcurve = 4;
     gfp->VBR_mean_bitrate_kbps = 128;
     gfp->VBR_min_bitrate_kbps = 0;
     gfp->VBR_max_bitrate_kbps = 0;
