@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.17 2001/02/27 11:37:35 aleidinger Exp $
+## $Id: Makefile.am,v 1.18 2001/06/12 12:41:16 aleidinger Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -51,7 +51,7 @@ mp3x_SOURCES = mp3x.c gtkanal.c gpkplotting.c $(common_sources)
 endif
 
 CFLAGS = @CFLAGS@ @GTK_CFLAGS@ @FRONTEND_CFLAGS@
-LDFLAGS = @LDFLAGS@ @FRONTEND_LDFLAGS@
+LDFLAGS = @LDFLAGS@ @FRONTEND_LDFLAGS@ -static
 
 INCLUDES = -I$(top_srcdir)/libmp3lame -I$(top_srcdir)/include -I$(top_builddir)
 
