@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.42 2001/10/16 15:00:02 roelvdb Exp $ */
+/* $Id: VbrTag.c,v 1.43 2001/10/17 01:41:23 roelvdb Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -528,7 +528,7 @@ int PutLameVBR(lame_global_flags *gfp, FILE *fpStream, uint8_t *pbtStreamBuffer,
 	uint8_t nRevMethod;
 	uint8_t vbr_type_translator[] = {1,5,3,2,4,0,3};		//numbering different in vbr_mode vs. Lame tag
 
-	uint8_t nLowpass		= (gfp->lowpassfreq / 100.0)+.5;
+	uint8_t nLowpass		= ( ((gfp->lowpassfreq / 100.0)+.5) > 255 ? 255 : (gfp->lowpassfreq / 100.0)+.5 );
 
 	FLOAT fPeakSignalAmplitude	= 0;				//TODO...
 	uint16_t nRadioReplayGain		= 0;				//TODO...
