@@ -1,4 +1,4 @@
-/* $Id: interface.c,v 1.33 2001/01/05 22:15:31 markt Exp $ */
+/* $Id: interface.c,v 1.34 2001/02/13 18:22:32 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -194,7 +194,6 @@ void copy_mp(PMPSTR mp,int size,unsigned char *ptr)
 
 
 
-// this routine needs to be written:
 // traverse mp data structure without changing it
 // (just like sync_buffer)
 // pull out 48 bytes
@@ -279,6 +278,7 @@ int sync_buffer(PMPSTR mp,int free_match)
     ++pos;
 
     if (i>=3) {
+        struct frame *fr = &mp->fr;
 	unsigned long head;
 
 	head = b[0];
@@ -288,11 +288,10 @@ int sync_buffer(PMPSTR mp,int free_match)
 	head |= b[2];
 	head <<= 8;
 	head |= b[3];
-	h = head_check(head);
+	h = head_check(head,fr->lay);
 
 	if (h && free_match) {
 	  /* just to be even more thorough, match the sample rate */
-	  struct frame *fr = &mp->fr;
 	  int mode,stereo,sampling_frequency,mpeg25,lsf;
 
 	  if( head & (1<<20) ) {
