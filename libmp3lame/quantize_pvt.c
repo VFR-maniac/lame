@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.89 2002/05/07 20:15:13 robert Exp $ */
+/* $Id: quantize_pvt.c,v 1.90 2002/05/07 21:24:52 robert Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -300,21 +300,6 @@ void compute_ath( lame_global_flags *gfp, FLOAT8 ATH_l[], FLOAT8 ATH_s[] )
 }
 
 
-
-
-
-/* convert from L/R <-> Mid/Side, src == dst allowed */
-void ms_convert(III_side_info_t *l3_side, int gr)
-{
-    int i;
-    for (i = 0; i < 576; ++i) {
-	FLOAT8 l, r;
-        l = l3_side->tt[gr][0].xr[i];
-        r = l3_side->tt[gr][1].xr[i];
-        l3_side->tt[gr][0].xr[i] = (l+r) * (FLOAT8)(SQRT2*0.5);
-        l3_side->tt[gr][1].xr[i] = (l-r) * (FLOAT8)(SQRT2*0.5);
-    }
-}
 
 
 
