@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.21 2000/10/30 10:48:57 robert Exp $ */
+/* $Id: util.c,v 1.22 2000/10/30 10:51:25 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -454,7 +454,7 @@ RH */
                 sample_t  y;
             
                 if (j2 < 0) {
-                    assert (BLACKSIZE+j2 > 0);
+                    assert (BLACKSIZE+j2 >= 0);
                     y = inbuf_old [BLACKSIZE+j2];
                 } else {
                     assert (j2 < len);
