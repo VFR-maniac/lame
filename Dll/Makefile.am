@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.5 2002/11/17 10:11:12 aleidinger Exp $
+## $Id: Makefile.am,v 1.6 2002/11/17 10:23:58 aleidinger Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -9,7 +9,7 @@ EXTRA_DIST = BladeMP3EncDLL.c \
 	Example.dsp \
 	Example.dsw \
 	Example_vc6.dsp \
-	Example_vc6.dsw
+	Example_vc6.dsw \
 	LameDLLInterface.htm \
 	LameDll_vc6.dsp \
 	MP3EncDll.dsp \
