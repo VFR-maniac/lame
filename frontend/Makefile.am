@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.4 2000/10/31 13:57:27 aleidinger Exp $
+## $Id: Makefile.am,v 1.5 2000/11/07 12:41:56 aleidinger Exp $
 
 AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
 
@@ -7,7 +7,7 @@ EXTRA_PROGRAMS = mp3rtp mp3x
 
 brhist_sources = brhist.c brhist.h
 
-EXTRA_DIST = $(brhist_sources) README.Win32 mp3x.dsp mp3x.dsw
+EXTRA_DIST = $(brhist_sources) README.Win32 mp3x.dsp mp3x.dsw amiga_mpega.c
 
 common_sources = \
 	get_audio.c \

@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.4 2000/10/29 12:49:28 aleidinger Exp $
+## $Id: Makefile.am,v 1.5 2000/11/07 12:41:56 aleidinger Exp $
 
 AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
 
@@ -23,7 +23,7 @@ libmp3lame_la_LDFLAGS = -version-info @LIB_MAJOR_VERSION@:@LIB_MINOR_VERSION@
 
 INCLUDES = @INCLUDES@ -I$(top_srcdir)/mpglib/ -I$(top_srcdir)
 
-EXTRA_DIST = amiga_mpega.c \
+EXTRA_DIST = \
 	debugscalefac.c \
 	libmp3lame.dsp
 
