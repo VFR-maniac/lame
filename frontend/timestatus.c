@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: timestatus.c,v 1.21 2000/11/04 18:15:47 pfk Exp $ */
+/* $Id: timestatus.c,v 1.22 2000/11/05 22:27:10 pfk Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -196,8 +196,10 @@ void decoder_progress ( const lame_global_flags* const gfp, const mp3data_struct
     
     if ( mp3data->mode == MPG_MD_JOINT_STEREO ) {
         static int  last;
-        int         curr = mp3data->mode_ext & 2;
-        fprintf ( stderr, "  %s" , curr  ?  last ? " MS " : "LMSR"  :  last ? "LMSR" : "L  R" );
+        int         curr = mp3data->mode_ext;
+        fprintf ( stderr, "  %s  %c" , 
+                  curr&2  ?  last&2 ? " MS " : "LMSR"  :  last&2 ? "LMSR" : "L  R",
+                  curr&1  ?  last&1 ? 'I'    : 'i'     :  last&1 ? 'i'    : ' ' );
         last = curr;
     }
 //    fprintf ( stderr, "%s", Console_IO.str_clreoln );
