@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.37 2000/12/03 23:27:43 markt Exp $ */
+/* $Id: util.c,v 1.38 2000/12/11 14:48:36 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -563,7 +563,7 @@ void updateStats( lame_internal_flags * const gfc )
     gfc->bitrate_stereoMode_Hist [gfc->bitrate_index] [4] ++;
     
     /* count 'em for every mode extension in case of stereo encoding */
-    if (gfc->stereo == 2)
+    if (gfc->channels_out == 2)
         gfc->bitrate_stereoMode_Hist [gfc->bitrate_index] [gfc->mode_ext]++;
 }
 

@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: reservoir.c,v 1.10 2000/12/03 23:00:14 markt Exp $ */
+/* $Id: reservoir.c,v 1.11 2000/12/11 14:48:36 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -128,11 +128,11 @@ void ResvMaxBits(lame_global_flags *gfp, int mean_bits, int *targ_bits, int *ext
 void
 ResvAdjust(lame_internal_flags *gfc,gr_info *gi, III_side_info_t *l3_side, int mean_bits )
 {
-  gfc->ResvSize += (mean_bits / gfc->stereo) - gi->part2_3_length;
+  gfc->ResvSize += (mean_bits / gfc->channels_out) - gi->part2_3_length;
 #if 0
   printf("part2_3_length:  %i  avg=%i  incres: %i  resvsize=%i\n",gi->part2_3_length,
-	 mean_bits/gfc->stereo,
-mean_bits/gfc->stereo-gi->part2_3_length,gfc->ResvSize);
+	 mean_bits/gfc->channels_out,
+mean_bits/gfc->channels_out-gi->part2_3_length,gfc->ResvSize);
 #endif
 }
 
@@ -151,7 +151,7 @@ ResvFrameEnd(lame_internal_flags *gfc, III_side_info_t *l3_side, int mean_bits)
 
 
     /* just in case mean_bits is odd, this is necessary... */
-    if ( gfc->stereo == 2  &&  (mean_bits & 1) )
+    if ( gfc->channels_out == 2  &&  (mean_bits & 1) )
 	gfc->ResvSize += 1;
 
     stuffingBits=0;
