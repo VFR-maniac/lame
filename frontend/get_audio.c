@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.64 2001/04/22 01:34:15 jd- Exp $ */
+/* $Id: get_audio.c,v 1.65 2001/04/24 01:38:40 markt Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -614,9 +614,9 @@ lame_decoder(lame_global_flags * gfp, FILE * outf, int skip, char *inPath,
 
         for (; i < iread; i++) {
             if ( lame_get_disable_waveheader( gfp ) ) {
-                WriteFunction(outf, (char *) Buffer[0] + i, sizeof(short));
+                WriteFunction(outf, (char *) &Buffer[0][i], sizeof(short));
                 if (tmp_num_channels == 2)
-                    WriteFunction(outf, (char *) Buffer[1] + i, sizeof(short));
+                    WriteFunction(outf, (char *) &Buffer[1][i], sizeof(short));
             }
             else {
                 Write16BitsLowHigh(outf, Buffer[0][i]);
