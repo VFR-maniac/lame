@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.5 2000/11/07 12:41:56 aleidinger Exp $
+## $Id: Makefile.am,v 1.6 2000/11/10 14:32:46 aleidinger Exp $
 
 AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
 
@@ -64,3 +64,14 @@ noinst_HEADERS= \
 	tables.h \
 	util.h \
 	version.h
+
+CLEANFILES = lclint.txt
+
+LCLINTFLAGS= +posixlib +showsummary +showalluses +whichlib +forcehints
+
+lclint.txt: ${libmp3lame_la_SOURCES} ${noinst_HEADERS}
+	@lclint ${LCLINTFLAGS} ${INCLUDES} ${DEFS} ${libmp3lame_la_SOURCES} 2>&1 >lclint.txt || true
+
+lclint: lclint.txt
+	more lclint.txt
+
