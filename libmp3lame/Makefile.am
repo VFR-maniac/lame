@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.19 2001/11/11 11:30:52 aleidinger Exp $
+## $Id: Makefile.am,v 1.20 2001/12/21 15:05:06 aleidinger Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -30,7 +30,8 @@ EXTRA_DIST = \
 	libmp3lame.dsp \
 	lameerror.h \
 	tools.c \
-	tools.h
+	tools.h \
+	vbrquantize.h
 
 libmp3lame_la_SOURCES = \
         VbrTag.c \
