@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.187 2002/08/26 20:38:25 robert Exp $ */
+/* $Id: lame.c,v 1.188 2002/09/02 11:51:46 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1726,9 +1726,9 @@ lame_encode_buffer_int(lame_global_flags * gfp,
     /* make a copy of input buffer, changing type to sample_t */
     for (i = 0; i < nsamples; i++) {
                                 /* internal code expects +/- 32768.0 */
-      in_buffer[0][i] = buffer_l[i] * (1.0 / ( 1 << (8 * sizeof(int) - 16)));
+      in_buffer[0][i] = buffer_l[i] * (1.0 / ( 1L << (8 * sizeof(int) - 16)));
       if (gfc->channels_in>1) 
-         in_buffer[1][i] = buffer_r[i] * (1.0 / ( 1 << (8 * sizeof(int) - 16)));
+         in_buffer[1][i] = buffer_r[i] * (1.0 / ( 1L << (8 * sizeof(int) - 16)));
     }
 
     ret = lame_encode_buffer_sample_t(gfp,in_buffer[0],in_buffer[1],
