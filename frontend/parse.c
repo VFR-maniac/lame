@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.121 2001/11/06 01:31:41 jd- Exp $ */
+/* $Id: parse.c,v 1.122 2001/11/18 22:44:52 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1459,6 +1459,15 @@ char* const inPath, char* const outPath, char **nogap_inPath, int *num_nogap)
                     argUsed=1;
                     lame_set_athaa_sensitivity( gfp, atof(nextArg) );
 
+                T_ELIF ("gglower")
+                    /* experimental, needs testing
+                     * documentation outstanding
+                     * reduces(increases) global gain x-times by ~1.5 dB
+                     */
+                    extern void lame_set_gglower( lame_t gfp, int gglower );
+                    argUsed=1;
+                    lame_set_gglower( gfp, atoi(nextArg) );
+                    
                 T_ELIF ("scale")
                     argUsed=1;
                     (void) lame_set_scale( gfp, atof(nextArg) );
