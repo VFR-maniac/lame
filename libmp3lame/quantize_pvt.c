@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.106 2003/12/21 18:14:13 bouvigne Exp $ */
+/* $Id: quantize_pvt.c,v 1.107 2003/12/22 09:44:10 bouvigne Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -181,7 +181,6 @@ ATH = ATH * 2.5e-10      (ener)
 
 static FLOAT ATHmdct( lame_global_flags *gfp, FLOAT f )
 {
-    lame_internal_flags *gfc = gfp->internal_flags;
     FLOAT ath;
   
     ath = ATHformula( f , gfp );
