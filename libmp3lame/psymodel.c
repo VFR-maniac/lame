@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.131 2003/12/21 18:14:13 bouvigne Exp $ */
+/* $Id: psymodel.c,v 1.132 2004/01/14 14:16:55 bouvigne Exp $ */
 
 
 /*
@@ -1058,10 +1058,12 @@ inline static FLOAT8 mask_add(FLOAT8 m1,FLOAT8 m2,int k,int b, lame_internal_fla
 
 
   if (m2 > m1) {
-      if (m1 == 0) return m2;
+      if (m2 > (m1*ma_max_i2))
+          return (m1+m2);
       ratio = m2/m1;
   } else {
-      if (m2 == 0) return m1;
+      if (m1 > (m2*ma_max_i2))
+          return (m1+m2);
       ratio = m1/m2;
   }
   /*i = abs(10*log10(m2 / m1)/10*16);
@@ -1075,6 +1077,7 @@ inline static FLOAT8 mask_add(FLOAT8 m1,FLOAT8 m2,int k,int b, lame_internal_fla
 
 
   m1 += m2;
+
   if ((unsigned int)(b+3) <= 3+3) {  /* approximately, 1 bark = 3 partitions */
       /* 65% of the cases */
       /* originally 'if(i > 8)' */
@@ -1092,9 +1095,6 @@ inline static FLOAT8 mask_add(FLOAT8 m1,FLOAT8 m2,int k,int b, lame_internal_fla
    * equ (m1+m2)/gfc->ATH->cb[k]<10^1.5
    * equ (m1+m2)<10^1.5 * gfc->ATH->cb[k]
    */
-
-  if (ratio >= ma_max_i2)
-      return m1;
 
   i = FAST_LOG10_X(ratio, 16.0);
   m2 = gfc->ATH->cb[k]*gfc->ATH->adjust;
