@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.21 2000/11/01 18:22:18 markt Exp $ */
+/* $Id: quantize.c,v 1.22 2000/11/05 17:13:09 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -1593,7 +1593,7 @@ calc_target_bits (
                 else
                 if (add_bits < 0) 
                     add_bits = 0;
- 
+
                 targ_bits[gr][ch] += add_bits;
             }
         }/* for ch */

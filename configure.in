@@ -1,4 +1,4 @@
-dnl $Id: configure.in,v 1.29 2000/11/03 14:06:16 aleidinger Exp $
+dnl $Id: configure.in,v 1.30 2000/11/05 17:13:08 takehiro Exp $
 dnl
 dnl Process this file with autoconf to produce a configure script.
 dnl
@@ -477,7 +477,7 @@ AC_ARG_ENABLE(debug,
     CONFIG_DEBUG="${enableval}", CONFIG_DEBUG="no")
 
 if test "x$GCC" = "xyes"; then
-	DEBUF_NORM_OPT="-O -g"
+	DEBUG_NORM_OPT="-O -g"
 
 	case "${CONFIG_DEBUG}" in
 	no)
