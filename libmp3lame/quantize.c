@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.156 2005/01/08 10:58:25 bouvigne Exp $ */
+/* $Id: quantize.c,v 1.157 2005/01/09 17:31:03 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -675,7 +675,7 @@ quant_compare(
         case 10: {
             if (best->over_count > 0 ) {
                 /* there are distorted sfb*/
-	            better = calc->over_cost < best->over_cost;
+	            better = calc->over_SSD < best->over_SSD;
             } else {
                 /* no distorted sfb*/
                 better = calc->max_noise <= best->max_noise;
@@ -1206,6 +1206,17 @@ outer_loop (
 	        if (cod_info_w.global_gain >= 256)
 	            break;
 
+            if (best_noise_info.over_count == 0) {
+
+	            while ((cod_info_w.part2_3_length
+		            = count_bits(gfc, xrpow, &cod_info_w, &prev_noise)) > best_part2_3_length
+	                   && cod_info_w.global_gain < 256u)
+	                cod_info_w.global_gain++;
+
+	            if (cod_info_w.global_gain >= 256)
+	                break;
+            }
+                
                 /* compute the distortion in this quantization */
 	        over = calc_noise (gfc, &cod_info_w, l3_xmin, distort, &noise_info, &prev_noise);
 
