@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: encoder.c,v 1.57 2001/10/01 23:02:20 markt Exp $ */
+/* $Id: encoder.c,v 1.58 2001/10/02 00:00:26 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -622,7 +622,7 @@ int  lame_encode_mp3_frame (				// Output
   format_bitstream( gfp, bitsPerFrame, l3_enc, scalefac);
 
   /* copy mp3 bit buffer into array */
-  mp3count = copy_buffer(mp3buf,mp3buf_size,&gfc->bs,1);
+  mp3count = copy_buffer(gfc,mp3buf,mp3buf_size,1);
 
 
 
