@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: encoder.c,v 1.74 2002/05/07 20:15:13 robert Exp $ */
+/* $Id: encoder.c,v 1.75 2002/08/20 16:28:33 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -532,7 +532,7 @@ int  lame_encode_mp3_frame (				// Output
 	gfc->pinfo->ms_ener_ratio[gr]=ms_ener_ratio[gr];
 	gfc->pinfo->blocktype[gr][ch]=gfc->l3_side.tt[gr][ch].block_type;
 	memcpy(gfc->pinfo->xr[gr][ch], &gfc->l3_side.tt[gr][ch].xr,
-	       sizeof(FLOAT8)*476);
+	       sizeof(FLOAT8)*576);
 	/* in psymodel, LR and MS data was stored in pinfo.  
 	   switch to MS data: */
 	if (gfc->mode_ext==MPG_MD_MS_LR) {
