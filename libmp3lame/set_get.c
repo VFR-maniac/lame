@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.59 2003/10/21 09:05:10 bouvigne Exp $ */
+/* $Id: set_get.c,v 1.60 2003/11/10 12:06:00 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -961,7 +961,7 @@ lame_set_VBR_q( lame_global_flags*  gfp,
         return -1;  /* Unknown VBR quality level! */
 
     gfp->VBR_q = VBR_q;
-    lame_set_ATHcurve(gfp, VBR_q);
+//    lame_set_ATHcurve(gfp, VBR_q);
 
     return 0;
 }
