@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.27 2000/11/06 19:22:49 cisc Exp $ */
+/* $Id: parse.c,v 1.28 2000/11/07 15:31:27 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -296,12 +296,12 @@ int  long_help ( const lame_global_flags* gfp, FILE* const fp, const char* Progr
               "    won't fit in a version 1 tag (e.g. the title string is longer than 30\n"
               "    characters), or the `--add-id3v2' or `--id3v2-only' options are used,\n"
               "    or output is redirected to stdout."
-#if defined(HAVEVORBIS)
+#if defined(HAVE_VORBIS)
               "\n\n"
               "    Note: All `--t*' options (except those for track and genre) work for Ogg\n"
               "    Vorbis output, but other ID3-specific options are ignored."
 #endif              
-#if defined(HAVEGTK)
+#if defined(HAVE_GTK)
               "\n\n"
               "    -g              run graphical analysis on <infile>"
 #endif
@@ -665,14 +665,14 @@ int  parse_args ( lame_global_flags* gfp, int argc, char** argv, char* const inP
 		    input_format=sf_mp3;
 		
 		T_ELIF ("ogginput")
-#if defined(HAVEVORBIS)
+#if defined(HAVE_VORBIS)
 		    input_format=sf_ogg;
 #else
 		    fprintf(stderr,"Error: LAME not compiled with Vorbis support\n");
 		    return -1;
 #endif
 		T_ELIF ("ogg")
-#if defined(HAVEVORBIS)
+#if defined(HAVE_VORBIS)
 		    gfp->ogg=1;
 #else
 		    fprintf(stderr,"Error: LAME not compiled with Vorbis support\n");
@@ -1002,7 +1002,7 @@ int  parse_args ( lame_global_flags* gfp, int argc, char** argv, char* const inP
 		    case 'f': 
 			gfp->quality= 7;
 			break;
-#if defined(HAVEGTK)
+#if defined(HAVE_GTK)
 		    case 'g': /* turn on gtk analysis */
 			gfp->analysis = 1;
 			break;
@@ -1087,7 +1087,7 @@ int  parse_args ( lame_global_flags* gfp, int argc, char** argv, char* const inP
     if (input_format == sf_unknown)
 	input_format = filename_to_type ( inPath );
     
-#if !(defined HAVEMPGLIB || defined AMIGA_MPEGA)
+#if !(defined HAVE_MPGLIB || defined AMIGA_MPEGA)
     if ( input_format == sf_mp1 ||
 	 input_format == sf_mp2 ||
 	 input_format == sf_mp3) {
@@ -1096,7 +1096,7 @@ int  parse_args ( lame_global_flags* gfp, int argc, char** argv, char* const inP
     }
 #endif
 
-#if !(defined HAVEVORBIS)
+#if !(defined HAVE_VORBIS)
     if ( input_format == sf_ogg ) {
         fprintf(stderr,"Error: LAME not compiled with Vorbis support\n");
 	return -1;

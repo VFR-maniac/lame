@@ -1,10 +1,10 @@
-/* $Id: mpglib_interface.c,v 1.8 2000/11/03 00:47:59 pfk Exp $ */
+/* $Id: mpglib_interface.c,v 1.9 2000/11/07 15:33:12 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
 
-#ifdef HAVEMPGLIB
+#ifdef HAVE_MPGLIB
 
 #include <limits.h>
 #include <stdlib.h>

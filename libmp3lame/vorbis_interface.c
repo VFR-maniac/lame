@@ -1,4 +1,4 @@
-/* $Id: vorbis_interface.c,v 1.2 2000/10/29 12:43:06 aleidinger Exp $ */
+/* $Id: vorbis_interface.c,v 1.3 2000/11/07 15:33:12 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -6,7 +6,7 @@
 
 /* LAME interface to libvorbis */
 
-#ifdef HAVEVORBIS
+#ifdef HAVE_VORBIS
 #include <time.h>
 #include "vorbis/codec.h"
 #include "vorbis/modes.h"
