@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.33 2000/11/13 10:50:17 aleidinger Exp $ */
+/* $Id: get_audio.c,v 1.34 2000/11/15 18:52:09 aleidinger Exp $ */
 
 #define KLEMM_10
 
@@ -149,7 +149,7 @@ void close_infile(void)
   CloseSndFile(input_format, musicin);
 }
 
-#ifdef KLEMM_10
+#if defined(KLEMM_10) && defined(SIZEOF_UNSIGNED_LONG)
 
 void SwapBytesInWords ( short* ptr, size_t short_words )  /* Some speedy code */
 {
