@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.84 2001/06/15 22:23:07 markt Exp $ */
+/* $Id: lame.h,v 1.85 2001/06/18 18:51:52 markt Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -382,6 +382,16 @@ int CDECL lame_get_encoder_delay(const lame_global_flags *);
 
 // size of MPEG frame
 int CDECL lame_get_framesize(const lame_global_flags *);
+
+// number of PCM samples buffered, but not yet encoded to mp3 data.
+int CDECL lame_get_mf_samples_to_encode( const lame_global_flags*  gfp );
+
+// size (bytes) of mp3 data buffered, but not yet encoded.
+// this is the number of bytes which would be output by a call to 
+// lame_encode_flush_nogap.  NOTE: lame_encode_flush() will return
+// more bytes than this because it will encode the reamining buffered
+// PCM samples before flushing the mp3 buffers.
+int CDECL lame_get_size_mp3buffer( const lame_global_flags*  gfp );
 
 // number of frames encoded so far
 int CDECL lame_get_frameNum(const lame_global_flags *);

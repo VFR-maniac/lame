@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.11 2001/06/11 23:42:49 markt Exp $ */
+/* $Id: set_get.c,v 1.12 2001/06/18 18:51:52 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1266,6 +1266,22 @@ lame_get_frameNum( const lame_global_flags*  gfp )
 {
     return gfp->frameNum;
 }
+
+int
+lame_get_mf_samples_to_encode( const lame_global_flags*  gfp )
+{
+    lame_internal_flags *gfc = gfp->internal_flags;
+    return gfc->mf_samples_to_encode;
+}
+
+
+int CDECL lame_get_size_mp3buffer( const lame_global_flags*  gfp )
+{
+    int size;
+    compute_flushbits(gfp,&size);
+    return size;
+}
+
 
 
 /*

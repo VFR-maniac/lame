@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.86 2001/06/14 23:09:55 robert Exp $ */
+/* $Id: parse.c,v 1.87 2001/06/18 18:51:52 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -67,6 +67,7 @@ int mp3_delay;              /* to adjust the number of samples truncated
 int mp3_delay_set;          /* user specified the value of the mp3 encoder 
                                delay to assume for decoding */
 int disable_wav_header;
+mp3data_struct mp3input_data; /* used by Ogg and MP3 */
 
 
 
