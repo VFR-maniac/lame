@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.108 2002/04/21 16:56:50 takehiro Exp $ */
+/* $Id: lame.h,v 1.109 2002/05/06 15:30:37 takehiro Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -302,6 +302,8 @@ int CDECL lame_get_experimentalZ(const lame_global_flags *);
 int CDECL lame_set_exp_nspsytune(lame_global_flags *, int);
 int CDECL lame_get_exp_nspsytune(const lame_global_flags *);
 
+void CDECL lame_set_msfix(lame_global_flags *, double);
+
 int lame_set_exp_nspsytune2_int( lame_global_flags*, int, int);
 float lame_set_exp_nspsytune2_real( lame_global_flags*, int, float);
 void * lame_set_exp_nspsytune2_pointer( lame_global_flags*, int, void *);
@@ -331,6 +333,9 @@ int CDECL lame_get_VBR_max_bitrate_kbps(const lame_global_flags *);
 // analog silence
 int CDECL lame_set_VBR_hard_min(lame_global_flags *, int);
 int CDECL lame_get_VBR_hard_min(const lame_global_flags *);
+
+// for preset
+int CDECL lame_set_preset_expopts(lame_global_flags *, int);
 
 
 /********************************************************************

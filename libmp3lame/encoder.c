@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: encoder.c,v 1.72 2002/05/05 17:17:57 takehiro Exp $ */
+/* $Id: encoder.c,v 1.73 2002/05/06 15:30:38 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -268,7 +268,6 @@ int  lame_encode_mp3_frame (				// Output
   chgrdata *pe_use;
 
   int ch,gr;
-  int bitsPerFrame;
 
   int check_ms_stereo;
   FLOAT8 ms_ratio_next = 0.;
@@ -608,7 +607,7 @@ int  lame_encode_mp3_frame (				// Output
   }
 
   /*  write the frame to the bitstream  */
-  format_bitstream( gfp, bitsPerFrame);
+  format_bitstream(gfp);
 
   /* copy mp3 bit buffer into array */
   mp3count = copy_buffer(gfc,mp3buf,mp3buf_size,1);

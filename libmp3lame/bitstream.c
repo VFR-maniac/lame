@@ -18,7 +18,7 @@
  * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: bitstream.c,v 1.55 2002/05/05 17:17:57 takehiro Exp $
+ * $Id: bitstream.c,v 1.56 2002/05/06 15:30:38 takehiro Exp $
  */
 
 
@@ -830,7 +830,6 @@ flush_bitstream(lame_global_flags *gfp)
   III_side_info_t *l3_side;
   int nbytes;
   int flushbits;
-  int bitsPerFrame;
   int last_ptr,first_ptr;
   first_ptr=gfc->w_ptr;           /* first header to add to bitstream */
   last_ptr = gfc->h_ptr - 1;   /* last header to add to bitstream */

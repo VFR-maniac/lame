@@ -19,14 +19,14 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: reservoir.c,v 1.23 2002/05/05 17:17:57 takehiro Exp $ */
+/* $Id: reservoir.c,v 1.24 2002/05/06 15:30:38 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
 
 #include <assert.h>
-#include "util.h"
+#include "bitstream.h"
 #include "reservoir.h"
 
 #ifdef WITH_DMALLOC
