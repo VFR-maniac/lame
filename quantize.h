@@ -2,9 +2,12 @@
  * ISO MPEG Audio Subgroup Software Simulation Group (1996)
  * ISO 13818-3 MPEG-2 Audio Encoder - Lower Sampling Frequency Extension
  *
- * $Id: quantize.h,v 1.3 2000/02/01 14:09:14 takehiro Exp $
+ * $Id: quantize.h,v 1.4 2000/03/14 21:01:47 markt Exp $
  *
  * $Log: quantize.h,v $
+ * Revision 1.4  2000/03/14 21:01:47  markt
+ * removed fr_ps struct
+ *
  * Revision 1.3  2000/02/01 14:09:14  takehiro
  * code clean up. changed definition of structure to optimize array index calculation
  *
@@ -42,12 +45,12 @@ extern int pretab[];
 void iteration_loop( FLOAT8 pe[2][2], FLOAT8 ms_ratio[2], 
 		     FLOAT8 xr_org[2][2][576], III_psy_ratio ratio[2][2],
 		     III_side_info_t *l3_side, int l3_enc[2][2][576], 
-		     III_scalefac_t scalefac[2][2], frame_params *fr_ps);
+		     III_scalefac_t scalefac[2][2]);
 
 void VBR_iteration_loop( FLOAT8 pe[2][2], FLOAT8 ms_ratio[2], 
 		     FLOAT8 xr_org[2][2][576], III_psy_ratio ratio[2][2],
 		     III_side_info_t *l3_side, int l3_enc[2][2][576], 
-		     III_scalefac_t scalefac[2][2], frame_params *fr_ps);
+		     III_scalefac_t scalefac[2][2]);
 
 
 
