@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.161 2003/01/20 18:09:26 bouvigne Exp $ */
+/* $Id: parse.c,v 1.162 2003/01/21 02:45:20 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -694,7 +694,7 @@ static void  presets_longinfo_dm ( FILE* msgfp )
         "phone => 16kbps/mono        phon+/lw/mw-eu/sw => 24kbps/mono\n"
         "mw-us => 40kbps/mono        voice => 56kbps/mono\n"
         "fm/radio/tape => 112kbps    hifi => 160kbps\n"
-        "cd => 192kbps               studio => 256kbps");
+        "cd => 192kbps               studio => 256kbps\n");
 }
 
 
