@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.48 2001/01/14 09:42:08 takehiro Exp $ */
+/* $Id: quantize.c,v 1.49 2001/01/14 22:12:39 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -633,7 +633,7 @@ balance_noise (
     int status;
     
     amp_scalefac_bands ( gfp, cod_info, scalefac, distort, xrpow);
-
+    
     /* check to make sure we have not amplified too much 
      * loop_break returns 0 if there is an unamplified scalefac
      * scale_bitcount returns 0 if no scalefactors are too large
@@ -658,21 +658,18 @@ balance_noise (
     /*  some scalefactors are too large.
      *  lets try setting scalefac_scale=1 
      */
-    if (gfc->noise_shaping > 1 && !cod_info->scalefac_scale) {
-        inc_scalefac_scale (gfc, cod_info, scalefac, xrpow);
-        status = 0;
-    } else {
-        if (cod_info->block_type == SHORT_TYPE
-#ifdef RH_AMP
-	    && gfc->noise_shaping > 0)
-#else
-	    && gfp->experimentalZ && gfc->noise_shaping > 1)
-#endif
-        {
-            status = inc_subblock_gain (gfc, cod_info, scalefac, xrpow)
-		|| loop_break (cod_info, scalefac);
-        }
+    if (gfc->noise_shaping > 1) {
+	if (!cod_info->scalefac_scale) {
+	    inc_scalefac_scale (gfc, cod_info, scalefac, xrpow);
+	    status = 0;
+	} else {
+	    if (cod_info->block_type == SHORT_TYPE ) {
+		status = inc_subblock_gain (gfc, cod_info, scalefac, xrpow)
+		    || loop_break (cod_info, scalefac);
+	    }
+	}
     }
+
     if (!status) {
         if (gfc->is_mpeg1 == 1) 
             status = scale_bitcount (scalefac, cod_info);
