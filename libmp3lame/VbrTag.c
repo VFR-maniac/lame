@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.78 2004/06/18 19:15:04 bouvigne Exp $ */
+/* $Id: VbrTag.c,v 1.79 2005/03/08 23:07:45 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -596,7 +596,7 @@ int PutLameVBR(lame_global_flags *gfp, FILE *fpStream, uint8_t *pbtStreamBuffer,
 
 
 	/* ReplayGain */
-	if (gfp->findReplayGain) { 
+	if (gfc->findReplayGain) { 
 	  if (gfc->RadioGain > 0x1FE)
 	    gfc->RadioGain = 0x1FE;
 	  if (gfc->RadioGain < -0x1FE)

@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.203 2004/03/23 03:07:43 olcios Exp $ */
+/* $Id: parse.c,v 1.204 2005/03/08 23:07:43 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1132,7 +1132,7 @@ char* const inPath, char* const outPath, char **nogap_inPath, int *num_nogap)
                                     
                 T_ELIF_INTERNAL ("tune")
                     argUsed=1;
-                    {extern void lame_set_tune(lame_t gfp, float val);
+                    {extern void lame_set_tune(lame_t, float);
                     lame_set_tune(gfp,atof(nextArg));}
                     
                 T_ELIF_INTERNAL ("ms-sparsing")
@@ -1161,10 +1161,6 @@ char* const inPath, char* const outPath, char **nogap_inPath, int *num_nogap)
                         y = x;
                     (void) lame_set_short_threshold( gfp, x, y);
                 }
-
-                T_ELIF_INTERNAL ("vbr-smooth")
-                    argUsed=1;
-                    (void) lame_set_vbr_smooth( gfp, atoi( nextArg ) );
 
                 T_ELIF_INTERNAL ("maskingadjust")
                     argUsed=1;

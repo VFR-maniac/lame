@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.69 2004/04/11 15:39:54 glessard Exp $ */
+/* $Id: set_get.c,v 1.70 2005/03/08 23:07:49 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1219,20 +1219,6 @@ int
 lame_get_psy_model( const lame_global_flags*  gfp )
 {
     return gfp->psymodel;
-}
-
-int
-lame_set_vbr_smooth( lame_global_flags*  gfp,
-                   int               smooth )
-{
-    gfp->VBR_smooth = smooth;
-    return 0;
-}
-
-int
-lame_get_vbr_smooth( const lame_global_flags*  gfp )
-{
-    return gfp->VBR_smooth;
 }
 
 /* Adjust masking values. */
