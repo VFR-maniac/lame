@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.156 2003/01/10 20:07:14 markt Exp $ */
+/* $Id: parse.c,v 1.157 2003/01/10 20:12:19 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -387,6 +387,8 @@ int  long_help ( const lame_global_flags* gfp, FILE* const fp, const char* Progr
  	      "                    gapless encoding for a set of contiguous files\n"
  	      "    --nogapout <dir>\n"
  	      "                    output dir for gapless encoding (must precede --nogap)"
+ 	      "    --nogaptags\n"
+ 	      "                    allow the use of VBR tags in gapless encoding"
               , ProgramName );
 
     wait_for ( fp, lessmode );
