@@ -1,6 +1,6 @@
 /* -*- mode: C; mode: fold -*- */
 
-/* $Id: pcm.c,v 1.7 2001/02/17 14:30:56 aleidinger Exp $ */
+/* $Id: pcm.c,v 1.8 2002/06/02 12:17:38 aleidinger Exp $ */
 
 /*
  *  There are a lot of not tested return codes.
@@ -27,6 +27,13 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
+#if HAVE_INTTYPES_H
+# include <inttypes.h>
+#else
+# if HAVE_STDINT_H
+#  include <stdint.h>
+# endif
+#endif
 #include <limits.h>
 #include <math.h>
 #include <memory.h>
