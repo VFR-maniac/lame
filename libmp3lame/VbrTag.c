@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.59 2002/12/08 17:02:18 takehiro Exp $ */
+/* $Id: VbrTag.c,v 1.60 2003/01/02 18:37:09 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -423,7 +423,8 @@ int InitVbrTag(lame_global_flags *gfp)
 
 	/* Clear Frame position array variables */
 	/*gfp->pVbrFrames=NULL; */
-	gfp->nVbrNumFrames=0;
+	gfp->nVbrNumFrames=1;   /* we should also count the vbr tag itself */
+                            /* problem: the seek table is off by 1 frame*/
 	gfp->nVbrFrameBufferSize=0;
 
 
