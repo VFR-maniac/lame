@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.55 2001/02/05 10:18:21 robert Exp $ */
+/* $Id: parse.c,v 1.56 2001/02/13 16:58:42 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -263,7 +263,6 @@ int  long_help ( const lame_global_flags* gfp, FILE* const fp, const char* Progr
               "    --athonly       only use the ATH for masking\n"
               "    --noath         disable the ATH for masking\n"
               "    --athlower x    lower the ATH x dB\n"
-              "    --athadjust     auto adjust ATH at low volume\n"
               "    --short         use short blocks\n"
               "    --temporal <n>  use temporal masking effect (type n)\n"
               "    --noshort       do not use short blocks\n"
@@ -786,9 +785,6 @@ int  parse_args ( lame_global_flags* gfp, int argc, char** argv, char* const inP
 		T_ELIF ("athtype")
 		    argUsed=1;
 		    gfp->ATHtype = atoi(nextArg);
-		
-		T_ELIF ("athadjust")
-		    gfp->ATH_auto_adjust = 1;
 		
 		T_ELIF ("scale")
 		    argUsed=1;
