@@ -18,7 +18,7 @@
  * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: bitstream.c,v 1.46 2001/11/11 15:06:07 aleidinger Exp $
+ * $Id: bitstream.c,v 1.47 2002/04/12 19:44:37 markt Exp $
  */
 
 
@@ -918,6 +918,11 @@ format_bitstream(lame_global_flags *gfp, int bitsPerFrame,
              bits, bits % 8,
              bitsPerFrame
       );
+
+      ERRORF(gfc,"This is a fatal error.  It has several possible causes:");
+      ERRORF(gfc,"90%  LAME compiled with buggy version of gcc using advanced optimizations");
+      ERRORF(gfc," 9%  Your system is overclocked");
+      ERRORF(gfc," 1%  bug in LAME encoding library");
 
       gfc->ResvSize = l3_side->main_data_begin*8;
     };
