@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.128 2005/02/28 22:45:33 bouvigne Exp $ */
+/* $Id: quantize_pvt.c,v 1.129 2005/03/05 12:40:27 bouvigne Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -654,18 +654,21 @@ FLOAT calc_noise_core_c( const gr_info * const cod_info,
 	    while (l--) {
             FLOAT temp;
             temp = cod_info->xr[j];j++;
-	        noise += temp * temp;
-	        temp = cod_info->xr[j];j++;
-	        noise += temp * temp;
+            noise += temp * temp;
+            temp = cod_info->xr[j];j++;
+            noise += temp * temp;
  	    }
     } else if (j> cod_info->big_values) {
+        FLOAT ix01[2];
+        ix01[0] = 0;
+        ix01[1] = step;
 	    while (l--) {
             FLOAT temp;
-            temp = fabs(cod_info->xr[j]) - ix[j] * step;j++;
-	        noise += temp * temp;
-	        temp = fabs(cod_info->xr[j]) - ix[j] * step;j++;
-	        noise += temp * temp;
- 	    }
+            temp = fabs(cod_info->xr[j]) - ix01[ix[j]];j++;
+            noise += temp * temp;
+            temp = fabs(cod_info->xr[j]) - ix01[ix[j]];j++;
+            noise += temp * temp;
+        }
     } else {
 	    while (l--) {
             FLOAT temp;
