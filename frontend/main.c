@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.56 2001/06/18 18:51:52 markt Exp $ */
+/* $Id: main.c,v 1.57 2001/06/25 02:14:00 cisc Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -60,6 +60,7 @@ char   *strchr(), *strrchr();
 #include "parse.h"
 #include "main.h"
 #include "get_audio.h"
+#include "portableio.h"
 #include "timestatus.h"
 
 /* PLL 14/04/2000 */
