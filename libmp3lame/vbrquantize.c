@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: vbrquantize.c,v 1.76 2002/10/16 21:13:06 robert Exp $ */
+/* $Id: vbrquantize.c,v 1.77 2002/10/24 00:05:47 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1397,6 +1397,7 @@ long_block_shaping(lame_internal_flags * gfc, const FLOAT8 * xr34orig, FLOAT8 xr
     vbrmax = vbrmax2;
     M = (vbrmax - vbrmin)/2;
     if ( M > 16 ) M = 16;
+    if ( M <  1 ) M =  1;
     count = M;
 
     do {
