@@ -1,4 +1,4 @@
-/* $Id: mpglib_interface.c,v 1.13 2000/12/03 23:00:14 markt Exp $ */
+/* $Id: mpglib_interface.c,v 1.14 2000/12/11 00:01:34 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -21,7 +21,7 @@ plotting_data*  mpg123_pinfo = NULL;
 // static char     buf [16384];
 
 
-int  lame_decode_init ( void )
+int lame_decode_init( void )
 {
     InitMP3 ( &mp );
 //  memset ( buf, 0, sizeof(buf) );
@@ -35,8 +35,8 @@ int  lame_decode_init ( void )
  *  n     number of samples output.  either 576 or 1152 depending on MP3 file.
  */
  
-int  lame_decode1_headers (
-        char*            buffer,
+int lame_decode1_headers(
+        unsigned char*   buffer,
         int              len,
         short            pcm_l [],
         short            pcm_r [],
@@ -125,8 +125,8 @@ int  lame_decode1_headers (
  *         MPEG data.  
  */
  
-int  lame_decode1 ( 
-        char*  buffer,
+int lame_decode1( 
+        unsigned char*  buffer,
 	int    len,
 	short  pcm_l [],
 	short  pcm_r [] )
@@ -144,8 +144,8 @@ int  lame_decode1 (
  *   n     number of samples output.  a multiple of 576 or 1152 depending on MP3 file.
  */
  
-int  lame_decode_headers ( 
-        char*            buffer,
+int lame_decode_headers( 
+        unsigned char*   buffer,
 	int              len,
 	short            pcm_l [],
 	short            pcm_r [],
@@ -166,8 +166,8 @@ int  lame_decode_headers (
 }
 
 
-int  lame_decode (
-        char*  buffer,
+int lame_decode(
+        unsigned char*  buffer,
 	int    len,
 	short  pcm_l [],
 	short  pcm_r [] )
