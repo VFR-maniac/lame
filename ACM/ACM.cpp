@@ -22,7 +22,7 @@
  
 /*!
 	\author Steve Lhomme
-	\version \$Id: ACM.cpp,v 1.15 2004/07/11 17:11:02 bouvigne Exp $
+	\version \$Id: ACM.cpp,v 1.16 2004/07/11 18:05:19 bouvigne Exp $
 */
 
 #if !defined(STRICT)
@@ -1250,9 +1250,9 @@ void ACM::GetMP3FormatForIndex(const DWORD the_Index, WAVEFORMATEX & the_Format,
 	
 		/// \todo : generate the string with the appropriate stereo mode
 		if (bitrate_table[the_Index].mode == vbr_abr)
-			wsprintfW( the_String, L"%d Hz, %d kbps ABR, %s", the_Format.nSamplesPerSec, the_Format.nAvgBytesPerSec * 8 / 1000, (the_Format.nChannels == 1)?L"Mono":L"Stereo");
+			wsprintfA( (char*)the_String, "%d Hz, %d kbps ABR, %s", the_Format.nSamplesPerSec, the_Format.nAvgBytesPerSec * 8 / 1000, (the_Format.nChannels == 1)?L"Mono":L"Stereo");
 		else
-			wsprintfW( the_String, L"%d Hz, %d kbps CBR, %s", the_Format.nSamplesPerSec, the_Format.nAvgBytesPerSec * 8 / 1000, (the_Format.nChannels == 1)?L"Mono":L"Stereo");
+			wsprintfA( (char*)the_String, "%d Hz, %d kbps CBR, %s", the_Format.nSamplesPerSec, the_Format.nAvgBytesPerSec * 8 / 1000, (the_Format.nChannels == 1)?L"Mono":L"Stereo");
 	}
 }
 
