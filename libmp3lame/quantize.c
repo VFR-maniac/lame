@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.89 2002/04/30 22:00:31 robert Exp $ */
+/* $Id: quantize.c,v 1.90 2002/05/04 13:55:43 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -368,7 +368,8 @@ quant_compare(
                    ||  calc->over_noise < best->over_noise; 
 	    break;
         case 8: 
-	    better =   calc->klemm_noise < best->klemm_noise;
+	    better =   Max(1e-20, calc->klemm_noise)
+	      < Max(1e-20, best->klemm_noise);
             break;
     }   
 
