@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.207 2003/01/28 00:29:55 markt Exp $ */
+/* $Id: lame.c,v 1.208 2003/01/30 08:48:23 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1413,7 +1413,9 @@ lame_encode_buffer_sample_t(lame_global_flags * gfp,
 #endif
 
     mf_needed = BLKSIZE + gfp->framesize - FFTOFFSET; /* amount needed for FFT */
-    mf_needed = Max(mf_needed, 286 + 576 * (1 + gfc->mode_gr)); /* amount needed for MDCT/filterbank */
+    //mf_needed = Max(mf_needed, 286 + 576 * (1 + gfc->mode_gr)); 
+    mf_needed = Max(mf_needed, 512+gfp->framesize-32 );
+
     assert(MFSIZE >= mf_needed);
 
     mfbuf[0] = gfc->mfbuf[0];
