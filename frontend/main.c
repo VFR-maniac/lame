@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.71 2001/10/29 06:08:04 markt Exp $ */
+/* $Id: main.c,v 1.72 2001/10/29 20:01:08 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -657,6 +657,10 @@ main(int argc, char **argv)
          * specify the output file name, only an optional output directory. */
         parse_nogap_filenames(nogapout,nogap_inPath[0],outPath,nogapdir);
         outf = init_files(gf, nogap_inPath[0], outPath);
+        if (lame_get_bWriteVbrTag(gf)) {
+            fprintf(stderr,"Note: Disabling VBR Xing/Info tag since it interferes with --nogap\n");
+            lame_set_bWriteVbrTag( gf, 0 );
+        }
     }
     else {
         outf = init_files(gf, inPath, outPath);
