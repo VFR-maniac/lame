@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.58 2001/07/25 20:19:05 robert Exp $ */
+/* $Id: main.c,v 1.59 2001/08/27 21:01:15 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -495,7 +495,7 @@ main(int argc, char **argv)
     lame_global_flags *gf;
     char    outPath[MAX_NAME_SIZE];
     char    inPath[MAX_NAME_SIZE];
-#define MAX_NOGAP 20
+#define MAX_NOGAP 40
     int     max_nogap = MAX_NOGAP;
     char   *nogap_inPath[MAX_NOGAP];
     int     i;
