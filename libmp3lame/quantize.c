@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.126 2002/12/16 18:45:18 takehiro Exp $ */
+/* $Id: quantize.c,v 1.127 2002/12/16 18:46:48 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -854,7 +854,7 @@ inc_subblock_gain (
 	{
 	    FLOAT8 amp = IPOW20(210 - 8);
 	    j += cod_info->width[sfb];
-	    for (l = -width; l < 0; l++)
+	    for (l = -cod_info->width[sfb]; l < 0; l++)
 		xrpow[j+l] *= amp;
         }
     }
