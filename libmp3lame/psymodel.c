@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.107 2002/02/17 14:22:38 takehiro Exp $ */
+/* $Id: psymodel.c,v 1.108 2002/03/03 18:57:16 aleidinger Exp $ */
 
 
 /*
@@ -879,7 +879,7 @@ int L3psycho_anal( lame_global_flags * gfp,
   }
 
   /*************************************************************** 
-  /* compute M/S thresholds from Johnston & Ferreira 1992 ICASSP paper
+   * compute M/S thresholds from Johnston & Ferreira 1992 ICASSP paper
    ***************************************************************/
   if (gfp->mode == JOINT_STEREO) {
     FLOAT8 rside,rmid,mld;
@@ -1796,7 +1796,7 @@ int L3psycho_anal_ns( lame_global_flags * gfp,
   }
 
   /*************************************************************** 
-  /* compute M/S thresholds from Johnston & Ferreira 1992 ICASSP paper
+   * compute M/S thresholds from Johnston & Ferreira 1992 ICASSP paper
    ***************************************************************/
   if ( numchn==4 /* mid/side and r/l */) {
     FLOAT8 rside,rmid,mld;
