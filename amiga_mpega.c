@@ -4,9 +4,12 @@
  * Big thanks to Stéphane Tavernard for mpega.library.
  *
  *
- * $Id: amiga_mpega.c,v 1.3 2000/02/21 23:58:07 cisc Exp $
+ * $Id: amiga_mpega.c,v 1.4 2000/02/22 00:54:40 cisc Exp $
  *
  * $Log: amiga_mpega.c,v $
+ * Revision 1.4  2000/02/22 00:54:40  cisc
+ * Oh, nevermind, wasn't very efficient here, proper place would be in sndfile.lib
+ *
  * Revision 1.3  2000/02/21 23:58:07  cisc
  * Make sure input-file is closed when CTRL-C is received.
  *
@@ -35,8 +38,6 @@ MPEGA_CTRL      mctrl;
 
 static int break_cleanup(void)
 {
-	CloseSndFile();
-
 	if(mstream) {
 		MPEGA_close(mstream);
 		mstream = NULL;
