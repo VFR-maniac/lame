@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.230 2003/11/10 14:58:32 bouvigne Exp $ */
+/* $Id: lame.c,v 1.231 2003/11/10 15:31:28 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -628,7 +628,7 @@ lame_init_params(lame_global_flags * const gfp)
                break;
             }
             case 8: {
-                lowpass = 10000;
+                lowpass = 12500;
                 break;
             }
             case 7: {
@@ -636,7 +636,7 @@ lame_init_params(lame_global_flags * const gfp)
                 break;
             }
             case 6: {
-                 lowpass = 14900;
+                lowpass = 16000;
                 break;
             }
             case 5: {
