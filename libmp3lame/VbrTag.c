@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.28 2001/09/08 18:27:17 potsticker Exp $ */
+/* $Id: VbrTag.c,v 1.29 2001/09/08 18:35:17 potsticker Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -516,7 +516,7 @@ uint16_t GetMusicCRC(lame_global_flags *gfp, FILE *fpStream, int filesize, int i
 }
 
 
-void ReportVBRProgress(lame_global_flags *gfp,int nStart)
+void ReportLameTagProgress(lame_global_flags *gfp,int nStart)
 {
 	if (!gfp->bWriteVbrTag)
 		return;
