@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.80 2001/08/15 00:12:49 robert Exp $ */
+/* $Id: util.c,v 1.81 2001/08/31 18:41:03 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -624,7 +624,7 @@ int fill_buffer_resample(
     /* blackman filter.  by default, window centered at j+.5(filter_l%2) */
     /* but we want a window centered at time0.   */
     offset = ( time0 -gfc->itime[ch] - (j + .5*(filter_l%2)));
-    assert(fabs(offset)<=.500001);
+    assert(fabs(offset)<=.50001);
 
     /* find the closest precomputed window for this offset: */
     joff = floor((offset*2*bpc) + bpc +.5);
