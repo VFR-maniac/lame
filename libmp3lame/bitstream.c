@@ -18,7 +18,7 @@
  * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: bitstream.c,v 1.67 2004/06/18 19:15:00 bouvigne Exp $
+ * $Id: bitstream.c,v 1.68 2005/02/01 10:29:04 bouvigne Exp $
  */
 
 
@@ -81,7 +81,7 @@ int getframebits(const lame_global_flags * gfp)
 
 
 
-void putheader_bits(lame_internal_flags *gfc,int w_ptr)
+void putheader_bits(lame_internal_flags *gfc)
 {
     Bit_stream_struc *bs;
     bs = &gfc->bs;
@@ -116,7 +116,7 @@ putbits2(lame_internal_flags *gfc, int val, int j)
 	    assert(bs->buf_byte_idx < BUFFER_SIZE);
 	    assert(gfc->header[gfc->w_ptr].write_timing >= bs->totbit);
 	    if (gfc->header[gfc->w_ptr].write_timing == bs->totbit) {
-	      putheader_bits(gfc,gfc->w_ptr);
+	      putheader_bits(gfc);
 	    }
 	    bs->buf[bs->buf_byte_idx] = 0;
 	}

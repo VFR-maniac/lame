@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: takehiro.c,v 1.57 2005/01/29 18:42:06 bouvigne Exp $ */
+/* $Id: takehiro.c,v 1.58 2005/02/01 10:29:05 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -321,6 +321,9 @@ static void quantize_xrpow(const FLOAT *xp, int *pi, FLOAT istep, gr_info * cons
     FLOAT *acc_xp;
 
     iData = pi;
+    acc_xp = xp;
+    acc_iData = iData;
+
 
     /* Reusing previously computed data does not seems to work if global gain
     is changed. Finding why it behaves this way would allow to use a cache of 
@@ -335,7 +338,7 @@ static void quantize_xrpow(const FLOAT *xp, int *pi, FLOAT istep, gr_info * cons
         sfbmax = 21;
 
     for (sfb = 0; sfb <= sfbmax; sfb++) {
-	    int step;
+	    int step = -1;
 
         if (prev_data_use) {
             step =
