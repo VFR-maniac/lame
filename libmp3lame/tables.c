@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: tables.c,v 1.6 2000/11/05 13:09:48 pfk Exp $ */
+/* $Id: tables.c,v 1.7 2000/11/11 23:20:05 pfk Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -414,7 +414,7 @@ const struct huffcodetab ht[HTN] =
 
 
 
-const FLOAT psy_data [] = {		// 8 Byte is overkill, may be FLOAT2 is enough */
+const FLOAT  psy_data [] = {
 
  48000.0, 61,				// Sample Frequency, Table entries
  0, 1, 24.5, 4.532, 0.970, 0.000,	// Table entry 0, data?, TMN?, data?, data?, data?

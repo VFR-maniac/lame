@@ -1,6 +1,6 @@
-## $Id: Makefile.am,v 1.8 2000/11/11 17:28:43 aleidinger Exp $
+## $Id: Makefile.am,v 1.9 2000/11/11 23:20:04 pfk Exp $
 
-SUBDIRS = mpglib libmp3lame frontend Dll doc include misc dshow
+SUBDIRS = mpglib libmp3lame frontend Dll doc include misc
 
 CLEANFILES = testcase.new.mp3
 AUTOMAKE_OPTIONS = foreign ansi2knr
@@ -40,7 +40,7 @@ testcase.new.mp3: testcase.wav frontend/lame
 	time frontend/lame --nores -h testcase.wav testcase.new.mp3
 
 test: testcase.mp3 testcase.new.mp3
-	cmp -l testcase.new.mp3 testcase.mp3 | wc
+	cmp -l testcase.new.mp3 testcase.mp3 | wc -l
 
 testg: frontend/mp3x ../test/castanets.wav
 	frontend/mp3x -h ../test/castanets.wav
