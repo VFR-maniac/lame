@@ -1,3 +1,7 @@
+/* $Id: resample.c,v 1.4 2000/11/08 19:59:14 aleidinger Exp $ */
+
+#include <assert.h>
+
 /* FIR resampling */
 
 INLINE double sinpi ( double x )

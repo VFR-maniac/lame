@@ -8,7 +8,7 @@
  *
  */
 
-/* $Id: layer1.c,v 1.12 2000/11/07 23:06:41 pfk Exp $ */
+/* $Id: layer1.c,v 1.13 2000/11/08 19:59:14 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -16,6 +16,7 @@
 
 #ifdef USE_LAYER_1
 
+#include <assert.h>
 #include "common.h"
 #include "decode_i386.h"
 
