@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: encoder.c,v 1.36 2001/02/14 14:43:52 robert Exp $ */
+/* $Id: encoder.c,v 1.37 2001/02/20 00:30:02 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -123,14 +123,6 @@ int  lame_encode_mp3_frame (				// Output
    * in that data is not modified. A lot of prophylactic copying is done.
    */
    
-  if (gfp->scale != 0) {
-    int i;
-    for (i=0 ; i<gfp->framesize; ++i) {
-      inbuf_l[i] *= gfp->scale;
-      if (gfc->channels_out==2) inbuf_r[i] *= gfp->scale;
-    }
-  }
-  
 
   gfc->mode_ext = MPG_MD_LR_LR;
 
