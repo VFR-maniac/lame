@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.14 2000/10/29 12:43:06 aleidinger Exp $ */
+/* $Id: quantize.c,v 1.15 2000/10/29 13:58:34 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -405,7 +405,7 @@ void amp_scalefac_bands
   else
     distort_thresh *= .95;
 
-  if (gfp->exp_nspsytune && (gfp->VBR == vbr_off || gfp->VBR == vbr_abr)) {
+  if (gfc->nsPsy.use && (gfp->VBR == vbr_off || gfp->VBR == vbr_abr)) {
     int asfb = -1,ablk=0,astart=0,aend=0;
     FLOAT8 max_dist = 0;
 

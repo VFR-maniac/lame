@@ -31,7 +31,7 @@
 **           Takehiro  - some dirty hack for speed up
 */
 
-/* $Id: fft.c,v 1.5 2000/10/29 12:43:06 aleidinger Exp $ */
+/* $Id: fft.c,v 1.6 2000/10/29 13:58:34 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -255,7 +255,7 @@ void init_fft(lame_internal_flags *gfc)
     FLOAT *window_s = &gfc->window_s[0];
     int i;
 
-    if (gfc->exp_nspsytune) {
+    if (gfc->nsPsy.use) {
       for (i = 0; i < BLKSIZE ; i++)
 	/* blackman window */
 	window[i] = 0.42-0.5*cos(2*PI*i/(BLKSIZE-1))+0.08*cos(4*PI*i/(BLKSIZE-1));
