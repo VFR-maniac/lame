@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.23 2000/11/24 17:06:54 robert Exp $ */
+/* $Id: psymodel.c,v 1.24 2000/11/26 10:50:00 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -110,7 +110,7 @@ inline static FLOAT8 mask_add(FLOAT8 m1,FLOAT8 m2,int k,int b, lame_internal_fla
 }
 
 int L3psycho_anal( lame_global_flags * gfp,
-                    sample_t *buffer[2],int gr_out , 
+                    const sample_t *buffer[2], int gr_out, 
                     FLOAT8 *ms_ratio,
                     FLOAT8 *ms_ratio_next,
 		    FLOAT8 *ms_ener_ratio,
