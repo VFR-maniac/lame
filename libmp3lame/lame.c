@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.251 2004/01/31 20:05:14 olcios Exp $ */
+/* $Id: lame.c,v 1.252 2004/02/15 19:05:55 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -395,6 +395,15 @@ lame_init_qval(lame_global_flags * gfp)
             gfc->subblock_gain = 1;
         gfc->use_best_huffman = 2;
         break;
+    }
+    
+    if ( gfp->VBR == vbr_mt || gfp->VBR == vbr_mtrh ) {
+        /*  rh 20040215: the newer vbr modes don't have
+         *  proper ISO quantization implemented (by now)
+         *  that's why we have to use nonlinear quantization
+         *  at every quality level
+         */
+        gfc->quantization = 1;
     }
 
 }
