@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.51 2001/01/27 17:39:09 takehiro Exp $ */
+/* $Id: parse.c,v 1.52 2001/01/30 20:51:27 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -693,7 +693,7 @@ int  parse_args ( lame_global_flags* gfp, int argc, char** argv, char* const inP
 		
 		T_ELIF ("vbr-mtrh")
 		    gfp->VBR = vbr_mtrh; 
-		    gfp->quality = 2;
+		    gfp->quality = 3;
 		
 		T_ELIF ("abr")
 		    argUsed=1;
@@ -780,7 +780,7 @@ int  parse_args ( lame_global_flags* gfp, int argc, char** argv, char* const inP
 		
 		T_ELIF ("athlower")
 		    argUsed=1;
-		    gfp->ATHlower = atoi(nextArg);
+		    gfp->ATHlower = atof(nextArg);
 		
 		T_ELIF ("athtype")
 		    argUsed=1;
