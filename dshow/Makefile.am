@@ -1,8 +1,8 @@
-## $Id: Makefile.am,v 1.2 2000/11/13 14:10:53 aleidinger Exp $
+## $Id: Makefile.am,v 1.3 2001/01/13 18:01:44 aleidinger Exp $
 
 AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
 
-EXTRA_DIST = 
+EXTRA_DIST = \
 	Encoder.cpp \
 	Encoder.h \
 	Mpegac.cpp \
@@ -20,4 +20,5 @@ EXTRA_DIST =
 	dshow.dsp \
 	dshow.dsw \
 	iaudioprops.h \
-	resource.h 
+	resource.h
+

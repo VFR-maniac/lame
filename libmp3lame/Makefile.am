@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.11 2000/12/14 10:04:35 aleidinger Exp $
+## $Id: Makefile.am,v 1.12 2001/01/13 18:01:45 aleidinger Exp $
 
 AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
 
@@ -27,7 +27,12 @@ DEFS = @DEFS@ @CONFIG_DEFS@
 
 EXTRA_DIST = \
 	debugscalefac.c \
-	libmp3lame.dsp
+	libmp3lame.dsp \
+	lameerror.h \
+	resample.c \
+	resample.h \
+	tools.c \
+	tools.h
 
 libmp3lame_la_SOURCES = \
         VbrTag.c \

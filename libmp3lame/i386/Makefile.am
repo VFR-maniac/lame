@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.11 2001/01/13 12:54:41 takehiro Exp $
+## $Id: Makefile.am,v 1.12 2001/01/13 18:01:45 aleidinger Exp $
 
 AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
 
@@ -39,4 +39,4 @@ EXTRA_DIST = \
 NASM = @NASM@
 NASMFLAGS=@NASM_FORMAT@ -i $(top_srcdir)/libmp3lame/@CPUTYPE@/
 .nas.o:
-	$(NASM) $(NASMFLAGS) $< -o $@ -l $<.lst
+	$(NASM) $(NASMFLAGS) $< -o $@ -l $@.lst

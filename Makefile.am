@@ -1,20 +1,24 @@
-## $Id: Makefile.am,v 1.14 2001/01/03 13:06:45 aleidinger Exp $
+## $Id: Makefile.am,v 1.15 2001/01/13 18:01:43 aleidinger Exp $
 
-SUBDIRS = mpglib libmp3lame frontend Dll doc include misc dshow
+SUBDIRS = mpglib libmp3lame frontend Dll debian doc include misc dshow
 
 CLEANFILES = testcase.new.mp3
 AUTOMAKE_OPTIONS = foreign ansi2knr
 
 EXTRA_DIST = \
-	API HACKING \
+	API \
+	DEFINES \
+	HACKING \
 	INSTALL.configure \
 	LICENSE \
 	Makefile.B32 \
 	Makefile.DJGPP \
 	Makefile.MSVC \
+	Makefile.unix \
 	PRESETS.draft \
 	README.B32 \
 	README.DJGPP \
+	README.WINGTK \
 	STYLEGUIDE \
 	USAGE \
 	configMS.h \

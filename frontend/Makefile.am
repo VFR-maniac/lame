@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.14 2001/01/03 13:06:46 aleidinger Exp $
+## $Id: Makefile.am,v 1.15 2001/01/13 18:01:45 aleidinger Exp $
 
 AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
 
@@ -7,7 +7,15 @@ EXTRA_PROGRAMS = mp3rtp mp3x
 
 brhist_sources = brhist.c brhist.h
 
-EXTRA_DIST = $(brhist_sources) mp3x.dsp mp3x.dsw amiga_mpega.c
+EXTRA_DIST = \
+	$(brhist_sources) \
+	console.c \
+	console.h \
+	lame.dsp \
+	lame.dsw \
+	mp3x.dsp \
+	mp3x.dsw \
+	amiga_mpega.c
 
 DEFS = @DEFS@ @CONFIG_DEFS@
 
@@ -33,12 +41,12 @@ EXTRA_mp3x_SOURCES = $(brhist_sources)
 
 if WITH_BRHIST
 lame_SOURCES = main.c $(common_sources) $(brhist_sources)
-mp3rtp_SOURCES = mp3rtp.c rtp.c $(common_sources) $(brhist_sources)
+mp3rtp_SOURCES = mp3rtp.c rtp.c rtp.h $(common_sources) $(brhist_sources)
 mp3x_SOURCES = mp3x.c gtkanal.c gpkplotting.c \
 	$(common_sources) $(brhist_sources)
 else
 lame_SOURCES = main.c $(common_sources)
-mp3rtp_SOURCES = mp3rtp.c rtp.c $(common_sources)
+mp3rtp_SOURCES = mp3rtp.c rtp.c rtp.h $(common_sources)
 mp3x_SOURCES = mp3x.c gtkanal.c gpkplotting.c $(common_sources)
 endif
 
