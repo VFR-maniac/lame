@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.52 2001/01/27 18:00:29 takehiro Exp $ */
+/* $Id: psymodel.c,v 1.53 2001/01/30 11:02:35 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -2408,7 +2408,7 @@ i,*npart_s_orig,freq,numlines_s[i],j2-j,j,j2-1,bark1,bark2);
 #define temporalmask_sustain_sec 0.01
 
     /* setup temporal masking */
-    gfc->decay = exp(-1.0*M_LN10/(temporalmask_sustain_sec*sfreq/192.0));
+    gfc->decay = exp(-1.0*LOG10/(temporalmask_sustain_sec*sfreq/192.0));
 
     return 0;
 }
