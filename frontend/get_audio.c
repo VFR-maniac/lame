@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.95 2004/01/10 10:38:53 takehiro Exp $ */
+/* $Id: get_audio.c,v 1.96 2004/01/13 17:30:03 takehiro Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -1381,11 +1381,11 @@ is_syncword_mp123(const void *const headerptr)
     if ((p[1] & 0x06) == 0x00)
         return 0;       /* no Layer I, II and III */
 #ifndef USE_LAYER_1
-    if ((p[1] & 0x06) == 0x03)
+    if ((p[1] & 0x06) == 0x03*2)
 	return 0; /* layer1 is not supported */
 #endif
 #ifndef USE_LAYER_2
-    if ((p[1] & 0x06) == 0x02)
+    if ((p[1] & 0x06) == 0x02*2)
 	return 0; /* layer1 is not supported */
 #endif
     if ((p[2] & 0xF0) == 0xF0)
