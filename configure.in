@@ -1,4 +1,4 @@
-dnl $Id: configure.in,v 1.28 2000/10/29 12:48:19 aleidinger Exp $
+dnl $Id: configure.in,v 1.29 2000/11/03 14:06:16 aleidinger Exp $
 dnl
 dnl Process this file with autoconf to produce a configure script.
 dnl
@@ -333,8 +333,8 @@ if test "${CONFIG_BRHIST}" != "no" ; then
 	if test "${BRH_DEFAULT}" = "yes" ; then
 		FRONTEND_LDADD="-l${HAVE_TERMCAP} ${FRONTEND_LDADD}"
 		CONFIG_BRHIST="yes, with ${HAVE_TERMCAP}"
+		AC_DEFINE(HAVE_TERMCAP, 1, have termcap)
 	else
-		AC_DEFINE(NOTERMCAP, 1, didn't have termcap)
 		CONFIG_BRHIST="yes, simulated termcap"
 	fi
 fi
