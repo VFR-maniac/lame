@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.55 2002/06/02 12:17:38 aleidinger Exp $ */
+/* $Id: VbrTag.c,v 1.56 2002/07/30 20:24:43 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -52,6 +52,12 @@
 #ifdef WITH_DMALLOC
 #include <dmalloc.h>
 #endif
+
+#ifdef __sun__
+/* woraround for SunOS 4.x, it has SEEK_* defined here */
+#include <unistd.h>
+#endif
+
 
 #ifdef _DEBUG
 /*  #define DEBUG_VBRTAG */

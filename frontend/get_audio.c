@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.80 2002/07/26 18:56:56 markt Exp $ */
+/* $Id: get_audio.c,v 1.81 2002/07/30 20:24:42 aleidinger Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -49,11 +49,17 @@ char   *strchr(), *strrchr();
 # endif
 #endif
 
+
 #define         MAX_U_32_NUM            0xFFFFFFFF
 
 
 #include <math.h>
 #include <sys/stat.h>
+
+#ifdef __sun__
+/* woraround for SunOS 4.x, it has SEEK_* defined here */
+#include <unistd.h>
+#endif
 
 #include "lame.h"
 #include "main.h"

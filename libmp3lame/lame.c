@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.185 2002/06/29 12:29:18 aleidinger Exp $ */
+/* $Id: lame.c,v 1.186 2002/07/30 20:24:43 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -47,6 +47,12 @@
 #ifdef WITH_DMALLOC
 #include <dmalloc.h>
 #endif
+
+#ifdef __sun__
+/* woraround for SunOS 4.x, it has SEEK_* defined here */
+#include <unistd.h>
+#endif
+
 
 #define DEFAULT_QUALITY 2
 
