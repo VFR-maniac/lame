@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.61 2001/09/17 21:17:53 markt Exp $ */
+/* $Id: main.c,v 1.62 2001/09/21 04:03:23 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -504,6 +504,11 @@ main(int argc, char **argv)
 #if macintosh
     argc = ccommand(&argv);
 #endif
+
+/*
+This works only on NT.  we need a #ifdef that distinguishes between 
+NT and 95/98/me before we can use this:
+
 #if defined(_MSC_VER)
     {
    /* set affinity to a single CPU.  Fix for EAC/lame on SMP systems from
@@ -513,6 +518,10 @@ main(int argc, char **argv)
     SetProcessAffinityMask(GetCurrentProcess(), si.dwActiveProcessorMask);
     }
 #endif
+*/
+
+
+
 #ifdef __EMX__
     /* This gives wildcard expansion on Non-POSIX shells with OS/2 */
     _wildcard(&argc, &argv);
