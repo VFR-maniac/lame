@@ -1,4 +1,4 @@
-dnl $Id: configure.in,v 1.94 2002/10/15 15:24:19 aleidinger Exp $
+dnl $Id: configure.in,v 1.95 2002/10/27 14:32:52 aleidinger Exp $
 dnl
 dnl
 dnl don't forget to set ASM_FOR_ARCH to a space delimited list of
@@ -713,8 +713,7 @@ if test "x$GCC" = "xyes"; then
         	;;
 	3.0*)
 		# -funroll-loops seems to produce buggy code with gcc 3.0.3
-		OPTIMIZATION="-O -fomit-frame-pointer -ffast-math \
-			-funroll-loops"
+		OPTIMIZATION="-O -fomit-frame-pointer -ffast-math"
 		OPTIMIZATION_FULL="-fmove-all-movables -freduce-all-givs \
 			-fbranch-count-reg -fforce-addr -fforce-mem"
 		;;
