@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: vbrquantize.c,v 1.39 2001/02/21 17:07:08 robert Exp $ */
+/* $Id: vbrquantize.c,v 1.40 2001/02/27 06:14:57 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -625,7 +625,7 @@ VBR_quantize_granule(
   if ( gfc->is_mpeg1 ) 
     status=scale_bitcount(scalefac, cod_info);
   else
-    status=scale_bitcount_lsf(scalefac, cod_info);
+    status=scale_bitcount_lsf(gfc,scalefac, cod_info);
 
   if (status!=0) {
     return -1;
@@ -1302,7 +1302,7 @@ VBR_noise_shaping (
         /* increase global gain, keep existing scale factors */
         ++cod_info->global_gain;
         if (cod_info->global_gain > 255) 
-            ERRORF ("%ld impossible to encode ??? frame! bits=%d\n",
+            ERRORF (gfc,"%ld impossible to encode ??? frame! bits=%d\n",
                     //  gfp->frameNum, cod_info->part2_3_length);
                              -1,       cod_info->part2_3_length);
         VBR_quantize_granule (gfp, xr34, l3_enc, ratio, scalefac, gr, ch);
