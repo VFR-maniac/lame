@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.106 2003/02/02 17:10:35 bouvigne Exp $ */
+/* $Id: util.c,v 1.107 2003/02/27 17:46:57 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -134,7 +134,7 @@ bitrate is more balanced according to the -V value.*/
 
   f /= 1000;  /* convert to khz */
   f  = Max(0.01, f);
-  f  = Min(18.0, f);
+//  f  = Min(21.0, f);
 
   ath =    3.640 * pow(f,-0.8)
          - 6.800 * exp(-0.6*pow(f-3.4,2.0))
