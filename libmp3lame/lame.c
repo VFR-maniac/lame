@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.256 2004/02/24 01:57:41 olcios Exp $ */
+/* $Id: lame.c,v 1.257 2004/02/25 21:41:42 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1447,7 +1447,7 @@ lame_encode_buffer_sample_t(lame_global_flags * gfp,
 #endif
 
     mf_needed = BLKSIZE + gfp->framesize - FFTOFFSET; /* amount needed for FFT */
-    //mf_needed = Max(mf_needed, 286 + 576 * (1 + gfc->mode_gr)); 
+    /*mf_needed = Max(mf_needed, 286 + 576 * (1 + gfc->mode_gr)); */
     mf_needed = Max(mf_needed, 512+gfp->framesize-32 );
 
     assert(MFSIZE >= mf_needed);
@@ -1498,7 +1498,7 @@ lame_encode_buffer_sample_t(lame_global_flags * gfp,
             ret =
                 lame_encode_frame(gfp, mfbuf[0], mfbuf[1], mp3buf,buf_size);
 
-            if (ret < 0) goto retr;
+            if (ret < 0) return ret;
             mp3buf += ret;
             mp3size += ret;
 
@@ -1511,10 +1511,8 @@ lame_encode_buffer_sample_t(lame_global_flags * gfp,
         }
     }
     assert(nsamples == 0);
-    ret = mp3size;
 
-  retr:
-    return ret;
+    return mp3size;
 }
 
 

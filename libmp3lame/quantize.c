@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.149 2004/01/21 10:17:22 bouvigne Exp $ */
+/* $Id: quantize.c,v 1.150 2004/02/25 21:41:42 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -501,8 +501,9 @@ bin_search_StepSize(
  *
  ************************************************************************/
 static int
-float8compare(const FLOAT8 *a, const FLOAT8 *b)
+float8compare(const void * v1, const void * v2)
 {
+    const FLOAT8 *a = v1, *b = v2;
     if (*a > *b) return 1;
     if (*a == *b) return 0;
     return -1;

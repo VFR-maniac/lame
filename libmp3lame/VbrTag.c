@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.75 2004/01/26 12:05:59 olcios Exp $ */
+/* $Id: VbrTag.c,v 1.76 2004/02/25 21:41:59 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -939,7 +939,7 @@ int PutVbrTag(lame_global_flags *gfp,FILE *fpStream,int nVbrScale)
 
 	if (gfp->error_protection) {
 	  /* (jo) error_protection: add crc16 information to header */
-	  CRC_writeheader(gfc, pbtStreamBuffer);
+	  CRC_writeheader(gfc, (char*)pbtStreamBuffer);
 	}
 
 
