@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.4 2001/01/15 15:16:08 aleidinger Exp $
+## $Id: Makefile.am,v 1.5 2001/02/18 12:11:10 aleidinger Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -17,8 +17,11 @@ EXTRA_DIST = \
 	REG.CPP \
 	REG.H \
 	UIDS.H \
+	aboutprp.cpp \
+	aboutprp.h \
 	dshow.dsp \
 	dshow.dsw \
+	elogo.ico \
 	iaudioprops.h \
 	resource.h
 
