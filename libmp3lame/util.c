@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.114 2004/02/25 22:10:21 robert Exp $ */
+/* $Id: util.c,v 1.115 2004/03/23 22:11:11 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -488,7 +488,7 @@ int fill_buffer_resample(
     xvalue = 0.;
     for (i=0 ; i<=filter_l ; ++i) {
       int j2 = i+j-filter_l/2;
-      int y;
+      sample_t y;
       assert(j2<len);
       assert(j2+BLACKSIZE >= 0);
       y = (j2<0) ? inbuf_old[BLACKSIZE+j2] : inbuf[j2];
