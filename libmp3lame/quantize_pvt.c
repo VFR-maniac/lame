@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.80 2002/04/27 20:58:31 takehiro Exp $ */
+/* $Id: quantize_pvt.c,v 1.81 2002/04/28 08:15:40 takehiro Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -688,7 +688,7 @@ int  calc_noise(
     res->over_noise  = 10.*over_noise_db;
     //    res->max_noise   = 10.*log10(max_noise);
     //    res->klemm_noise = 10.*log10(klemm_noise);
-    res->max_noise   = 10.*log10(Max(1e-20,max_noise ));
+    res->max_noise   = 10.*log10(max_noise);
     res->klemm_noise = 10.*log10(Max(1e-20,klemm_noise));
 
     return over;
