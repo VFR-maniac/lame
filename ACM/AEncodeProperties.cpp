@@ -22,7 +22,7 @@
  
 /*!
 	\author Steve Lhomme
-	\version \$Id: AEncodeProperties.cpp,v 1.6 2002/04/07 13:31:34 robux4 Exp $
+	\version \$Id: AEncodeProperties.cpp,v 1.7 2002/04/07 14:07:57 robux4 Exp $
 */
 
 #if !defined(STRICT)
@@ -2021,3 +2021,4 @@ void AEncodeProperties::EnableAbrOptions(HWND hDialog, bool enable)
 	::EnableWindow(::GetDlgItem( hDialog, IDC_STATIC_AVERAGE_STEP_VALUE), enable);
 	::EnableWindow(::GetDlgItem( hDialog, IDC_STATIC_AVERAGE_SAMPLE_VALUE), enable);
 }
+
