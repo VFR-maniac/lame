@@ -1,4 +1,4 @@
-/* $Id: mp3x.c,v 1.16 2001/06/08 21:29:34 markt Exp $ */
+/* $Id: mp3x.c,v 1.17 2002/10/08 08:44:05 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -36,8 +36,8 @@ int main(int argc, char **argv)
 {
   char mp3buffer[LAME_MAXMP3BUFFER];
   lame_global_flags *gf;  
-  char outPath[MAX_NAME_SIZE];
-  char inPath[MAX_NAME_SIZE];
+  char outPath[MAXPATHLEN];
+  char inPath[MAXPATHLEN];
   int ret;
 
   gf=lame_init();
