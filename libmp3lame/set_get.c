@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.49 2003/02/22 02:21:23 olcios Exp $ */
+/* $Id: set_get.c,v 1.50 2003/03/24 20:32:42 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1160,6 +1160,20 @@ float
 lame_get_maskingadjust( const lame_global_flags*  gfp )
 {
     return gfp->maskingadjust;
+}
+
+int
+lame_set_maskingadjust_short( lame_global_flags*  gfp,
+                   float               adjust )
+{
+    gfp->maskingadjust_short = adjust;
+    return 0;
+}
+
+float
+lame_get_maskingadjust_short( const lame_global_flags*  gfp )
+{
+    return gfp->maskingadjust_short;
 }
 
 /* Only use ATH for masking. */
