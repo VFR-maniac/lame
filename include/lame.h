@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.147 2003/11/20 11:16:31 bouvigne Exp $ */
+/* $Id: lame.h,v 1.148 2003/12/03 01:44:49 olcios Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -561,6 +561,9 @@ int CDECL lame_get_AudiophileGain(const lame_global_flags *);
 #ifdef DECODE_ON_THE_FLY
 /* the peak sample */
 float CDECL lame_get_PeakSample(const lame_global_flags *);
+
+/* is decoding on the fly going to be performed */
+int CDECL lame_get_decode_on_the_fly(const lame_global_flags *);
 #endif
 
 

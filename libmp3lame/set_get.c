@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.63 2003/11/28 14:27:18 bouvigne Exp $ */
+/* $Id: set_get.c,v 1.64 2003/12/03 01:44:49 olcios Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -459,13 +459,10 @@ lame_set_ReplayGain_decode( lame_global_flags*  gfp,
     /* enforce disable/enable meaning, if we need more than two values
        we need to switch to an enum to have an apropriate representation
        of the possible meanings of the value */
-
-/*disabled because it crashes when using with mp3 input*/       
-       
-/*    if ( 0 > ReplayGain_decode || 1 < ReplayGain_decode )
+    if ( 0 > ReplayGain_decode || 1 < ReplayGain_decode )
         return -1;
 
-    gfp->ReplayGain_decode = ReplayGain_decode;*/
+    gfp->ReplayGain_decode = ReplayGain_decode;
 
     return 0;
 }
@@ -1727,9 +1724,14 @@ lame_get_PeakSample( const lame_global_flags*  gfp )
     lame_internal_flags *gfc = gfp->internal_flags;
     return (float)gfc->PeakSample;
 }
+
+int
+lame_get_decode_on_the_fly( const lame_global_flags* gfp )
+{
+    lame_internal_flags *gfc = gfp->internal_flags;
+    return gfc->decode_on_the_fly; 
+}
 #endif
-
-
 
 
 /*
