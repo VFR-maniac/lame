@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.127 2001/12/18 17:44:33 dibrom Exp $ */
+/* $Id: parse.c,v 1.128 2002/02/07 11:58:52 shibatch Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1727,6 +1727,21 @@ char* const inPath, char* const outPath, char **nogap_inPath, int *num_nogap)
                       if (k < 0) k += 64;
                       lame_set_exp_nspsytune(gfp, lame_get_exp_nspsytune(gfp) | (k << 20));
                     }
+                
+                T_ELIF ("nspsytune2")
+		    {
+		      FILE *fp = fopen( nextArg, "r" );
+		      if (fp == NULL) {
+			fprintf(stderr,"nspsytune2 : error opening %s\n",nextArg);
+			abort();
+		      }
+		      lame_set_exp_nspsytune2_pointer(gfp,1,fp);
+		    }
+		  /* nspsytune2 implies nspsytune */
+                    argUsed=1;
+                    lame_set_exp_nspsytune(gfp, lame_get_exp_nspsytune(gfp) | 1);
+                    lame_set_experimentalZ(gfp,1);
+                    lame_set_experimentalX(gfp,1);
                 
                 /* some more GNU-ish options could be added
                  * brief         => few messages on screen (name, status report)
