@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.104 2003/01/02 18:27:09 bouvigne Exp $ */
+/* $Id: util.c,v 1.105 2003/01/11 17:56:40 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -81,6 +81,8 @@ void  freegfc ( lame_internal_flags* const gfc )   /* bit stream structure */
 
     if ( gfc->VBR_seek_table.bag ) {
         free ( gfc->VBR_seek_table.bag );
+        gfc->VBR_seek_table.bag=NULL;
+        gfc->VBR_seek_table.size=0;
     }
     if ( gfc->ATH ) {
         free ( gfc->ATH );
@@ -99,6 +101,8 @@ void  freegfc ( lame_internal_flags* const gfc )   /* bit stream structure */
         /* XXX allocated in psymodel_init() */
         free ( gfc->s3_ss );
     }
+
+
     free ( gfc );
 }
 
