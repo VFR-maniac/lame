@@ -24,7 +24,7 @@
  *         Special Thanks to Patrick De Smet for your advices.
  */
 
-/* $Id: newmdct.c,v 1.26 2002/04/20 20:40:01 takehiro Exp $ */
+/* $Id: newmdct.c,v 1.27 2002/04/27 20:58:30 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -682,8 +682,9 @@ inline static void mdct_long(FLOAT8 *out, FLOAT8 *in)
 }
 
 
-void mdct_sub48( lame_internal_flags *gfc, const sample_t *w0, const sample_t *w1, 
-                 FLOAT8 mdct_freq[2][2][576] )
+void mdct_sub48(
+    lame_internal_flags *gfc, const sample_t *w0, const sample_t *w1
+    )
 {
     int gr, k, ch;
     const sample_t *wk;
@@ -693,8 +694,8 @@ void mdct_sub48( lame_internal_flags *gfc, const sample_t *w0, const sample_t *w
     for (ch = 0; ch < gfc->channels_out; ch++) {
 	for (gr = 0; gr < gfc->mode_gr; gr++) {
 	    int	band;
-	    FLOAT8 *mdct_enc = &mdct_freq[gr][ch][0];
 	    gr_info *gi = &(gfc->l3_side.tt[gr][ch]);
+	    FLOAT8 *mdct_enc = gi->xr;
 	    FLOAT8 *samp = gfc->sb_sample[ch][1 - gr][0];
 
 	    for (k = 0; k < 18 / 2; k++) {
