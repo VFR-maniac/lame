@@ -22,7 +22,7 @@
  
 /*!
 	\author Steve Lhomme
-	\version \$Id: ACM.h,v 1.6 2002/04/06 11:34:22 robux4 Exp $
+	\version \$Id: ACM.h,v 1.7 2002/04/06 14:01:33 robux4 Exp $
 */
 
 #if !defined(_ACM_H__INCLUDED_)
@@ -86,13 +86,12 @@ protected:
 	DWORD GetNumberEncodingFormats() const;
 	bool IsSmartOutput(const int frequency, const int bitrate, const int channels) const;
 	void BuildBitrateTable();
-	void FlushBitrateTable();
 
 	HMODULE my_hModule;
 	HICON   my_hIcon;
 	ADbg    my_debug;
 	AEncodeProperties my_EncodingProperties;
-	std::vector<bitrate_item *> bitrate_table;
+	std::vector<bitrate_item> bitrate_table;
 
 	static char VersionString[20];
 };

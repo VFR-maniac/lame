@@ -22,7 +22,7 @@
  
 /*!
 	\author Steve Lhomme
-	\version \$Id: ACMStream.h,v 1.3 2002/01/23 20:39:46 robux4 Exp $
+	\version \$Id: ACMStream.h,v 1.4 2002/04/06 14:01:33 robux4 Exp $
 */
 
 #if !defined(_ACMSTREAM_H__INCLUDED_)
@@ -52,7 +52,7 @@ public:
 	static ACMStream * Create();
 	static const bool Erase(const ACMStream * a_ACMStream);
 
-	bool init(const int nSamplesPerSec, const int nOutputSamplesPerSec, const int nChannels, const int nAvgBytesPerSec);
+	bool init(const int nSamplesPerSec, const int nOutputSamplesPerSec, const int nChannels, const int nAvgBytesPerSec, const vbr_mode mode);
 	bool open(const AEncodeProperties & the_Properties);
 	bool close(LPBYTE pOutputBuffer, DWORD *pOutputSize);
 
@@ -69,6 +69,7 @@ protected:
 	int my_Channels;
 	int my_AvgBytesPerSec;
 	int my_OutBytesPerSec;
+	vbr_mode my_VBRMode;
 	DWORD  my_SamplesPerBlock;
 
 unsigned int m_WorkingBufferUseSize;
