@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: vbrquantize.c,v 1.31 2001/01/26 22:47:54 robert Exp $ */
+/* $Id: vbrquantize.c,v 1.32 2001/01/28 12:39:50 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1090,7 +1090,7 @@ VBR_noise_shaping (
 
     /* inject noise until we meet our bit limit
      */
-    while (cod_info->part2_3_length > Min (maxbits, 4095)) {
+    while (cod_info->part2_3_length > Min (maxbits, MAX_BITS)) {
         /* increase global gain, keep existing scale factors */
         ++cod_info->global_gain;
         if (cod_info->global_gain > 255) 
