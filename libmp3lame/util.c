@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.97 2002/06/29 12:29:18 aleidinger Exp $ */
+/* $Id: util.c,v 1.98 2002/07/15 21:22:11 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -996,7 +996,6 @@ ieee754_float32_t fast_log2(ieee754_float32_t x)
 
   /* log2val += log_table[mantisse];  without interpolation the results are not good */
   log2val += log_table[mantisse] * (1.0f-partial) + log_table[mantisse+1]*partial;
-
   return log2val;
 }
 
