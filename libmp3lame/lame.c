@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.175 2002/04/10 12:55:47 bouvigne Exp $ */
+/* $Id: lame.c,v 1.176 2002/04/15 11:42:20 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1231,7 +1231,11 @@ lame_print_config(const lame_global_flags * gfp)
             MSGF(gfc, ", MMX");
 #endif
         if (gfc->CPU_features.AMD_3DNow)
+#ifdef HAVE_NASM
+            MSGF(gfc, ", 3DNow! (ASM used)");
+#else
             MSGF(gfc, ", 3DNow!");
+#endif
         if (gfc->CPU_features.SIMD)
             MSGF(gfc, ", SIMD");
         if (gfc->CPU_features.SIMD2)
