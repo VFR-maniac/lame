@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.239 2003/12/03 01:44:49 olcios Exp $ */
+/* $Id: lame.c,v 1.240 2003/12/03 02:18:35 olcios Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -676,8 +676,7 @@ lame_init_params(lame_global_flags * const gfp)
       gfc->decode_on_the_fly = 1;
 
     if (gfc->decode_on_the_fly && !gfp->decode_only)
-      if (lame_decode_init() < 0)  /* initialize the decoder  */
-	return -6;
+      lame_decode_init();  /* initialize the decoder  */
 #endif
 
 

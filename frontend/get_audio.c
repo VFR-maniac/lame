@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.91 2003/12/03 01:44:49 olcios Exp $ */
+/* $Id: get_audio.c,v 1.92 2003/12/03 02:18:34 olcios Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -1425,8 +1425,7 @@ lame_decode_initfile(FILE * fd, mp3data_struct * mp3data)
     int freeformat = 0;
 
     memset(mp3data, 0, sizeof(mp3data_struct));
-    if (lame_decode_init() < 0)
-	    return -1;
+    lame_decode_init();
 
     len = 4;
     if (fread(buf, 1, len, fd) != len)

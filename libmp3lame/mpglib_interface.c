@@ -1,4 +1,4 @@
-/* $Id: mpglib_interface.c,v 1.24 2003/12/03 01:44:49 olcios Exp $ */
+/* $Id: mpglib_interface.c,v 1.25 2003/12/03 02:18:35 olcios Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -20,7 +20,6 @@
 
 MPSTR   mp;
 plotting_data *mpg123_pinfo = NULL;
-int is_initialised = 0;
 
 int
 lame_decode_exit(void)
@@ -33,10 +32,6 @@ lame_decode_exit(void)
 int
 lame_decode_init(void)
 {
-    if (is_initialised)
-	    return -1;
-    is_initialised = 1;
-
     InitMP3(&mp);
     return 0;
 }
