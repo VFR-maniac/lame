@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.31 2001/12/23 20:11:09 dibrom Exp $ */
+/* $Id: set_get.c,v 1.32 2001/12/23 20:19:00 dibrom Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1458,7 +1458,7 @@ lame_set_preset_expopts( lame_global_flags*  gfp, int preset_expopts )
              gfc->presetTune.quantcomp_adjust_mtrh = 9;
              gfc->presetTune.quantcomp_type_s = 4;
              gfc->presetTune.quantcomp_alt_type = 0;
-             gfc->presetTune.athadjust_safe_noiseshaping_thre = 0.0125;
+             gfc->presetTune.athadjust_safe_noiseshaping_thre = 0.0;
 			 gfc->presetTune.athadjust_safe_athaasensitivity = 8.0;
           }
           else {
