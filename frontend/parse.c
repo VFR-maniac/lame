@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.170 2003/04/12 10:20:58 bouvigne Exp $ */
+/* $Id: parse.c,v 1.171 2003/04/20 12:33:16 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -704,7 +704,6 @@ static void  presets_longinfo_dm ( FILE* msgfp )
 
 
 extern void lame_set_msfix( lame_t gfp, double msfix );
-extern int lame_set_preset_expopts( lame_t gfp, int preset_expopts );
 
 
 

@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: vbrquantize.c,v 1.80 2003/01/02 18:30:46 bouvigne Exp $ */
+/* $Id: vbrquantize.c,v 1.81 2003/04/20 12:33:16 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -471,9 +471,9 @@ find_scalefac_ave(
  *  calculates quantization step size determined by allowed masking
  */
 inline int
-calc_scalefac(FLOAT8 l3_xmin, int bw, FLOAT8 preset_tune)
+calc_scalefac(FLOAT8 l3_xmin, int bw)
 {
-    FLOAT8 const c = (preset_tune > 0 ? preset_tune : 5.799142446); /* 10 * 10^(2/3) * log10(4/3) */
+    FLOAT8 const c = 5.799142446; /* 10 * 10^(2/3) * log10(4/3) */
     return 210 + (int) (c * log10(l3_xmin / bw) - .5);
 }
 
@@ -706,8 +706,7 @@ block_sf(const lame_internal_flags * gfc, const FLOAT8 * l3_xmin,
         default:
             /*  the fastest
              */
-            vbrsf[sfb] =
-                calc_scalefac(l3_xmin[sfb], width, gfc->presetTune.quantcomp_adjust_mtrh);
+            vbrsf[sfb] = calc_scalefac(l3_xmin[sfb], width);
             break;
         }
 	j += width;

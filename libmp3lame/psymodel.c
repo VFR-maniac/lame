@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.123 2003/02/16 08:38:03 takehiro Exp $ */
+/* $Id: psymodel.c,v 1.124 2003/04/20 12:33:16 bouvigne Exp $ */
 
 
 /*
@@ -418,8 +418,6 @@ ns_msfix(
     int sb, sblock;
     FLOAT8 msfix2 = msfix;
     FLOAT8 athlower = pow(10, athadjust);
-    if (gfc->presetTune.use)
-	msfix2 = gfc->presetTune.ms_maskadjust;
 
     msfix *= 2.0;
     msfix2 *= 2.0;

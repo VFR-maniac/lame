@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.216 2003/04/12 10:20:56 bouvigne Exp $ */
+/* $Id: lame.c,v 1.217 2003/04/20 12:33:15 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1090,11 +1090,6 @@ lame_init_params(lame_global_flags * const gfp)
     if (gfp->useTemporal < 0 ) gfp->useTemporal = 1;  /* on by default */
 
 
-    if ( gfp->preset_expopts && gfc->presetTune.use < 1 )
-        MSGF(gfc,"\n*** WARNING ***\n\n"
-		         "Specialized tunings for the preset you are using have been deactivated.\n"
-                 "This is *NOT* recommended and will lead to a decrease in quality!\n"
-	             "\n*** WARNING ***\n\n");
 
     /* padding method as described in 
      * "MPEG-Layer3 / Bitstream Syntax and Decoding"
