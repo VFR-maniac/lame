@@ -41,7 +41,7 @@
  * conversions, and accommodated conversions involving +/- infinity,
  * NaN's, and denormalized numbers.
  *
- * $Id: ieeefloat.c,v 1.3 2000/11/13 10:53:10 aleidinger Exp $
+ * $Id: ieeefloat.c,v 1.4 2000/11/14 12:24:25 aleidinger Exp $
  *
  */
 
@@ -437,7 +437,6 @@ ConvertToIeeeExtended(defdouble num, char *bytes)
 #endif /* sgi */
 #ifdef sequent
 # define IEEE
-# define LITTLE_ENDIAN
 #endif /* sequent */
 #ifdef sun
 # define IEEE
@@ -517,7 +516,7 @@ Bytes2Hex(register char *bytes, register char *hex, register int nBytes)
 void
 MaybeSwapBytes(char* bytes, int nBytes)
 {
-#ifdef LITTLE_ENDIAN
+#ifndef WORDS_BIGENDIAN
 	register char *p, *q, t;
 	for (p = bytes, q = bytes+nBytes-1; p < q; p++, q--) {
 		t = *p;
@@ -526,7 +525,7 @@ MaybeSwapBytes(char* bytes, int nBytes)
 	}
 #else
 	if (bytes, nBytes);		/* Just so it's used */
-#endif /* LITTLE_ENDIAN */
+#endif /* WORDS_BIGENDIAN */
 
 }
 
