@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.80 2001/04/16 21:26:09 bouvigne Exp $ */
+/* $Id: psymodel.c,v 1.81 2001/04/27 23:19:12 robert Exp $ */
 
 
 /*
@@ -638,8 +638,10 @@ int L3psycho_anal( lame_global_flags * gfp,
 	  */
         
 	  if (vbr_mtrh == gfp->VBR) {
+            //  FLOAT8 tmpATH = athAdjust( gfc->ATH->adjust, gfc->ATH->cb[b] );
             thr[b] = Min (rpelev*gfc->nb_1[chn][b], rpelev2*gfc->nb_2[chn][b]);
-            thr[b] = Max (thr[b], gfc->ATH->adjust * gfc->ATH->cb[b]);
+            //  thr[b] = Max (thr[b], gfc->ATH->adjust * gfc->ATH->cb[b]);
+            //  if ( thr[b] < tmpATH ) thr[b] = tmpATH;
             thr[b] = Min (thr[b], ecb);
 	  }
 	  else if (gfc->blocktype_old[chn>1 ? chn-2 : chn] == SHORT_TYPE )
