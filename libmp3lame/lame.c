@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.122 2001/06/04 23:08:19 markt Exp $ */
+/* $Id: lame.c,v 1.123 2001/06/04 23:10:32 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1751,7 +1751,8 @@ lame_encode(lame_global_flags * const gfp,
 
 
 /*****************************************************************
- Flush mp3 buffer, reset reservoir size to 0                  
+ Flush mp3 buffer, pad with ancillary data so last frame is complete.
+ Reset reservoir size to 0                  
  but keep all PCM samples and MDCT data in memory             
  This option is used to break a large file into several mp3 files 
  that when concatenated together will decode with no gaps         
