@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.13 2001/01/15 15:16:09 aleidinger Exp $
+## $Id: Makefile.am,v 1.14 2001/01/31 12:53:41 aleidinger Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -29,8 +29,6 @@ EXTRA_DIST = \
 	debugscalefac.c \
 	libmp3lame.dsp \
 	lameerror.h \
-	resample.c \
-	resample.h \
 	tools.c \
 	tools.h
 
@@ -42,6 +40,7 @@ libmp3lame_la_SOURCES = \
         id3tag.c \
         lame.c \
         newmdct.c \
+	pcm.c \
 	psymodel.c \
 	quantize.c \
 	quantize_pvt.c \
@@ -64,6 +63,7 @@ noinst_HEADERS= \
 	lame-analysis.h \
 	machine.h \
 	newmdct.h \
+	pcm.h \
 	psymodel.h \
 	quantize.h  \
 	quantize_pvt.h \

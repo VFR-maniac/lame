@@ -1,7 +1,7 @@
-## $Id: Makefile.am.global,v 1.1 2001/01/15 15:16:06 aleidinger Exp $
+## $Id: Makefile.am.global,v 1.2 2001/01/31 12:53:38 aleidinger Exp $
 
 # global section for every Makefile.am
 
-AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
+AUTOMAKE_OPTIONS = 1.4b foreign $(top_srcdir)/ansi2knr
 
 # end global section
