@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.169 2005/03/19 15:03:42 bouvigne Exp $ */
+/* $Id: quantize.c,v 1.170 2005/03/20 17:28:44 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -2044,7 +2044,20 @@ ABR_iteration_loop(
             ms_sparsing( gfc, gr );
         }
         for (ch = 0; ch < gfc->channels_out; ch++) {
+            FLOAT adjust, masking_lower_db;
             cod_info = &l3_side->tt[gr][ch];
+
+            if (cod_info->block_type == NORM_TYPE) {
+               /* adjust = 1.28/(1+exp(3.5-pe[gr][ch]/300.))-0.05;*/
+                adjust = 0;
+                masking_lower_db   = gfc->PSY->mask_adjust - adjust;
+            } else { 
+               /* adjust = 2.56/(1+exp(3.5-pe[gr][ch]/300.))-0.14;*/
+                adjust = 0;
+                masking_lower_db   = gfc->PSY->mask_adjust_short - adjust; 
+            }
+            gfc->masking_lower = pow (10.0, masking_lower_db * 0.1);
+      
 
             /*  cod_info, scalefac and xrpow get initialized in init_outer_loop
              */
@@ -2084,7 +2097,7 @@ ABR_iteration_loop(
 
 /************************************************************************
  *
- *      iteration_loop()                                                    
+ *      CBR_iteration_loop()                                                    
  *
  *  author/date??
  *
@@ -2093,7 +2106,7 @@ ABR_iteration_loop(
  ************************************************************************/
 
 void 
-iteration_loop(
+CBR_iteration_loop(
     lame_global_flags *gfp, 
     FLOAT             pe           [2][2],
     FLOAT             ms_ener_ratio[2],
@@ -2124,7 +2137,19 @@ iteration_loop(
         }
         
         for (ch=0 ; ch < gfc->channels_out ; ch ++) {
+            FLOAT adjust, masking_lower_db;
             cod_info = &l3_side->tt[gr][ch]; 
+
+            if (cod_info->block_type == NORM_TYPE) {
+               /* adjust = 1.28/(1+exp(3.5-pe[gr][ch]/300.))-0.05;*/
+                adjust = 0;
+                masking_lower_db   = gfc->PSY->mask_adjust - adjust;
+            } else { 
+               /* adjust = 2.56/(1+exp(3.5-pe[gr][ch]/300.))-0.14;*/
+                adjust = 0;
+                masking_lower_db   = gfc->PSY->mask_adjust_short - adjust; 
+            }
+            gfc->masking_lower = pow (10.0, masking_lower_db * 0.1);
 
             /*  init_outer_loop sets up cod_info, scalefac and xrpow 
              */

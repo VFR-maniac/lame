@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.275 2005/03/12 17:39:48 bouvigne Exp $ */
+/* $Id: lame.c,v 1.276 2005/03/20 17:28:43 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -964,6 +964,9 @@ lame_init_params(lame_global_flags * const gfp)
         /* second, set parameters depending on bitrate */
         apply_preset(gfp, gfp->VBR_mean_bitrate_kbps, 0);
         lame_set_VBR(gfp, vbrmode);
+
+        gfc->PSY->mask_adjust = gfp->maskingadjust;
+        gfc->PSY->mask_adjust_short = gfp->maskingadjust_short;
 
         break;
     }
