@@ -1,4 +1,4 @@
-dnl $Id: configure.in,v 1.52 2001/02/20 18:34:57 aleidinger Exp $
+dnl $Id: configure.in,v 1.53 2001/02/27 11:36:05 aleidinger Exp $
 dnl
 dnl
 dnl don't forget to set ASM_FOR_ARCH to a space delimited list of
@@ -89,6 +89,12 @@ AC_C_CONST
 AC_C_INLINE
 if test ${cross_compiling} = "no"; then
 	AC_C_BIGENDIAN
+fi
+
+if test "${GCC}" = "yes"; then
+	AC_MSG_CHECKING(version of GCC)
+	GCC_version=`gcc --version`
+	AC_MSG_RESULT(${GCC_version})
 fi
 
 AC_CHECK_SIZEOF(short, 2)
