@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.50 2001/02/13 16:58:44 robert Exp $ */
+/* $Id: util.c,v 1.51 2001/02/14 14:24:45 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -119,7 +119,7 @@ FLOAT8 ATHformula_GBtweak(FLOAT8 f)
   ath =    3.640 * pow(f,-0.8)
          - 6.800 * exp(-0.6*pow(f-3.4,2.0))
          + 6.000 * exp(-0.15*pow(f-8.7,2.0))
-         + 0.57* 0.001 * pow(f,4.0) //0.57 to maximize HF importance
+         + 0.55* 0.001 * pow(f,4.0) //0.55 to maximize HF importance
          + 6; //std --athlower -6 for
   return ath;
 }
