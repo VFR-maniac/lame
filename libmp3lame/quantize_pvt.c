@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.81 2002/04/28 08:15:40 takehiro Exp $ */
+/* $Id: quantize_pvt.c,v 1.82 2002/04/30 22:00:31 robert Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -484,7 +484,7 @@ int calc_xmin(
     ATH_t * ATH = gfc->ATH;
     const FLOAT8 *xr = cod_info->xr;
 
-    for (sfb = 0; sfb < cod_info->sfb_lmax; sfb++) {
+    for (sfb = 0; sfb < cod_info->psy_lmax; sfb++) {
 	FLOAT en0 = 0.0;
 	int width, l;
 	if ( gfp->VBR == vbr_rh || gfp->VBR == vbr_mtrh )
@@ -621,7 +621,7 @@ int  calc_noise(
     double klemm_noise = 1E-37;
     int j = 0;
 
-    for (sfb = 0; sfb < cod_info->sfb_lmax; sfb++) {
+    for (sfb = 0; sfb < cod_info->psy_lmax; sfb++) {
 	int s =
 	    cod_info->global_gain
 	    - ((scalefac->l[sfb] + (cod_info->preflag ? pretab[sfb] : 0))
