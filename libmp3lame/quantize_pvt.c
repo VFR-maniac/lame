@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.94 2002/12/08 17:02:24 takehiro Exp $ */
+/* $Id: quantize_pvt.c,v 1.95 2003/01/02 18:30:36 bouvigne Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -516,8 +516,8 @@ static FLOAT8 athAdjust( FLOAT8 a, FLOAT8 x, FLOAT8 athFloor )
 int calc_xmin( 
         lame_global_flags *gfp,
         const III_psy_ratio * const ratio,
-	const gr_info       * const cod_info, 
-	      FLOAT8        * pxmin
+	    const gr_info       * const cod_info, 
+	    FLOAT8 * pxmin
     )
 {
     lame_internal_flags *gfc = gfp->internal_flags;

@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.128 2002/12/25 12:13:11 takehiro Exp $ */
+/* $Id: quantize.c,v 1.129 2003/01/02 18:30:32 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -334,7 +334,7 @@ int
 bin_search_StepSize(
           lame_internal_flags * const gfc,
           gr_info * const cod_info,
-	  int             desired_rate,
+	 int             desired_rate,
     const int             ch,
     const FLOAT8          xrpow [576] ) 
 {
@@ -403,7 +403,7 @@ bin_search_StepSize(
  *
  ************************************************************************/
 static int
-float8compare(FLOAT8 *a, FLOAT8 *b)
+float8compare(const FLOAT8 *a, const FLOAT8 *b)
 {
     if (*a > *b) return 1;
     if (*a == *b) return 0;

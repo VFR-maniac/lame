@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: vbrquantize.c,v 1.79 2002/12/25 12:13:11 takehiro Exp $ */
+/* $Id: vbrquantize.c,v 1.80 2003/01/02 18:30:46 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -35,6 +35,14 @@
 #ifdef WITH_DMALLOC
 #include <dmalloc.h>
 #endif
+
+
+extern void
+trancate_smallspectrums(
+    lame_internal_flags *gfc,
+    gr_info	* const gi,
+    const FLOAT8* const l3_xmin,
+    FLOAT8* work);
 
 
 
