@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.1 2000/10/22 11:39:43 aleidinger Exp $
+## $Id: Makefile.am,v 1.2 2001/01/14 17:25:45 aleidinger Exp $
 
 AUTOMAKE_OPTIONS = foreign ansi2knr
 
@@ -11,5 +11,4 @@ EXTRA_DIST = BladeMP3EncDLL.c \
 	LameDLLInterface.htm \
 	MP3EncDll.dsp \
 	MP3EncDll.dsw \
-	MP3export.pas \
-	README
+	MP3export.pas
