@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.122 2005/01/30 22:27:03 robert Exp $ */
+/* $Id: quantize_pvt.c,v 1.123 2005/02/06 19:49:30 robert Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -141,7 +141,6 @@ const scalefac_struct sfBandIndex[9] =
 
 FLOAT pow20[Q_MAX+Q_MAX2+1];
 FLOAT ipow20[Q_MAX];
-FLOAT iipow20[Q_MAX2+1];
 FLOAT pow43[PRECALC_SIZE];
 /* initialized in first call to iteration_init */
 #ifdef TAKEHIRO_IEEE754_HACK
@@ -327,8 +326,6 @@ iteration_init( lame_global_flags *gfp)
 	ipow20[i] = pow(2.0, (double)(i - 210) * -0.1875);
     for (i = 0; i <= Q_MAX+Q_MAX2; i++)
 	pow20[i] = pow(2.0, (double)(i - 210 - Q_MAX2) * 0.25);
-    for (i = 0; i <= Q_MAX2; i++)
-        iipow20[i] = pow(2.0, (double)i * 0.1875);
 
     huffman_init(gfc);
     quantize_init(gfc);
