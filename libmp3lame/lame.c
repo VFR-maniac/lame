@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.104 2001/04/12 17:40:38 bouvigne Exp $ */
+/* $Id: lame.c,v 1.105 2001/04/16 21:26:09 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -936,8 +936,10 @@ lame_init_params(lame_global_flags * const gfp)
         gfp->bWriteVbrTag = 0;
     if (gfp->ogg)
         gfp->bWriteVbrTag = 0;
+#if defined(HAVE_GTK)
     if (gfp->analysis)
         gfp->bWriteVbrTag = 0;
+#endif
 
     /* some file options not allowed if output is: not specified or stdout */
     if (gfc->pinfo != NULL)
