@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.54 2001/01/30 20:53:00 robert Exp $ */
+/* $Id: quantize.c,v 1.55 2001/01/31 15:34:42 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1377,6 +1377,10 @@ VBR_iteration_loop (
                 save_bits[gr][ch] = 0;
                 continue; /* with next channel */
             }
+#if 0
+            if (gfc->mode_ext == MPG_MD_MS_LR && ch == 1)  
+                min_bits[gr][ch] = Max (min_bits[gr][ch], save_bits[gr][0]/5);
+#endif
             min_bits[gr][ch] = Max(min_mean_bits, min_bits[gr][ch]*lower);
             max_bits[gr][ch] = Max(min_mean_bits, max_bits[gr][ch]*lower);
       
@@ -1455,8 +1459,8 @@ VBR_iteration_loop (
     
     /*  ignore sfb21 by the following (maybe) noise shaping  
      */
-    gfc->sfb21_extra = 0;     
     sfb21_extra = gfc->sfb21_extra;
+    gfc->sfb21_extra = 0;     
         
     /*  quantize granules which violate bit constraints again
      *  and side channel when in quality=5 reduce_side is used
