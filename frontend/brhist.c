@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: brhist.c,v 1.21 2000/11/02 17:16:37 pfk Exp $ */
+/* $Id: brhist.c,v 1.22 2000/11/03 00:47:58 pfk Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -91,7 +91,7 @@ int  brhist_init ( const lame_global_flags* gf, const int bitrate_kbps_min, cons
     /* setup basics of brhist I/O channels */
     Console_IO.disp_width  = 80;
     Console_IO.disp_height = 25;
-	Console_IO.hist_printed_lines = 0;
+    Console_IO.hist_printed_lines = 0;
     Console_IO.Console_fp  = stderr;
     Console_IO.Error_fp    = stderr;
     Console_IO.Report_fp   = stderr;
@@ -280,7 +280,7 @@ void brhist_jump_back( void )
         CONSOLE_SCREEN_BUFFER_INFO  CSBI;
 	
         GetConsoleScreenBufferInfo ( Console_IO.Console_Handle, &CSBI );
-        Pos.Y = CSBI.dwCursorPosition.Y - Console_IO.hist_printed_lines ;  /* $$$ */
+        Pos.Y = CSBI.dwCursorPosition.Y - Console_IO.hist_printed_lines ;
         Pos.X = 0;
         SetConsoleCursorPosition ( Console_IO.Console_Handle, Pos );
     }

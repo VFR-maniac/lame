@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: version.c,v 1.6 2000/11/02 17:16:37 pfk Exp $ */
+/* $Id: version.c,v 1.7 2000/11/03 00:47:59 pfk Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -111,5 +111,10 @@ const char*  get_mp3x_version ( void )
                 
     return ret;
 }
+
+const char*  get_lame_url ( void )
+{
+    return "http://www.mp3dev.org/";
+}    
 
 /* End of version.c */

@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.32 2000/11/01 18:06:13 markt Exp $ */
+/* $Id: lame.c,v 1.33 2000/11/03 00:47:59 pfk Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -733,7 +733,7 @@ void lame_print_config ( const lame_global_flags* gfp )
     double    out_samplerate = gfp->out_samplerate;
     double    in_samplerate  = gfp->out_samplerate * gfc->resample_ratio;
 
-    MSGF ( "LAME version %s    (%s)\n", get_lame_version (), LAME_URL );
+    MSGF ( "LAME version %s    (%s)\n", get_lame_version (), get_lame_url () );
 
     if ( gfc->CPU_features_MMX  ||  gfc->CPU_features_3DNow  ||  gfc->CPU_features_SIMD  ||  gfc->CPU_features_SIMD2 ) {
         MSGF ("CPU features:"); 

@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.1 2000/10/22 11:43:09 aleidinger Exp $
+## $Id: Makefile.am,v 1.2 2000/11/03 00:47:59 pfk Exp $
 
 AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
 
@@ -16,7 +16,8 @@ EXTRA_liblameasmroutines_la_SOURCES = $(nasm_sources)
 
 nasm_sources = \
 	choose_table.nas \
-	cpu_feat.nas
+	cpu_feat.nas \
+	scalar.nas
 
 if HAVE_NASM
 liblameasmroutines_la_SOURCES = $(nasm_sources)
@@ -27,7 +28,7 @@ EXTRA_DIST = \
 	fft3dn.nas \
 	fftfpu.nas \
 	fftsse.nas \
-	ffttbl.nas
+	ffttbl.nas \
 
 NASM = @NASM@
 NASMFLAGS=-f elf -i .

@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.23 2000/11/01 18:22:18 markt Exp $ */
+/* $Id: util.c,v 1.24 2000/11/03 00:47:59 pfk Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -243,7 +243,7 @@ int     found = 0;
     if(found)
         return(index);
     else {
-        ERRORF("Bitrate %dkbs not legal for %iHz output sampling.\n",
+        ERRORF("Bitrate %d kbps not legal for %i Hz output sampling frequency.\n",
                 bRate, samplerate);
         return(-1);     /* Error! */
     }
