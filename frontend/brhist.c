@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: brhist.c,v 1.37 2002/09/06 09:24:32 aleidinger Exp $ */
+/* $Id: brhist.c,v 1.38 2002/09/13 20:04:51 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -56,10 +56,10 @@ char *strchr (), *strrchr ();
 #if defined(HAVE_TERMCAP)
 #include <curses.h>
 #include <term.h>
-#if defined(HAVE_TERMCAP_H)
-# include <termcap.h>
-#elif defined(HAVE_NCURSES_TERMCAP_H)
+#if defined(HAVE_NCURSES_TERMCAP_H)
 # include <ncurses/termcap.h>
+#elif defined(HAVE_TERMCAP_H)
+# include <termcap.h>
 #endif
 #endif
 
