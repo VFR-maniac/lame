@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.100 2001/03/25 23:14:45 markt Exp $ */
+/* $Id: lame.c,v 1.101 2001/03/27 12:04:23 jd- Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1738,6 +1738,8 @@ lame_init_old(lame_global_flags * gfp)
     gfc->masking_lower = 1;
 
     gfp->ATHtype = -1;  /* default = -1 = set in lame_init_params */
+    gfp->adapt_thres_type = 1;	/* 1 = adaptive threshold, with flat */
+				/*     approximation for loudness.   */
     gfp->useTemporal = 1;
 
     /* The reason for

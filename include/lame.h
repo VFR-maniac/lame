@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.67 2001/03/12 04:38:35 markt Exp $ */
+/* $Id: lame.h,v 1.68 2001/03/27 12:04:23 jd- Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -155,6 +155,7 @@ typedef struct  {
   int noATH;                      /* disable ATH                          */
   int ATHtype;                    /* select ATH formula                   */
   float ATHlower;                 /* lower ATH by this many db            */
+  int adapt_thres_type;           /* select ATH auto-level adjust formula */
   int cwlimit;                    /* predictability limit                 */
   int allow_diff_short;           /* allow blocktypes to differ between
                                      channels?                            */

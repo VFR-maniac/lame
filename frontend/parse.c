@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.68 2001/03/11 11:24:25 aleidinger Exp $ */
+/* $Id: parse.c,v 1.69 2001/03/27 12:04:22 jd- Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -798,7 +798,11 @@ int  parse_args ( lame_global_flags* gfp, int argc, char** argv, char* const inP
 		T_ELIF ("athtype")
 		    argUsed=1;
 		    gfp->ATHtype = atoi(nextArg);
-		
+
+		T_ELIF ("adapt-thres-type")
+		    argUsed=1;
+		    gfp->adapt_thres_type = atoi(nextArg);
+
 		T_ELIF ("scale")
 		    argUsed=1;
 		    (void) lame_set_scale( gfp, atof(nextArg) );
