@@ -2,9 +2,12 @@
  * ISO MPEG Audio Subgroup Software Simulation Group (1996)
  * ISO 13818-3 MPEG-2 Audio Encoder - Lower Sampling Frequency Extension
  *
- * $Id: l3side.h,v 1.2 1999/11/29 02:45:59 markt Exp $
+ * $Id: l3side.h,v 1.3 1999/12/21 08:18:51 markt Exp $
  *
  * $Log: l3side.h,v $
+ * Revision 1.3  1999/12/21 08:18:51  markt
+ * Bug fix in Mid/Side masking thresholds
+ *
  * Revision 1.2  1999/11/29 02:45:59  markt
  * MS stereo switch slightly improved:  old formula was based on the average
  * of ms_ratio of both granules.  New formula uses ms_ratio from both
@@ -46,8 +49,10 @@ typedef int	I192_3[192][3];
 
 
 typedef struct {
-	FLOAT8	l[2][2][SBPSY_l];
-	FLOAT8	s[2][2][SBPSY_s][3];
+	FLOAT8	thm_l[2][2][SBPSY_l];
+	FLOAT8	thm_s[2][2][SBPSY_s][3];
+	FLOAT8	en_l[2][2][SBPSY_l];
+	FLOAT8	en_s[2][2][SBPSY_s][3];
 } III_psy_ratio;
 
 typedef struct {
