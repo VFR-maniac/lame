@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.55 2001/02/05 02:36:09 shibatch Exp $ */
+/* $Id: psymodel.c,v 1.56 2001/02/06 21:43:56 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -613,9 +613,12 @@ int L3psycho_anal( lame_global_flags * gfp,
 	   chn=2,3   S and M channels.  
 	*/
         
-        if (vbr_mtrh == gfp->VBR)
-            thr[b] = Min(ecb, Min(rpelev*gfc->nb_1[chn][b],rpelev2*gfc->nb_2[chn][b]) );
-	else if (gfc->blocktype_old[chn>1 ? chn-2 : chn] == SHORT_TYPE )
+        if (vbr_mtrh == gfp->VBR) {
+            thr[b] = Min (rpelev*gfc->nb_1[chn][b], rpelev2*gfc->nb_2[chn][b]);
+            thr[b] = Max (thr[b], gfc->adjust_ath*gfc->ATH_partitionbands[b]);
+            thr[b] = Min (thr[b], ecb);
+	}
+        else if (gfc->blocktype_old[chn>1 ? chn-2 : chn] == SHORT_TYPE )
 	  thr[b] = ecb; /* Min(ecb, rpelev*gfc->nb_1[chn][b]); */
 	else
 	  thr[b] = Min(ecb, Min(rpelev*gfc->nb_1[chn][b],rpelev2*gfc->nb_2[chn][b]) );
