@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.115 2002/12/08 17:02:21 takehiro Exp $ */
+/* $Id: psymodel.c,v 1.116 2002/12/08 17:35:05 takehiro Exp $ */
 
 
 /*
@@ -1959,7 +1959,7 @@ int psymodel_init(lame_global_flags *gfp)
 	FLOAT8 msfix;
 
 #define NS_MSFIX 3.5
-#define NSATTACKTHRE 15
+#define NSATTACKTHRE 4.5
 #define NSATTACKTHRE_S 30
 
 	msfix = NS_MSFIX;
