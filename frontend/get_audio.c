@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.71 2001/06/08 21:29:34 markt Exp $ */
+/* $Id: get_audio.c,v 1.72 2001/06/08 21:40:58 markt Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -48,6 +48,9 @@ char   *strchr(), *strrchr();
 #  define memmove(d, s, n) bcopy ((s), (d), (n))
 # endif
 #endif
+
+#define         MAX_U_32_NUM            0xFFFFFFFF
+
 
 #include <math.h>
 #include <sys/stat.h>
