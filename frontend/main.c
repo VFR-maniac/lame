@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.89 2004/04/11 15:39:53 glessard Exp $ */
+/* $Id: main.c,v 1.90 2004/12/31 12:07:26 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -307,7 +307,8 @@ lame_decoder(lame_global_flags * gfp, FILE * outf, int skip, char *inPath,
                             tmp_num_channels, 16);
     fclose(outf);
 
-    decoder_progress_finish(gfp);
+    if (silent <= 0)
+	decoder_progress_finish(gfp);
     return 0;
 }
 
