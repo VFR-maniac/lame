@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.47 2001/01/14 09:39:22 takehiro Exp $ */
+/* $Id: quantize.c,v 1.48 2001/01/14 09:42:08 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -263,7 +263,7 @@ loop_break(
 
     for (sfb = cod_info->sfb_smin; sfb < SBPSY_s; sfb++)
         for (i = 0; i < 3; i++) 
-            if (scalefac->s[sfb][i] + cod_info->subblock_gain[i] == 0)
+            if (scalefac->s[sfb][i] == 0 && cod_info->subblock_gain[i] == 0)
                 return 0;
 
     return 1;
