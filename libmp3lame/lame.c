@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.131 2001/06/15 22:23:07 markt Exp $ */
+/* $Id: lame.c,v 1.132 2001/06/29 15:23:53 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -47,6 +47,7 @@
 #ifdef WITH_DMALLOC
 #include <dmalloc.h>
 #endif
+
 
 
 static void
