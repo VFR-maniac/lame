@@ -26,7 +26,7 @@
   Contains functions which describe the version of LAME.
 
   \author A.L. Faber
-  \version \$Id: version.c,v 1.17 2001/02/20 18:17:59 aleidinger Exp $
+  \version \$Id: version.c,v 1.18 2001/03/29 18:31:38 cisc Exp $
   \ingroup libmp3lame
 
   \todo The mp3x version should be located in the mp3x source,
@@ -40,7 +40,6 @@
 
 
 #include <stdio.h>
-#include <lame.h>
 #include "version.h"    /* macros of version numbers */
 
 #ifdef WITH_DMALLOC
