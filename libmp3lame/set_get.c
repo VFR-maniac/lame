@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.54 2003/05/11 13:15:29 bouvigne Exp $ */
+/* $Id: set_get.c,v 1.55 2003/06/01 17:20:34 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -33,6 +33,9 @@
 #ifdef WITH_DMALLOC
 #include <dmalloc.h>
 #endif
+
+
+#include "set_get.h"
 
 
 /*
