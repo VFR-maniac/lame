@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: takehiro.c,v 1.40 2004/02/07 19:38:09 bouvigne Exp $ */
+/* $Id: takehiro.c,v 1.41 2004/02/08 02:12:23 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -840,30 +840,8 @@ int count_bits(
     /* since quantize_xrpow uses table lookup, we need to check this first: */
     FLOAT8 w = (IXMAX_VAL) / IPOW20(gi->global_gain);
 
-    if (gfc->gfp->VBR == vbr_mtrh) {
-        /* we need to do a full check */
-        int i = 0;
-        int max_coeff = Min(gi->max_nonzero_coeff + 4, 576);
-        max_coeff = max_coeff >> 2;
-    
-        /* this small loop is consuming about 5% of total time */
-        do {
-	        if (xr[i] > w)
-	            return LARGE_BITS;
-	        if (xr[i+1] > w)
-	            return LARGE_BITS;
-	        if (xr[i+2] > w)
-	            return LARGE_BITS;
-	        if (xr[i+3] > w)
-	            return LARGE_BITS;
-            i+=4;
-        } while (--max_coeff);
-
-    } else {
-        if (gi->xrpow_max > w)
-            return LARGE_BITS;
-    }
-    
+    if (gi->xrpow_max > w)
+        return LARGE_BITS;    
 
     if (gfc->quantization) 
 	    quantize_xrpow(xr, ix, IPOW20(gi->global_gain), gi, prev_noise);
