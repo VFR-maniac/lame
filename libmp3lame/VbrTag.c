@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.40 2001/10/10 02:17:27 roelvdb Exp $ */
+/* $Id: VbrTag.c,v 1.41 2001/10/15 13:44:00 roelvdb Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -654,8 +654,9 @@ int PutLameVBR(lame_global_flags *gfp, FILE *fpStream, uint8_t *pbtStreamBuffer,
 		(gfp->lowpassfreq >=19500 || gfp->lowpassfreq == 0) && 
 		(nAthType > 0 && nAthType < 5 )		&&
 		( 
-				(gfp->brate >=256 && (gfp->mode == STEREO || gfp->mode == JOINT_STEREO) && bExpNPsyTune && bSafeJoint) 
-			||  (nABRBitrate >=224 && gfp->mode == JOINT_STEREO && bExpNPsyTune && bSafeJoint) 
+			(gfp->brate >=256 && (gfp->mode == STEREO || (gfp->mode == JOINT_STEREO && bExpNPsyTune && bSafeJoint))) 
+			|| (nABRBitrate >=224 && gfp->mode == JOINT_STEREO && bExpNPsyTune && bSafeJoint) 
+			|| (nABRBitrate >=256 && gfp->mode == STEREO) 
 			|| (nQuality>=88 && bExpNPsyTune) 
 			|| (nQuality>=78 && gfp->mode == JOINT_STEREO && bExpNPsyTune && bSafeJoint && nAthType > 0 && nAthType < 5) 
 			)
