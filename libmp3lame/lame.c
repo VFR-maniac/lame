@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.113 2001/05/20 20:45:48 robert Exp $ */
+/* $Id: lame.c,v 1.114 2001/05/21 18:19:33 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -287,7 +287,11 @@ sfb21 is a huge bitrate consumer in vbr with the new ath.
 Need to reduce the lowpass to more reasonable values. This extra lowpass
 won't reduce quality over 3.87 as the previous ath was doing this lowpass
 */
-    if (f_low>18400 && gfp->VBR==vbr_rh)
+/*GB 22/05/01
+I'm also extending this to CBR as tests showed that a
+limited bandwidth is increasing quality
+*/
+    if (f_low>18400)
 	    f_low = 18400+(f_low-18400)/4;
 
 /*
