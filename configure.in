@@ -1,4 +1,4 @@
-dnl $Id: configure.in,v 1.65 2001/07/19 11:35:27 aleidinger Exp $
+dnl $Id: configure.in,v 1.66 2001/07/24 12:12:00 aleidinger Exp $
 dnl
 dnl
 dnl don't forget to set ASM_FOR_ARCH to a space delimited list of
@@ -606,11 +606,11 @@ if test "x$GCC" = "xyes"; then
 					-mfancy-math-387"
 				;;
 			*586)
-				OPTIMIZATION="${OPTIMIZATION} -mpentium \
+				OPTIMIZATION="${OPTIMIZATION} -mcpu=pentium \
 					-march=pentium -mfancy-math-387"
 				;;
 			*686)
-				OPTIMIZATION="${OPTIMIZATION} -mpentiumpro \
+				OPTIMIZATION="${OPTIMIZATION} -mcpu=pentiumpro \
 					-march=pentiumpro -mfancy-math-387"
 				;;
 			*86)
