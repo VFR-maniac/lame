@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.95 2001/08/28 18:51:36 markt Exp $ */
+/* $Id: psymodel.c,v 1.96 2001/10/16 18:07:49 afaber Exp $ */
 
 
 /*
@@ -2003,15 +2003,12 @@ int *npart_l_orig,int *npart_l,int *npart_s_orig,int *npart_s)
   lame_internal_flags *gfc=gfp->internal_flags;
 
 
-  FLOAT8 freq_tp;
   FLOAT8 bval_l[CBANDS], bval_s[CBANDS];
   FLOAT8 bval_l_width[CBANDS], bval_s_width[CBANDS];
-  int   cbmax=0, cbmax_tp;
-  int  sbmax ;
+  int   cbmax=0;
   int  i,j;
   int freq_scale=1;
   int partition[HBLKSIZE]; 
-  int loop, k2;
 
 
 

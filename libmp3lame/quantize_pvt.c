@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.68 2001/10/05 22:43:45 robert Exp $ */
+/* $Id: quantize_pvt.c,v 1.69 2001/10/16 18:07:49 afaber Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -975,7 +975,9 @@ void set_frame_pinfo(
         III_scalefac_t  scalefac [2][2] )
 {
     lame_internal_flags *gfc=gfp->internal_flags;
-    unsigned int          gr, ch, sfb;
+    unsigned int          sfb;
+	int                   ch;
+	int                   gr;
     int                   act_l3enc[576];
     III_scalefac_t        act_scalefac [2];
     int scsfi[2] = {0,0};
