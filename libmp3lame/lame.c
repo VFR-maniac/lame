@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.77 2001/01/14 22:12:39 markt Exp $ */
+/* $Id: lame.c,v 1.78 2001/01/30 20:52:25 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -845,19 +845,6 @@ int lame_init_params ( lame_global_flags* const gfp )
     gfp->VBR_mean_bitrate_kbps = Max ( bitrate_table [gfp->version] [gfc->VBR_min_bitrate], gfp->VBR_mean_bitrate_kbps );
 
 
-    
-    switch ( gfp->VBR ) {
-    case vbr_abr:
-    case vbr_rh:
-    case vbr_mtrh:
-      // disabled because of new ATH.  use --athlower to set this manualy
-      //gfc->ATHlower += 4*(4-gfp->VBR_q);
-      break;
-    default:
-      break;
-    }
-    
-    
   }
 
   /* VBR needs at least the output of GPSYCHO,

@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: vbrquantize.c,v 1.33 2001/01/29 14:46:45 robert Exp $ */
+/* $Id: vbrquantize.c,v 1.34 2001/01/30 20:52:25 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1238,12 +1238,12 @@ VBR_noise_shaping2 (
             cod_info->part2_3_length  = bits;
         }
         if (bits >= LARGE_BITS) /* Houston, we have a problem */
-            return -1;
+            return -2;
         cod_info->part2_3_length += cod_info->part2_length;
     }
 
     if (cod_info->part2_length >= LARGE_BITS) /* Houston, we have a problem */
-        return -1;
+        return -2;
         
     assert (cod_info->global_gain < 256);
     
