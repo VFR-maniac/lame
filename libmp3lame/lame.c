@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.61 2000/12/13 02:28:48 shibatch Exp $ */
+/* $Id: lame.c,v 1.62 2000/12/16 05:43:02 shibatch Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -945,10 +945,14 @@ int lame_init_params ( lame_global_flags* const gfp )
       for(i=0;i<19;i++) gfc->nsPsy.pefirbuf[i] = 700;
 
       if (gfp->VBR == vbr_mtrh || gfp->VBR == vbr_mt) {
-	ERRORF ("nspsytune doesn't support --vbr-new.\n");
+	ERRORF ("\n**** nspsytune doesn't support --vbr-new **** \n\n");
 	gfp->VBR = vbr_rh;
       }
+
+      if (gfp->ATHtype == -1) gfp->ATHtype = 0;
     }
+
+    if (gfp->ATHtype == -1) gfp->ATHtype = 1;
 
     /* estimate total frames.  */
     gfp->totalframes           = 2 + gfp->num_samples/(gfc->resample_ratio * gfp->framesize);
@@ -1618,7 +1622,7 @@ int lame_init_old(lame_global_flags *gfp)
   gfc->CurrentStep=4;
   gfc->masking_lower=1;
 
-  gfp->ATHtype = 1;
+  gfp->ATHtype = -1;
 
 //  memset(&gfc->bs, 0, sizeof(Bit_stream_struc));
 //  memset(&gfc->l3_side,0x00,sizeof(III_side_info_t));

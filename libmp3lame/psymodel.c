@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.30 2000/12/13 02:21:37 shibatch Exp $ */
+/* $Id: psymodel.c,v 1.31 2000/12/16 05:43:02 shibatch Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -976,12 +976,6 @@ int L3psycho_anal( lame_global_flags * gfp,
 	  gfc->nsPsy.last_attack_intensity[chn][i] = attack_intensity[i];
 	}
 
-      for(i=0;i<9;i++)
-	{
-	  gfc->nsPsy.last_en_subshort[chn][i] = en_subshort[i];
-	  gfc->nsPsy.last_attack_intensity[chn][i] = attack_intensity[i];
-	}
-
       if (gfp->no_short_blocks) {
 	uselongblock[chn] = 1;
       } else {
@@ -1075,7 +1069,7 @@ int L3psycho_anal( lame_global_flags * gfp,
 		/* short block pre-echo control. */
 
 #define NS_PREECHO_ATT0 0.8
-#define NS_PREECHO_ATT1 0.5
+#define NS_PREECHO_ATT1 0.6
 #define NS_PREECHO_ATT2 0.3
 #define NS_INTERP(x,y,r) (pow((x),(r))*pow((y),1-(r)))
 
