@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.1 2001/03/11 11:20:52 aleidinger Exp $ */
+/* $Id: set_get.c,v 1.2 2001/03/12 04:38:35 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -327,7 +327,7 @@ lame_set_mode( lame_global_flags*  gfp,
 MPEG_mode
 lame_get_mode( const lame_global_flags*  gfp )
 {
-    assert( 0 > gfp->mode || MAX_INDICATOR <= gfp->mode );
+    assert( 0 <= gfp->mode && MAX_INDICATOR > gfp->mode );
 
     return gfp->mode;
 }

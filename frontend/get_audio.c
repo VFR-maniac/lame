@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.58 2001/03/11 11:24:25 aleidinger Exp $ */
+/* $Id: get_audio.c,v 1.59 2001/03/12 04:38:35 markt Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -451,7 +451,7 @@ lame_decoder(lame_global_flags * gfp, FILE * outf, int skip, char *inPath,
     double  wavsize;
     int     i;
     void    (*WriteFunction) (FILE * fp, char *p, int n);
-    unsigned long tmp_num_channels = lame_get_num_channels( gfp );
+    int tmp_num_channels = lame_get_num_channels( gfp );
 
 
 

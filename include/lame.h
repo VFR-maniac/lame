@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.66 2001/03/11 11:22:12 aleidinger Exp $ */
+/* $Id: lame.h,v 1.67 2001/03/12 04:38:35 markt Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -54,6 +54,7 @@ typedef enum MPEG_mode_e {
   JOINT_STEREO,
   DUAL_CHANNEL,   /* LAME doesn't supports this! */
   MONO,
+  NOT_SET,
   MAX_INDICATOR   /* Don't use this! It's used for sanity checks. */ 
 } MPEG_mode;
 

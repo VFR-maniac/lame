@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: encoder.c,v 1.42 2001/03/11 11:23:23 aleidinger Exp $ */
+/* $Id: encoder.c,v 1.43 2001/03/12 04:38:35 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -51,7 +51,7 @@
  */
 void
 adjust_ATH( lame_global_flags* const  gfp,
-            const FLOAT8              tot_ener[2][4] )
+            FLOAT8              tot_ener[2][4] )
 {
     lame_internal_flags* const  gfc = gfp->internal_flags;
     int gr, channel;
@@ -183,7 +183,7 @@ int  lame_encode_mp3_frame (				// Output
 	sample_t*                 inbuf_l,              // Input
 	sample_t*                 inbuf_r,              // Input
 	unsigned char*            mp3buf, 		// Output
-	size_t                    mp3buf_size )		// Output
+	int                    mp3buf_size )		// Output
 {
 #ifdef macintosh /* PLL 14/04/2000 */
   static FLOAT8 xr[2][2][576];

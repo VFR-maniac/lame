@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.98 2001/03/11 11:23:23 aleidinger Exp $ */
+/* $Id: lame.c,v 1.99 2001/03/12 04:38:35 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -757,7 +757,7 @@ lame_init_params(lame_global_flags * const gfp)
      *   better than STEREO, so I'm not so very happy with that. 
      *   fs < 32 kHz I have not tested.
      */
-    if (gfp->mode == -1) {
+    if (gfp->mode == NOT_SET) {
         if (gfp->compression_ratio < 8)
             gfp->mode = STEREO;
         else
@@ -1702,7 +1702,7 @@ lame_init_old(lame_global_flags * gfp)
      */
 
 
-    gfp->mode = -1;
+    gfp->mode = NOT_SET;
     gfp->original = 1;
     gfp->in_samplerate = 1000 * 44.1;
     gfp->num_channels = 2;
