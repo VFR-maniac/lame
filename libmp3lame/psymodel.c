@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.126 2003/11/05 14:03:54 bouvigne Exp $ */
+/* $Id: psymodel.c,v 1.127 2003/12/17 11:52:40 bouvigne Exp $ */
 
 
 /*
@@ -1783,11 +1783,14 @@ init_s3_values(
     )
 {
     FLOAT8 s3[CBANDS][CBANDS];
+    /* The s3 array is not linear in the bark scale.
+     * bval[x] should be used to get the bark value.
+     */
     int i, j, k;
     int numberOfNoneZero = 0;
 
-    /* s[j][i], the value of the spreading function,
-     * centered at band j, for band i
+    /* s[i][j], the value of the spreading function,
+     * centered at band j (masker), for band i (maskee)
      *
      * i.e.: sum over j to spread into signal barkval=i
      * NOTE: i and j are used opposite as in the ISO docs
