@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.68 2004/03/23 01:57:17 olcios Exp $ */
+/* $Id: set_get.c,v 1.69 2004/04/11 15:39:54 glessard Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -532,7 +532,38 @@ lame_get_ReplayGain_decode( const lame_global_flags*  gfp )
 }
 
 
+/* set and get some gapless encoding flags */
 
+int
+lame_set_nogap_total( lame_global_flags* gfp,
+                      int the_nogap_total )
+{
+    lame_internal_flags *gfc = gfp->internal_flags;
+    gfc->nogap_total = the_nogap_total;
+    return 0;
+}
+
+int
+lame_get_nogap_total( const lame_global_flags* gfp )
+{
+  return gfp->internal_flags->nogap_total;
+}
+
+int
+lame_set_nogap_currentindex( lame_global_flags* gfp,
+                             int the_nogap_index )
+{
+    lame_internal_flags *gfc = gfp->internal_flags;
+    gfc->nogap_current = the_nogap_index;
+    return 0;
+}
+
+int
+lame_get_nogap_currentindex( const lame_global_flags* gfp )
+{
+  return gfp->internal_flags->nogap_current;
+}
+  
 
 /* message handlers */
 int

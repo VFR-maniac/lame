@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.88 2004/03/23 01:57:16 olcios Exp $ */
+/* $Id: main.c,v 1.89 2004/04/11 15:39:53 glessard Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -763,6 +763,8 @@ main(int argc, char **argv)
                     outf = init_files(gf, nogap_inPath[i], outPath);
                 }
                 brhist_init_package(gf);
+                lame_set_nogap_total(gf, max_nogap);
+                lame_set_nogap_currentindex(gf, i);
                 ret =
                     lame_encoder(gf, outf, use_flush_nogap, nogap_inPath[i],
                                  outPath);	

@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.153 2004/03/23 01:57:16 olcios Exp $ */
+/* $Id: lame.h,v 1.154 2004/04/11 15:39:53 glessard Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -296,6 +296,14 @@ int CDECL lame_get_ReplayGain_decode(const lame_global_flags *);
    default = 0 (disabled) */
 int CDECL lame_set_findPeakSample(lame_global_flags *, int);
 int CDECL lame_get_findPeakSample(const lame_global_flags *);
+
+/* counters for gapless encoding */
+int CDECL lame_set_nogap_total(lame_global_flags*, int);
+int CDECL lame_get_nogap_total(const lame_global_flags*);
+
+int CDECL lame_set_nogap_currentindex(lame_global_flags* , int);
+int CDECL lame_get_nogap_currentindex(const lame_global_flags*);
+
 
 /*
  * OPTIONAL:
