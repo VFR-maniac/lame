@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: encoder.c,v 1.13 2000/11/11 05:47:28 markt Exp $ */
+/* $Id: encoder.c,v 1.14 2000/11/11 05:56:01 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -327,9 +327,9 @@ char *mp3buf, int mp3buf_size)
             int  sum_pe_LR = pe   [0][0] + pe   [0][1] + pe   [1][0] + pe   [1][1];
             
             /* based on PE: M/S coding would not use much more bits than L/R coding */
-            if (sum_pe_MS <= 1.07 * sum_pe_LR)
-                gfc->mode_ext = MPG_MD_MS_LR;
-	    //            gfc->mode_ext = MPG_MD_MS_LR;
+	    if (sum_pe_MS <= 1.07 * sum_pe_LR)
+	      gfc->mode_ext = MPG_MD_MS_LR;
+	    //gfc->mode_ext = MPG_MD_MS_LR;
         }
 
 

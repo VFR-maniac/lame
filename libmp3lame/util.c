@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.29 2000/11/11 04:40:47 markt Exp $ */
+/* $Id: util.c,v 1.30 2000/11/11 05:56:01 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -404,8 +404,8 @@ int fill_buffer_resample(
         for ( i = 0; i <= filter_l; i++ ) 
             sum += 
 	    gfc->blackfilt[j][i]  = blackman (i,offset,fcn,filter_l);
-	//        for ( i = 0; i <= filter_l; i++ ) 
-	//            gfc->blackfilt[j][i] /= sum;
+	for ( i = 0; i <= filter_l; i++ ) 
+	  gfc->blackfilt[j][i] /= sum;
     }
     gfc->fill_buffer_resample_init = 1;
   }
