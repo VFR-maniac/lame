@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.163 2003/01/26 12:08:44 bouvigne Exp $ */
+/* $Id: parse.c,v 1.164 2003/02/02 14:45:03 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -790,6 +790,11 @@ static int  presets_set( lame_t gfp, int fast, int cbr, const char* preset_name,
 
 	return 0;
     }
+    if (strcmp(preset_name, "medium1") == 0) {
+	    lame_set_preset(gfp, MEDIUM1);
+
+	return 0;
+    }
 
     if (strcmp(preset_name, "standard") == 0) {
 
@@ -797,24 +802,6 @@ static int  presets_set( lame_t gfp, int fast, int cbr, const char* preset_name,
            lame_set_preset(gfp, STANDARD_FAST);
         else
            lame_set_preset(gfp, STANDARD);
-
-        return 0;
-    }
-    if (strcmp(preset_name, "standard1") == 0) {
-
-           lame_set_preset(gfp, STANDARD1);
-
-        return 0;
-    }
-    if (strcmp(preset_name, "standard3") == 0) {
-
-           lame_set_preset(gfp, STANDARD3);
-
-        return 0;
-    }
-    if (strcmp(preset_name, "standard4") == 0) {
-
-           lame_set_preset(gfp, STANDARD4);
 
         return 0;
     }
