@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.24 2002/07/13 08:08:16 aleidinger Exp $
+## $Id: Makefile.am,v 1.25 2002/11/17 10:16:38 aleidinger Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -28,6 +28,8 @@ DEFS = @DEFS@ @CONFIG_DEFS@
 
 EXTRA_DIST = \
 	debugscalefac.c \
+	gain_analysis.c \
+	gain_analysis.h \
 	libmp3lame.dsp \
 	libmp3lame_vc6.dsp \
 	lameerror.h \
