@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.123 2002/12/09 19:00:36 bouvigne Exp $ */
+/* $Id: quantize.c,v 1.124 2002/12/13 17:48:23 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1030,10 +1030,10 @@ outer_loop (
 	 */
 	while ((cod_info_w.part2_3_length
 		= count_bits(gfc, xrpow, &cod_info_w)) > huff_bits
-	       && cod_info_w.global_gain < 255u)
+	       && cod_info_w.global_gain < 256u)
 	    cod_info_w.global_gain++;
 
-	if (cod_info_w.global_gain == 255)
+	if (cod_info_w.global_gain >= 256)
 	    break;
 
         /* compute the distortion in this quantization */
