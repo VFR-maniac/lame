@@ -1,4 +1,4 @@
-/* $Id: interface.c,v 1.45 2004/02/06 16:56:01 takehiro Exp $ */
+/* $Id: interface.c,v 1.46 2004/03/10 00:50:54 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -245,6 +245,7 @@ int check_vbr_header(PMPSTR mp,int bytes)
 
     /*fprintf(stderr,"\rmpglib: delays: %i %i \n",mp->enc_delay,mp->enc_padding); */
     /* fprintf(stderr,"\rmpglib: Xing VBR header dectected.  MP3 file has %i frames\n", pTagData.frames); */
+    if ( pTagData.headersize < 1 ) return 1;
     return pTagData.headersize;
   }
   return 0;
