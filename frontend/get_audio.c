@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.96 2004/01/13 17:30:03 takehiro Exp $ */
+/* $Id: get_audio.c,v 1.97 2004/01/13 18:35:09 glessard Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -1130,8 +1130,6 @@ parse_aiff_header(lame_global_flags * gfp, FILE * sf)
 
                 if (aiff_info.sampleSize == 16)
                   pcmswapbytes = (!swapbytes == (dataType == IFF_ID_2CLE));
-
-                fprintf(stderr, "swapbytes: %d\n", pcmswapbytes);
             }
             
             if (fskip(sf, (long) subSize, SEEK_CUR) != 0)
