@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.42 2001/01/27 17:39:09 takehiro Exp $ */
+/* $Id: quantize_pvt.c,v 1.43 2001/01/27 17:52:43 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -505,10 +505,8 @@ int calc_xmin(
       for ( b = 1; b < 3; b++ ) {
         xmin = l3_xmin->s[sfb][b] * (1.0 - gfc->decay)
 	  +  l3_xmin->s[sfb][b-1] * gfc->decay;
-	if (l3_xmin->s[sfb][b] < xmin){
+	if (l3_xmin->s[sfb][b] < xmin)
 	    l3_xmin->s[sfb][b] = xmin;
-	    printf("%e\n", gfc->decay);
-	}
       }
     }
   }
