@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.128 2002/02/07 11:58:52 shibatch Exp $ */
+/* $Id: parse.c,v 1.129 2002/02/15 11:42:14 shibatch Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1735,7 +1735,7 @@ char* const inPath, char* const outPath, char **nogap_inPath, int *num_nogap)
 			fprintf(stderr,"nspsytune2 : error opening %s\n",nextArg);
 			abort();
 		      }
-		      lame_set_exp_nspsytune2_pointer(gfp,1,fp);
+		      lame_set_exp_nspsytune2_pointer(gfp,0,fp);
 		    }
 		  /* nspsytune2 implies nspsytune */
                     argUsed=1;
