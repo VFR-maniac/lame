@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: timestatus.c,v 1.26 2001/01/05 15:20:33 aleidinger Exp $ */
+/* $Id: timestatus.c,v 1.27 2001/01/07 22:33:11 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -178,6 +178,9 @@ void timestatus_klemm ( const lame_global_flags* const gfp )
   	     gfp->frameNum == 9  ||
   	     GetRealTime () - last_time >= update_interval  ||
 	     GetRealTime () - last_time <  0 ) {
+#ifdef BRHIST
+            brhist_jump_back();
+#endif
             timestatus ( gfp->out_samplerate, gfp->frameNum, gfp->totalframes, gfp->framesize );
 #ifdef BRHIST
             if ( brhist ) {
