@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lametime.c,v 1.7 2001/01/05 15:20:33 aleidinger Exp $ */
+/* $Id: lametime.c,v 1.8 2001/01/21 19:03:58 robert Exp $ */
 
 /*
  * name:        GetCPUTime ( void )
@@ -45,6 +45,9 @@
 #ifdef WITH_DMALLOC
 #include <dmalloc.h>
 #endif
+
+#include "lametime.h"
+
 
 double GetCPUTime ( void )
 {
