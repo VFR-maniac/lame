@@ -1,10 +1,10 @@
-## $Id: Makefile.am,v 1.22 2001/11/28 12:29:55 aleidinger Exp $
+## $Id: Makefile.am,v 1.23 2002/04/06 14:08:17 aleidinger Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
 .PHONY: test
 
-SUBDIRS = mpglib libmp3lame frontend Dll debian doc include misc dshow
+SUBDIRS = mpglib libmp3lame frontend Dll debian doc include misc dshow ACM
 
 CLEANFILES = testcase.new.mp3
 
@@ -28,6 +28,7 @@ EXTRA_DIST = \
 	configMS.h \
 	lame.bat \
 	lame.spec.in \
+	lame_vc6.dsw \
 	testcase.mp3 \
 	testcase.wav
 

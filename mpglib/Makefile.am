@@ -1,11 +1,12 @@
-## $Id: Makefile.am,v 1.11 2001/08/27 21:06:00 aleidinger Exp $
+## $Id: Makefile.am,v 1.12 2002/04/06 14:08:18 aleidinger Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
 INCLUDES = @INCLUDES@ -I$(top_srcdir)/libmp3lame -I$(top_builddir)
 
 EXTRA_DIST = \
-	mpglib.dsp
+	mpglib.dsp \
+	mpglib_vc6.dsp
 
 DEFS = @DEFS@ @CONFIG_DEFS@
 
