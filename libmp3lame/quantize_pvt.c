@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.69 2001/10/16 18:07:49 afaber Exp $ */
+/* $Id: quantize_pvt.c,v 1.70 2001/11/25 15:24:08 takehiro Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -259,7 +259,6 @@ void compute_ath( lame_global_flags *gfp, FLOAT8 ATH_l[], FLOAT8 ATH_s[] )
             ATH_f = ATHmdct( gfp, freq );  /* freq in kHz */
             ATH_l[sfb] = Min( ATH_l[sfb], ATH_f );
         }
-
     }
 
     for (sfb = 0; sfb < SBMAX_s; sfb++){
