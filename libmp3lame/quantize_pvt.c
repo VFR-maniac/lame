@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.66 2001/08/14 21:46:20 robert Exp $ */
+/* $Id: quantize_pvt.c,v 1.67 2001/09/30 20:36:34 robert Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -723,7 +723,6 @@ int  calc_noise(
 
   /* normalization at this point by "count" is not necessary, since
    * the values are only used to compare with previous values */
-  res->tot_count  = count;
   res->over_count = over;
 
   /* convert to db. DO NOT CHANGE THESE */

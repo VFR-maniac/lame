@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.18 2001/09/17 20:05:16 markt Exp $ */
+/* $Id: set_get.c,v 1.19 2001/09/30 20:36:34 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1386,8 +1386,7 @@ void lame_set_tune( lame_global_flags* gfp, float val )
 
 /* Custom msfix hack */
 void
-lame_set_msfix( lame_global_flags*  gfp,
-                   double              msfix )
+lame_set_msfix( lame_global_flags*  gfp, double msfix )
 {
     /* default = 0 */
     gfp->msfix = msfix;

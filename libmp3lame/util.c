@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.86 2001/09/18 13:37:23 aleidinger Exp $ */
+/* $Id: util.c,v 1.87 2001/09/30 20:36:34 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -343,7 +343,7 @@ FLOAT8 freq2cbw(FLOAT8 freq)
 /***********************************************************************
  * compute bitsperframe and mean_bits for a layer III frame 
  **********************************************************************/
-void getframebits(lame_global_flags *gfp, int *bitsPerFrame, int *mean_bits) 
+void getframebits(const lame_global_flags * gfp, int *bitsPerFrame, int *mean_bits) 
 {
   lame_internal_flags *gfc=gfp->internal_flags;
   int  whole_SpF;  /* integral number of Slots per Frame without padding */

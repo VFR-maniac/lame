@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.73 2001/07/22 19:24:45 robert Exp $ */
+/* $Id: quantize.c,v 1.74 2001/09/30 20:36:34 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -730,7 +730,6 @@ outer_loop (
     int age = 0;
 
     noise_info.over_count = 100;
-    noise_info.tot_count  = 100;
     noise_info.max_noise  = 0;
     noise_info.tot_noise  = 0;
     noise_info.over_noise = 0;
