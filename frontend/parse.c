@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.154 2002/12/27 04:21:13 takehiro Exp $ */
+/* $Id: parse.c,v 1.155 2003/01/02 18:27:13 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -456,7 +456,7 @@ int  long_help ( const lame_global_flags* gfp, FILE* const fp, const char* Progr
               "    --noath         turns ATH down to a flat noise floor\n"
               "    --athshort      ignore GPSYCHO for short blocks, use ATH only\n"
               "    --athonly       ignore GPSYCHO completely, use ATH only\n"
-              "    --athtype n     selects between different ATH types [0-5]\n"
+              "    --athtype n     selects between different ATH types [0-4]\n"
               "    --athlower x    lowers ATH by x dB\n"
               "    --athaa-type n  ATH auto adjust types 1-3, else no adjustment\n"
               "    --athaa-loudapprox n   n=1 total energy or n=2 equal loudness curve\n"
@@ -1165,6 +1165,10 @@ char* const inPath, char* const outPath, char **nogap_inPath, int *num_nogap)
                 T_ELIF ("athtype")
                     argUsed=1;
                     (void) lame_set_ATHtype( gfp, atoi( nextArg ) );
+
+                T_ELIF ("athcurve")
+                    argUsed=1;
+                    (void) lame_set_ATHcurve( gfp, atof( nextArg ) );
 
                 T_ELIF ("athaa-type")   /*  switch for developing, no DOCU */
                     argUsed=1;          /*  1:Gaby, 2:Robert, 3:Jon, else:off */

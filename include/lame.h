@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.120 2002/12/27 04:21:13 takehiro Exp $ */
+/* $Id: lame.h,v 1.121 2003/01/02 18:27:13 bouvigne Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -409,6 +409,10 @@ int CDECL lame_get_noATH(const lame_global_flags *);
 /* select ATH formula */
 int CDECL lame_set_ATHtype(lame_global_flags *, int);
 int CDECL lame_get_ATHtype(const lame_global_flags *);
+
+/* select ATH formula 4 shape */
+int CDECL lame_set_ATHcurve(lame_global_flags *, float);
+int CDECL lame_get_ATHcurve(const lame_global_flags *);
 
 /* lower ATH by this many db */
 int CDECL lame_set_ATHlower(lame_global_flags *, float);
