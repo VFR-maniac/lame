@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.208 2003/01/30 08:48:23 markt Exp $ */
+/* $Id: lame.c,v 1.209 2003/02/02 15:50:11 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -583,7 +583,6 @@ lame_init_params(lame_global_flags * const gfp)
     gfc->mode_gr = gfp->out_samplerate <= 24000 ? 1 : 2; /* Number of granules per frame */
     gfp->framesize = 576 * gfc->mode_gr;
     gfp->encoder_delay = ENCDELAY;
-    gfc->coding = coding_MPEG_Layer_3;
     gfc->frame_size = gfp->framesize;
 
     gfc->resample_ratio = (double) gfp->in_samplerate / gfp->out_samplerate;
