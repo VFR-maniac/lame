@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.155 2004/11/17 19:54:20 bouvigne Exp $ */
+/* $Id: quantize.c,v 1.156 2005/01/08 10:58:25 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -672,6 +672,17 @@ quant_compare(
 
     switch (quant_comp) {
         default:
+        case 10: {
+            if (best->over_count > 0 ) {
+                /* there are distorted sfb*/
+	            better = calc->over_cost < best->over_cost;
+            } else {
+                /* no distorted sfb*/
+                better = calc->max_noise <= best->max_noise;
+            }
+	        break;
+        }
+
         case 9: {
             /* minimize var_noise in order to shape noise */
             if (best->over_count > 0 ) {

@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.115 2004/11/28 19:10:19 bouvigne Exp $ */
+/* $Id: quantize_pvt.c,v 1.116 2005/01/08 10:58:26 bouvigne Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -684,6 +684,8 @@ int  calc_noise(
     FLOAT sfb_noise[39];
     FLOAT mean_noise;
     FLOAT var_noise = 0;
+   
+    res->over_cost = 0;
 
 
     for (sfb = 0; sfb < cod_info->psymax; sfb++) {
@@ -749,6 +751,11 @@ int  calc_noise(
 	    tot_noise_db += noise;
 
         if (noise > 0.0) {
+            int tmp;
+            
+            tmp = max((int)(noise*10 + .5), 1);
+            res->over_cost += tmp*tmp;
+
 	        over++;
 	        /* multiplying here is adding in dB -but can overflow */
 	        /*over_noise *= noise; */

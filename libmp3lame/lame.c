@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.265 2004/12/27 16:13:27 bouvigne Exp $ */
+/* $Id: lame.c,v 1.266 2005/01/08 10:58:24 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -530,6 +530,10 @@ lame_init_params(lame_global_flags * const gfp)
     if (gfp->mode == MONO)
         gfp->force_ms = 0; /* don't allow forced mid/side stereo for mono output */
 
+    if (gfp->VBR == vbr_off &&
+        gfp->VBR_mean_bitrate_kbps != 128 && gfp->brate == 0)
+        gfp->brate = gfp->VBR_mean_bitrate_kbps;
+
 
     if (gfp->VBR != vbr_off)
         gfp->free_format = 0; /* VBR can't be mixed with free format */
@@ -603,15 +607,15 @@ lame_init_params(lame_global_flags * const gfp)
                 break;
             }
             case 6: {
-                lowpass = 16000;
+                lowpass = 15600;
                 break;
             }
             case 5: {
-                lowpass = 17000;
+                lowpass = 16000;
                 break;
             }
             case 4: {
-                lowpass = 18000;
+                lowpass = 17500;
                 break;
             }
             case 3: {
@@ -619,7 +623,7 @@ lame_init_params(lame_global_flags * const gfp)
                 break;
             }
             case 2: {
-                lowpass = 19000;
+                lowpass = 18600;
                 break;
             }
             case 1: {
