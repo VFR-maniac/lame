@@ -22,7 +22,7 @@
  
 /*!
 	\author Steve Lhomme
-	\version \$Id: DecodeStream.cpp,v 1.1 2002/01/23 20:39:46 robux4 Exp $
+	\version \$Id: DecodeStream.cpp,v 1.2 2002/01/23 20:51:10 robux4 Exp $
 */
 
 #if !defined(STRICT)
@@ -31,6 +31,8 @@
 
 #include <assert.h>
 #include <windows.h>
+
+#ifdef ENABLE_DECODING
 
 #include "adebug.h"
 
@@ -250,3 +252,4 @@ unsigned int DecodeStream::GetOutputSampleRate(int samples_per_sec, int bitrate,
 	return OutputFrequency;
 }
 
+#endif // ENABLE_DECODING
