@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lametime.c,v 1.14 2002/12/08 17:02:16 takehiro Exp $ */
+/* $Id: lametime.c,v 1.15 2003/05/09 14:06:41 aleidinger Exp $ */
 
 /*
  * name:        GetCPUTime ( void )
@@ -47,6 +47,11 @@
 #endif
 
 #include "lametime.h"
+
+#if !defined(CLOCKS_PER_SEC)
+# warning Your system does not define CLOCKS_PER_SEC, guessing one...
+# define CLOCKS_PER_SEC 1000000
+#endif
 
 
 double GetCPUTime ( void )

@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.82 2003/02/08 09:51:23 takehiro Exp $ */
+/* $Id: main.c,v 1.83 2003/05/09 14:06:40 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -46,6 +46,11 @@ char   *strchr(), *strrchr();
 
 #ifdef HAVE_FCNTL_H
 # include <fcntl.h>
+#endif
+
+#ifdef __sun__
+/* woraround for SunOS 4.x, it has SEEK_* defined here */
+#include <unistd.h>
 #endif
 
 #if defined(_WIN32)
