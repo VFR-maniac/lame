@@ -1,9 +1,9 @@
-## $Id: Makefile.am,v 1.18 2001/06/12 12:41:16 aleidinger Exp $
+## $Id: Makefile.am,v 1.19 2001/11/11 14:53:07 aleidinger Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
-bin_PROGRAMS = lame @WITH_MP3RTP@ @WITH_MP3X@
-EXTRA_PROGRAMS = mp3rtp mp3x
+bin_PROGRAMS = @WITH_FRONTEND@ @WITH_MP3RTP@ @WITH_MP3X@
+EXTRA_PROGRAMS = lame mp3rtp mp3x
 
 brhist_sources = brhist.c brhist.h
 
