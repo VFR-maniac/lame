@@ -22,7 +22,7 @@
  
 /*!
 	\author Steve Lhomme
-	\version \$Id: ACM.h,v 1.4 2002/01/24 19:38:12 robux4 Exp $
+	\version \$Id: ACM.h,v 1.5 2002/01/25 17:51:42 robux4 Exp $
 */
 
 #if !defined(_ACM_H__INCLUDED_)
@@ -69,6 +69,8 @@ protected:
 
 	void GetMP3FormatForIndex(const DWORD the_Index, WAVEFORMATEX & the_Format, unsigned short the_String[ACMFORMATDETAILS_FORMAT_CHARS]) const;
 	void GetPCMFormatForIndex(const DWORD the_Index, WAVEFORMATEX & the_Format, unsigned short the_String[ACMFORMATDETAILS_FORMAT_CHARS]) const;
+	DWORD GetNumberEncodingFormats() const;
+	bool IsSmartOutput(const int frequency, const int bitrate, const int channels) const;
 
 	HMODULE my_hModule;
 	HICON   my_hIcon;

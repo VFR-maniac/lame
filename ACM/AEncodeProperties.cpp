@@ -22,7 +22,7 @@
  
 /*!
 	\author Steve Lhomme
-	\version \$Id: AEncodeProperties.cpp,v 1.2 2002/01/24 19:38:12 robux4 Exp $
+	\version \$Id: AEncodeProperties.cpp,v 1.3 2002/01/25 17:51:42 robux4 Exp $
 */
 
 #if !defined(STRICT)
@@ -1181,7 +1181,7 @@ void AEncodeProperties::SaveValuesToElement(TiXmlElement * the_element) const
 	tmpElt = the_element->FirstChildElement("Smart");
 	if (tmpElt == NULL)
 	{
-		tmpElt = new TiXmlElement("Copyright");
+		tmpElt = new TiXmlElement("Smart");
 		SetAttributeBool( tmpElt, "use", bSmartOutput);
 		the_element->InsertEndChild(*tmpElt);
 	}
