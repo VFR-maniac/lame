@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: timestatus.c,v 1.19 2000/11/03 00:47:58 pfk Exp $ */
+/* $Id: timestatus.c,v 1.20 2000/11/04 02:18:59 pfk Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -181,6 +181,7 @@ void decoder_progress ( const lame_global_flags* const gfp, const mp3data_struct
     }
 //    fprintf ( stderr, "%s", Console_IO.str_clreoln );
       fprintf ( stderr, "        \b\b\b\b\b\b\b\b" );
+      fflush  ( stderr );
 }
 
 void decoder_progress_finish ( const lame_global_flags* const gfp )
