@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.9 2001/05/29 22:14:24 robert Exp $ */
+/* $Id: set_get.c,v 1.10 2001/06/08 21:29:34 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1275,5 +1275,15 @@ lame_get_frameNum( const lame_global_flags*  gfp )
 int
 lame_get_totalframes( const lame_global_flags*  gfp )
 {
-    return gfp->totalframes;
+    int totalframes;
+    /* estimate based on user set num_samples: */
+    totalframes =
+        2 + ((double)gfp->num_samples * gfp->out_samplerate) / 
+              ((double)gfp->in_samplerate * gfp->framesize);
+
+    /* check to see if we underestimated totalframes */
+    //    if (totalframes < gfp->frameNum)
+    //        totalframes = gfp->frameNum;
+
+    return totalframes;
 }

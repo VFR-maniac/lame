@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.70 2001/06/07 19:14:44 markt Exp $ */
+/* $Id: get_audio.c,v 1.71 2001/06/08 21:29:34 markt Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -179,6 +179,7 @@ init_infile(lame_global_flags * gfp, char *inPath)
 {
     /* open the input file */
     count_samples_carefully = 0;
+    num_samples_read=0;
     pcmbitwidth = 16;
     musicin = OpenSndFile(gfp, inPath);
 }

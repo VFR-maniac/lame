@@ -1,4 +1,4 @@
-/* $Id: mp3rtp.c,v 1.18 2001/04/21 22:23:15 jd- Exp $ */
+/* $Id: mp3rtp.c,v 1.19 2001/06/08 21:29:34 markt Exp $ */
 
 /* Still under work ..., need a client for test, where can I get one? */
 
@@ -184,7 +184,7 @@ int  main ( int argc, char **argv )
      */
      
     argv[1] = argv[0]; 
-    parse_args(gf, argc - 1, argv + 1, inPath, outPath);
+    parse_args(gf, argc - 1, argv + 1, inPath, outPath,NULL,NULL);
 
     /* open the output file.  Filename parsed into gf.inPath */
     if ( 0 == strcmp ( outPath, "-" ) ) {

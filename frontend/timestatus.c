@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: timestatus.c,v 1.34 2001/06/07 19:14:44 markt Exp $ */
+/* $Id: timestatus.c,v 1.35 2001/06/08 21:29:34 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -112,6 +112,7 @@ void timestatus ( const int samp_rate,
     static timestatus_t  proc_time;
     int                  percent;
     static int           init = 0; /* What happens here? A work around instead of a bug fix ??? */
+
 
     if ( frameNum == 0 ) {
         real_time.start_time = GetRealTime ();
