@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.98 2001/11/04 18:19:10 dibrom Exp $ */
+/* $Id: lame.h,v 1.99 2001/11/04 18:48:45 robert Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -273,8 +273,7 @@ int CDECL lame_get_experimentalZ(const lame_global_flags *);
 int CDECL lame_set_exp_nspsytune(lame_global_flags *, int);
 int CDECL lame_get_exp_nspsytune(const lame_global_flags *);
 
-// setting which allows modification of msfix value when Naoki's safejoint is used
-void CDECL lame_set_msfix( lame_t gfp, double msfix );
+
 
 /********************************************************************
  * VBR control
