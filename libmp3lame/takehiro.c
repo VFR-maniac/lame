@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: takehiro.c,v 1.54 2004/11/28 19:10:20 bouvigne Exp $ */
+/* $Id: takehiro.c,v 1.55 2005/01/23 16:25:17 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -328,7 +328,7 @@ static void quantize_xrpow(const FLOAT *xp, int *pi, FLOAT istep, gr_info * cons
     even when global_gain is changed */
     prev_data_use = (prev_noise && 
                     (cod_info->block_type != SHORT_TYPE) && 
-                    (POW20(cod_info->global_gain) == prev_noise->step[21]));
+                    (cod_info->global_gain == prev_noise->step[21]));
 
     if (cod_info->block_type == SHORT_TYPE)
         sfbmax = 38;
