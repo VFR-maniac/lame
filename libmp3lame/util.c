@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.19 2000/10/29 21:11:39 robert Exp $ */
+/* $Id: util.c,v 1.20 2000/10/29 22:26:30 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -380,15 +380,15 @@ int  fill_buffer_resample (
     if ( ! gfc->fill_buffer_resample_init ) {
         gfc->fill_buffer_resample_init = 1;
         
-        gfc->inbuf_old [0] = calloc ( BLACKSIZE, sizeof (gfc->inbuf_old[0][0]) );
-        gfc->inbuf_old [1] = calloc ( BLACKSIZE, sizeof (gfc->inbuf_old[0][0]) );
+        gfc->inbuf_old [0] = calloc ( BLACKSIZE+1, sizeof (gfc->inbuf_old[0][0]) );
+        gfc->inbuf_old [1] = calloc ( BLACKSIZE+1, sizeof (gfc->inbuf_old[0][0]) );
         
         if (gfc->inbuf_old[0] == NULL || gfc->inbuf_old[1] == NULL) {
             ERRORF ("PANIC: can't allocate inbuf_old buffer\n");
             exit (-1); /* PANIC */
         }
         for ( i = 0; i < 2*bpc+1; i++ ) {
-            gfc->blackfilt[i] = calloc ( BLACKSIZE, sizeof (gfc->blackfilt[0][0]) );
+            gfc->blackfilt[i] = calloc ( BLACKSIZE+2, sizeof (gfc->blackfilt[0][0]) );
             if (gfc->blackfilt[i] == NULL) {
                 ERRORF ("PANIC: can't allocate blackfilt buffer\n");
                 exit (-1); /* PANIC */
