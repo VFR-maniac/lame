@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.30 2003/05/20 12:14:49 aleidinger Exp $
+## $Id: Makefile.am,v 1.31 2004/01/21 09:41:36 bouvigne Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -14,14 +14,9 @@ EXTRA_DIST = \
 	HACKING \
 	INSTALL.configure \
 	LICENSE \
-	Makefile.B32 \
-	Makefile.DJGPP \
 	Makefile.MSVC \
 	Makefile.unix \
 	Makefile.am.global \
-	PRESETS.draft \
-	README.B32 \
-	README.DJGPP \
 	README.WINGTK \
 	STYLEGUIDE \
 	USAGE \

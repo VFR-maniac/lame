@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.22 2004/01/07 17:57:45 aleidinger Exp $
+## $Id: Makefile.am,v 1.23 2004/01/21 09:41:36 bouvigne Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -11,11 +11,7 @@ EXTRA_DIST = \
 	$(brhist_sources) \
 	console.c \
 	console.h \
-	lame.dsp \
-	lame.dsw \
 	lame_vc6.dsp \
-	mp3x.dsp \
-	mp3x.dsw \
 	mp3x_vc6.dsp \
 	amiga_mpega.c
 
