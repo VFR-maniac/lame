@@ -1,4 +1,4 @@
-/* $Id: interface.c,v 1.34 2001/02/13 18:22:32 markt Exp $ */
+/* $Id: interface.c,v 1.35 2001/06/11 16:35:18 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -236,7 +236,7 @@ int check_vbr_header(PMPSTR mp,int bytes)
   mp->vbr_header = GetVbrTag(&pTagData,xing);
   if (mp->vbr_header) {
     mp->num_frames=pTagData.frames;
-    //    fprintf(stderr,"\rmpglib: Xing VBR header dectected.  MP3 file has %i frames\n", pTagData.frames);
+    // fprintf(stderr,"\rmpglib: Xing VBR header dectected.  MP3 file has %i frames\n", pTagData.frames);
     return pTagData.headersize;
   }
   return 0;
