@@ -18,7 +18,7 @@
  * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: bitstream.c,v 1.64 2004/03/11 23:43:28 olcios Exp $
+ * $Id: bitstream.c,v 1.65 2004/03/17 18:56:18 aleidinger Exp $
  */
 
 
@@ -35,6 +35,7 @@
 #include "quantize_pvt.h"
 #include "version.h"
 #include "VbrTag.h"
+#include "machine.h"
 #include "gain_analysis.h"
 
 #ifdef WITH_DMALLOC

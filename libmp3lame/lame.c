@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.259 2004/03/11 19:35:24 olcios Exp $ */
+/* $Id: lame.c,v 1.260 2004/03/17 18:56:26 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -37,6 +37,7 @@
 #include "quantize_pvt.h"
 #include "psymodel.h"
 #include "VbrTag.h"
+#include "machine.h"
 #include "gain_analysis.h"
 #include "set_get.h"
 
