@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.110 2001/05/11 22:14:45 robert Exp $ */
+/* $Id: lame.c,v 1.111 2001/05/13 11:33:36 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -604,6 +604,11 @@ lame_init_params(lame_global_flags * const gfp)
     if (NULL == gfc->VBR)
         return -2;
         
+    if (NULL == gfc->PSY)
+        gfc->PSY = calloc(1, sizeof(PSY_t));
+    if (NULL == gfc->PSY)
+        return -2;
+        
 #ifdef KLEMM_44
     /* Select the fastest functions for this CPU */
     init_scalar_functions(gfc);
@@ -1047,7 +1052,7 @@ lame_init_params(lame_global_flags * const gfp)
         else {
             static float const dbQ[10] = { -4., -3., -2., -1., 0., 0.5, 1., 1.5, 2., 2.5 };
             gfc->VBR->mask_adjust = dbQ[gfp->VBR_q];
-            gfc->VBR->gain_adjust = -1;
+            gfc->VBR->gain_adjust = 0;
             gfc->VBR->smooth = 1;
         }    
         gfc->sfb21_extra = (gfp->out_samplerate > 44000);
