@@ -1,6 +1,6 @@
-## $Id: Makefile.am,v 1.1 2000/10/22 11:39:44 aleidinger Exp $
+## $Id: Makefile.am,v 1.2 2001/01/15 15:16:08 aleidinger Exp $
 
-AUTOMAKE_OPTIONS = foreign ansi2knr
+include $(top_srcdir)/Makefile.am.global
 
 pkginclude_HEADERS = lame.h
 

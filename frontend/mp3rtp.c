@@ -1,4 +1,4 @@
-/* $Id: mp3rtp.c,v 1.16 2001/01/11 22:37:24 markt Exp $ */
+/* $Id: mp3rtp.c,v 1.17 2001/01/15 15:16:08 aleidinger Exp $ */
 
 /* Still under work ..., need a client for test, where can I get one? */
 
@@ -14,10 +14,27 @@
 # include <config.h>
 #endif
 
-#include <stdlib.h>
-#include <string.h>
+#ifdef STDC_HEADERS
+# include <stdlib.h>
+# include <string.h>
+#else
+# ifndef HAVE_STRCHR
+#  define strchr index
+#  define strrchr rindex
+# endif
+char *strchr (), *strrchr ();
+# ifndef HAVE_MEMCPY
+#  define memcpy(d, s, n) bcopy ((s), (d), (n))
+#  define memmove(d, s, n) bcopy ((s), (d), (n))
+# endif
+#endif
+
 #include <time.h>
-#include <unistd.h>
+
+#ifdef HAVE_UNISTD_H
+# include <unistd.h>
+#endif
+
 #include "lame.h"
 #include "main.h"
 #include "parse.h"

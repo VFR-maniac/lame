@@ -20,17 +20,33 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.43 2001/01/07 09:11:43 markt Exp $ */
+/* $Id: main.c,v 1.44 2001/01/15 15:16:08 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
 
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
-#include <fcntl.h>
 #include <assert.h>
+#include <stdio.h>
+
+#ifdef STDC_HEADERS
+# include <stdlib.h>
+# include <string.h>
+#else
+# ifndef HAVE_STRCHR
+#  define strchr index
+#  define strrchr rindex
+# endif
+char *strchr (), *strrchr ();
+# ifndef HAVE_MEMCPY
+#  define memcpy(d, s, n) bcopy ((s), (d), (n))
+#  define memmove(d, s, n) bcopy ((s), (d), (n))
+# endif
+#endif
+
+#ifdef HAVE_FCNTL_H
+# include <fcntl.h>
+#endif
 
 
 /*

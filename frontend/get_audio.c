@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.48 2001/01/05 22:13:13 markt Exp $ */
+/* $Id: get_audio.c,v 1.49 2001/01/15 15:16:08 aleidinger Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -27,11 +27,29 @@
 #endif
 
 #include <assert.h>
-#include <limits.h>
+
+#ifdef HAVE_LIMITS_H
+# include <limits.h>
+#endif
+
 #include <stdio.h>
-#include <stdlib.h>
+
+#ifdef STDC_HEADERS
+# include <stdlib.h>
+# include <string.h>
+#else
+# ifndef HAVE_STRCHR
+#  define strchr index
+#  define strrchr rindex
+# endif
+char *strchr (), *strrchr ();
+# ifndef HAVE_MEMCPY
+#  define memcpy(d, s, n) bcopy ((s), (d), (n))
+#  define memmove(d, s, n) bcopy ((s), (d), (n))
+# endif
+#endif
+
 #include <math.h>
-#include <string.h>
 #include <sys/stat.h>
 
 #include "lame.h"

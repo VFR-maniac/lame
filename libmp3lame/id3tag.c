@@ -28,15 +28,28 @@
  * NOTE: See http://id3.org/ for more information about ID3 tag formats.
  */
 
-/* $Id: id3tag.c,v 1.17 2001/01/15 08:48:58 gramps Exp $ */
+/* $Id: id3tag.c,v 1.18 2001/01/15 15:16:09 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
 
-#include <stddef.h>
-#include <stdlib.h>
-#include <string.h>
+#ifdef STDC_HEADERS
+# include <stddef.h>
+# include <stdlib.h>
+# include <string.h>
+#else
+# ifndef HAVE_STRCHR
+#  define strchr index
+#  define strrchr rindex
+# endif
+char *strchr (), *strrchr ();
+# ifndef HAVE_MEMCPY
+#  define memcpy(d, s, n) bcopy ((s), (d), (n))
+#  define memmove(d, s, n) bcopy ((s), (d), (n))
+# endif
+#endif
+
 #include "lame.h"
 #include "id3tag.h"
 #include "util.h"

@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.47 2001/01/15 08:58:52 gramps Exp $ */
+/* $Id: parse.c,v 1.48 2001/01/15 15:16:08 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -27,8 +27,21 @@
 
 #include <assert.h>
 #include <ctype.h>
-#include <stdlib.h>
-#include <string.h>
+
+#ifdef STDC_HEADERS
+# include <stdlib.h>
+# include <string.h>
+#else
+# ifndef HAVE_STRCHR
+#  define strchr index
+#  define strrchr rindex
+# endif
+char *strchr (), *strrchr ();
+# ifndef HAVE_MEMCPY
+#  define memcpy(d, s, n) bcopy ((s), (d), (n))
+#  define memmove(d, s, n) bcopy ((s), (d), (n))
+# endif
+#endif
 
 #include "lame.h"
 

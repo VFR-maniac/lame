@@ -1,6 +1,6 @@
-## $Id: Makefile.am,v 1.2 2001/01/14 17:25:45 aleidinger Exp $
+## $Id: Makefile.am,v 1.3 2001/01/15 15:16:07 aleidinger Exp $
 
-AUTOMAKE_OPTIONS = foreign ansi2knr
+include $(top_srcdir)/Makefile.am.global
 
 EXTRA_DIST = BladeMP3EncDLL.c \
 	BladeMP3EncDLL.def \

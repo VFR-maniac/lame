@@ -1,15 +1,17 @@
-## $Id: Makefile.am,v 1.5 2001/01/03 13:06:50 aleidinger Exp $
+## $Id: Makefile.am,v 1.6 2001/01/15 15:16:09 aleidinger Exp $
 
-AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
+include $(top_srcdir)/Makefile.am.global
 
 EXTRA_PROGRAMS = abx ath scalartest
 
+EXTRA_SCRIPTS = \
+	auenc \
+	mugeco.sh \
+	mlame
+
 EXTRA_DIST = \
 	Lame.vbs \
-	auenc \
 	lame4dos.bat \
-	mugeco.sh \
-	mlame \
 	mlame_corr.c
 
 abx_SOURCES = abx.c

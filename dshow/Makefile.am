@@ -1,6 +1,6 @@
-## $Id: Makefile.am,v 1.3 2001/01/13 18:01:44 aleidinger Exp $
+## $Id: Makefile.am,v 1.4 2001/01/15 15:16:08 aleidinger Exp $
 
-AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
+include $(top_srcdir)/Makefile.am.global
 
 EXTRA_DIST = \
 	Encoder.cpp \

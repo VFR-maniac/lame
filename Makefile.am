@@ -1,9 +1,10 @@
-## $Id: Makefile.am,v 1.15 2001/01/13 18:01:43 aleidinger Exp $
+## $Id: Makefile.am,v 1.16 2001/01/15 15:16:06 aleidinger Exp $
+
+include $(top_srcdir)/Makefile.am.global
 
 SUBDIRS = mpglib libmp3lame frontend Dll debian doc include misc dshow
 
 CLEANFILES = testcase.new.mp3
-AUTOMAKE_OPTIONS = foreign ansi2knr
 
 EXTRA_DIST = \
 	API \

@@ -1,4 +1,4 @@
-/* $Id: common.c,v 1.25 2001/01/05 15:20:34 aleidinger Exp $ */
+/* $Id: common.c,v 1.26 2001/01/15 15:16:09 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -7,7 +7,10 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <signal.h>
+
+#ifdef HAVE_FCNTL_H
 #include <fcntl.h>
+#endif
 
 #ifdef macintosh
 #include   <types.h>

@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: brhist.c,v 1.32 2001/01/05 15:20:33 aleidinger Exp $ */
+/* $Id: brhist.c,v 1.33 2001/01/15 15:16:08 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -37,8 +37,21 @@
 
 /* #includes */
 
-#include <stdlib.h>
-#include <string.h>
+#ifdef STDC_HEADERS
+# include <stdlib.h>
+# include <string.h>
+#else
+# ifndef HAVE_STRCHR
+#  define strchr index
+#  define strrchr rindex
+# endif
+char *strchr (), *strrchr ();
+# ifndef HAVE_MEMCPY
+#  define memcpy(d, s, n) bcopy ((s), (d), (n))
+#  define memmove(d, s, n) bcopy ((s), (d), (n))
+# endif
+#endif
+
 
 #if defined(HAVE_TERMCAP)
 # include <termcap.h>

@@ -1,11 +1,10 @@
-## $Id: Makefile.am,v 1.9 2001/01/13 18:01:45 aleidinger Exp $
+## $Id: Makefile.am,v 1.10 2001/01/15 15:16:09 aleidinger Exp $
 
-AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
+include $(top_srcdir)/Makefile.am.global
 
 INCLUDES = @INCLUDES@ -I$(top_srcdir)/libmp3lame -I$(top_builddir)
 
 EXTRA_DIST = \
-	README \
 	mpglib.dsp
 
 DEFS = @DEFS@ @CONFIG_DEFS@

@@ -1,6 +1,6 @@
-## $Id: Makefile.am,v 1.15 2001/01/13 18:01:45 aleidinger Exp $
+## $Id: Makefile.am,v 1.16 2001/01/15 15:16:08 aleidinger Exp $
 
-AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
+include $(top_srcdir)/Makefile.am.global
 
 bin_PROGRAMS = lame @WITH_MP3RTP@ @WITH_MP3X@
 EXTRA_PROGRAMS = mp3rtp mp3x

@@ -19,14 +19,27 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: gpkplotting.c,v 1.7 2001/01/05 15:20:33 aleidinger Exp $ */
+/* $Id: gpkplotting.c,v 1.8 2001/01/15 15:16:08 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
 
 #include "gpkplotting.h"
-#include "string.h"
+
+#ifdef STDC_HEADERS
+# include <string.h>
+#else
+# ifndef HAVE_STRCHR
+#  define strchr index
+#  define strrchr rindex
+# endif
+char *strchr (), *strrchr ();
+# ifndef HAVE_MEMCPY
+#  define memcpy(d, s, n) bcopy ((s), (d), (n))
+#  define memmove(d, s, n) bcopy ((s), (d), (n))
+# endif
+#endif
 
 #ifdef WITH_DMALLOC
 #include <dmalloc.h>
