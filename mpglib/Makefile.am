@@ -1,6 +1,10 @@
-## $Id: Makefile.am,v 1.2 2000/10/29 12:49:28 aleidinger Exp $
+## $Id: Makefile.am,v 1.3 2000/11/10 14:33:50 aleidinger Exp $
+
+AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
 
 INCLUDES = @INCLUDES@ -I$(top_srcdir)/libmp3lame
+
+EXTRA_DIST = README
 
 noinst_LTLIBRARIES = libmpgdecoder.la
 
@@ -26,6 +30,10 @@ noinst_HEADERS = common.h \
 	mpglib.h \
 	tabinit.h
 
-EXTRA_DIST = README
+LCLINTFLAGS= +posixlib +showsummary +showalluses +whichlib +forcehints
 
-AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
+lclint.txt: ${libmpgdecoder_la_SOURCES} ${noinst_HEADERS}
+	@lclint ${LCLINTFLAGS} ${INCLUDES} ${DEFS} ${libmpgdecoder_la_SOURCES} 2>&1 >lclint.txt || true
+
+lclint: lclint.txt
+	more lclint.txt
