@@ -2,11 +2,15 @@
  * ISO MPEG Audio Subgroup Software Simulation Group (1996)
  * ISO 13818-3 MPEG-2 Audio Encoder - Lower Sampling Frequency Extension
  *
- * $Id: reservoir.h,v 1.1 1999/11/24 08:43:40 markt Exp $
+ * $Id: reservoir.h,v 1.2 2000/01/13 16:26:50 takehiro Exp $
  *
  * $Log: reservoir.h,v $
- * Revision 1.1  1999/11/24 08:43:40  markt
- * Initial revision
+ * Revision 1.2  2000/01/13 16:26:50  takehiro
+ * moved info.stereo into gf.stereo
+ *
+ * Revision 1.1.1.1  1999/11/24 08:43:40  markt
+ * initial checkin of LAME
+ * Starting with LAME 3.57beta with some modifications
  *
  * Revision 1.1  1996/02/14 04:04:23  rowlands
  * Initial revision
@@ -27,7 +31,7 @@
 
 int ResvFrameBegin( frame_params *fr_ps, III_side_info_t *l3_side, int mean_bits, int frameLength );
 void ResvMaxBits2( int mean_bits, int *targ_bits, int *max_bits, int gr);
-void ResvAdjust( frame_params *fr_ps, gr_info *gi, III_side_info_t *l3_side, int mean_bits );
-void ResvFrameEnd( frame_params *fr_ps, III_side_info_t *l3_side, int mean_bits );
+void ResvAdjust(gr_info *gi, III_side_info_t *l3_side, int mean_bits );
+void ResvFrameEnd(III_side_info_t *l3_side, int mean_bits );
 
 #endif
