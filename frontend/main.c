@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.87 2004/01/31 20:05:14 olcios Exp $ */
+/* $Id: main.c,v 1.88 2004/03/23 01:57:16 olcios Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -593,7 +593,7 @@ void print_trailing_info(lame_global_flags *gf)
 	
     /* if (the user requested printing info about clipping) and (decoding
        on the fly has actually been performed) */
-    if(print_clipping_info && lame_get_ReplayGain_decode(gf)) {
+    if(print_clipping_info && lame_get_decode_on_the_fly(gf)) {
       float noclipGainChange = (float)lame_get_noclipGainChange(gf) / 10.0;
       float noclipScale = lame_get_noclipScale(gf);
 
