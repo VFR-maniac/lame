@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.62 2001/09/21 04:03:23 markt Exp $ */
+/* $Id: main.c,v 1.63 2001/09/21 04:50:17 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -505,7 +505,7 @@ main(int argc, char **argv)
     argc = ccommand(&argv);
 #endif
 
-/*
+#if 0
 This works only on NT.  we need a #ifdef that distinguishes between 
 NT and 95/98/me before we can use this:
 
@@ -518,7 +518,7 @@ NT and 95/98/me before we can use this:
     SetProcessAffinityMask(GetCurrentProcess(), si.dwActiveProcessorMask);
     }
 #endif
-*/
+#endif
 
 
 
