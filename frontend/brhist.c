@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: brhist.c,v 1.18 2000/10/29 12:45:54 aleidinger Exp $ */
+/* $Id: brhist.c,v 1.19 2000/10/31 13:18:17 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -37,7 +37,7 @@
 # define BRHIST_WIDTH    14
 #endif
 #ifndef BRHIST_RES
-# define BRHIST_RES      11
+# define BRHIST_RES      12
 #endif
 
 
@@ -236,8 +236,8 @@ static void  brhist_disp_line ( const lame_global_flags*  gf, int i, int br_hist
         fprintf ( Console_IO.Console_fp, "\n%3d%s %.*s%.*s%*s ", 
 	          brhist.kbps [i], brppt, 
                   barlen_LR, brhist.bar_hash, 
-                  barlen_TOT, brhist.bar_asterisk, 
-		  Console_IO.disp_width - BRHIST_RES - barlen_TOT - barlen_LR, "" );
+                  barlen_TOT - barlen_LR, brhist.bar_asterisk, 
+		  Console_IO.disp_width - BRHIST_RES - barlen_TOT, "" );
 }
 
 
