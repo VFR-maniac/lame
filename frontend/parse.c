@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.125 2001/12/14 07:00:10 dibrom Exp $ */
+/* $Id: parse.c,v 1.126 2001/12/18 16:27:20 dibrom Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1050,7 +1050,7 @@ static int  dm_presets( lame_t gfp, int fast, int cbr, const char* preset_name, 
         lame_set_quality(gfp, 2);
         lame_set_lowpassfreq(gfp, 19000);
         lame_set_mode(gfp, JOINT_STEREO);
-        lame_set_VBR_min_bitrate_kbps(gfp, 112);
+        lame_set_VBR_min_bitrate_kbps(gfp, 128);
 
         return 0;
     }
