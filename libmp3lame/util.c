@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.108 2003/04/20 13:28:03 bouvigne Exp $ */
+/* $Id: util.c,v 1.109 2003/11/10 15:41:00 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -595,7 +595,7 @@ void  lame_errorf (const lame_internal_flags *gfc, const char* format, ... )
 
 /***********************************************************************
  *
- *      routines to detect CPU specific features like 3DNow, MMX, SIMD
+ *      routines to detect CPU specific features like 3DNow, MMX, SSE
  *
  *  donated by Frank Klemm
  *  added Robert Hegemann 2000-10-10
@@ -631,21 +631,21 @@ int  has_3DNow ( void )
 #endif
 }    
 
-int  has_SIMD ( void )
+int  has_SSE ( void )
 {
 #ifdef HAVE_NASM 
-    extern int has_SIMD_nasm ( void );
-    return has_SIMD_nasm ();
+    extern int has_SSE_nasm ( void );
+    return has_SSE_nasm ();
 #else
     return 0;   /* don't know, assume not */
 #endif
 }    
 
-int  has_SIMD2 ( void )
+int  has_SSE2 ( void )
 {
 #ifdef HAVE_NASM 
-    extern int has_SIMD2_nasm ( void );
-    return has_SIMD2_nasm ();
+    extern int has_SSE2_nasm ( void );
+    return has_SSE2_nasm ();
 #else
     return 0;   /* don't know, assume not */
 #endif

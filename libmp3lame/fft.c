@@ -31,7 +31,7 @@
 **           Takehiro  - some dirty hack for speed up
 */
 
-/* $Id: fft.c,v 1.23 2002/12/08 17:02:19 takehiro Exp $ */
+/* $Id: fft.c,v 1.24 2003/11/10 15:41:00 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -281,7 +281,7 @@ void init_fft(lame_internal_flags * const gfc)
     } else 
 #endif
 #ifdef USE_FFTSSE
-    if (gfc->CPU_features.SIMD) {
+    if (gfc->CPU_features.SSE) {
         extern void fht_SSE(FLOAT *fz, int n);
         gfc->fft_fht = fht_SSE;
     } else 
