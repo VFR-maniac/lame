@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.188 2003/12/03 01:44:49 olcios Exp $ */
+/* $Id: parse.c,v 1.189 2003/12/09 15:05:15 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -451,7 +451,6 @@ int  long_help ( const lame_global_flags* gfp, FILE* const fp, const char* Progr
               "                    or a value for an average desired bitrate and depending on\n"                       
               "                    the value specified, appropriate quality settings will be used.\n"
               "                    \"--preset help\" gives some more infos on these\n" 
-              "    --r3mix         use  r3mix.net VBR preset"
               );
 
     wait_for ( fp, lessmode );
