@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.144 2003/12/21 12:46:51 bouvigne Exp $ */
+/* $Id: quantize.c,v 1.145 2003/12/21 18:14:13 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -212,7 +212,7 @@ init_xrpow(
 
 
 
-extern FLOAT8 athAdjust( FLOAT8 a, FLOAT8 x, FLOAT8 athFloor );
+extern FLOAT athAdjust( FLOAT a, FLOAT x, FLOAT athFloor );
 
 
 

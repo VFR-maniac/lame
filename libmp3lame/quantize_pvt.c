@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.105 2003/12/21 12:46:51 bouvigne Exp $ */
+/* $Id: quantize_pvt.c,v 1.106 2003/12/21 18:14:13 bouvigne Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -517,15 +517,15 @@ void reduce_side(int targ_bits[2],FLOAT8 ms_ener_ratio,int mean_bits,int max_bit
  *  affects the higher frequencies more than the lower ones
  */
 
-FLOAT8 athAdjust( FLOAT8 a, FLOAT8 x, FLOAT8 athFloor )
+FLOAT athAdjust( FLOAT a, FLOAT x, FLOAT athFloor )
 {
     /*  work in progress
      */
-    FLOAT8 const o = 90.30873362;
-    FLOAT8 const p = 94.82444863;
-    FLOAT8 u = FAST_LOG10_X(x, 10.0); 
-    FLOAT8 v = a*a;
-    FLOAT8 w = 0.0;   
+    FLOAT const o = 90.30873362;
+    FLOAT const p = 94.82444863;
+    FLOAT u = FAST_LOG10_X(x, 10.0); 
+    FLOAT v = a*a;
+    FLOAT w = 0.0;   
     u -= athFloor;                                  /* undo scaling */
     if ( v > 1E-20 ) w = 1. + FAST_LOG10_X(v, 10.0 / o);
     if ( w < 0  )    w = 0.; 
