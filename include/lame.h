@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.56 2001/02/25 01:58:21 markt Exp $ */
+/* $Id: lame.h,v 1.57 2001/02/25 17:37:48 markt Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -84,8 +84,8 @@ typedef struct  {
 
   int quality;                /* quality setting 0=best,  9=worst  default=5 */
   int mode;                   /* 0,1,2,3 = stereo,jstereo,dual channel,mono  */
-  int mode_fixed;             /* user specified the mode, do not use lame's
-                                 opinion of the best mode                    */
+                              /* default = LAME picks best value */
+  int mode_fixed;             /* ignored */
   int mode_automs;            /* use a m/s threshold based on compression
                                  ratio                                       */
   int force_ms;               /* force M/S mode.  requires mode=1            */
