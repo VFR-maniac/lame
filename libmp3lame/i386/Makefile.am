@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.8 2000/12/03 23:00:15 markt Exp $
+## $Id: Makefile.am,v 1.9 2000/12/14 10:04:35 aleidinger Exp $
 
 AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
 
@@ -8,7 +8,7 @@ noinst_LTLIBRARIES = liblameasmroutines.la
 
 noinst_HEADERS = nasm.h
 
-INCLUDES = @INCLUDES@ -I$(top_srcdir)/mpglib/ -I$(top_srcdir)/libmp3lame
+INCLUDES = @INCLUDES@ -I$(top_srcdir)/libmp3lame/@CPUTYPE@
 
 SUFFIXES = .nas
 
@@ -36,6 +36,6 @@ EXTRA_DIST = \
 	ffttbl.nas
 
 NASM = @NASM@
-NASMFLAGS=-f elf -i .
+NASMFLAGS=-f elf -i $(top_srcdir)/libmp3lame/@CPUTYPE@/
 .nas.o:
 	$(NASM) $(NASMFLAGS) $< -o $@ -l $<.lst

@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.10 2000/12/05 15:37:26 aleidinger Exp $
+## $Id: Makefile.am,v 1.11 2000/12/14 10:04:35 aleidinger Exp $
 
 AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
 
@@ -7,13 +7,13 @@ SUBDIRS = i386
 lib_LTLIBRARIES = libmp3lame.la
 
 if HAVE_NASM
-nasm_ldadd = $(top_srcdir)/libmp3lame/@CPUTYPE@/liblameasmroutines.la
+nasm_ldadd = $(top_builddir)/libmp3lame/@CPUTYPE@/liblameasmroutines.la
 else
 nasm_ldadd =
 endif
 
 if LIB_WITH_DECODER
-decoder_ldadd = $(top_srcdir)/mpglib/libmpgdecoder.la
+decoder_ldadd = $(top_builddir)/mpglib/libmpgdecoder.la
 else
 decoder_ldadd =
 endif
@@ -21,7 +21,7 @@ endif
 libmp3lame_la_LIBADD = $(nasm_ldadd) $(decoder_ldadd)
 libmp3lame_la_LDFLAGS = -version-info @LIB_MAJOR_VERSION@:@LIB_MINOR_VERSION@
 
-INCLUDES = @INCLUDES@ -I$(top_srcdir)/mpglib/ -I$(top_srcdir)
+INCLUDES = @INCLUDES@ -I$(top_srcdir)/mpglib/ -I$(top_builddir)
 
 DEFS = @DEFS@ @CONFIG_DEFS@
 

@@ -1,8 +1,8 @@
-## $Id: Makefile.am,v 1.7 2000/12/05 15:37:26 aleidinger Exp $
+## $Id: Makefile.am,v 1.8 2000/12/14 10:04:35 aleidinger Exp $
 
 AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
 
-INCLUDES = @INCLUDES@ -I$(top_srcdir)/libmp3lame -I$(top_srcdir)
+INCLUDES = @INCLUDES@ -I$(top_srcdir)/libmp3lame -I$(top_builddir)
 
 EXTRA_DIST = README
 

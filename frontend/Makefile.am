@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.12 2000/12/05 15:37:26 aleidinger Exp $
+## $Id: Makefile.am,v 1.13 2000/12/14 10:04:35 aleidinger Exp $
 
 AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
 
@@ -45,10 +45,10 @@ endif
 CFLAGS = @CFLAGS@ @GTK_CFLAGS@ @FRONTEND_CFLAGS@
 LDFLAGS = @LDFLAGS@ @FRONTEND_LDFLAGS@
 
-INCLUDES = -I$(top_srcdir)/libmp3lame -I$(top_srcdir)/include -I$(top_srcdir)
+INCLUDES = -I$(top_srcdir)/libmp3lame -I$(top_srcdir)/include -I$(top_builddir)
 
 LDADD = @LDADD@ @FRONTEND_LDADD@ \
-	$(top_srcdir)/libmp3lame/libmp3lame.la
+	$(top_builddir)/libmp3lame/libmp3lame.la
 
 mp3x_LDADD = $(LDADD) @GTK_LIBS@
 
