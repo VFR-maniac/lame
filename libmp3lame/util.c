@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.58 2001/02/27 09:59:18 robert Exp $ */
+/* $Id: util.c,v 1.59 2001/02/27 11:33:08 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -31,6 +31,10 @@
 #include <ctype.h>
 #include <assert.h>
 #include <stdarg.h>
+
+#if defined(__FreeBSD__) && !defined(__alpha__)
+# include <machine/floatingpoint.h>
+#endif
 
 #ifdef WITH_DMALLOC
 #include <dmalloc.h>
