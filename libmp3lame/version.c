@@ -26,7 +26,7 @@
   Contains functions which describe the version of LAME.
 
   \author A.L. Faber
-  \version \$Id: version.c,v 1.20 2001/11/11 14:48:30 aleidinger Exp $
+  \version \$Id: version.c,v 1.21 2001/12/21 03:29:02 markt Exp $
   \ingroup libmp3lame
 */
 
@@ -115,7 +115,7 @@ const char*  get_lame_short_version ( void )
         XSTR(LAME_MAJOR_VERSION) "." XSTR(LAME_MINOR_VERSION) " (beta)";
 #else
     static /*@observer@*/ const char *const str =
-        XSTR(LAME_MAJOR_VERSION) "." XSTR(LAME_MINOR_VERSION)
+        XSTR(LAME_MAJOR_VERSION) "." XSTR(LAME_MINOR_VERSION);
 #endif
 
     return str;
