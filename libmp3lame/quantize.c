@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.29 2000/11/18 10:51:51 aleidinger Exp $ */
+/* $Id: quantize.c,v 1.30 2000/11/20 15:08:12 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -767,7 +767,7 @@ balance_noise (
         status = 0;
     } else {
         if (cod_info->block_type == SHORT_TYPE
-#ifdef RH_SUBBLOCK
+#ifdef RH_AMP
          && gfc->noise_shaping > 0)
 #else
          && gfp->experimentalZ && gfc->noise_shaping > 1)
@@ -917,7 +917,7 @@ outer_loop (
         else
             age ++;
 
-#ifdef RH_OUTERLOOP
+#ifdef RH_AMP
         /* allow up to 3 unsuccesful tries in serial, then stop 
          * if our best quantization so far had no distorted bands. This
          * gives us more possibilities for different quant_compare modes.

@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.33 2000/11/18 10:50:57 aleidinger Exp $ */
+/* $Id: parse.c,v 1.34 2000/11/20 15:08:12 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -33,13 +33,11 @@
 #include <string.h>
 
 #include "lame.h"
-#include "version.h"
 
 #include "brhist.h"
 #include "parse.h"
 #include "main.h"
 #include "get_audio.h"
-#include "version.h"
 
 /************************************************************************
 *
