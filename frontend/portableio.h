@@ -46,9 +46,23 @@
  * conversions, and accommodated conversions involving +/- infinity,
  * NaN's, and denormalized numbers.
  *
- * $Id: portableio.h,v 1.2 2000/09/17 04:19:09 cisc Exp $
+ * $Id: portableio.h,v 1.1 2000/09/28 16:36:53 takehiro Exp $
  *
  * $Log: portableio.h,v $
+ * Revision 1.1  2000/09/28 16:36:53  takehiro
+ * moved frontend staffs into frontend/
+ * Need to debug vorbis/mpglib/analyzer/bitrate histgram.
+ * still long way to go...
+ *
+ * HAVEGTK is changed ANALYSIS(library side) and HAVEGTK(frontend side)
+ *
+ * BRHIST is deleted from library. all the bitrate histogram works are
+ * now in frontend(but not works properly, yet).
+ *
+ * timestatus things are also moved to frontend.
+ *
+ * parse.c is now out of library.
+ *
  * Revision 1.2  2000/09/17 04:19:09  cisc
  * conformed all this-is-included-defines to match 'project_file_name' style
  *
