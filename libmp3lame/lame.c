@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.262 2004/06/18 19:15:01 bouvigne Exp $ */
+/* $Id: lame.c,v 1.263 2004/06/20 17:28:27 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1095,7 +1095,7 @@ lame_init_params(lame_global_flags * const gfp)
      * Robert Hegemann 2000-06-22
      */
     gfc->slot_lag = gfc->frac_SpF = 0;
-    if (gfp->VBR == vbr_off && !gfp->disable_reservoir)
+    if (gfp->VBR == vbr_off)
 	gfc->slot_lag = gfc->frac_SpF
 	    = ((gfp->version+1)*72000L*gfp->brate) % gfp->out_samplerate;
 
