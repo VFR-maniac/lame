@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.46 2001/01/14 09:35:46 takehiro Exp $ */
+/* $Id: quantize.c,v 1.47 2001/01/14 09:39:22 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -570,7 +570,7 @@ inc_subblock_gain (
         if (s1 < 16 && s2 < 8)
             continue;
 
-        if (cod_info->subblock_gain[window] > 7)
+        if (cod_info->subblock_gain[window] >= 7)
             return 1;
 
         /* even though there is no scalefactor for sfb12
