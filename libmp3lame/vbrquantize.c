@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: vbrquantize.c,v 1.101 2005/03/12 23:01:13 robert Exp $ */
+/* $Id: vbrquantize.c,v 1.102 2005/03/14 22:32:24 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #  include <config.h>
@@ -692,7 +692,7 @@ set_subblock_gain(gr_info * cod_info, const int *vbrsfmin, int sf[])
                 minsf = v;
             }
         }
-        for (; sfb < psymax; sfb += 3) { /* part 2 */
+        for (; sfb < SFBMAX; sfb += 3) { /* part 2 */
             int     v = -sf[sfb];
             if (maxsf2 < v) {
                 maxsf2 = v;
