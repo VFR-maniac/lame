@@ -18,7 +18,7 @@
  * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: bitstream.c,v 1.66 2004/03/23 01:57:17 olcios Exp $
+ * $Id: bitstream.c,v 1.67 2004/06/18 19:15:00 bouvigne Exp $
  */
 
 
@@ -442,7 +442,7 @@ huffman_coder_count1(lame_internal_flags *gfc, gr_info *gi)
 #endif
 
     int *ix = &gi->l3_enc[gi->big_values];
-    FLOAT8 *xr = &gi->xr[gi->big_values];
+    FLOAT *xr = &gi->xr[gi->big_values];
     assert(gi->count1table_select < 2);
 
     for (i = (gi->count1 - gi->big_values) / 4; i > 0; --i) {

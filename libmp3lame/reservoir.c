@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: reservoir.c,v 1.28 2002/12/08 17:02:24 takehiro Exp $ */
+/* $Id: reservoir.c,v 1.29 2004/06/18 19:15:03 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -130,7 +130,7 @@ ResvFrameBegin(lame_global_flags *gfp, int *mean_bits)
 
     if (gfp->brate >= 320) {
         /* in freeformat the buffer is constant*/
-        maxmp3buf=8*((int)((gfp->brate*1000)/(gfp->out_samplerate / (FLOAT8)1152)/8 +.5));
+        maxmp3buf=8*((int)((gfp->brate*1000)/(gfp->out_samplerate / (FLOAT)1152)/8 +.5));
     } else {
         /* maximum allowed frame size.  dont use more than this number of
            bits, even if the frame has the space for them: */
@@ -141,7 +141,7 @@ ResvFrameBegin(lame_global_flags *gfp, int *mean_bits)
 	maxmp3buf = 8*1440;
 
         if (gfp->strict_ISO)
-	    maxmp3buf=8*((int)(320000/(gfp->out_samplerate / (FLOAT8)1152)/8 +.5));
+	    maxmp3buf=8*((int)(320000/(gfp->out_samplerate / (FLOAT)1152)/8 +.5));
     }
 
     gfc->ResvMax = maxmp3buf - frameLength;

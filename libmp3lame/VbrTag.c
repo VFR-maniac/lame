@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.77 2004/03/23 01:57:16 olcios Exp $ */
+/* $Id: VbrTag.c,v 1.78 2004/06/18 19:15:04 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -615,7 +615,7 @@ int PutLameVBR(lame_global_flags *gfp, FILE *fpStream, uint8_t *pbtStreamBuffer,
 
         /* peak sample */	
         if(gfc->findPeakSample)
-          nPeakSignalAmplitude = abs((int)((((FLOAT8)gfc->PeakSample) / 32767.0 ) * pow(2,23) +.5));
+          nPeakSignalAmplitude = abs((int)((((FLOAT)gfc->PeakSample) / 32767.0 ) * pow(2,23) +.5));
 
 	/*nogap */
 	if (nNoGapCount != -1)
