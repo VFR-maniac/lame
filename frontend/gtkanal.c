@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: gtkanal.c,v 1.10 2000/11/19 14:12:47 robert Exp $ */
+/* $Id: gtkanal.c,v 1.11 2000/11/21 22:15:41 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1021,7 +1021,7 @@ static void text_window (GtkWidget *widget, gpointer data)
   long option;
   GtkWidget *hbox,*vbox,*button,*box;
   GtkWidget *textwindow,*vscrollbar;
-  char text[80];
+  char text[256];
 
   option = (long) data;
   
