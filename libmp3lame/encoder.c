@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: encoder.c,v 1.10 2000/10/29 21:11:38 robert Exp $ */
+/* $Id: encoder.c,v 1.11 2000/11/01 18:25:11 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -392,7 +392,7 @@ char *mp3buf, int mp3buf_size)
   /*  write the frame to the bitstream  */
   getframebits(gfc, &bitsPerFrame, &mean_bits);
 
-  format_bitstream( gfc, bitsPerFrame, l3_enc, scalefac);
+  format_bitstream( gfp, bitsPerFrame, l3_enc, scalefac);
 
   /* copy mp3 bit buffer into array */
   mp3count = copy_buffer(mp3buf,mp3buf_size,&gfc->bs);
