@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.54 2001/06/15 21:25:56 markt Exp $ */
+/* $Id: main.c,v 1.55 2001/06/15 22:23:06 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -263,7 +263,9 @@ lame_encoder(lame_global_flags * gf, FILE * outf, int nogap, char *inPath,
 
     if (nogap) {
         imp3 = lame_encode_flush_nogap(gf, mp3buffer, sizeof(mp3buffer)); /* may return one more mp3 frame */
-	lame_reinit_bitstream(gf);
+	/* reinitialize bitstream for next encoding.  this is normally done
+	 * by lame_init_params(), but we cannot call that routine twice */ 
+	lame_init_bitstream(gf);
     } else {
         imp3 = lame_encode_flush(gf, mp3buffer, sizeof(mp3buffer)); /* may return one more mp3 frame */
     }

@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.83 2001/06/15 21:25:56 markt Exp $ */
+/* $Id: lame.h,v 1.84 2001/06/15 22:23:07 markt Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -71,9 +71,7 @@ typedef enum Padding_type_e {
 
 struct lame_global_struct;
 typedef struct lame_global_struct lame_global_flags;
-
-
-typedef lame_global_flags lame_t;
+typedef lame_global_flags *lame_t;
 
 
 
@@ -587,10 +585,12 @@ int CDECL lame_encode_flush_nogap(
 
 /*
  * OPTIONAL:
- * after calling flush_nogap, call this routine to add Xing and id3v2
- * headers into the bitstream.  
+ * Normally, this is called by lame_init_params().  It writes id3v2 and
+ * Xing headers into the front of the bitstream, and sets frame counters
+ * and bitrate histogram data to 0.  You can also call this after 
+ * lame_encode_flush_nogap().  
  */
-int CDECL lame_reinit_bitstream(
+int CDECL lame_init_bitstream(
         lame_global_flags *  gfp);    /* global context handle                 */
 
 
