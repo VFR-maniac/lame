@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.52 2001/01/30 20:51:27 robert Exp $ */
+/* $Id: parse.c,v 1.53 2001/02/04 23:56:37 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -288,7 +288,7 @@ int  long_help ( const lame_global_flags* gfp, FILE* const fp, const char* Progr
               "    --abr <bitrate> specify average bitrate desired (instead of quality)\n"
               "\n"
               "  VBR options:\n"
-              "    -v              use variable bitrate (VBR)\n"
+              "    -v              use variable bitrate (VBR) (--vbr-old)\n"
               "    --vbr-old       use old variable bitrate (VBR) routine\n"
               "    --vbr-new       use new variable bitrate (VBR) routine\n"
               "    --vbr-mtrh      a merger of old and new (VBR) routine\n"
@@ -693,7 +693,7 @@ int  parse_args ( lame_global_flags* gfp, int argc, char** argv, char* const inP
 		
 		T_ELIF ("vbr-mtrh")
 		    gfp->VBR = vbr_mtrh; 
-		    gfp->quality = 3;
+		    gfp->quality = 1;
 		
 		T_ELIF ("abr")
 		    argUsed=1;

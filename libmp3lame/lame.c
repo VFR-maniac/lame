@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.78 2001/01/30 20:52:25 robert Exp $ */
+/* $Id: lame.c,v 1.79 2001/02/04 23:56:39 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -897,7 +897,7 @@ int lame_init_params ( lame_global_flags* const gfp )
         InitVbrTag ( gfp );
 
     gfc->sfb21_extra = ( gfp->VBR == vbr_rh  ||  gfp->VBR == vbr_mtrh  ||  gfp->VBR == vbr_mt )
-                    && ( gfp->out_samplerate >= 32000 );
+                    && ( gfp->out_samplerate > 44000 );
 
     if (gfp->version == 1) /* 0 indicates use lower sample freqs algorithm */
       gfc->is_mpeg1=1; /* yes */
