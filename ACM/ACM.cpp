@@ -22,7 +22,7 @@
  
 /*!
 	\author Steve Lhomme
-	\version \$Id: ACM.cpp,v 1.5 2002/01/25 17:51:42 robux4 Exp $
+	\version \$Id: ACM.cpp,v 1.6 2002/01/29 20:37:05 robux4 Exp $
 */
 
 #if !defined(STRICT)
@@ -237,8 +237,8 @@ ACM::ACM( HMODULE hModule )
 
 ACM::~ACM()
 {
-	if (my_hIcon != NULL)
-		CloseHandle(my_hIcon);
+// not used, it's done automatically when closing the driver	if (my_hIcon != NULL)
+//		CloseHandle(my_hIcon);
 
 	my_debug.OutPut(DEBUG_LEVEL_FUNC_START, "ACM Deletion (0x%08X)",this);
 }

@@ -22,7 +22,7 @@
  
 /*!
 	\author Steve Lhomme
-	\version \$Id: main.cpp,v 1.3 2002/01/24 19:38:12 robux4 Exp $
+	\version \$Id: main.cpp,v 1.4 2002/01/29 20:37:05 robux4 Exp $
 */
 
 #if !defined(STRICT)
@@ -43,6 +43,26 @@ void * operator new( unsigned int cb )
 void operator delete(void *block) {
 	LocalFree(block);
 }
+
+extern "C" {
+
+	void *acm_Calloc( size_t num, size_t size )
+	{
+		return LocalAlloc(LPTR, num * size); // VirtualAlloc
+	}
+
+	void *acm_Malloc( size_t size )
+	{
+		return LocalAlloc(LPTR, size); // VirtualAlloc
+	}
+
+	void acm_Free( void * mem)
+	{
+		LocalFree(mem);
+	}
+};
+
+////// End of memory instrumentation
 
 #include <mmreg.h>
 #include <msacm.h>
