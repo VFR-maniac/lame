@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.168 2005/03/19 14:44:01 bouvigne Exp $ */
+/* $Id: quantize.c,v 1.169 2005/03/19 15:03:42 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -378,8 +378,8 @@ void psfb21_analogsilence(
                 FLOAT ath12;
                 ath12 = athAdjust(ATH->adjust, ATH->psfb12[gsfb], ATH->floor);
 
-                if (gfc->nsPsy.longfact[12] != 0)
-                    ath12 *= gfc->nsPsy.longfact[12];
+                if (gfc->nsPsy.shortfact[12] != 0)
+                    ath12 *= gfc->nsPsy.shortfact[12];
 
                 for (j = end-1; j>=start; j--) {
                     if ( fabs(xr[j]) < ath12)
