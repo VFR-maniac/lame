@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.43 2000/12/11 00:01:34 markt Exp $ */
+/* $Id: get_audio.c,v 1.44 2000/12/19 07:46:47 markt Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -97,7 +97,7 @@ static int  fskip ( FILE* fp, long offset, int whence )
 
     while ( offset > 0 ) {
         read      = offset > sizeof(buffer)  ?  sizeof(buffer)  :  offset;
-        if ((read = fread ( buffer, (size_t)1, read, fp )) <= 0)
+        if ((read = fread ( buffer, 1, read, fp )) <= 0)
 	    return -1;
         offset   -= read;
     }

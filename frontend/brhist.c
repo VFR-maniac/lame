@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: brhist.c,v 1.29 2000/11/18 10:50:56 aleidinger Exp $ */
+/* $Id: brhist.c,v 1.30 2000/12/19 07:46:47 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -65,9 +65,9 @@ static struct {
     char    bar_percent  [512 + 1];	/* buffer filled up with a lot of '%' to print a bar     */
 } brhist;
 
-static size_t  calculate_index ( const int* const array, const size_t len, const int value )
+static int calculate_index ( const int* const array, const int len, const int value )
 {
-    size_t  i;
+    int i;
     
     for ( i = 0; i < len; i++ )
         if ( array [i] == value )
