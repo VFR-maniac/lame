@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.242 2003/12/21 10:16:36 bouvigne Exp $ */
+/* $Id: lame.c,v 1.243 2003/12/21 12:46:51 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -77,7 +77,7 @@ lame_init_params_ppflt(lame_global_flags * gfp)
     /***************************************************************/
 
     int     band, maxband, minband;
-    FLOAT8  freq;
+    FLOAT   freq;
     int lowpass_band = 32;
     int highpass_band = -1;
 

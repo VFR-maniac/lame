@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: encoder.c,v 1.84 2003/11/20 11:08:52 bouvigne Exp $ */
+/* $Id: encoder.c,v 1.85 2003/12/21 12:46:51 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -305,7 +305,7 @@ FFT's                    <---------1024---------->
 
 */
 
-typedef FLOAT8 chgrdata[2][2];
+typedef FLOAT chgrdata[2][2];
 
 int  lame_encode_mp3_frame (				/* Output */
 	lame_global_flags* const  gfp,			/* Context */
@@ -322,14 +322,14 @@ int  lame_encode_mp3_frame (				/* Output */
   lame_internal_flags *gfc=gfp->internal_flags;
 
   FLOAT8 tot_ener[2][4];
-  FLOAT8 ms_ener_ratio[2]={.5,.5};
+  FLOAT ms_ener_ratio[2]={.5,.5};
   chgrdata pe,pe_MS;
   chgrdata *pe_use;
 
   int ch,gr;
 
-  FLOAT8 ms_ratio_next = 0.;
-  FLOAT8 ms_ratio_prev = 0.;
+  FLOAT ms_ratio_next = 0.;
+  FLOAT ms_ratio_prev = 0.;
 
 
   inbuf[0]=inbuf_l;
