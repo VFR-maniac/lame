@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.26 2001/12/14 07:00:57 dibrom Exp $ */
+/* $Id: set_get.c,v 1.27 2001/12/14 16:27:33 dibrom Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1471,7 +1471,7 @@ lame_set_preset_expopts( lame_global_flags*  gfp, int preset_expopts )
           gfc->presetTune.attackthre   = 35;
           gfc->presetTune.attackthre_s = 150;
           gfc->presetTune.ms_maskadjust = .5;
-          gfc->presetTune.athadapt_noiseshaping_thre = 2; // Always switch
+          gfc->presetTune.athadapt_noiseshaping_thre = 1;
 
           break;
 
