@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.15 2001/03/11 11:21:22 aleidinger Exp $
+## $Id: Makefile.am,v 1.16 2001/06/12 03:31:59 markt Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -62,6 +62,7 @@ noinst_HEADERS= \
 	id3tag.h \
 	l3side.h \
 	lame-analysis.h \
+	lame_global_flags.h \
 	machine.h \
 	newmdct.h \
 	pcm.h \
