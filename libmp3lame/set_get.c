@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.70 2005/03/08 23:07:49 robert Exp $ */
+/* $Id: set_get.c,v 1.71 2005/03/13 14:46:14 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1358,7 +1358,6 @@ lame_set_athaa_type( lame_global_flags*  gfp,
                       int                athaa_type )
 {
     gfp->athaa_type = athaa_type;
-
     return 0;
 }
 
@@ -1374,15 +1373,15 @@ int
 lame_set_athaa_loudapprox( lame_global_flags*  gfp,
                            int                 athaa_loudapprox )
 {
-    gfp->athaa_loudapprox = athaa_loudapprox;
-
+    ERRORF(gfp->internal_flags, "--athaa-loudapprox is obsolete\n");
     return 0;
 }
 
 int
 lame_get_athaa_loudapprox( const lame_global_flags*  gfp )
 {
-    return gfp->athaa_loudapprox;
+    /* obsolete, the type known under number 2 is the only survival */
+    return 2;
 }
 
 
