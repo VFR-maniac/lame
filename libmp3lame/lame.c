@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.67 2001/01/06 01:00:33 markt Exp $ */
+/* $Id: lame.c,v 1.68 2001/01/06 01:11:51 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -589,7 +589,6 @@ int lame_init_params ( lame_global_flags* const gfp )
   /****************************************************************/
   /* if a filter has not been enabled, see if we should add one: */
   /****************************************************************/
-#define KLEMM_42
 #ifdef KLEMM_42
     if ( gfp->lowpassfreq == 0 ) {
         double  lowpass;
