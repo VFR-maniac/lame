@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.5 2000/11/07 12:41:56 aleidinger Exp $
+## $Id: Makefile.am,v 1.6 2000/11/10 14:33:16 aleidinger Exp $
 
 AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
 
@@ -51,3 +51,13 @@ LDADD = @LDADD@ @FRONTEND_LDADD@ \
 	$(top_srcdir)/libmp3lame/libmp3lame.la
 
 mp3x_LDADD = $(LDADD) @GTK_LIBS@
+
+CLEANFILES = lclint.txt
+
+LCLINTFLAGS= +posixlib +showsummary +showalluses +whichlib +forcehints
+
+lclint.txt: ${lame_SOURCES} ${noinst_HEADERS}
+	@lclint ${LCLINTFLAGS} ${INCLUDES} ${DEFS} ${lame_SOURCES} 2>&1 >lclint.txt || true
+
+lclint: lclint.txt
+	more lclint.txt
