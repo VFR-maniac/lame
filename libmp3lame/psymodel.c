@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.120 2002/12/27 04:42:11 takehiro Exp $ */
+/* $Id: psymodel.c,v 1.121 2003/01/02 18:42:23 bouvigne Exp $ */
 
 
 /*
@@ -1791,7 +1791,7 @@ int psymodel_init(lame_global_flags *gfp)
     FLOAT8 sfreq = gfp->out_samplerate;
 
     gfc->ms_ener_ratio_old=.25;
-    gfc->blocktype_old[0] = gfc->blocktype_old[1] = SHORT_TYPE;
+    gfc->blocktype_old[0] = gfc->blocktype_old[1] = NORM_TYPE; /* the vbr header is long blocks*/
 
     for (i=0; i<4; ++i) {
 	for (j=0; j<CBANDS; ++j) {
