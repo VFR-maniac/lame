@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.14 2001/06/12 12:45:16 aleidinger Exp $
+## $Id: Makefile.am,v 1.15 2001/06/27 14:11:15 aleidinger Exp $
 
 AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
 
@@ -11,8 +11,8 @@ nasm_sources = \
 	scalar.nas
 
 if HAVE_NASM
-noinst_LIBRARIES = liblameasmroutines.a
-liblameasmroutines_a_SOURCES = $(nasm_sources)
+noinst_LTLIBRARIES = liblameasmroutines.la
+liblameasmroutines_la_SOURCES = $(nasm_sources)
 endif
 
 noinst_HEADERS = nasm.h
@@ -21,13 +21,13 @@ INCLUDES = @INCLUDES@ -I$(top_srcdir)/libmp3lame/@CPUTYPE@
 
 SUFFIXES = .nas
 
-EXTRA_liblameasmroutines_a_SOURCES = $(nasm_sources)
+EXTRA_liblameasmroutines_la_SOURCES = $(nasm_sources)
 
 CLEANFILES = \
-	choose_table.lst \
-	cpu_feat.lst \
-	fft3dn.lst \
-	scalar.lst
+	choose_table.o.lst \
+	cpu_feat.o.lst \
+	fft3dn.o.lst \
+	scalar.o.lst
 
 EXTRA_DIST = \
 	fft.nas \
@@ -37,6 +37,10 @@ EXTRA_DIST = \
 
 NASM = @NASM@
 NASMFLAGS=@NASM_FORMAT@ -i $(top_srcdir)/libmp3lame/@CPUTYPE@/
-.nas.o:
+
+.nas.o: $< nasm.h
 	$(NASM) $(NASMFLAGS) $< -o $@ -l $@.lst
 
+#$(OBJECTS): libtool
+#libtool: $(LIBTOOL_DEPS)
+#	$(SHELL) $(top_builddir)/config.status --recheck
