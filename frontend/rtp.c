@@ -1,7 +1,21 @@
-/* $Id: rtp.c,v 1.10 2002/12/08 17:02:17 takehiro Exp $ */
+/* $Id: rtp.c,v 1.11 2003/01/01 16:12:38 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
+#endif
+
+#ifndef __GNUC__
+# if HAVE_ALLOCA_H
+#  include <alloca.h>
+# else
+#  ifdef _AIX
+#pragma alloca
+#  else
+#   ifndef alloca /* predefined by HP cc +Olibcalls */
+char *alloca ();
+#   endif
+#  endif
+# endif
 #endif
 
 #include <stdio.h>
