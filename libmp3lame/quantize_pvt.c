@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.18 2000/11/05 22:27:10 pfk Exp $ */
+/* $Id: quantize_pvt.c,v 1.19 2000/11/06 17:29:02 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -701,7 +701,8 @@ int  calc_noise(
   res->tot_noise   = 10. * log10 ( Max (1E-20, tot_noise ) ); 
   res->over_noise  = 10. * log10 ( Max (1E+00, over_noise) ); 
   res->max_noise   = 10. * log10 ( Max (1E-20, max_noise ) );
-  res->klemm_noise = 10. * log10 ( klemm_noise );
+  
+  res->klemm_noise = klemm_noise;   /* to Frank, log(-34) segfaults! */
 
   return over;
 }
