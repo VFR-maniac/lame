@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.58 2003/09/12 13:00:24 bouvigne Exp $ */
+/* $Id: set_get.c,v 1.59 2003/10/21 09:05:10 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1756,7 +1756,6 @@ lame_get_totalframes( const lame_global_flags*  gfp )
 int
 lame_set_preset( lame_global_flags*  gfp, int preset )
 {
-    extern int apply_preset();
     gfp->preset = preset;
     return apply_preset(gfp, preset, 1);
 }

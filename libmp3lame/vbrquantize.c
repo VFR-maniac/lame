@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: vbrquantize.c,v 1.82 2003/05/02 16:18:39 bouvigne Exp $ */
+/* $Id: vbrquantize.c,v 1.83 2003/10/21 09:05:10 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1114,7 +1114,7 @@ long_block_scalefacs(const lame_internal_flags * gfc, gr_info * cod_info,
  ***********************************************************************/
 
 static void
-block_xr34(const lame_internal_flags * gfc, const gr_info * cod_info,
+block_xr34(const lame_internal_flags * gfc,  gr_info * const cod_info,
 	   const FLOAT8 * xr34_orig, FLOAT8 * xr34)
 {
     int     sfb, j = 0, sfbmax, *scalefac = cod_info->scalefac;
