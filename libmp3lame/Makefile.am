@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.6 2000/11/10 14:32:46 aleidinger Exp $
+## $Id: Makefile.am,v 1.7 2000/11/13 10:56:48 aleidinger Exp $
 
 AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
 
@@ -22,6 +22,8 @@ libmp3lame_la_LIBADD = $(nasm_ldadd) $(decoder_ldadd)
 libmp3lame_la_LDFLAGS = -version-info @LIB_MAJOR_VERSION@:@LIB_MINOR_VERSION@
 
 INCLUDES = @INCLUDES@ -I$(top_srcdir)/mpglib/ -I$(top_srcdir)
+
+DEFS = @DEFS@ @CONFIG_DEFS@
 
 EXTRA_DIST = \
 	debugscalefac.c \
@@ -67,7 +69,7 @@ noinst_HEADERS= \
 
 CLEANFILES = lclint.txt
 
-LCLINTFLAGS= +posixlib +showsummary +showalluses +whichlib +forcehints
+LCLINTFLAGS= +posixlib +showsummary +showalluses +whichlib +forcehints -Dlint
 
 lclint.txt: ${libmp3lame_la_SOURCES} ${noinst_HEADERS}
 	@lclint ${LCLINTFLAGS} ${INCLUDES} ${DEFS} ${libmp3lame_la_SOURCES} 2>&1 >lclint.txt || true

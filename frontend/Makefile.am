@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.6 2000/11/10 14:33:16 aleidinger Exp $
+## $Id: Makefile.am,v 1.7 2000/11/13 10:59:16 aleidinger Exp $
 
 AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
 
@@ -8,6 +8,8 @@ EXTRA_PROGRAMS = mp3rtp mp3x
 brhist_sources = brhist.c brhist.h
 
 EXTRA_DIST = $(brhist_sources) README.Win32 mp3x.dsp mp3x.dsw amiga_mpega.c
+
+DEFS = @DEFS@ @CONFIG_DEFS@
 
 common_sources = \
 	get_audio.c \
@@ -54,7 +56,7 @@ mp3x_LDADD = $(LDADD) @GTK_LIBS@
 
 CLEANFILES = lclint.txt
 
-LCLINTFLAGS= +posixlib +showsummary +showalluses +whichlib +forcehints
+LCLINTFLAGS= +posixlib +showsummary +showalluses +whichlib +forcehints -Dlint
 
 lclint.txt: ${lame_SOURCES} ${noinst_HEADERS}
 	@lclint ${LCLINTFLAGS} ${INCLUDES} ${DEFS} ${lame_SOURCES} 2>&1 >lclint.txt || true
