@@ -1,4 +1,4 @@
-dnl $Id: configure.in,v 1.95 2002/10/27 14:32:52 aleidinger Exp $
+dnl $Id: configure.in,v 1.96 2002/10/27 14:36:44 aleidinger Exp $
 dnl
 dnl
 dnl don't forget to set ASM_FOR_ARCH to a space delimited list of
