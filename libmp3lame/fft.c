@@ -31,7 +31,7 @@
 **           Takehiro  - some dirty hack for speed up
 */
 
-/* $Id: fft.c,v 1.18 2001/06/07 06:06:41 pgubanov Exp $ */
+/* $Id: fft.c,v 1.19 2001/06/07 14:02:24 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -45,7 +45,7 @@ typedef void (*FHT_PROC)(FLOAT *fz, int n);
 
 static FHT_PROC fht;
 
-#define ARCH_X86
+/* #define ARCH_X86 */
  
 #ifdef ARCH_X86
 void _cdecl fht_3DN(FLOAT *fz, int n);
