@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.64 2001/09/28 21:13:13 markt Exp $ */
+/* $Id: main.c,v 1.65 2001/09/28 21:29:13 markt Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -505,7 +505,7 @@ main(int argc, char **argv)
     argc = ccommand(&argv);
 #endif
 
-#if defined(_MSC_VER)
+#if defined(_WIN32)
    /* set affinity back to all CPUs.  Fix for EAC/lame on SMP systems from
      "Todd Richmond" <todd.richmond@openwave.com> */
     typedef BOOL (WINAPI *SPAMFunc)(HANDLE, DWORD);
