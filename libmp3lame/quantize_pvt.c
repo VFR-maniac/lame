@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.72 2002/04/20 18:37:03 takehiro Exp $ */
+/* $Id: quantize_pvt.c,v 1.73 2002/04/20 18:40:59 takehiro Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -704,20 +704,7 @@ int  calc_noise(
 	}
     } /* cod_info->block_type == SHORT_TYPE */
 
-    /* normalization at this point by "count" is not necessary, since
-     * the values are only used to compare with previous values */
     res->over_count = over;
-
-    /* convert to db. DO NOT CHANGE THESE */
-    /* tot_noise = is really the average over each sfb of: 
-       [noise(db) - allowed_noise(db)]
-
-       and over_noise is the same average, only over only the
-       bands with noise > allowed_noise.  
-    */
-
-    //res->tot_noise   = 10.*log10(Max(1e-20,tot_noise )); 
-    //res->over_noise  = 10.*log10(Max(1e+00,over_noise)); 
     res->tot_noise   = tot_noise_db;
     res->over_noise  = over_noise_db;
     res->max_noise   = 10.*log10(Max(1e-20,max_noise ));
