@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.198 2002/12/14 19:19:52 robert Exp $ */
+/* $Id: lame.c,v 1.199 2002/12/15 09:11:33 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -368,7 +368,8 @@ lame_init_qval(lame_global_flags * gfp)
         gfc->psymodel = 1;
         gfc->quantization = 1;
         gfc->noise_shaping = 1; /* 2=usually lowers quality */
-        gfc->substep_shaping = 2;
+        if (gfc->substep_shaping != 0)
+	    gfc->substep_shaping = 2;
         gfc->noise_shaping_amp = 2;
         gfc->noise_shaping_stop = 1;
         gfc->use_best_huffman = 2;
