@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.29 2000/12/12 04:50:34 shibatch Exp $ */
+/* $Id: psymodel.c,v 1.30 2000/12/13 02:21:37 shibatch Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -965,7 +965,8 @@ int L3psycho_anal( lame_global_flags * gfp,
       if (ns_attacks[2] && ns_attacks[1]) ns_attacks[2] = 0;
       if (ns_attacks[3] && ns_attacks[2]) ns_attacks[3] = 0;
 
-      if (ns_attacks[0] || ns_attacks[1] || ns_attacks[2] || ns_attacks[3]) ns_uselongblock = 0;
+      if (gfc->nsPsy.last_attacks[chn][2] == 3 ||
+	  ns_attacks[0] || ns_attacks[1] || ns_attacks[2] || ns_attacks[3]) ns_uselongblock = 0;
 
       if (chn < 4) count++;
 
