@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.62 2001/02/27 11:35:20 aleidinger Exp $ */
+/* $Id: lame.h,v 1.63 2001/02/27 11:54:19 robert Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -333,7 +333,7 @@ float CDECL lame_get_compression_ratio(lame_global_flags *);
  *  frame params
  ***********************************************************************/
 // mark as copyright.  default=0
-int CDECL lame_set_copyrigth(lame_global_flags *, int);
+int CDECL lame_set_copyright(lame_global_flags *, int);
 int CDECL lame_get_copyright(lame_global_flags *);
 
 // mark as original.  default=1
