@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: encoder.c,v 1.28 2001/01/14 09:26:22 shibatch Exp $ */
+/* $Id: encoder.c,v 1.29 2001/01/15 14:19:34 shibatch Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -402,13 +402,25 @@ int  lame_encode_mp3_frame (				// Output
     FLOAT8 f;
 
     for(i=0;i<18;i++) gfc->nsPsy.pefirbuf[i] = gfc->nsPsy.pefirbuf[i+1];
-    gfc->nsPsy.pefirbuf[18] = ((*pe_use)[0][0] + (*pe_use)[0][1] + (*pe_use)[1][0] + (*pe_use)[1][1]) * 0.25;
+
+    i=0;
+    gfc->nsPsy.pefirbuf[18] = 0;
+    for ( gr = 0; gr < gfc->mode_gr; gr++ ) {
+      for ( ch = 0; ch < gfc->channels_out; ch++ ) {
+	gfc->nsPsy.pefirbuf[18] += (*pe_use)[gr][ch];
+	i++;
+      }
+    }
+
+    gfc->nsPsy.pefirbuf[18] = gfc->nsPsy.pefirbuf[18] / i;
     f = 0;
     for(i=0;i<19;i++) f += gfc->nsPsy.pefirbuf[i] * fircoef[i];
-    (*pe_use)[0][0] *= 650 / f;
-    (*pe_use)[0][1] *= 650 / f;
-    (*pe_use)[1][0] *= 650 / f;
-    (*pe_use)[1][1] *= 650 / f;
+
+    for ( gr = 0; gr < gfc->mode_gr; gr++ ) {
+      for ( ch = 0; ch < gfc->channels_out; ch++ ) {
+	(*pe_use)[gr][ch] *= 650 / f;
+      }
+    }
   }
 
   switch (gfp->VBR){ 
