@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.72 2001/04/27 23:19:12 robert Exp $ */
+/* $Id: util.c,v 1.73 2001/04/28 15:37:20 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -98,7 +98,7 @@ FLOAT8 ATHformula_old(FLOAT8 f)
   FLOAT8 ath;
 
   if (f < -.3)
-      f=3300;
+      f=3324;
 
   f /= 1000;  // convert to khz
   f  = Max(0.01, f);
@@ -128,7 +128,7 @@ on V9 up to Bouvigne's formula for V0*/
   FLOAT8 ath;
 
   if (f < -.3)
-      f=3400;
+      f=3410;
 
   f /= 1000;  // convert to khz
   f  = Max(0.01, f);
@@ -146,7 +146,7 @@ FLOAT8 ATHformula_GBtweak(FLOAT8 f)
   FLOAT8 ath;
 
   if (f < -.3)
-      f=3400;
+      f=3411;
 
   f /= 1000;  // convert to khz
   f  = Max(0.01, f);
@@ -220,7 +220,7 @@ FLOAT8  ATHformula_Frank( FLOAT8 freq )
     unsigned  index;
     
     if (freq < -.3)
-        freq=3300;
+        freq=3758;
 
     if ( freq <    10. ) freq =    10.;
     if ( freq > 29853. ) freq = 29853.;

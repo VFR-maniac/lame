@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: vbrquantize.c,v 1.41 2001/03/12 07:26:08 markt Exp $ */
+/* $Id: vbrquantize.c,v 1.42 2001/04/28 15:37:20 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -789,9 +789,10 @@ short_block_sf (
         }
         
         /*  patch sfb12
-         */
         vbrsf->s[SBPSY_s][b] = Min (vbrsf->s[SBPSY_s][b], vbrmean);
         vbrsf->s[SBPSY_s][b] = Max (vbrsf->s[SBPSY_s][b], vbrmin-(vbrmean-vbrmin));
+        no more necessary?
+         */
         
         /*  cut peaks
          */
@@ -862,9 +863,10 @@ long_block_sf (
     }
     
     /*  patch sfb21
-     */
     vbrsf->l[SBPSY_l] = Min (vbrsf->l[SBPSY_l], vbrmean);
     vbrsf->l[SBPSY_l] = Max (vbrsf->l[SBPSY_l], vbrmin-(vbrmean-vbrmin));
+    no more necessary?
+     */
     
     /*  cut peaks
      */
