@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.197 2004/01/15 19:04:09 aleidinger Exp $ */
+/* $Id: parse.c,v 1.198 2004/01/15 19:05:11 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -27,10 +27,6 @@
 
 #include <assert.h>
 #include <ctype.h>
-
-#ifdef HAVE_ERRNO_H
-# include <errno.h>
-#endif
 
 #ifdef STDC_HEADERS
 # include <stdlib.h>
