@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.114 2004/06/18 19:15:02 bouvigne Exp $ */
+/* $Id: quantize_pvt.c,v 1.115 2004/11/28 19:10:19 bouvigne Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -692,10 +692,9 @@ int  calc_noise(
 	        - (((*scalefac++) + (cod_info->preflag ? pretab[sfb] : 0))
 	           << (cod_info->scalefac_scale + 1))
 	        - cod_info->subblock_gain[cod_info->window[sfb]] * 8;
-	    FLOAT step = POW20(s);
 	    FLOAT noise = 0.0;
 
-        if (prev_noise && (prev_noise->step[sfb] == step)){
+        if (prev_noise && (prev_noise->step[sfb] == s)){
 
             /* use previously computed values */
             noise = prev_noise->noise[sfb];
@@ -705,6 +704,7 @@ int  calc_noise(
 	        noise = prev_noise->noise_log[sfb];
 
         } else {
+	        FLOAT step = POW20(s);
             l = cod_info->width[sfb] >> 1;
 
             if ((j+cod_info->width[sfb])>cod_info->max_nonzero_coeff) {
@@ -728,7 +728,7 @@ int  calc_noise(
 
             if (prev_noise) {
                 /* save noise values */
-                prev_noise->step[sfb] = step;
+                prev_noise->step[sfb] = s;
                 prev_noise->noise[sfb] = noise;
             }
 
