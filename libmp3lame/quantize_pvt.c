@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.129 2005/03/05 12:40:27 bouvigne Exp $ */
+/* $Id: quantize_pvt.c,v 1.130 2005/03/14 21:53:10 robert Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -647,8 +647,6 @@ FLOAT calc_noise_core_c( const gr_info * const cod_info,
     FLOAT noise = 0;
     int j = *startline;
     const int *ix = cod_info->l3_enc;
-
-    assert(cod_info->count1 != 0);
 
     if (j> cod_info->count1) {
 	    while (l--) {
