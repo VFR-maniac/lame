@@ -18,7 +18,7 @@
  * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: bitstream.c,v 1.62 2004/02/22 21:17:22 bouvigne Exp $
+ * $Id: bitstream.c,v 1.63 2004/02/29 19:55:04 robert Exp $
  */
 
 
@@ -641,16 +641,12 @@ writeMainData ( lame_global_flags * const gfp)
 		for (sfb = 0; sfb < gi->sfbdivide; sfb++) {
 		    if (gi->scalefac[sfb] == -1)
 			continue; /* scfsi is used */
-		    if (gi->scalefac[sfb] == -2)
-			gi->scalefac[sfb] = 0;
 		    putbits2(gfc, gi->scalefac[sfb], slen1);
 		    data_bits += slen1;
 		}
 		for (; sfb < gi->sfbmax; sfb++) {
 		    if (gi->scalefac[sfb] == -1)
 			continue; /* scfsi is used */
-		    if (gi->scalefac[sfb] == -2)
-			gi->scalefac[sfb] = 0;
 		    putbits2(gfc, gi->scalefac[sfb], slen2);
 		    data_bits += slen2;
 		}
