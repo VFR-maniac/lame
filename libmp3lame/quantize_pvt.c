@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.84 2002/05/04 13:58:20 takehiro Exp $ */
+/* $Id: quantize_pvt.c,v 1.85 2002/05/04 14:54:59 takehiro Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -738,21 +738,8 @@ void set_pinfo (
     III_psy_xmin xfsf;
 
     calc_xmin (gfp, ratio, cod_info, &l3_xmin);
-
-    /* revert back the sign of l3enc */
-    for ( i = 0; i < 576; i++) {
-	if (cod_info->xr[i] < 0) 
-	    cod_info->l3_enc[i] = -cod_info->l3_enc[i];
-    }
-
     calc_noise (gfc, cod_info->l3_enc, cod_info,
 		&l3_xmin, scalefac, &xfsf, &noise);
-
-    /* revert back the sign of l3enc */
-    for ( i = 0; i < 576; i++) {
-	if (cod_info->xr[i] < 0) 
-	    cod_info->l3_enc[i] = -cod_info->l3_enc[i];
-    }
 
     if (cod_info->block_type == SHORT_TYPE) {
         for (j=0, sfb = 0; sfb < SBMAX_s; sfb++ )  {
