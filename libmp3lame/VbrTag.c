@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.66 2003/02/22 02:21:22 olcios Exp $ */
+/* $Id: VbrTag.c,v 1.67 2003/05/25 15:34:48 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -912,8 +912,11 @@ int PutVbrTag(lame_global_flags *gfp,FILE *fpStream,int nVbrScale)
 		
 		if (gfp->VBR==vbr_off)
 			bitrate = gfp->brate;
-
-		bbyte = 16*BitrateIndex(bitrate,gfp->version,gfp->out_samplerate);
+        
+        if (gfp->free_format)
+            bbyte = 0x00;
+        else
+		    bbyte = 16*BitrateIndex(bitrate,gfp->version,gfp->out_samplerate);
 	}
 
 	/* Use as much of the info from the real frames in the
