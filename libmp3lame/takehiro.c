@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: takehiro.c,v 1.6 2000/10/29 12:43:06 aleidinger Exp $ */
+/* $Id: takehiro.c,v 1.7 2000/10/29 16:37:12 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -381,7 +381,8 @@ int count_bits_long(lame_internal_flags *gfc, int ix[576], gr_info *gi)
 
 
 
-int count_bits(lame_internal_flags *gfc,int *ix, FLOAT8 *xr, gr_info *cod_info)  
+int count_bits(
+    lame_internal_flags *gfc, int *ix, const FLOAT8 *xr, gr_info *cod_info)  
 {
   int bits=0,i;
   /* since quantize_xrpow uses table lookup, we need to check this first: */
