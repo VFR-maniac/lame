@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.70 2001/11/25 15:24:08 takehiro Exp $ */
+/* $Id: quantize_pvt.c,v 1.71 2002/02/22 11:53:58 shibatch Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -879,7 +879,7 @@ void set_pinfo (
             bw = end - start;
             for ( en0 = 0.0, l = start; l < end; l++ ) 
                 en0 += xr[l] * xr[l];
-            if (!gfc->nsPsy.use) en0/=bw;
+            en0/=bw;
       /*
     DEBUGF("diff  = %f \n",10*log10(Max(ratio[gr][ch].en.l[sfb],1e-20))
                             -(10*log10(en0)+150));
