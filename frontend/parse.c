@@ -19,16 +19,17 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.31 2000/11/11 23:20:05 pfk Exp $ */
+/* $Id: parse.c,v 1.32 2000/11/14 12:17:39 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
 
-#include <stdlib.h>
-#include <ctype.h>
-#include <string.h>
 #include <assert.h>
+#include <ctype.h>
+#include <stdlib.h>
+#include <string.h>
+
 #include "lame.h"
 #include "version.h"
 
@@ -48,7 +49,7 @@
 
 static int  lame_version_print ( FILE* const fp )
 {
-   fprintf ( fp, "LAME version %s    (%s)\n\n", get_lame_version (), get_lame_url () );
+   fprintf ( fp, "LAME version %s (%s)\n\n", get_lame_version (), get_lame_url () );
    return 0;
 }
 
