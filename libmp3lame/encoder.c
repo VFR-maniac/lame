@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: encoder.c,v 1.68 2002/04/27 20:58:30 takehiro Exp $ */
+/* $Id: encoder.c,v 1.69 2002/05/04 15:48:27 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -455,16 +455,6 @@ int  lame_encode_mp3_frame (				// Output
 
   /* polyphase filtering / mdct */
   mdct_sub48(gfc, inbuf[0], inbuf[1]);
-  /* re-order the short blocks, for more efficient encoding below */
-  for (gr = 0; gr < gfc->mode_gr; gr++) {
-    for (ch = 0; ch < gfc->channels_out; ch++) {
-      gr_info *cod_info = &gfc->l3_side.tt[gr][ch];
-      if (cod_info->block_type==SHORT_TYPE) {
-	freorder(gfc->scalefac_band.s, cod_info->xr);
-      }
-    }
-  }
-  
 
   /* use m/s gfc->channels_out? */
   if (check_ms_stereo) {

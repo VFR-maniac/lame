@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.92 2002/02/04 17:10:22 markt Exp $ */
+/* $Id: util.c,v 1.93 2002/05/04 15:48:28 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -448,27 +448,6 @@ int SmpFrqIndex ( int sample_freq, int* const version )
 *
 *****************************************************************************/
 
-/* reorder the three short blocks By Takehiro TOMINAGA */
-/*
-  Within each scalefactor band, data is given for successive
-  time windows, beginning with window 0 and ending with window 2.
-  Within each window, the quantized values are then arranged in
-  order of increasing frequency...
-*/
-void freorder(int scalefac_band[],FLOAT8 ix_orig[576]) {
-  int i,sfb, window, j=0;
-  FLOAT8 ix[576];
-  for (sfb = 0; sfb < SBMAX_s; sfb++) {
-    int start = scalefac_band[sfb];
-    int end   = scalefac_band[sfb + 1];
-    for (window = 0; window < 3; window++) {
-      for (i = start; i < end; ++i) {
-	ix[j++] = ix_orig[3*i+window];
-      }
-    }
-  }
-  memcpy(ix_orig,ix,576*sizeof(FLOAT8));
-}
 
 
 
