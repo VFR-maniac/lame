@@ -22,7 +22,7 @@
  
 /*!
 	\author Steve Lhomme
-	\version \$Id: ACM.cpp,v 1.14 2002/04/08 18:43:30 robux4 Exp $
+	\version \$Id: ACM.cpp,v 1.15 2004/07/11 17:11:02 bouvigne Exp $
 */
 
 #if !defined(STRICT)
@@ -824,8 +824,7 @@ my_debug.OutPut(DEBUG_LEVEL_FUNC_CODE, "Suggest succeed C");
 			//			a_FormatSuggest->pwfxDst->nBlockAlign = FORMAT_BLOCK_ALIGN;
 			a_FormatSuggest->pwfxDst->nBlockAlign = a_FormatSuggest->pwfxDst->nChannels * a_FormatSuggest->pwfxDst->wBitsPerSample / 8;
 			
-			/// \todo this value must be a correct one !
-//			a_FormatSuggest->pwfxDst->nAvgBytesPerSec = a_FormatSuggest->pwfxDst->nSamplesPerSec * a_FormatSuggest->pwfxDst->nChannels * a_FormatSuggest->pwfxDst->wBitsPerSample / 8;
+			a_FormatSuggest->pwfxDst->nAvgBytesPerSec = a_FormatSuggest->pwfxDst->nChannels * 64000 / 8;
 
 			my_debug.OutPut(DEBUG_LEVEL_FUNC_CODE, "Suggest succeed");
 			Result = MMSYSERR_NOERROR;
