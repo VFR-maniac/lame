@@ -1,8 +1,8 @@
-## $Id: Makefile.am,v 1.3 2002/04/08 18:41:11 aleidinger Exp $
+## $Id: Makefile.am,v 1.4 2003/12/09 15:49:00 aleidinger Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
-SUBDIRS = ADbg tinyxml
+SUBDIRS = ADbg ddk tinyxml
 
 EXTRA_DIST = \
 	ACM.cpp \
