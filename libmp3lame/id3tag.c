@@ -29,7 +29,7 @@
  * NOTE: See http://id3.org/ for more information about ID3 tag formats.
  */
 
-/* $Id: id3tag.c,v 1.8 2000/11/01 18:06:13 markt Exp $ */
+/* $Id: id3tag.c,v 1.9 2000/11/03 14:21:19 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -43,7 +43,7 @@
 #include "util.h"
 #include "bitstream.h"
 
-static const char *genre_names[] =
+static const char *const genre_names[] =
 {
     /*
      * NOTE: The spelling of these genre names is identical to those found in
@@ -77,7 +77,7 @@ static const char *genre_names[] =
     "Synthpop"
 };
 
-#define GENRE_NAME_COUNT ((int)(sizeof genre_names / sizeof (const char *)))
+#define GENRE_NAME_COUNT ((int)(sizeof genre_names / sizeof (const char *const)))
 
 static const int genre_alpha_map [] = {
     123, 34, 74, 73, 99, 20, 40, 26, 145, 90, 116, 41, 135, 85, 96, 138, 89, 0,
