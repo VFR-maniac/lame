@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.124 2002/12/13 17:48:23 takehiro Exp $ */
+/* $Id: quantize.c,v 1.125 2002/12/14 19:19:53 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1001,7 +1001,7 @@ outer_loop (
 	 * in VBR mode we can't get rid of the distortion, so quit now
 	 * and VBR mode will try again with more bits.  
 	 * (makes a 10% speed increase, the files I tested were
-	 * binary identical, 2000/05/20 Robert.Hegemann@gmx.de)
+	 * binary identical, 2000/05/20 Robert Hegemann)
 	 * distort[] > 1 means noise > allowed noise
 	 */
 	if (gfc->sfb21_extra) {

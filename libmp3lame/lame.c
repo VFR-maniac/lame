@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.197 2002/12/13 16:54:53 takehiro Exp $ */
+/* $Id: lame.c,v 1.198 2002/12/14 19:19:52 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1050,7 +1050,7 @@ lame_init_params(lame_global_flags * const gfp)
      *
      * note: there is no padding for the very first frame
      *
-     * Robert.Hegemann@gmx.de 2000-06-22
+     * Robert Hegemann 2000-06-22
      */
     gfc->slot_lag = gfc->frac_SpF = 0;
     if (gfp->VBR == vbr_off && !gfp->disable_reservoir)

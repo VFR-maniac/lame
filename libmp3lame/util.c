@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.102 2002/12/08 17:02:26 takehiro Exp $ */
+/* $Id: util.c,v 1.103 2002/12/14 19:19:54 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -277,7 +277,7 @@ int nearestBitrateFullIndex(const int bitrate)
 
 /* map frequency to a valid MP3 sample frequency
  *
- * Robert.Hegemann@gmx.de 2000-07-01
+ * Robert Hegemann 2000-07-01
  */
 int map2MP3Frequency(int freq)
 {

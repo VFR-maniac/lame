@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: encoder.c,v 1.78 2002/12/08 17:02:19 takehiro Exp $ */
+/* $Id: encoder.c,v 1.79 2002/12/14 19:19:51 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -373,7 +373,7 @@ int  lame_encode_mp3_frame (				/* Output */
    *
    * note: there is no padding for the very first frame
    *
-   * Robert.Hegemann@gmx.de 2000-06-22
+   * Robert Hegemann 2000-06-22
    */
   gfc->padding = FALSE;
   if ((gfc->slot_lag -= gfc->frac_SpF) < 0) {
