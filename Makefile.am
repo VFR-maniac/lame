@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.21 2001/08/27 21:03:45 aleidinger Exp $
+## $Id: Makefile.am,v 1.22 2001/11/28 12:29:55 aleidinger Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -32,13 +32,11 @@ EXTRA_DIST = \
 	testcase.wav
 
 #
-#  testcase.mp3 is a 2926 byte file.  The first number output by
-#  wc is the number of bytes which differ between new output
-#  and 'official' results.  
-#
-#  Because of compiler options and effects of roundoff, the 
-#  number of bytes which are different may not be zero, but
-#  should be at most 30.
+# The differences depend on the used processor architecture, the used
+# compiler and the used options for the compiler, so make test may
+# show some differences. You should only be concerned if you are a
+# LAME developer and the number of differences change after you
+# modified the source.
 #
 testcase.new.mp3: testcase.wav frontend/lame$(EXEEXT)
 	time frontend/lame$(EXEEXT) --nores -h $(top_srcdir)/testcase.wav testcase.new.mp3 || $(RM_F) testcase.new.mp3
