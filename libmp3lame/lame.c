@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.276 2005/03/20 17:28:43 bouvigne Exp $ */
+/* $Id: lame.c,v 1.277 2005/05/25 13:56:32 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1303,7 +1303,7 @@ lame_print_internals( const lame_global_flags * gfp )
     MSGF( gfc, "\t ^ shape: %g%s\n", gfp->ATHcurve, " (only for type 4)" );
     MSGF( gfc, "\t ^ level adjustement: %g\n", gfp->ATHlower );
     MSGF( gfc, "\t ^ adjust type: %d\n", gfc->ATH->use_adjust );
-    MSGF( gfc, "\t ^ adjust sensitivity power: %d\n", gfc->ATH->aa_sensitivity_p );
+    MSGF( gfc, "\t ^ adjust sensitivity power: %f\n", gfc->ATH->aa_sensitivity_p );
     MSGF( gfc, "\t ^ adapt threshold type: %d\n", gfp->athaa_loudapprox );
     
     if ( gfp->psymodel == PSY_NSPSYTUNE ) {
