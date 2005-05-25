@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.206 2005/05/25 13:47:24 takehiro Exp $ */
+/* $Id: parse.c,v 1.207 2005/05/25 14:17:52 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1789,7 +1789,7 @@ char* const inPath, char* const outPath, char **nogap_inPath, int *num_nogap)
                         /*(void) lame_set_allow_diff_short( gfp, 1 );*/
                         break;
                     case 'S': 
-                        silent = 1;
+                        silent = 10;
                         break;
                     case 'X':
     	                {
