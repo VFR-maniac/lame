@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.205 2005/03/13 14:42:23 robert Exp $ */
+/* $Id: parse.c,v 1.206 2005/05/25 13:47:24 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -578,8 +578,7 @@ DEV_HELP(
               "    -X n[,m]        selects between different noise measurements\n"
 	      "                    n for long block, m for short. if m is omitted, m = n\n"
               "    -Y              lets LAME ignore noise in sfb21, like in CBR\n"
-              "    -Z [n]          toggles the scalefac-scale and subblock gain feature on\n"
-	      "                    if n is set and minus, only scalefac-scale is enabled \n"
+              "    -Z [n]          currently no effects\n"
             );
 
     wait_for ( fp, lessmode );  
