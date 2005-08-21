@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.23 2004/01/21 09:41:36 bouvigne Exp $
+## $Id: Makefile.am,v 1.24 2005/08/21 17:32:09 bouvigne Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -12,7 +12,9 @@ EXTRA_DIST = \
 	console.c \
 	console.h \
 	lame_vc6.dsp \
+	lame_vc7.vcproj \
 	mp3x_vc6.dsp \
+	mp3x_vc7.vcproj \
 	amiga_mpega.c
 
 DEFS = @DEFS@ @CONFIG_DEFS@

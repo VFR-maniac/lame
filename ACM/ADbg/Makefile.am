@@ -1,9 +1,10 @@
-## $Id: Makefile.am,v 1.1 2002/01/20 14:58:53 aleidinger Exp $
+## $Id: Makefile.am,v 1.2 2005/08/21 17:32:08 bouvigne Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
 EXTRA_DIST = \
 	ADbg.cpp \
 	ADbg.dsp \
+	ADbg_vc7.vcproj \
 	ADbg.h
 
