@@ -1,4 +1,4 @@
-dnl $Id: configure.in,v 1.112 2005/02/07 22:02:27 robert Exp $
+dnl $Id: configure.in,v 1.113 2005/08/27 08:25:15 takehiro Exp $
 dnl
 dnl
 dnl don't forget to set ASM_FOR_ARCH to a space delimited list of
@@ -688,8 +688,7 @@ esac
 AM_CONDITIONAL(HAVE_NASM, test "${NASM}" != "no")
 
 case $host_os in
-	*cygwin*)
-    *mingw32*)
+	*cygwin* | *mingw32*)
 		CYGWIN=yes
 		NASM_FORMAT="-f win32 -DWIN32"
 		;;
