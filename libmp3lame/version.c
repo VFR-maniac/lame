@@ -26,7 +26,7 @@
   Contains functions which describe the version of LAME.
 
   \author A.L. Faber
-  \version \$Id: version.c,v 1.23 2005/03/13 14:46:15 robert Exp $
+  \version \$Id: version.c,v 1.24 2005/08/28 17:02:11 bouvigne Exp $
   \ingroup libmp3lame
 */
 
@@ -210,6 +210,25 @@ void get_lame_version_numerical ( lame_version_t *const lvp )
     lvp->features = features;
     /*@=mustfree@*/
 }
+
+
+const char*  get_lame_os_bitness ( void )
+{
+    static /*@observer@*/ const char *const strXX = "";
+    static /*@observer@*/ const char *const str32 = "32bits";
+    static /*@observer@*/ const char *const str64 = "64bits";
+
+    switch (sizeof(void*)){
+    case 4:
+        return str32;
+        break;
+    case 8:
+        return str64;
+        break;
+    default:
+        return strXX;
+    }
+}    
 
 /* end of version.c */
 

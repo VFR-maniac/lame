@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.277 2005/05/25 13:56:32 takehiro Exp $ */
+/* $Id: lame.c,v 1.278 2005/08/28 17:02:10 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1121,8 +1121,9 @@ lame_print_config(const lame_global_flags * gfp)
     double  out_samplerate = gfp->out_samplerate;
     double  in_samplerate = gfp->out_samplerate * gfc->resample_ratio;
 
-    MSGF(gfc, "LAME version %s (%s)\n", get_lame_version(), get_lame_url());
-    if (LAME_ALPHA_VERSION)
+	MSGF(gfc, "LAME %s %s (%s)\n", get_lame_version(), get_lame_os_bitness(), get_lame_url());
+
+	if (LAME_ALPHA_VERSION)
         MSGF(gfc, "warning: alpha versions should be used for testing only\n");
 
     if (gfc->CPU_features.MMX
