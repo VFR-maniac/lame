@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.209 2005/08/28 17:30:55 bouvigne Exp $ */
+/* $Id: parse.c,v 1.210 2005/09/02 18:09:38 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -889,6 +889,8 @@ static int  presets_set( lame_t gfp, int fast, int cbr, const char* preset_name,
         lame_set_VBR_q(gfp, 4);
         if (fast > 0) {
             lame_set_VBR(gfp, vbr_mtrh);
+        } else {
+            lame_set_VBR(gfp, vbr_rh);
         }
         return 0;
     }
@@ -897,6 +899,8 @@ static int  presets_set( lame_t gfp, int fast, int cbr, const char* preset_name,
         lame_set_VBR_q(gfp, 2);
         if (fast > 0) {
             lame_set_VBR(gfp, vbr_mtrh);
+        } else {
+            lame_set_VBR(gfp, vbr_rh);
         }
         return 0;
     }
@@ -905,6 +909,8 @@ static int  presets_set( lame_t gfp, int fast, int cbr, const char* preset_name,
         lame_set_VBR_q(gfp, 0);
         if (fast > 0) {
             lame_set_VBR(gfp, vbr_mtrh);
+        } else {
+            lame_set_VBR(gfp, vbr_rh);
         }
         return 0;
     }
