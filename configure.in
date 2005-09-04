@@ -1,4 +1,4 @@
-dnl $Id: configure.in,v 1.114 2005/09/04 18:54:54 aleidinger Exp $
+dnl $Id: configure.in,v 1.115 2005/09/04 19:11:58 aleidinger Exp $
 dnl
 dnl
 dnl don't forget to set ASM_FOR_ARCH to a space delimited list of
@@ -757,8 +757,7 @@ if test "x$GCC" = "xyes"; then
 		# default
 		OPTIMIZATION="-O3 ${OMIT_FRAME_POINTER} -ffast-math \
 			-funroll-loops"
-		OPTIMIZATION_FULL="-fmove-all-movables -freduce-all-givs \
-				-fbranch-count-reg -fforce-addr -fforce-mem"
+		OPTIMIZATION_FULL="-fbranch-count-reg -fforce-addr -fforce-mem"
 		;;
 	esac
 
