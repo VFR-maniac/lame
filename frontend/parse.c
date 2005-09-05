@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.210 2005/09/02 18:09:38 bouvigne Exp $ */
+/* $Id: parse.c,v 1.211 2005/09/05 20:49:33 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -367,7 +367,8 @@ int  short_help ( const lame_global_flags* gfp, FILE* const fp, const char* Prog
               "    -h              higher quality, but a little slower.  Recommended.\n"
               "    -f              fast mode (lower quality)\n"
               "    -V n            quality setting for VBR.  default n=%i\n"
-              "\n", lame_get_VBR_q(gfp) );
+              "                    0=high quality,bigger files. 9=smaller files\n"
+              , lame_get_VBR_q(gfp) );
     fprintf ( fp, 
               "    --preset type   type must be \"medium\", \"standard\", \"extreme\", \"insane\",\n"
               "                    or a value for an average desired bitrate and depending\n"                       
