@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: encoder.c,v 1.90 2005/03/20 17:28:43 bouvigne Exp $ */
+/* $Id: encoder.c,v 1.91 2005/09/18 21:38:00 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -563,22 +563,7 @@ lame_encode_mp3_frame(       /* Output */
             }
         }
     }
-
-    switch (gfp->VBR) {
-    default:
-    case vbr_off:
-        CBR_iteration_loop(gfp, *pe_use, ms_ener_ratio, *masking);
-        break;
-    case vbr_mt:
-    case vbr_rh:
-    case vbr_mtrh:
-        VBR_iteration_loop(gfp, *pe_use, ms_ener_ratio, *masking);
-        break;
-    case vbr_abr:
-        ABR_iteration_loop(gfp, *pe_use, ms_ener_ratio, *masking);
-        break;
-    }
-
+    gfc->iteration_loop(gfp, *pe_use, ms_ener_ratio, *masking);
 
 
     /****************************************
