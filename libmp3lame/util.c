@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.118 2005/09/20 19:38:40 robert Exp $ */
+/* $Id: util.c,v 1.119 2005/09/20 19:51:00 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -109,7 +109,7 @@ void malloc_aligned( aligned_pointer_t* ptr, unsigned int size, unsigned int byt
         if (!ptr->pointer) {
             ptr->pointer = malloc( size+bytes );
             if (bytes > 0) {
-                ptr->aligned = (void*)((((int)ptr.pointer+bytes-1) / bytes) * bytes);
+                ptr->aligned = (void*)((((int)ptr->pointer+bytes-1) / bytes) * bytes);
             }
             else {
                 ptr->aligned = ptr->pointer;
