@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.117 2005/02/06 19:49:30 robert Exp $ */
+/* $Id: util.c,v 1.118 2005/09/20 19:38:40 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -103,7 +103,31 @@ void  freegfc ( lame_internal_flags* const gfc )   /* bit stream structure */
     free ( gfc );
 }
 
+void malloc_aligned( aligned_pointer_t* ptr, unsigned int size, unsigned int bytes )
+{
+    if (ptr) {
+        if (!ptr->pointer) {
+            ptr->pointer = malloc( size+bytes );
+            if (bytes > 0) {
+                ptr->aligned = (void*)((((int)ptr.pointer+bytes-1) / bytes) * bytes);
+            }
+            else {
+                ptr->aligned = ptr->pointer;
+            }
+        }
+    }
+}
 
+void free_aligned( aligned_pointer_t* ptr )
+{
+    if (ptr) {
+        if (ptr->pointer) {
+            free(ptr->pointer);
+            ptr->pointer = 0;
+            ptr->aligned = 0;
+        }
+    }
+}
 
 /*those ATH formulas are returning
 their minimum value for input = -1*/
