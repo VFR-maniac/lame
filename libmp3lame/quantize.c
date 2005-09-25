@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.172 2005/09/20 19:41:29 robert Exp $ */
+/* $Id: quantize.c,v 1.173 2005/09/25 22:09:19 glessard Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -612,7 +612,7 @@ trancate_smallspectrums(
     lame_internal_flags *gfc,
     gr_info		* const gi,
     const FLOAT	* const l3_xmin,
-    const FLOAT	* const work
+    FLOAT	* const work
     )
 {
     int sfb, j, width;
