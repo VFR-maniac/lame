@@ -1,7 +1,9 @@
-/* $Id: rtp.c,v 1.13 2005/11/01 13:01:57 robert Exp $ */
+/* $Id: rtp.c,v 1.14 2005/11/01 13:54:32 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
+/* std int types already defined in config.h */
+# define _STDINT_H
 #endif
 
 #ifndef __GNUC__

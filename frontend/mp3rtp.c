@@ -1,4 +1,4 @@
-/* $Id: mp3rtp.c,v 1.23 2005/11/01 13:01:56 robert Exp $ */
+/* $Id: mp3rtp.c,v 1.24 2005/11/01 13:54:32 robert Exp $ */
 
 /* Still under work ..., need a client for test, where can I get one? */
 
@@ -12,6 +12,8 @@
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
+/* std int types already defined in config.h */
+#define _STDINT_H
 #endif
 
 #ifdef STDC_HEADERS
@@ -101,8 +103,7 @@ maxvalue(int Buffer[2][1152])
         if (abs(Buffer[1][i]) > max)
             max = abs(Buffer[1][i]);
     }
-
-    return max;
+    return max >> 16;
 }
 
 void
@@ -120,7 +121,8 @@ levelmessage(unsigned int maxvalue)
         max = tmp;
     buff[max] = 'x';
     buff[tmp] = '#';
-    fwrite(buff, 1, sizeof(buff) - 1, stderr);
+    console_printf(buff);
+    console_flush();
 }
 
 
