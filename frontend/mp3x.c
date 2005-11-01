@@ -1,4 +1,4 @@
-/* $Id: mp3x.c,v 1.20 2005/11/01 13:01:57 robert Exp $ */
+/* $Id: mp3x.c,v 1.21 2005/11/01 13:10:01 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -16,6 +16,7 @@
 #include "lametime.h"
 
 #include "main.h"
+#include "console.h"
 
 #ifdef WITH_DMALLOC
 #include <dmalloc.h>
