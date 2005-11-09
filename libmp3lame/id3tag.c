@@ -28,7 +28,7 @@
  * NOTE: See http://id3.org/ for more information about ID3 tag formats.
  */
 
-/* $Id: id3tag.c,v 1.25 2005/11/05 16:20:56 aleidinger Exp $ */
+/* $Id: id3tag.c,v 1.26 2005/11/09 18:40:01 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -245,7 +245,9 @@ id3tag_set_comment(lame_global_flags *gfp, const char *comment)
 void
 id3tag_set_track(lame_global_flags *gfp, const char *track)
 {
+    char *trackcount;
     lame_internal_flags *gfc = gfp->internal_flags;
+
     if (track && *track) {
         int num = atoi(track);
         if (num < 0) {
@@ -262,7 +264,7 @@ id3tag_set_track(lame_global_flags *gfp, const char *track)
         }
 
         /* Look for the total track count after a "/", same restrictions */
-        char *trackcount = strchr(track, '/');
+        trackcount = strchr(track, '/');
         if (trackcount && *trackcount) {
             num = atoi(trackcount + 1);
             if (num < 0) {
