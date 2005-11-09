@@ -1,4 +1,4 @@
-/* $Id: rtp.c,v 1.14 2005/11/01 13:54:32 robert Exp $ */
+/* $Id: rtp.c,v 1.15 2005/11/09 18:56:54 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -21,6 +21,7 @@ char   *alloca();
 #endif
 
 #include <stdio.h>
+#include <stdarg.h>
 
 #ifdef STDC_HEADERS
 # include <stdlib.h>
