@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: gtkanal.c,v 1.36 2005/11/01 13:01:56 robert Exp $ */
+/* $Id: gtkanal.c,v 1.37 2005/11/22 22:15:39 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1076,7 +1076,7 @@ spec_option(GtkWidget * widget, gpointer data)
     analyze();
 }
 
-static gint
+static  gint
 key_press_event(GtkWidget * widget, GdkEventKey * event)
 {
     /* is a switch() statement in lame forbidden? */

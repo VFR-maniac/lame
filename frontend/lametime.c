@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lametime.c,v 1.16 2005/11/01 13:01:56 robert Exp $ */
+/* $Id: lametime.c,v 1.17 2005/11/22 22:15:39 robert Exp $ */
 
 /*
  * name:        GetCPUTime ( void )
@@ -140,7 +140,7 @@ lame_set_stream_binary_mode(FILE * const fp)
 #elif defined _WIN32
     _setmode(_fileno(fp), _O_BINARY);
 #else
-    (void) fp; /* doing nothing here, silencing the compiler only. */
+    (void) fp;          /* doing nothing here, silencing the compiler only. */
 #endif
     return 0;
 }
