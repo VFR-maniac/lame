@@ -1,7 +1,7 @@
 /*
  *	MP3 window subband -> subband filtering -> mdct routine
  *
- *	Copyright (c) 1999 Takehiro TOMINAGA
+ *	Copyright (c) 1999-2000 Takehiro Tominaga
  *
  *
  * This library is free software; you can redistribute it and/or
@@ -24,7 +24,7 @@
  *         Special Thanks to Patrick De Smet for your advices.
  */
 
-/* $Id: newmdct.c,v 1.29 2004/06/18 19:15:02 bouvigne Exp $ */
+/* $Id: newmdct.c,v 1.30 2005/11/27 15:02:36 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>

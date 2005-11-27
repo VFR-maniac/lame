@@ -1,6 +1,7 @@
 /*
 ** FFT and FHT routines
 **  Copyright 1988, 1993; Ron Mayer
+**	Copyright (c) 1999-2000 Takehiro Tominaga
 **  
 **  fht(fz,n);
 **      Does a hartley transform of "n" points in the array "fz".
@@ -31,7 +32,7 @@
 **           Takehiro  - some dirty hack for speed up
 */
 
-/* $Id: fft.c,v 1.25 2003/11/20 10:57:53 bouvigne Exp $ */
+/* $Id: fft.c,v 1.26 2005/11/27 15:02:35 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>

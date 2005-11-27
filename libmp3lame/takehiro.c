@@ -1,7 +1,8 @@
 /*
  *	MP3 huffman table selecting and bit counting
  *
- *	Copyright (c) 1999 Takehiro TOMINAGA
+ *	Copyright (c) 1999-2005 Takehiro TOMINAGA
+ *	Copyright (c) 2002-2005 Gabriel Bouvigne
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -19,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: takehiro.c,v 1.61 2005/03/06 18:59:59 bouvigne Exp $ */
+/* $Id: takehiro.c,v 1.62 2005/11/27 15:02:36 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>

@@ -2,6 +2,7 @@
  *	lame utility library source file
  *
  *	Copyright (c) 1999 Albert L Faber
+ *	Copyright (c) 2000-2005 Alexander Leidinger
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -19,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.119 2005/09/20 19:51:00 robert Exp $ */
+/* $Id: util.c,v 1.120 2005/11/27 15:02:36 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>

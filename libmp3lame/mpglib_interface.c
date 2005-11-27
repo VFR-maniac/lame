@@ -1,4 +1,27 @@
-/* $Id: mpglib_interface.c,v 1.26 2004/06/18 19:15:02 bouvigne Exp $ */
+/* -*- mode: C; mode: fold -*- */
+/*
+ *	LAME MP3 encoding engine
+ *
+ *	Copyright (c) 1999-2000 Mark Taylor
+ *	Copyright (c) 2003 Olcios
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Library General Public
+ * License as published by the Free Software Foundation; either
+ * version 2 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the GNU
+ * Library General Public License for more details.
+ *
+ * You should have received a copy of the GNU Library General Public
+ * License along with this library; if not, write to the
+ * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ * Boston, MA 02111-1307, USA.
+ */
+
+/* $Id: mpglib_interface.c,v 1.27 2005/11/27 15:02:36 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>

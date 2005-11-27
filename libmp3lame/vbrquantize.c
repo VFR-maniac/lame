@@ -1,8 +1,8 @@
 /*
  *	MP3 quantization
  *
- *	Copyright (c) 1999 Mark Taylor
- *                2004 Robert Hegemann
+ *	Copyright (c) 1999-2000 Mark Taylor
+ *	Copyright (c) 2000-2005 Robert Hegemann
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: vbrquantize.c,v 1.106 2005/09/20 19:41:29 robert Exp $ */
+/* $Id: vbrquantize.c,v 1.107 2005/11/27 15:02:36 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #  include <config.h>

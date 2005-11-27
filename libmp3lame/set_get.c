@@ -2,7 +2,7 @@
 /*
  * set/get functions for lame_global_flags
  *
- * Copyright (c) 2001 Alexander Leidinger
+ * Copyright (c) 2001-2005 Alexander Leidinger
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.72 2005/09/20 09:19:04 robert Exp $ */
+/* $Id: set_get.c,v 1.73 2005/11/27 15:02:36 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -607,7 +607,7 @@ lame_set_brate( lame_global_flags*  gfp,
 {
     gfp->brate = brate;
 
-    if (brate >= 320) {
+    if (brate > 320) {
         gfp->disable_reservoir = 1;
     }
 

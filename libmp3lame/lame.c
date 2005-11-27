@@ -2,7 +2,11 @@
 /*
  *	LAME MP3 encoding engine
  *
- *	Copyright (c) 1999 Mark Taylor
+ *	Copyright (c) 1999-2000 Mark Taylor
+ *	Copyright (c) 2000-2005 Takehiro Tominaga
+ *	Copyright (c) 2000-2005 Robert Hegemann
+ *	Copyright (c) 2000-2005 Gabriel Bouvigne
+ *	Copyright (c) 2000-2004 Alexander Leidinger
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -20,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.281 2005/10/31 13:01:57 bouvigne Exp $ */
+/* $Id: lame.c,v 1.282 2005/11/27 15:02:35 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>

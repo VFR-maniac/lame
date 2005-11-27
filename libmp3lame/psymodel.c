@@ -1,7 +1,12 @@
 /*
  *	psymodel.c
  *
- *	Copyright (c) 1999 Mark Taylor
+ *	Copyright (c) 1999-2000 Mark Taylor
+ *	Copyright (c) 2001-2002 Naoki Shibata
+ *	Copyright (c) 2000-2003 Takehiro Tominaga
+ *	Copyright (c) 2000-2005 Robert Hegemann
+ *	Copyright (c) 2000-2005 Gabriel Bouvigne
+ *	Copyright (c) 2000-2005 Alexander Leidinger
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -19,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.142 2005/02/22 02:06:09 robert Exp $ */
+/* $Id: psymodel.c,v 1.143 2005/11/27 15:02:36 bouvigne Exp $ */
 
 
 /*
