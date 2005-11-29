@@ -1,4 +1,4 @@
-/* $Id: mp3x.c,v 1.21 2005/11/01 13:10:01 robert Exp $ */
+/* $Id: mp3x.c,v 1.22 2005/11/29 21:21:01 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -41,6 +41,8 @@ main(int argc, char **argv)
     char    outPath[PATH_MAX + 1];
     char    inPath[PATH_MAX + 1];
     int     ret;
+    int     enc_delay = -1;
+    int     enc_padding = -1;
 
     frontend_open_console();
     gf = lame_init();
@@ -64,7 +66,7 @@ main(int argc, char **argv)
     }
     (void) lame_set_analysis(gf, 1);
 
-    init_infile(gf, inPath);
+    init_infile(gf, inPath, &enc_delay, &enc_padding);
     lame_init_params(gf);
     lame_print_config(gf);
 
