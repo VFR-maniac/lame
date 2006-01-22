@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: reservoir.c,v 1.30 2005/11/27 15:02:36 bouvigne Exp $ */
+/* $Id: reservoir.c,v 1.31 2006/01/22 17:52:44 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -159,12 +159,11 @@ ResvFrameBegin(lame_global_flags *gfp, int *mean_bits)
     assert ( gfc->ResvMax >= 0 );
 
     l3_side->resvDrain_pre = 0;
-#ifdef HAVE_GTK
+
     if (gfc->pinfo != NULL) {
         gfc->pinfo->mean_bits = *mean_bits / 2;  /* expected bits per channel per granule [is this also right for mono/stereo, MPEG-1/2 ?] */
         gfc->pinfo->resvsize  = gfc->ResvSize;
     }
-#endif
 
     return fullFrameBits;
 }

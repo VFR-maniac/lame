@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.175 2005/11/27 15:02:36 bouvigne Exp $ */
+/* $Id: quantize.c,v 1.176 2006/01/22 17:52:43 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1896,7 +1896,7 @@ VBR_new_prepare (
     int     dummy_not_used_anymore;
   
     gfc->bitrate_index = gfc->VBR_max_bitrate;
-    avg = ResvFrameBegin (gfp, &avg) / gfc->mode_gr;
+    /*avg =*/ ResvFrameBegin (gfp, &avg) / gfc->mode_gr;
     
     get_framebits (gfp, &dummy_not_used_anymore, &dummy_not_used_anymore, frameBits);
 

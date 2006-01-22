@@ -23,7 +23,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: encoder.c,v 1.92 2005/11/27 15:02:35 bouvigne Exp $ */
+/* $Id: encoder.c,v 1.93 2006/01/22 17:52:41 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -508,7 +508,6 @@ lame_encode_mp3_frame(       /* Output */
     }
 
 
-#if defined(HAVE_GTK)
     /* copy data for MP3 frame analyzer */
     if (gfp->analysis && gfc->pinfo != NULL) {
         for (gr = 0; gr < gfc->mode_gr; gr++) {
@@ -528,7 +527,6 @@ lame_encode_mp3_frame(       /* Output */
             }
         }
     }
-#endif
 
 
     /****************************************
@@ -588,7 +586,6 @@ lame_encode_mp3_frame(       /* Output */
         AddVbrFrame(gfp);
 
 
-#if defined(HAVE_GTK)
     if (gfp->analysis && gfc->pinfo != NULL) {
         for (ch = 0; ch < gfc->channels_out; ch++) {
             int     j;
@@ -600,7 +597,6 @@ lame_encode_mp3_frame(       /* Output */
         }
         set_frame_pinfo(gfp, *masking);
     }
-#endif
 
 #ifdef BRHIST
     updateStats(gfc);

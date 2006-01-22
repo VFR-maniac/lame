@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.132 2005/11/27 15:02:36 bouvigne Exp $ */
+/* $Id: quantize_pvt.c,v 1.133 2006/01/22 17:52:44 robert Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -360,7 +360,6 @@ iteration_init( lame_global_flags *gfp)
         if (i >= 32)
             i -= 64;
         sfb21 = treble * pow(10, i / 4.0 / 10.0);
-
 	for (i = 0; i < SBMAX_l; i++) {
 	    FLOAT f;
 	    if      (i <=  6) f = bass;
@@ -812,7 +811,7 @@ int  calc_noise(
 
 
 
-#ifdef HAVE_GTK
+
 /************************************************************************
  *
  *  set_pinfo()
@@ -974,6 +973,6 @@ void set_frame_pinfo(
 	} /* for ch */
     }    /* for gr */
 }
-#endif /* ifdef HAVE_GTK */
+
 
 
