@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.105 2006/01/30 15:41:30 takehiro Exp $ */
+/* $Id: get_audio.c,v 1.106 2006/02/18 16:35:55 takehiro Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -181,7 +181,7 @@ init_infile(lame_global_flags * gfp, char *inPath, int *enc_delay, int *enc_padd
     num_samples_read = 0;
     pcmbitwidth = in_bitwidth;
     pcmswapbytes = swapbytes;
-    musicin = musicin = OpenSndFile(gfp, inPath, enc_delay, enc_padding);
+    musicin = OpenSndFile(gfp, inPath, enc_delay, enc_padding);
 }
 
 void
