@@ -28,7 +28,7 @@
  * NOTE: See http://id3.org/ for more information about ID3 tag formats.
  */
 
-/* $Id: id3tag.c,v 1.28 2006/01/21 13:10:43 takehiro Exp $ */
+/* $Id: id3tag.c,v 1.29 2006/04/08 07:12:42 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -76,27 +76,27 @@ static const char *const genre_names[] =
     "Rap", "Reggae", "Rock", "Techno", "Industrial", "Alternative", "Ska",
     "Death Metal", "Pranks", "Soundtrack", "Euro-Techno", "Ambient", "Trip-Hop",
     "Vocal", "Jazz+Funk", "Fusion", "Trance", "Classical", "Instrumental",
-    "Acid", "House", "Game", "Sound Clip", "Gospel", "Noise", "Alt. Rock",
+    "Acid", "House", "Game", "Sound Clip", "Gospel", "Noise", "Alternative Rock",
     "Bass", "Soul", "Punk", "Space", "Meditative", "Instrumental Pop",
     "Instrumental Rock", "Ethnic", "Gothic", "Darkwave", "Techno-Industrial",
     "Electronic", "Pop-Folk", "Eurodance", "Dream", "Southern Rock", "Comedy",
-    "Cult", "Gangsta Rap", "Top 40", "Christian Rap", "Pop/Funk", "Jungle",
-    "Native American", "Cabaret", "New Wave", "Psychedelic", "Rave",
+    "Cult", "Gangsta", "Top 40", "Christian Rap", "Pop/Funk", "Jungle",
+    "Native US", "Cabaret", "New Wave", "Psychedelic", "Rave",
     "Showtunes", "Trailer", "Lo-Fi", "Tribal", "Acid Punk", "Acid Jazz",
     "Polka", "Retro", "Musical", "Rock & Roll", "Hard Rock", "Folk",
-    "Folk/Rock", "National Folk", "Swing", "Fast-Fusion", "Bebob", "Latin",
+    "Folk-Rock", "National Folk", "Swing", "Fast Fusion", "Bebob", "Latin",
     "Revival", "Celtic", "Bluegrass", "Avantgarde", "Gothic Rock",
     "Progressive Rock", "Psychedelic Rock", "Symphonic Rock", "Slow Rock",
     "Big Band", "Chorus", "Easy Listening", "Acoustic", "Humour", "Speech",
     "Chanson", "Opera", "Chamber Music", "Sonata", "Symphony", "Booty Bass",
     "Primus", "Porn Groove", "Satire", "Slow Jam", "Club", "Tango", "Samba",
     "Folklore", "Ballad", "Power Ballad", "Rhythmic Soul", "Freestyle", "Duet",
-    "Punk Rock", "Drum Solo", "A Cappella", "Euro-House", "Dance Hall",
+    "Punk Rock", "Drum Solo", "Acappella", "Euro-House", "Dance Hall",
     "Goa", "Drum & Bass", "Club-House", "Hardcore", "Terror", "Indie",
-    "BritPop", "Negerpunk", "Polsk Punk", "Beat", "Christian Gangsta Rap",
+    "BritPop", "Negerpunk", "Polsk Punk", "Beat", "Christian Gangsta",
     "Heavy Metal", "Black Metal", "Crossover", "Contemporary Christian",
     "Christian Rock", "Merengue", "Salsa", "Thrash Metal", "Anime", "JPop",
-    "Synthpop"
+    "SynthPop"
 };
 
 #define GENRE_NAME_COUNT \
