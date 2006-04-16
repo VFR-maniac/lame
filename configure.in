@@ -1,4 +1,4 @@
-dnl $Id: configure.in,v 1.115 2005/09/04 19:11:58 aleidinger Exp $
+dnl $Id: configure.in,v 1.116 2006/04/16 07:06:29 takehiro Exp $
 dnl
 dnl
 dnl don't forget to set ASM_FOR_ARCH to a space delimited list of
@@ -302,31 +302,6 @@ AC_CHECK_FUNCS(gettimeofday strtol)
 if test "X${ac_cv_func_strtol}" != "Xyes"; then
 	AC_MSG_ERROR([function strtol is mandatory])
 fi
-
-dnl Check if we have winsock, if so, we are on a mingw system
-dnl and need libwsock32
-SOCKETFUNCTION=YES
-AC_CHECK_HEADER(winsock2.h, [AC_DEFINE([HAVE_WINSOCKET], [], [winsock])
-		LIBS="$LIBS -lwsock32"])  
-if test $ac_cv_header_winsock2_h = no; then
-	AC_CHECK_FUNCS(socket)
-	if test $ac_cv_func_socket = no; then
-		# maybe it is in libsocket
-		AC_CHECK_LIB(socket, socket, [AC_DEFINE(HAVE_SOCKET)
-			LIBS="$LIBS -lsocket"])
-
-		if test "X${ac_cv_lib_socket_socket}" != "Xyes"; then
-			SOCKETFUNCTION=NO
-		else
-			case ${host_os} in
-			*solaris*)
-				LIBS="$LIBS -lnsl"
-				;;
-			esac
-		fi
-	fi
-fi
-
 
 dnl Initialize configuration variables for the Makefile
 CFLAGS=${CFLAGS}
