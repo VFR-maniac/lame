@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: reservoir.c,v 1.31 2006/01/22 17:52:44 robert Exp $ */
+/* $Id: reservoir.c,v 1.32 2006/05/04 19:50:39 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -139,7 +139,8 @@ ResvFrameBegin(lame_global_flags *gfp, int *mean_bits)
 
         /* Bouvigne suggests this more lax interpretation of the ISO doc 
            instead of using 8*960. */
-        if (gfp->strict_ISO)
+        /* always enabled because of compatibility problems with some FhG decoders*/
+ //       if (gfp->strict_ISO)
 	        maxmp3buf = 8*((int)(320000/(gfp->out_samplerate / (FLOAT)1152)/8 +.5));
     }
 
