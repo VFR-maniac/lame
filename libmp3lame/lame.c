@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.284 2006/06/03 11:41:23 aleidinger Exp $ */
+/* $Id: lame.c,v 1.285 2006/06/03 13:03:47 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -700,10 +700,11 @@ lame_init_params(lame_global_flags * const gfp)
       gfc->findPeakSample = 1;
 
     if (gfc->findReplayGain) {
-      if (InitGainAnalysis(gfc->rgdata, gfp->out_samplerate) == INIT_GAIN_ANALYSIS_ERROR)
+      if (InitGainAnalysis(gfc->rgdata, gfp->out_samplerate) == INIT_GAIN_ANALYSIS_ERROR) {
         freegfc(gfc);
         gfp->internal_flags = NULL;
         return -6;
+      }
     }
 
 #ifdef DECODE_ON_THE_FLY
@@ -1960,7 +1961,7 @@ lame_close(lame_global_flags * gfp)
 {
     lame_internal_flags *gfc = gfp->internal_flags;
 
-    if (gfc->Class_ID != LAME_ID)
+    if (NULL == gfc || gfc->Class_ID != LAME_ID)
         return -3;
 
     if (gfp->exp_nspsytune2.pointer[0]) {
