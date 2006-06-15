@@ -26,7 +26,7 @@
   Contains functions which describe the version of LAME.
 
   \author A.L. Faber
-  \version \$Id: version.c,v 1.25 2006/06/15 16:03:14 robert Exp $
+  \version \$Id: version.c,v 1.26 2006/06/15 23:07:29 robert Exp $
   \ingroup libmp3lame
 */
 
@@ -220,10 +220,10 @@ const char*  get_lame_os_bitness ( void )
     switch (sizeof(void*)){
     case 4:
         return str32;
-        break;
+
     case 8:
         return str64;
-        break;
+
     default:
         return strXX;
     }
