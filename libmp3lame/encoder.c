@@ -23,27 +23,25 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: encoder.c,v 1.93 2006/01/22 17:52:41 robert Exp $ */
+/* $Id: encoder.c,v 1.94 2006/06/15 16:03:14 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
 
-#include <assert.h>
 
 #include "lame.h"
+#include "machine.h"
+#include "encoder.h"
 #include "util.h"
+#include "lame_global_flags.h"
 #include "newmdct.h"
 #include "psymodel.h"
-#include "quantize.h"
-#include "quantize_pvt.h"
+#include "lame-analysis.h"
 #include "bitstream.h"
 #include "VbrTag.h"
-#include "vbrquantize.h"
+#include "quantize_pvt.h"
 
-#ifdef WITH_DMALLOC
-#include <dmalloc.h>
-#endif
 
 
 /*

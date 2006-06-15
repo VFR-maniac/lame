@@ -28,7 +28,7 @@
  * NOTE: See http://id3.org/ for more information about ID3 tag formats.
  */
 
-/* $Id: id3tag.c,v 1.29 2006/04/08 07:12:42 takehiro Exp $ */
+/* $Id: id3tag.c,v 1.30 2006/06/15 16:03:14 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -57,13 +57,13 @@ char *strchr (), *strrchr ();
 
 
 #include "lame.h"
+#include "machine.h"
+#include "encoder.h"
 #include "id3tag.h"
+#include "lame_global_flags.h"
 #include "util.h"
 #include "bitstream.h"
 
-#ifdef WITH_DMALLOC
-#include <dmalloc.h>
-#endif
 
 static const char *const genre_names[] =
 {

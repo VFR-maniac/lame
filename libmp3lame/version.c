@@ -26,7 +26,7 @@
   Contains functions which describe the version of LAME.
 
   \author A.L. Faber
-  \version \$Id: version.c,v 1.24 2005/08/28 17:02:11 bouvigne Exp $
+  \version \$Id: version.c,v 1.25 2006/06/15 16:03:14 robert Exp $
   \ingroup libmp3lame
 */
 
@@ -36,12 +36,11 @@
 #endif
 
 
-#include <stdio.h>
+#include "lame.h"
+#include "machine.h"
+
 #include "version.h"    /* macros of version numbers */
 
-#ifdef WITH_DMALLOC
-#include <dmalloc.h>
-#endif
 
 /*! Stringify \a x. */
 #define STR(x)   #x

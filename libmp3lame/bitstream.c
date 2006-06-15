@@ -19,7 +19,7 @@
  * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: bitstream.c,v 1.70 2005/11/27 15:02:34 bouvigne Exp $
+ * $Id: bitstream.c,v 1.71 2006/06/15 16:03:14 robert Exp $
  */
 
 
@@ -28,20 +28,23 @@
 #endif
 
 #include <stdlib.h>
-#include <assert.h>
 #include <stdio.h>
-#include "tables.h"
-#include "bitstream.h"
-#include "quantize.h"
-#include "quantize_pvt.h"
-#include "version.h"
-#include "VbrTag.h"
-#include "machine.h"
-#include "gain_analysis.h"
 
-#ifdef WITH_DMALLOC
-#include <dmalloc.h>
-#endif
+#include "lame.h"
+#include "machine.h"
+#include "bitstream.h"
+
+#include "encoder.h"
+#include "util.h"
+#include "tables.h"
+#include "l3side.h"
+#include "quantize_pvt.h"
+#include "lame_global_flags.h"
+#include "gain_analysis.h"
+#include "id3tag.h"
+#include "VbrTag.h"
+
+
 
 /* unsigned int is at least this large:  */
 /* we work with ints, so when doing bit manipulation, we limit

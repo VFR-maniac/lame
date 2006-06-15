@@ -32,22 +32,23 @@
 **           Takehiro  - some dirty hack for speed up
 */
 
-/* $Id: fft.c,v 1.26 2005/11/27 15:02:35 bouvigne Exp $ */
+/* $Id: fft.c,v 1.27 2006/06/15 16:03:14 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
 
 #include <math.h>
-#include "util.h"
+
+#include "lame.h"
+#include "machine.h"
+#include "encoder.h"
 #include "fft.h"
+#include "util.h"
 
 
 
  
-#ifdef WITH_DMALLOC
-#include <dmalloc.h>
-#endif
 
 #define TRI_SIZE (5-1) /* 1024 =  4**5 */
 

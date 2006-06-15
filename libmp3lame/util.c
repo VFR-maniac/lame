@@ -20,26 +20,23 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.120 2005/11/27 15:02:36 bouvigne Exp $ */
+/* $Id: util.c,v 1.121 2006/06/15 16:03:14 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
 
-#define PRECOMPUTE
-
+#include "lame.h"
+#include "machine.h"
+#include "encoder.h"
 #include "util.h"
-#include <ctype.h>
-#include <assert.h>
-#include <stdarg.h>
+#include "lame_global_flags.h"
 
+#define PRECOMPUTE
 #if defined(__FreeBSD__) && !defined(__alpha__)
 # include <machine/floatingpoint.h>
 #endif
 
-#ifdef WITH_DMALLOC
-#include <dmalloc.h>
-#endif
 
 /***********************************************************************
 *

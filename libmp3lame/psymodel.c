@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.145 2006/05/04 19:43:32 bouvigne Exp $ */
+/* $Id: psymodel.c,v 1.146 2006/06/15 16:03:14 robert Exp $ */
 
 
 /*
@@ -144,18 +144,15 @@ blocktype_d[2]        block type to use for previous granule
 # include <config.h>
 #endif
 
-#include "util.h"
-#include "encoder.h"
-#include "psymodel.h"
-#include "l3side.h"
-#include <assert.h>
-#include "tables.h"
-#include "fft.h"
+#include "lame.h"
 #include "machine.h"
+#include "encoder.h"
+#include "util.h"
+#include "psymodel.h"
+#include "lame_global_flags.h"
+#include "fft.h"
+#include "lame-analysis.h"
 
-#ifdef WITH_DMALLOC
-#include <dmalloc.h>
-#endif
 
 #define NSFIRLEN 21
 

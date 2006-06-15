@@ -19,19 +19,22 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: reservoir.c,v 1.32 2006/05/04 19:50:39 bouvigne Exp $ */
+/* $Id: reservoir.c,v 1.33 2006/06/15 16:03:14 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
 
-#include <assert.h>
-#include "bitstream.h"
+
+#include "lame.h"
+#include "machine.h"
+#include "encoder.h"
+#include "util.h"
 #include "reservoir.h"
 
-#ifdef WITH_DMALLOC
-#include <dmalloc.h>
-#endif
+#include "bitstream.h"
+#include "lame-analysis.h"
+#include "lame_global_flags.h"
 
 /*
   ResvFrameBegin:

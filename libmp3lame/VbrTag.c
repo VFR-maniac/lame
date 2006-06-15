@@ -20,23 +20,19 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.81 2005/11/27 15:02:36 bouvigne Exp $ */
+/* $Id: VbrTag.c,v 1.82 2006/06/15 16:03:14 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
 
-#include "machine.h"
-#include "bitstream.h"
 #include "lame.h"
+#include "machine.h"
+#include "encoder.h"
+#include "util.h"
+#include "bitstream.h"
 #include "VbrTag.h"
-#include "version.h"
-
-#include	<assert.h>
-
-#ifdef WITH_DMALLOC
-#include <dmalloc.h>
-#endif
+#include "lame_global_flags.h"
 
 #ifdef __sun__
 /* woraround for SunOS 4.x, it has SEEK_* defined here */

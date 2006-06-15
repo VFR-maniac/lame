@@ -20,21 +20,20 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: takehiro.c,v 1.62 2005/11/27 15:02:36 bouvigne Exp $ */
+/* $Id: takehiro.c,v 1.63 2006/06/15 16:03:14 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
 
-#include <assert.h>
-#include "util.h"
-#include "l3side.h"
-#include "tables.h"
-#include "quantize_pvt.h"
 
-#ifdef WITH_DMALLOC
-#include <dmalloc.h>
-#endif
+#include "lame.h"
+#include "machine.h"
+#include "encoder.h"
+#include "util.h"
+#include "quantize_pvt.h"
+#include "tables.h"
+
 
 static const struct
 {

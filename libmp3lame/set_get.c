@@ -20,23 +20,20 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.73 2005/11/27 15:02:36 bouvigne Exp $ */
+/* $Id: set_get.c,v 1.74 2006/06/15 16:03:14 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
 
-#include <assert.h>
+#include "lame.h"
+#include "machine.h"
+#include "encoder.h"
 #include "util.h"
 #include "bitstream.h"  /* because of compute_flushbits */
 
-#ifdef WITH_DMALLOC
-#include <dmalloc.h>
-#endif
-
-
 #include "set_get.h"
-
+#include "lame_global_flags.h"
 
 /*
  * input stream description

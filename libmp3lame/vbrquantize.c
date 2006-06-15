@@ -20,21 +20,20 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: vbrquantize.c,v 1.107 2005/11/27 15:02:36 bouvigne Exp $ */
+/* $Id: vbrquantize.c,v 1.108 2006/06/15 16:03:14 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #  include <config.h>
 #endif
 
-#include <assert.h>
-#include "util.h"
-#include "l3side.h"
-#include "quantize_pvt.h"
-#include "vbrquantize.h"
 
-#ifdef WITH_DMALLOC
-#  include <dmalloc.h>
-#endif
+#include "lame.h"
+#include "machine.h"
+#include "encoder.h"
+#include "util.h"
+#include "vbrquantize.h"
+#include "quantize_pvt.h"
+
 
 
 

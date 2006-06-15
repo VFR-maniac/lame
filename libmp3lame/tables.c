@@ -19,18 +19,18 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: tables.c,v 1.19 2002/12/08 17:02:25 takehiro Exp $ */
+/* $Id: tables.c,v 1.20 2006/06/15 16:03:14 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
 
+#include "lame.h"
+#include "machine.h"
+#include "encoder.h"
 #include "util.h"
 #include "tables.h"
 
-#ifdef WITH_DMALLOC
-#include <dmalloc.h>
-#endif
 
 static const short      t1HB[]   = {
   1, 1, 

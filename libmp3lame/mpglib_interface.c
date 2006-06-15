@@ -21,7 +21,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: mpglib_interface.c,v 1.27 2005/11/27 15:02:36 bouvigne Exp $ */
+/* $Id: mpglib_interface.c,v 1.28 2006/06/15 16:03:14 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -29,16 +29,11 @@
 
 #ifdef HAVE_MPGLIB
 
-#include <limits.h>
-#include <stdlib.h>
-#include <assert.h>
-
-#include "interface.h"
 #include "lame.h"
+#include "machine.h"
+#include "encoder.h"
+#include "interface.h"
 
-#ifdef WITH_DMALLOC
-#include <dmalloc.h>
-#endif
 
 
 MPSTR   mp;

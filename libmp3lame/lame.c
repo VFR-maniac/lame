@@ -24,37 +24,34 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.285 2006/06/03 13:03:47 aleidinger Exp $ */
+/* $Id: lame.c,v 1.286 2006/06/15 16:03:14 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
 
 
-#include <assert.h>
-#include "lame-analysis.h"
 #include "lame.h"
-#include "util.h"
-#include "bitstream.h"
-#include "version.h"
-#include "tables.h"
-#include "quantize_pvt.h"
-#include "psymodel.h"
-#include "VbrTag.h"
 #include "machine.h"
+
+#include "encoder.h"
+#include "util.h"
+#include "lame_global_flags.h"
 #include "gain_analysis.h"
+#include "bitstream.h"
+#include "quantize_pvt.h"
 #include "set_get.h"
 #include "quantize.h"
+#include "psymodel.h"
+#include "version.h"
+#include "VbrTag.h"
+
 
 #if defined(__FreeBSD__) && !defined(__alpha__)
 #include <floatingpoint.h>
 #endif
 #ifdef __riscos__
 #include "asmstuff.h"
-#endif
-
-#ifdef WITH_DMALLOC
-#include <dmalloc.h>
 #endif
 
 #ifdef __sun__
