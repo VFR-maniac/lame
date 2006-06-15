@@ -1,13 +1,12 @@
-/* $Id: mp3x.c,v 1.22 2005/11/29 21:21:01 robert Exp $ */
+/* $Id: mp3x.c,v 1.23 2006/06/15 23:51:48 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
 
 #include "lame.h"
-
-#include <stdio.h>
-
+#include "machine.h"
+#include "encoder.h"
 #include "lame-analysis.h"
 #include <gtk/gtk.h>
 #include "parse.h"
@@ -18,9 +17,6 @@
 #include "main.h"
 #include "console.h"
 
-#ifdef WITH_DMALLOC
-#include <dmalloc.h>
-#endif
 
 
 
@@ -29,7 +25,7 @@
 *
 * main
 *
-* PURPOSE:  MPEG-1,2 Layer III encoder with GPSYCHO 
+* PURPOSE:  MPEG-1,2 Layer III encoder with GPSYCHO
 * psychoacoustic model.
 *
 ************************************************************************/
