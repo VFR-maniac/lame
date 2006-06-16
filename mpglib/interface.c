@@ -1,4 +1,4 @@
-/* $Id: interface.c,v 1.48 2006/06/15 23:51:49 robert Exp $ */
+/* $Id: interface.c,v 1.49 2006/06/16 00:16:11 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -12,6 +12,7 @@
 #include "tabinit.h"
 #include "layer3.h"
 #include "lame.h"
+#include "machine.h"
 #include "VbrTag.h"
 #include "decode_i386.h"
 
