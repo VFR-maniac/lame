@@ -19,7 +19,7 @@
  * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: bitstream.c,v 1.73 2006/06/15 23:51:48 robert Exp $
+ * $Id: bitstream.c,v 1.74 2006/06/18 16:44:23 robert Exp $
  */
 
 
@@ -605,10 +605,10 @@ LongHuffmancodebits(lame_internal_flags * gfc, gr_info const *gi)
     assert(0 <= bigvalues && bigvalues <= 576);
 
     i = gi->region0_count + 1;
-    assert(i < 22);
+    assert(i < sizeof(gfc->scalefac_band.l) );
     region1Start = gfc->scalefac_band.l[i];
     i += gi->region1_count + 1;
-    assert(i < 22);
+    assert(i < sizeof(gfc->scalefac_band.l) );
     region2Start = gfc->scalefac_band.l[i];
 
     if (region1Start > bigvalues)
