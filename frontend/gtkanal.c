@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: gtkanal.c,v 1.38 2006/06/15 23:51:48 robert Exp $ */
+/* $Id: gtkanal.c,v 1.39 2006/06/18 16:45:34 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -41,10 +41,7 @@
    should be made accessable by writing a lame_set_variable() function */
 #include "util.h"
 
-#ifdef WITH_DMALLOC
-#include <dmalloc.h>
-#endif
-
+#include "console.h"
 
 
 #ifdef _WIN32
