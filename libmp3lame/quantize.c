@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.180 2006/06/16 00:16:11 robert Exp $ */
+/* $Id: quantize.c,v 1.181 2006/06/23 23:40:42 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -300,7 +300,8 @@ init_xrpow(lame_internal_flags * gfc, gr_info * const cod_info, FLOAT xrpow[576]
     /*  check if there is some energy we have to quantize
      *  and calculate xrpow matching our fresh scalefactors
      */
-    memset(&(xrpow[upper]), 0, (575 - upper) * sizeof(xrpow[upper]));
+    assert( 0 <= upper && upper <= 575 );
+    memset(&(xrpow[upper]), 0, (576 - upper) * sizeof(xrpow[0]));
 
 
     gfc->init_xrpow_core(cod_info, xrpow, upper, &sum);
