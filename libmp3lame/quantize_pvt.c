@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.139 2006/06/23 23:40:42 robert Exp $ */
+/* $Id: quantize_pvt.c,v 1.140 2006/06/24 01:57:00 robert Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -646,7 +646,7 @@ calc_xmin(lame_global_flags const *gfp,
             ath_over++;
 
 #ifdef RH_TEST_ATHAA_FIX
-        if (0&&gsfb == SBPSY_l)
+        if (1&&gsfb == SBPSY_l)
         {
             FLOAT x = xmin*gfc->nsPsy.longfact[gsfb];
             if (rh2 < x) {
@@ -737,7 +737,7 @@ calc_xmin(lame_global_flags const *gfp,
             if (en0 > tmpATH)
                 ath_over++;
 #ifdef RH_TEST_ATHAA_FIX
-            if (0&&sfb == SBPSY_s)
+            if (1&&sfb == SBPSY_s)
             {
                 FLOAT x = tmpATH*gfc->nsPsy.shortfact[sfb];
                 if (rh2 < x) {
