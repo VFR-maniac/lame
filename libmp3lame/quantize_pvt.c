@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.140 2006/06/24 01:57:00 robert Exp $ */
+/* $Id: quantize_pvt.c,v 1.141 2006/06/24 15:19:59 robert Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -600,6 +600,7 @@ calc_xmin(lame_global_flags const *gfp,
     ATH_t const *const ATH = gfc->ATH;
     const FLOAT *const xr = cod_info->xr;
     int     max_nonzero;
+#define RH_TEST_ATHAA_FIX
 #ifdef RH_TEST_ATHAA_FIX
     int const enable_athaa_fix = (gfp->VBR == vbr_mtrh) ? 1 : 0;
 #endif

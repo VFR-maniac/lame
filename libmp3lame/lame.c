@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.291 2006/06/24 01:57:00 robert Exp $ */
+/* $Id: lame.c,v 1.292 2006/06/24 15:19:59 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -892,6 +892,7 @@ lame_init_params(lame_global_flags * const gfp)
             else
                 gfc->sfb21_extra = (gfp->out_samplerate > 44000);
 
+#define RH_TEST_ATHAA_FIX
 #ifdef RH_TEST_ATHAA_FIX
             switch (gfp->VBR_q) {            
             case 0:
