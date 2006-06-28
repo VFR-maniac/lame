@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.292 2006/06/24 15:19:59 robert Exp $ */
+/* $Id: lame.c,v 1.293 2006/06/28 23:05:50 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -426,7 +426,9 @@ lame_init_qval(lame_global_flags * gfp)
             gfc->subblock_gain = 1;
         gfc->use_best_huffman = 1; /*type 2 disabled because of it slowness,
                                       in favor of full outer loop search */
-        gfc->full_outer_loop = 1;
+        gfc->full_outer_loop = 0; /* full outer loop search disabled because
+                                     of audible distortions it may generate
+                                     rh 060629 */
         break;
     }
 
