@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.216 2005/12/21 21:40:34 robert Exp $ */
+/* $Id: parse.c,v 1.217 2006/09/10 14:25:34 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -661,11 +661,15 @@ static void
 display_bitrate(FILE * const fp, const char *const version, const int d, const int indx)
 {
     int     i;
+    int nBitrates = 14;
+    if (d == 4)
+        nBitrates = 8;
+
 
     fprintf(fp,
             "\nMPEG-%-3s layer III sample frequencies (kHz):  %2d  %2d  %g\n"
             "bitrates (kbps):", version, 32 / d, 48 / d, 44.1 / d);
-    for (i = 1; i <= 14; i++) /* 14 numbers are printed, not 15, and it was a bug of me */
+    for (i = 1; i <= nBitrates; i++) 
         fprintf(fp, " %2i", bitrate_table[indx][i]);
     fprintf(fp, "\n");
 }
