@@ -1,4 +1,4 @@
-dnl $Id: configure.in,v 1.119 2006/06/23 20:41:45 aleidinger Exp $
+dnl $Id: configure.in,v 1.120 2006/09/23 19:29:39 aleidinger Exp $
 dnl
 dnl
 dnl don't forget to set ASM_FOR_ARCH to a space delimited list of
@@ -85,6 +85,7 @@ AC_CHECK_HEADERS( \
 		 sys/soundcard.h \
 		 sys/time.h \
 		 unistd.h \
+		 xmmintrin.h \
 		 linux/soundcard.h)
 
 dnl Checks for typedefs, structures, and compiler characteristics.
