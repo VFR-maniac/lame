@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.33 2005/08/21 17:32:09 bouvigne Exp $
+## $Id: Makefile.am,v 1.34 2006/09/30 09:17:05 bouvigne Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -28,7 +28,7 @@ DEFS = @DEFS@ @CONFIG_DEFS@
 
 EXTRA_DIST = \
 	libmp3lame_vc6.dsp \
-	libmp3lame_vc7.vcproj \
+	libmp3lame_vc8.vcproj \
 	vbrquantize.h
 
 libmp3lame_la_SOURCES = \
