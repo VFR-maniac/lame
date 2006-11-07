@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.75 2006/06/15 23:51:48 robert Exp $ */
+/* $Id: set_get.c,v 1.76 2006/11/07 00:36:36 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1783,44 +1783,6 @@ lame_set_tune(lame_global_flags * gfp, float val)
     gfp->tune_value_a = val;
     gfp->tune = 1;
 }
-
-void
-lame_set_ms_sparsing(lame_global_flags * gfp, int val)
-{
-    gfp->sparsing = val;
-}
-
-int
-lame_get_ms_sparsing(lame_global_flags * gfp)
-{
-    return gfp->sparsing;
-}
-
-void
-lame_set_ms_sparse_low(lame_global_flags * gfp, float val)
-{
-    gfp->sparse_low = val;
-}
-
-float
-lame_get_ms_sparse_low(lame_global_flags * gfp)
-{
-    return gfp->sparse_low;
-}
-
-void
-lame_set_ms_sparse_high(lame_global_flags * gfp, float val)
-{
-    gfp->sparse_high = val;
-}
-
-float
-lame_get_ms_sparse_high(lame_global_flags * gfp)
-{
-    return gfp->sparse_high;
-}
-
-
 
 /* Custom msfix hack */
 void

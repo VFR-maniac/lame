@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.219 2006/11/06 22:39:27 robert Exp $ */
+/* $Id: parse.c,v 1.220 2006/11/07 00:36:36 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1591,18 +1591,6 @@ parse_args(lame_global_flags * gfp, int argc, char **argv,
                     /* 1 gpsycho, 2 nspsytune */
                     argUsed = 1;
                 lame_set_psy_model(gfp, atoi(nextArg));
-
-                T_ELIF_INTERNAL("ms-sparsing") /*without helptext */
-                    argUsed = 1;
-                lame_set_ms_sparsing(gfp, atoi(nextArg));
-
-                T_ELIF_INTERNAL("ms-sparse-low") /*without helptext */
-                    argUsed = 1;
-                lame_set_ms_sparse_low(gfp, (float) atof(nextArg));
-
-                T_ELIF_INTERNAL("ms-sparse-high") /*without helptext */
-                    argUsed = 1;
-                lame_set_ms_sparse_high(gfp, (float) atof(nextArg));
 
                 T_ELIF_INTERNAL("shortthreshold") {
                     float   x, y;
