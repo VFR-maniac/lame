@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.108 2006/11/06 22:39:27 robert Exp $ */
+/* $Id: get_audio.c,v 1.109 2006/11/08 01:53:03 robert Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -149,7 +149,7 @@ init_outfile(char *outPath, int decode)
         lame_set_stream_binary_mode(outf = stdout);
     }
     else {
-        if ((outf = fopen(outPath, "wb+")) == NULL)
+        if ((outf = fopen(outPath, "w+b")) == NULL)
             return NULL;
 #ifdef __riscos__
         /* Assign correct file type */

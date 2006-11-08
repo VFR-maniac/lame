@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.220 2006/11/07 00:36:36 robert Exp $ */
+/* $Id: parse.c,v 1.221 2006/11/08 01:53:04 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -106,6 +106,7 @@ int     in_unsigned = 0;
 int     in_endian = order_littleEndian;
 int     in_bitwidth = 16;
 
+int     flush_write = 0;
 
 
 /**
@@ -487,6 +488,7 @@ long_help(const lame_global_flags * gfp, FILE * const fp, const char *ProgramNam
 #endif
         );
     fprintf(fp,
+            "    --flush         flush output stream as soon as possible\n"
             "    --freeformat    produce a free format bitstream\n"
             "    --decode        input=mp3 file, output=wav\n"
             "    -t              disable writing wav header when using --decode\n");
@@ -1209,6 +1211,9 @@ parse_args(lame_global_flags * gfp, int argc, char **argv,
 
                 T_ELIF("decode")
                     (void) lame_set_decode_only(gfp, 1);
+
+                T_ELIF("flush")
+                    flush_write = 1;
 
                 T_ELIF("decode-mp3delay")
                     mp3_delay = atoi(nextArg);
