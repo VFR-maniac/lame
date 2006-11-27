@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.298 2006/11/15 02:25:07 robert Exp $ */
+/* $Id: lame.c,v 1.299 2006/11/27 20:28:54 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -2091,12 +2091,9 @@ void
 lame_mp3_tags_fid(lame_global_flags * gfp, FILE * fpStream)
 {
     if (gfp->bWriteVbrTag) {
-        /* Map VBR_q to Xing quality value: 0=worst, 100=best */
-        int const nQuality = ((9 - gfp->VBR_q) * 100) / 9;
-
         /* Write Xing header again */
         if (fpStream && !fseek(fpStream, 0, SEEK_SET))
-            (void) PutVbrTag(gfp, fpStream, nQuality);
+            (void) PutVbrTag(gfp, fpStream);
     }
 }
 
