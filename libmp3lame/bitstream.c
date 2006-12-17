@@ -19,7 +19,7 @@
  * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: bitstream.c,v 1.75 2006/06/18 20:49:24 robert Exp $
+ * $Id: bitstream.c,v 1.76 2006/12/17 20:49:12 robert Exp $
  */
 
 
@@ -72,7 +72,8 @@ getframebits(const lame_global_flags * gfp)
         bit_rate = bitrate_table[gfp->version][gfc->bitrate_index];
     else
         bit_rate = gfp->brate;
-    assert(bit_rate <= 550);
+    /*assert(bit_rate <= 550);*/
+    assert(8 <= bit_rate && bit_rate <= 640);
 
     /* main encoding routine toggles padding on and off */
     /* one Layer3 Slot consists of 8 bits */
