@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.299 2006/11/27 20:28:54 robert Exp $ */
+/* $Id: lame.c,v 1.300 2006/12/19 01:23:02 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -905,6 +905,9 @@ lame_init_params(lame_global_flags * const gfp)
         gfp->VBR = vbr_mtrh;
         /*lint --fallthrough */
     case vbr_mtrh:{
+            if ( gfp->useTemporal < 0 ) {
+                gfp->useTemporal = 0;   /* off by default for this VBR mode */
+            }
 
             (void) apply_preset(gfp, 500 - (gfp->VBR_q * 10), 0);
             /*  The newer VBR code supports only a limited
