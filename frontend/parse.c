@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.221 2006/11/08 01:53:04 robert Exp $ */
+/* $Id: parse.c,v 1.222 2006/12/19 01:23:49 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -398,7 +398,9 @@ short_help(const lame_global_flags * gfp, FILE * const fp, const char *ProgramNa
             "                     3 = High priority\n"
             "                     4 = Maximum priority\n" "\n"
 #endif
-            "    --longhelp      full list of options\n" "\n");
+            "    --longhelp      full list of options\n" "\n"
+            "    --license       print License information\n\n"
+            );
 
     return 0;
 }
@@ -559,7 +561,7 @@ long_help(const lame_global_flags * gfp, FILE * const fp, const char *ProgramNam
                 )
         );
     fprintf(fp,
-            "    --notemp        disable temporal masking effect\n"
+            "    --temporal-masking x   x=0 disables, x=1 enables temporal masking effect\n"
             "    --nssafejoint   M/S switching criterion\n"
             "    --nsmsfix <arg> M/S switching tuning [effective 0-3.5]\n"
             "    --interch x     adjust inter-channel masking ratio\n"
@@ -649,6 +651,7 @@ long_help(const lame_global_flags * gfp, FILE * const fp, const char *ProgramNam
             "                         4 = Maximum priority (REGULAR, delta = +31)\n"
             "    Note: Calling '--priority' without a parameter will select priority 0.\n"
 #endif
+            "\nMisc:\n    --license       print License information\n\n"
         );
 
 #if defined(HAVE_NASM)
