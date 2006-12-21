@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.19 2006/06/03 13:07:35 aleidinger Exp $
+## $Id: Makefile.am,v 1.20 2006/12/21 09:09:39 aleidinger Exp $
 
 AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
 
@@ -20,7 +20,7 @@ endif
 
 noinst_HEADERS = nasm.h
 
-INCLUDES = @INCLUDES@ -I$(top_srcdir)/libmp3lame/@CPUTYPE@
+INCLUDES = @INCLUDES@ "-I$(top_srcdir)/libmp3lame/@CPUTYPE@"
 
 SUFFIXES = .nas .lo
 
@@ -41,7 +41,7 @@ EXTRA_DIST = \
 	ffttbl.nas
 
 NASM = @NASM@
-NASMFLAGS=@NASM_FORMAT@ -i $(top_srcdir)/libmp3lame/@CPUTYPE@/
+NASMFLAGS=@NASM_FORMAT@ -i "$(top_srcdir)/libmp3lame/@CPUTYPE@/"
 
 .nas.o: $< nasm.h
 	$(NASM) $(NASMFLAGS) $< -o $@ -l $@.lst
