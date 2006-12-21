@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.184 2006/11/15 02:21:13 robert Exp $ */
+/* $Id: quantize.c,v 1.185 2006/12/21 09:00:48 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -95,7 +95,7 @@ init_xrpow_core_init(lame_internal_flags * const gfc)
 {
     gfc->init_xrpow_core = init_xrpow_core_c;
 
-#ifdef HAVE_XMMINTRIN_H
+#if defined(HAVE_XMMINTRIN_H) && defined(CPUCCODE)
     if (gfc->CPU_features.SSE)
         gfc->init_xrpow_core = init_xrpow_core_sse;
 #endif
@@ -2053,3 +2053,4 @@ CBR_iteration_loop(lame_global_flags const *gfp,
 
     ResvFrameEnd(gfc, mean_bits);
 }
+
