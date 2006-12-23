@@ -1,8 +1,10 @@
-## $Id: Makefile.am,v 1.2 2006/12/21 09:02:05 aleidinger Exp $
+## $Id: Makefile.am,v 1.3 2006/12/23 13:54:12 aleidinger Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
+if X86_64
 noinst_LTLIBRARIES = liblamecpuroutines.la
+endif
 
 ##liblamecpuroutines_la_LIBADD = 
 ##liblamecpuroutines_la_LDFLAGS =
