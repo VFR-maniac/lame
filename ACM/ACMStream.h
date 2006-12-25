@@ -22,7 +22,7 @@
  
 /*!
 	\author Steve Lhomme
-	\version \$Id: ACMStream.h,v 1.4 2002/04/06 14:01:33 robux4 Exp $
+	\version \$Id: ACMStream.h,v 1.5 2006/12/25 21:37:34 robert Exp $
 */
 
 #if !defined(_ACMSTREAM_H__INCLUDED_)
@@ -38,10 +38,12 @@
 
 #include "ADbg/ADbg.h"
 
-#include <config.h>
-#include "util.h"
-
 #include "AEncodeProperties.h"
+
+
+typedef enum vbr_mode_e vbr_mode;
+typedef struct lame_global_struct lame_global_flags;
+
 
 class ACMStream
 {

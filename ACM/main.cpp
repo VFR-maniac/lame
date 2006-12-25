@@ -22,7 +22,7 @@
  
 /*!
 	\author Steve Lhomme
-	\version \$Id: main.cpp,v 1.4 2002/01/29 20:37:05 robux4 Exp $
+	\version \$Id: main.cpp,v 1.5 2006/12/25 21:37:34 robert Exp $
 */
 
 #if !defined(STRICT)
@@ -74,7 +74,7 @@ extern "C" {
 #include "ACM.h"
 #include "resource.h"
 #include "adebug.h"
-#include <version.h>
+
 
 ADbg * debug = NULL;
 

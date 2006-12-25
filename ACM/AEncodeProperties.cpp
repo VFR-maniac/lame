@@ -22,7 +22,7 @@
  
 /*!
 	\author Steve Lhomme
-	\version \$Id: AEncodeProperties.cpp,v 1.8 2002/04/08 18:43:30 robux4 Exp $
+	\version \$Id: AEncodeProperties.cpp,v 1.9 2006/12/25 21:37:34 robert Exp $
 */
 
 #if !defined(STRICT)
@@ -40,8 +40,7 @@
 #endif
 
 #include "resource.h"
-#include <config.h>
-#include "util.h"
+#include <lame.h>
 #include "adebug.h"
 #include "AEncodeProperties.h"
 #include "ACM.h"

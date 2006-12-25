@@ -22,7 +22,7 @@
  
 /*!
 	\author Steve Lhomme
-	\version \$Id: DecodeStream.h,v 1.1 2002/01/23 20:39:46 robux4 Exp $
+	\version \$Id: DecodeStream.h,v 1.2 2006/12/25 21:37:34 robert Exp $
 */
 
 #if !defined(_DECODESTREAM_H__INCLUDED_)
@@ -38,9 +38,9 @@
 
 #include "ADbg/ADbg.h"
 
-#include <config.h>
-#include "util.h"
-#include "interface.h"
+
+struct lame_global_flags;
+
 
 class DecodeStream
 {

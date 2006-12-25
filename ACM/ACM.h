@@ -22,7 +22,7 @@
  
 /*!
 	\author Steve Lhomme
-	\version \$Id: ACM.h,v 1.7 2002/04/06 14:01:33 robux4 Exp $
+	\version \$Id: ACM.h,v 1.8 2006/12/25 21:37:34 robert Exp $
 */
 
 #if !defined(_ACM_H__INCLUDED_)
@@ -40,11 +40,12 @@
 #include <msacm.h>
 #include <msacmdrv.h>
 
-#include "lame.h"
 
 #include "ADbg/ADbg.h"
 
 class AEncodeProperties;
+
+typedef enum vbr_mode_e vbr_mode;
 
 class bitrate_item {
 	public:
@@ -93,7 +94,7 @@ protected:
 	AEncodeProperties my_EncodingProperties;
 	std::vector<bitrate_item> bitrate_table;
 
-	static char VersionString[20];
+	static char VersionString[120];
 };
 
 #endif // !defined(_ACM_H__INCLUDED_)
