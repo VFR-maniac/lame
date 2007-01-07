@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.301 2006/12/21 09:00:47 aleidinger Exp $ */
+/* $Id: lame.c,v 1.302 2007/01/07 14:30:33 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1204,10 +1204,7 @@ lame_print_config(const lame_global_flags * gfp)
         if (gfc->CPU_features.AMD_3DNow) {
             fft_asm_used = 1;
         }
-        else
-#endif
-#ifdef USE_FFTSSE
-        if (gfc->CPU_features.SSE) {
+        else if (gfc->CPU_features.SSE) {
             fft_asm_used = 2;
         }
         else
