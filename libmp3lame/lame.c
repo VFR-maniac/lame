@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.302 2007/01/07 14:30:33 robert Exp $ */
+/* $Id: lame.c,v 1.303 2007/01/09 10:22:30 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1230,7 +1230,7 @@ lame_print_config(const lame_global_flags * gfp)
             }
         }
         if (gfc->CPU_features.SSE) {
-#if defined(HAVE_XMMINTRIN_H) && defined(CPUCCODE)
+#if defined(HAVE_XMMINTRIN_H)
             MSGF(gfc, ", SSE (ASM used)");
 #else
             if (fft_asm_used == 2) {
