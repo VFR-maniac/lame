@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.156 2006/12/21 02:17:15 robert Exp $ */
+/* $Id: psymodel.c,v 1.157 2007/01/09 12:02:08 aleidinger Exp $ */
 
 
 /*
@@ -636,7 +636,7 @@ convert_partition2scalefac_s(lame_internal_flags * gfc, FLOAT const *eb, FLOAT c
         }
     }
     /* zero initialize the rest */
-    for (sb; sb < SBMAX_s; ++sb) {
+    for (; sb < SBMAX_s; ++sb) {
         gfc->en[chn].s[sb][sblock] = 0;
         gfc->thm[chn].s[sb][sblock] = 0;
     }
@@ -682,7 +682,7 @@ convert_partition2scalefac_l(lame_internal_flags * gfc, FLOAT const *eb, FLOAT c
         }
     }
     /* zero initialize the rest */
-    for (sb; sb < SBMAX_l; ++sb) {
+    for (; sb < SBMAX_l; ++sb) {
         gfc->en[chn].l[sb] = 0;
         gfc->thm[chn].l[sb] = 0;
     }

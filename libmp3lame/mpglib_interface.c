@@ -21,7 +21,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: mpglib_interface.c,v 1.30 2006/06/15 23:51:48 robert Exp $ */
+/* $Id: mpglib_interface.c,v 1.31 2007/01/09 12:02:07 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -188,6 +188,7 @@ lame_decode1_headersB_clipchoice(unsigned char *buffer, int len,
         break;
 
     default:
+	processed_samples = -1;
         assert(0);
         break;
     }

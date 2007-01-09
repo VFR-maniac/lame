@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.303 2007/01/09 10:22:30 aleidinger Exp $ */
+/* $Id: lame.c,v 1.304 2007/01/09 12:02:07 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -2096,6 +2096,8 @@ lame_mp3_tags_fid(lame_global_flags * gfp, FILE * fpStream)
             (void) PutVbrTag(gfp, fpStream);
     }
 }
+
+int lame_init_old(lame_global_flags * gfp);
 
 lame_global_flags *
 lame_init(void)
