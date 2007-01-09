@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.186 2007/01/09 10:24:53 aleidinger Exp $ */
+/* $Id: quantize.c,v 1.187 2007/01/09 10:31:39 aleidinger Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -38,8 +38,9 @@
 #include "bitstream.h"
 #include "vbrquantize.h"
 #include "quantize.h"
-#include "x86_64/lame_intrin.h"
-
+#ifdef HAVE_XMMINTRIN_H
+#include "vector/lame_intrin.h"
+#endif
 
 
 
