@@ -23,7 +23,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: encoder.c,v 1.96 2006/06/15 23:51:48 robert Exp $ */
+/* $Id: encoder.c,v 1.97 2007/01/13 17:58:30 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -596,9 +596,7 @@ lame_encode_mp3_frame(       /* Output */
         set_frame_pinfo(gfp, *masking);
     }
 
-#ifdef BRHIST
     updateStats(gfc);
-#endif
 
     return mp3count;
 }
