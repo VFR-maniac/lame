@@ -23,7 +23,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: encoder.c,v 1.97 2007/01/13 17:58:30 robert Exp $ */
+/* $Id: encoder.c,v 1.98 2007/05/13 18:31:56 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -576,8 +576,6 @@ lame_encode_mp3_frame(       /* Output */
 
     /* copy mp3 bit buffer into array */
     mp3count = copy_buffer(gfc, mp3buf, mp3buf_size, 1);
-
-
 
 
     if (gfp->bWriteVbrTag)
