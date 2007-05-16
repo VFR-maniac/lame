@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.76 2006/11/07 00:36:36 robert Exp $ */
+/* $Id: set_get.c,v 1.77 2007/05/16 01:30:13 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -890,37 +890,6 @@ lame_get_exp_nspsytune(const lame_global_flags * gfp)
 }
 
 
-int
-lame_set_exp_nspsytune2_int(lame_global_flags * gfp, int adr, int val)
-{
-    int     ret = gfp->exp_nspsytune2.integer[adr];
-
-    gfp->exp_nspsytune2.integer[adr] = val;
-
-    return ret;
-}
-
-
-float
-lame_set_exp_nspsytune2_real(lame_global_flags * gfp, int adr, float val)
-{
-    float   ret = gfp->exp_nspsytune2.real[adr];
-
-    gfp->exp_nspsytune2.real[adr] = val;
-
-    return ret;
-}
-
-
-void   *
-lame_set_exp_nspsytune2_pointer(lame_global_flags * gfp, int adr, void *val)
-{
-    void   *ret = gfp->exp_nspsytune2.pointer[adr];
-
-    gfp->exp_nspsytune2.pointer[adr] = val;
-
-    return ret;
-}
 
 
 /********************************************************************

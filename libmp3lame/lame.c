@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.305 2007/01/13 17:59:39 robert Exp $ */
+/* $Id: lame.c,v 1.306 2007/05/16 01:30:12 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -889,11 +889,6 @@ lame_init_params(lame_global_flags * const gfp)
 
         if (gfp->ATHtype == -1)
             gfp->ATHtype = 4;
-
-        if (gfp->exp_nspsytune2.pointer[0])
-            gfc->nsPsy.pass1fp = gfp->exp_nspsytune2.pointer[0];
-        else
-            gfc->nsPsy.pass1fp = NULL;
     }
 
     assert(gfp->VBR_q <= 9);
@@ -939,8 +934,6 @@ lame_init_params(lame_global_flags * const gfp)
             else
                 gfc->sfb21_extra = (gfp->out_samplerate > 44000);
 
-#define RH_TEST_ATHAA_FIX
-#ifdef RH_TEST_ATHAA_FIX
             switch (gfp->VBR_q) {
             case 0:
             case 1:
@@ -959,7 +952,6 @@ lame_init_params(lame_global_flags * const gfp)
                 gfc->PSY->mask_adjust += 2;
                 gfc->PSY->mask_adjust_short += 2;
             }
-#endif
             gfc->iteration_loop = VBR_new_iteration_loop;
             break;
 
@@ -2048,11 +2040,6 @@ lame_close(lame_global_flags * gfp)
 
     if (NULL == gfc || gfc->Class_ID != LAME_ID)
         return -3;
-
-    if (gfp->exp_nspsytune2.pointer[0]) {
-        fclose((FILE *) gfp->exp_nspsytune2.pointer[0]);
-        gfp->exp_nspsytune2.pointer[0] = NULL;
-    }
 
     gfc->Class_ID = 0;
 
