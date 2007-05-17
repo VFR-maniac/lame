@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.86 2007/05/13 18:31:56 robert Exp $ */
+/* $Id: VbrTag.c,v 1.87 2007/05/17 22:25:40 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -415,7 +415,7 @@ int
 InitVbrTag(lame_global_flags * gfp)
 {
     int     nMode, SampIndex;
-    int     i, kbps_header;
+    int     kbps_header;
     lame_internal_flags *gfc = gfp->internal_flags;
 #define MAXFRAMESIZE 2880 /* or 0xB40, the max freeformat 640 32kHz framesize */
     /* uint8_t pbtStreamBuffer[MAXFRAMESIZE]; */
