@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.188 2007/05/20 18:07:20 robert Exp $ */
+/* $Id: quantize.c,v 1.189 2007/05/22 08:39:28 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1869,7 +1869,7 @@ calc_target_bits(lame_global_flags const *gfp,
 
     if (gfc->mode_ext == MPG_MD_MS_LR)
         for (gr = 0; gr < gfc->mode_gr; gr++) {
-            reduce_side(targ_bits[gr], ms_ener_ratio[gr], mean_bits * gfc->channels_out, MAX_BITS_PER_GRANULE);
+            reduce_side(targ_bits[gr], ms_ener_ratio[gr], mean_bits * gfc->channels_out, MAX_BITS_PER_CHANNEL);
         }
 
     /*  sum target bits

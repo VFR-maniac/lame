@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.143 2007/05/20 18:07:20 robert Exp $ */
+/* $Id: quantize_pvt.c,v 1.144 2007/05/22 08:39:28 robert Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -553,6 +553,7 @@ reduce_side(int targ_bits[2], FLOAT ms_ener_ratio, int mean_bits, int max_bits)
         }
     }
 
+    assert(max_bits <= MAX_BITS_PER_CHANNEL);
     move_bits = targ_bits[0] + targ_bits[1];
     if (move_bits > max_bits) {
         targ_bits[0] = (max_bits * targ_bits[0]) / move_bits;
