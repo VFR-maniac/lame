@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.99 2006/12/07 10:50:48 robert Exp $ */
+/* $Id: main.c,v 1.100 2007/05/24 12:58:43 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -660,6 +660,7 @@ main(int argc, char **argv)
     if (argc <= 1) {
         usage(stderr, argv[0]); /* no command-line args, print usage, exit  */
         lame_close(gf);
+        parse_close();
         frontend_close_console();
         return 1;
     }
@@ -674,6 +675,7 @@ main(int argc, char **argv)
     ret = parse_args(gf, argc, argv, inPath, outPath, nogap_inPath, &max_nogap);
     if (ret < 0) {
         lame_close(gf);
+        parse_close();
         frontend_close_console();
         return ret == -2 ? 0 : 1;
     }
@@ -698,6 +700,7 @@ main(int argc, char **argv)
     }
     if (outf == NULL) {
         lame_close(gf);
+        parse_close();
         frontend_close_console();
         return -1;
     }
@@ -712,6 +715,7 @@ main(int argc, char **argv)
         }
         error_printf("fatal error during initialization\n");
         lame_close(gf);
+        parse_close();
         frontend_close_console();
         return i;
     }
@@ -788,6 +792,7 @@ main(int argc, char **argv)
             lame_close(gf);
         }
     }
+    parse_close();
     frontend_close_console();
     return ret;
 }
