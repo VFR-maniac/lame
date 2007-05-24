@@ -28,7 +28,7 @@
  * NOTE: See http://id3.org/ for more information about ID3 tag formats.
  */
 
-/* $Id: id3tag.c,v 1.35 2007/05/24 12:58:44 bouvigne Exp $ */
+/* $Id: id3tag.c,v 1.36 2007/05/24 13:10:25 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -274,7 +274,7 @@ id3tag_set_track(lame_global_flags * gfp, const char *track)
             }
             if (num) {
                 gfc->tag_spec.trackcount = num;
-                gfc->tag_spec.flags |= CHANGED_FLAG;
+                gfc->tag_spec.flags |= (CHANGED_FLAG | ADD_V2_FLAG);
             }
         }
     }
@@ -458,7 +458,7 @@ set_frame_custom(unsigned char *frame, const char *fieldvalue)
         *frame++ = *fieldvalue++;
         *frame++ = *fieldvalue++;
         *frame++ = *fieldvalue++;
-        frame = set_4_byte_value(frame, strlen(value) + 1);
+        frame = set_4_byte_value(frame, (unsigned long)(strlen(value) + 1));
         /* clear 2-byte header flags */
         *frame++ = 0;
         *frame++ = 0;
@@ -484,7 +484,7 @@ set_frame_apic(unsigned char *frame, const char *mimetype, const unsigned char *
      */
     if (mimetype && data && size) {
         frame = set_4_byte_value(frame, FRAME_ID('A', 'P', 'I', 'C'));
-        frame = set_4_byte_value(frame, 4 + strlen(mimetype) + size);
+        frame = set_4_byte_value(frame, (unsigned long)(4 + strlen(mimetype) + size));
         /* clear 2-byte header flags */
         *frame++ = 0;
         *frame++ = 0;
