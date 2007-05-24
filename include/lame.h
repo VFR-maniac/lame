@@ -18,7 +18,7 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-/* $Id: lame.h,v 1.157 2007/01/07 14:30:33 robert Exp $ */
+/* $Id: lame.h,v 1.158 2007/05/24 12:29:45 bouvigne Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -1074,6 +1074,11 @@ extern void id3tag_set_track(
 extern int id3tag_set_genre(
         lame_global_flags*  gfp,
         const char*         genre );
+
+/* return non-zero result if field name is invalid */
+extern int id3tag_set_fieldvalue(
+        lame_global_flags*  gfp,
+        const char*         fieldvalue);
 
 /***********************************************************************
 *

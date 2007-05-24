@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.225 2007/05/16 01:30:12 robert Exp $ */
+/* $Id: parse.c,v 1.226 2007/05/24 12:29:45 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -619,7 +619,8 @@ long_help(const lame_global_flags * gfp, FILE * const fp, const char *ProgramNam
             "    --ty <year>     audio/song year of issue (1 to 9999)\n"
             "    --tc <comment>  user-defined text (max 30 chars for v1 tag, 28 for v1.1)\n"
             "    --tn <track>    audio/song track number (1 to 255, creates v1.1 tag)\n"
-            "    --tg <genre>    audio/song genre (name or number in list)\n");
+            "    --tg <genre>    audio/song genre (name or number in list)\n"
+            "    --tv <id=value> user-defined frame specified by id and value (v2.3 tag)\n");
     fprintf(fp,
             "    --add-id3v2     force addition of version 2 tag\n"
             "    --id3v1-only    add only a version 1 tag\n"
@@ -1345,6 +1346,10 @@ parse_args(lame_global_flags * gfp, int argc, char **argv,
                         return -1;
                     }
                 }
+
+                T_ELIF("tv")
+                    argUsed = 1;
+                id3tag_set_fieldvalue(gfp, nextArg);
 
                 T_ELIF("add-id3v2")
                     id3tag_add_v2(gfp);
