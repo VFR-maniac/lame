@@ -28,7 +28,7 @@
  * NOTE: See http://id3.org/ for more information about ID3 tag formats.
  */
 
-/* $Id: id3tag.c,v 1.36 2007/05/24 13:10:25 bouvigne Exp $ */
+/* $Id: id3tag.c,v 1.37 2007/06/04 22:04:00 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -545,8 +545,21 @@ id3tag_write_v2(lame_global_flags * gfp)
             static const char *mime_png = "image/png";
             static const char *mime_gif = "image/gif";
             /* calculate playlength in milliseconds */
-            playlength_ms = (unsigned long) ((double) gfp->num_samples * 1000.0) /
-                (gfp->num_channels * gfp->in_samplerate);
+            {
+                double const max_ulong = MAX_U_32_NUM;
+                double ms = gfp->num_samples;
+                ms *= 1000;
+                ms /= gfp->in_samplerate;
+                if (ms > max_ulong) {
+                    playlength_ms = max_ulong;
+                }
+                else if (ms < 0) {
+                    playlength_ms = 0;
+                }
+                else {
+                    playlength_ms = ms;
+                }
+            }
             /* calulate size of tag starting with 10-byte tag header */
             tag_size = 10;
 #if defined(__hpux) || defined(__svr4__) || defined(M_UNIX) || defined(_AIX)
