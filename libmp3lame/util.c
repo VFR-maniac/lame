@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.129 2007/05/21 22:20:39 robert Exp $ */
+/* $Id: util.c,v 1.130 2007/06/23 13:27:51 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -44,6 +44,24 @@
 *
 ***********************************************************************/
 /*empty and close mallocs in gfc */
+
+static void
+free_id3tag(lame_internal_flags * const gfc)
+{
+  if (gfc->tag_spec.albumart != 0) {
+    free(gfc->tag_spec.albumart);
+    gfc->tag_spec.albumart = 0;
+  }
+  if (gfc->tag_spec.values != 0) {
+    int i;
+    for (i = 0; i < gfc->tag_spec.num_values; ++i) {
+      free(gfc->tag_spec.values[i]);
+    }
+    free(gfc->tag_spec.values);
+    gfc->tag_spec.values = 0;
+  }
+}
+
 
 void
 freegfc(lame_internal_flags * const gfc)
@@ -98,7 +116,7 @@ freegfc(lame_internal_flags * const gfc)
     if (gfc->in_buffer_1) {
         free(gfc->in_buffer_1);
     }
-
+    free_id3tag(gfc);
     free(gfc);
 }
 
