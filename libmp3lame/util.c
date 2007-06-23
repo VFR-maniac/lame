@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.130 2007/06/23 13:27:51 robert Exp $ */
+/* $Id: util.c,v 1.131 2007/06/23 15:16:49 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -48,18 +48,38 @@
 static void
 free_id3tag(lame_internal_flags * const gfc)
 {
-  if (gfc->tag_spec.albumart != 0) {
-    free(gfc->tag_spec.albumart);
-    gfc->tag_spec.albumart = 0;
-  }
-  if (gfc->tag_spec.values != 0) {
-    int i;
-    for (i = 0; i < gfc->tag_spec.num_values; ++i) {
-      free(gfc->tag_spec.values[i]);
+    if (gfc->tag_spec.title != 0) {
+        free(gfc->tag_spec.title);
+        gfc->tag_spec.title = 0;
     }
-    free(gfc->tag_spec.values);
-    gfc->tag_spec.values = 0;
-  }
+    if (gfc->tag_spec.artist != 0) {
+        free(gfc->tag_spec.artist);
+        gfc->tag_spec.artist = 0;
+    }
+    if (gfc->tag_spec.album != 0) {
+        free(gfc->tag_spec.album);
+        gfc->tag_spec.album = 0;
+    }
+    if (gfc->tag_spec.comment != 0) {
+        free(gfc->tag_spec.comment);
+        gfc->tag_spec.comment = 0;
+    }
+
+    if (gfc->tag_spec.albumart != 0) {
+        free(gfc->tag_spec.albumart);
+        gfc->tag_spec.albumart = 0;
+        gfc->tag_spec.albumart_size = 0;
+        gfc->tag_spec.albumart_mimetype = MIMETYPE_NONE;
+    }
+    if (gfc->tag_spec.values != 0) {
+        int i;
+        for (i = 0; i < gfc->tag_spec.num_values; ++i) {
+            free(gfc->tag_spec.values[i]);
+        }
+        free(gfc->tag_spec.values);
+        gfc->tag_spec.values = 0;
+        gfc->tag_spec.num_values = 0;
+    }
 }
 
 
