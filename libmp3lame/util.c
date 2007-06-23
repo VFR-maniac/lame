@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.131 2007/06/23 15:16:49 robert Exp $ */
+/* $Id: util.c,v 1.132 2007/06/23 17:39:22 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -63,6 +63,14 @@ free_id3tag(lame_internal_flags * const gfc)
     if (gfc->tag_spec.comment != 0) {
         free(gfc->tag_spec.comment);
         gfc->tag_spec.comment = 0;
+    }
+    if (gfc->tag_spec.track_id3v2 != 0) {
+        free(gfc->tag_spec.track_id3v2);
+        gfc->tag_spec.track_id3v2 = 0;
+    }
+    if (gfc->tag_spec.genre_id3v2 != 0) {
+        free(gfc->tag_spec.genre_id3v2);
+        gfc->tag_spec.genre_id3v2 = 0;
     }
 
     if (gfc->tag_spec.albumart != 0) {
