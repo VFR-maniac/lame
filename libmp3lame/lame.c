@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.307 2007/05/21 22:20:39 robert Exp $ */
+/* $Id: lame.c,v 1.308 2007/06/26 00:57:39 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -2086,8 +2086,27 @@ lame_mp3_tags_fid(lame_global_flags * gfp, FILE * fpStream)
 {
     if (gfp->bWriteVbrTag) {
         /* Write Xing header again */
-        if (fpStream && !fseek(fpStream, 0, SEEK_SET))
-            (void) PutVbrTag(gfp, fpStream);
+        if (fpStream && !fseek(fpStream, 0, SEEK_SET)) {
+            lame_internal_flags *gfc = gfp->internal_flags;
+            int rc = PutVbrTag(gfp, fpStream);
+            switch (rc) {
+            default: 
+                /* OK */
+                break;
+
+            case -1:
+                ERRORF(gfc, "Error: could not update LAME tag.\n");
+                break;
+
+            case -2: 
+                ERRORF(gfc, "Error: could not update LAME tag, file not seekable.\n");
+                break;
+
+            case -3:
+                ERRORF(gfc, "Error: could not update LAME tag, file not readable.\n");
+                break;
+            }
+        }
     }
 }
 
