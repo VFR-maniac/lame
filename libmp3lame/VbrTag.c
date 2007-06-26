@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.88 2007/06/26 00:57:39 robert Exp $ */
+/* $Id: VbrTag.c,v 1.89 2007/06/26 01:33:38 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -859,7 +859,7 @@ PutVbrTag(lame_global_flags const* gfp, FILE * fpStream)
     fseek(fpStream, (long)(id3v2TagSize + gfc->VBR_seek_table.TotalFrameSize), SEEK_SET);
 
     /* Read the header (first valid frame) */
-    nbytes = fread(pbtStreamBuffer, 4, 1, fpStream);
+    nbytes = fread(pbtStreamBuffer, 1, 4, fpStream);
     if (nbytes != 4) {
         return -3;  /* Read failed */
     }
