@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: gtkanal.c,v 1.39 2006/06/18 16:45:34 robert Exp $ */
+/* $Id: gtkanal.c,v 1.40 2007/07/01 14:39:07 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -152,7 +152,7 @@ gtkmakeframe(void)
     gfc->pinfo = pinfo;
     mpg123_pinfo = pinfo;
 
-    if (input_format == sf_mp1 || input_format == sf_mp2 || input_format == sf_mp3) {
+    if (is_mpeg_file_format(input_format)) {
         iread = get_audio16(gfp, Buffer);
 
 
@@ -189,7 +189,7 @@ gtkmakeframe(void)
                  */
                 error_printf("Warning: get_audio is returning too much data.\n");
             }
-            if (0 == iread)
+            if (iread <= 0)
                 break;  /* eof */
 
             mp3count = lame_encode_buffer(gfp, Buffer[0], Buffer[1], iread,
@@ -1444,11 +1444,11 @@ gtkcontrol(lame_global_flags * gfp2, char *inPath)
     gfc = gfp->internal_flags;
 
     /* set some global defaults/variables */
-    gtkinfo.filetype = (input_format == sf_mp1 || input_format == sf_mp2 || input_format == sf_mp3);
+    gtkinfo.filetype = is_mpeg_file_format(input_format) ? 1 : 0;
     gtkinfo.msflag = 0;
     gtkinfo.chflag = 0;
     gtkinfo.kbflag = 0;
-    gtkinfo.flag123 = (input_format == sf_mp1 || input_format == sf_mp2 || input_format == sf_mp3); /* MP3 file=use mpg123 output */
+    gtkinfo.flag123 = is_mpeg_file_format(input_format) ? 1 : 0; /* MP3 file=use mpg123 output */
     gtkinfo.pupdate = 0;
     gtkinfo.avebits = 0;
     gtkinfo.maxbits = 0;
