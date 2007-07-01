@@ -5,14 +5,11 @@
  *
  */
 
-/* $Id: layer2.c,v 1.20 2004/04/14 22:15:44 robert Exp $ */
+/* $Id: layer2.c,v 1.21 2007/07/01 20:05:52 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
-
-#ifdef USE_LAYER_2
-
 
 #include "common.h"
 #include "layer2.h"
@@ -308,5 +305,4 @@ int do_layer2( PMPSTR mp,unsigned char *pcm_sample,int *pcm_point)
 }
 
 
-#endif
 
