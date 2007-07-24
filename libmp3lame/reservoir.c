@@ -4,7 +4,7 @@
  *      Copyright (c) 1999-2000 Mark Taylor
  *
  * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Library General Public
+ * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2 of the License, or (at your option) any later version.
  *
@@ -13,13 +13,13 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Library General Public License for more details.
  *
- * You should have received a copy of the GNU Library General Public
+ * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the
  * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: reservoir.c,v 1.38 2006/12/27 22:19:26 robert Exp $ */
+/* $Id: reservoir.c,v 1.39 2007/07/24 17:46:10 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>

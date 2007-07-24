@@ -5,7 +5,7 @@
  *
  *
  * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Library General Public
+ * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2 of the License, or (at your option) any later version.
  *
@@ -24,7 +24,7 @@
  *         Special Thanks to Patrick De Smet for your advices.
  */
 
-/* $Id: newmdct.c,v 1.33 2006/06/15 23:51:48 robert Exp $ */
+/* $Id: newmdct.c,v 1.34 2007/07/24 17:46:10 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
