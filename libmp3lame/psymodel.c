@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.159 2007/07/24 17:46:10 bouvigne Exp $ */
+/* $Id: psymodel.c,v 1.160 2007/08/11 21:44:24 robert Exp $ */
 
 
 /*
@@ -723,7 +723,9 @@ compute_masking_s(lame_global_flags const *gfp,
 #endif
             ++j, ++kk;
         }
-        ecb *= 0.158489319246111; /* pow(10,-0.8) */
+        if (gfp->VBR == vbr_mtrh || gfp->VBR == vbr_mt) {
+            ecb *= 0.158489319246111; /* pow(10,-0.8) */
+        }
 
         {               /* limit calculated threshold by previous granule */
             FLOAT const x = rpelev_s * gfc->nb_s1[chn][b];
