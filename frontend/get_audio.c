@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.116 2007/10/14 19:54:31 robert Exp $ */
+/* $Id: get_audio.c,v 1.117 2007/10/14 20:18:19 robert Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -1061,8 +1061,12 @@ static int const WAV_ID_WAVE = 0x57415645; /* "WAVE" */
 static int const WAV_ID_FMT  = 0x666d7420; /* "fmt " */
 static int const WAV_ID_DATA = 0x64617461; /* "data" */
 
+#ifndef WAVE_FORMAT_PCM
 static short const WAVE_FORMAT_PCM = 0x0001;
+#endif
+#ifndef WAVE_FORMAT_EXTENSIBLE
 static short const WAVE_FORMAT_EXTENSIBLE = 0xFFFE;
+#endif
 
 
 /*****************************************************************************

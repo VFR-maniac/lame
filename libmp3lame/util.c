@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.135 2007/10/14 19:54:34 robert Exp $ */
+/* $Id: util.c,v 1.136 2007/10/14 20:18:19 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -80,7 +80,7 @@ free_id3tag(lame_internal_flags * const gfc)
         gfc->tag_spec.albumart_mimetype = MIMETYPE_NONE;
     }
     if (gfc->tag_spec.values != 0) {
-        int i;
+        unsigned int i;
         for (i = 0; i < gfc->tag_spec.num_values; ++i) {
             free(gfc->tag_spec.values[i]);
         }
