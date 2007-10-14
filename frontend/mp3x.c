@@ -1,4 +1,4 @@
-/* $Id: mp3x.c,v 1.23 2006/06/15 23:51:48 robert Exp $ */
+/* $Id: mp3x.c,v 1.24 2007/10/14 19:54:32 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -70,7 +70,8 @@ main(int argc, char **argv)
     gtk_init(&argc, &argv);
     gtkcontrol(gf, inPath);
 
-    lame_encode_finish(gf, mp3buffer, sizeof(mp3buffer));
+    lame_encode_flush(gf, mp3buffer, sizeof(mp3buffer));
+    lame_close(gf);
     close_infile();
     frontend_close_console();
     return 0;

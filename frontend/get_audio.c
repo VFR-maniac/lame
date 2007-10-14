@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.115 2007/10/14 13:33:43 robert Exp $ */
+/* $Id: get_audio.c,v 1.116 2007/10/14 19:54:31 robert Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -1739,5 +1739,18 @@ lame_decode_fromfile(FILE * fd, short pcm_l[], short pcm_r[], mp3data_struct * m
     return ret;
 }
 #endif /* defined(HAVE_MPGLIB) */
+
+
+int is_mpeg_file_format( int input_file_format )
+{
+    switch ( input_file_format ) {
+        case sf_mp1: return 1;
+        case sf_mp2: return 2;
+        case sf_mp3: return 3;
+        case sf_mp123: return -1;
+        default: break;
+    }
+    return 0;
+}
 
 /* end of get_audio.c */

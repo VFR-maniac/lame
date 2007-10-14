@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.146 2007/07/24 17:46:10 bouvigne Exp $ */
+/* $Id: quantize_pvt.c,v 1.147 2007/10/14 19:54:34 robert Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -763,7 +763,7 @@ calc_xmin(lame_global_flags const *gfp,
 }
 
 
-FLOAT
+static FLOAT
 calc_noise_core_c(const gr_info * const cod_info, int *startline, int l, FLOAT step)
 {
     FLOAT   noise = 0;

@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.233 2007/07/24 17:46:09 bouvigne Exp $ */
+/* $Id: parse.c,v 1.234 2007/10/14 19:54:32 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -963,6 +963,7 @@ presets_set(lame_t gfp, int fast, int cbr, const char *preset_name, const char *
 static void
 genre_list_handler(int num, const char *name, void *cookie)
 {
+    (void) cookie;
     console_printf("%3d %s\n", num, name);
 }
 

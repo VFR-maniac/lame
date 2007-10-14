@@ -43,7 +43,7 @@
  * conversions, and accommodated conversions involving +/- infinity,
  * NaN's, and denormalized numbers.
  *
- * $Id: portableio.c,v 1.12 2005/11/01 13:01:57 robert Exp $
+ * $Id: portableio.c,v 1.13 2007/10/14 19:54:32 robert Exp $
  */
 
 #ifdef HAVE_CONFIG_H
@@ -427,7 +427,7 @@ WriteBytesSwapped(FILE * fp, char *p, int n)
  * Extended precision IEEE floating-point conversion routines
  ****************************************************************/
 
-double
+static double
 ConvertFromIeeeExtended(char *bytes)
 {
     double  f;
