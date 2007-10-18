@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.118 2007/10/16 01:07:54 robert Exp $ */
+/* $Id: get_audio.c,v 1.119 2007/10/18 02:54:06 robert Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -1253,7 +1253,7 @@ make_even_number_of_bytes_in_length(long x)
 static int
 parse_aiff_header(lame_global_flags * gfp, FILE * sf)
 {
-    long    chunkSize = 0, subSize = 0, typeID = 0, dataType = IFF_ID_NONE;;
+    long    chunkSize = 0, subSize = 0, typeID = 0, dataType = IFF_ID_NONE;
     IFF_AIFF aiff_info;
     int     seen_comm_chunk = 0, seen_ssnd_chunk = 0;
     long    pcm_data_pos = -1;
