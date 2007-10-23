@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: vbrquantize.c,v 1.119 2007/10/23 02:31:14 robert Exp $ */
+/* $Id: vbrquantize.c,v 1.120 2007/10/23 23:23:43 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #  include <config.h>
@@ -1010,7 +1010,7 @@ short_block_constrain(const algo_t * that, int vbrsf[SFBMAX],
             maxover1 = v1;
         }
     }
-    if (gfc->noise_shaping == 2 || 1) {
+    if (gfc->noise_shaping == 2) {
         /* allow scalefac_scale=1 */
         mover = Min(maxover0, maxover1);
     }
@@ -1133,7 +1133,7 @@ long_block_constrain(const algo_t * that, int vbrsf[SFBMAX], const int vbrsfmin[
     if (vm1p == 0) {
         maxover1p = maxover1;
     }
-    if (gfc->noise_shaping != 2 && 0) {
+    if (gfc->noise_shaping != 2) {
         maxover1 = maxover0;
         maxover1p = maxover0p;
     }
