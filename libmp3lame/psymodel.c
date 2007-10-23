@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.164 2007/10/23 02:31:14 robert Exp $ */
+/* $Id: psymodel.c,v 1.165 2007/10/23 02:46:49 robert Exp $ */
 
 
 /*
@@ -777,15 +777,16 @@ compute_masking_s(lame_global_flags const *gfp,
              *  from other bands. in case of strong tonal samples (tonaltest.wav)
              *  this leads to heavy distortions. that's why we limit THR here.
              */
-            FLOAT   x = max[b];
-            x *= gfc->numlines_s[b];
-            x *= gfc->minval_s[b];
-            x *= mask_floor_m;
-            x *= tab[mask_idx_s[b]];
-            if (thr[b] > x) {
-                thr[b] = x;
+            {
+                FLOAT   x = max[b];
+                x *= gfc->numlines_s[b];
+                x *= gfc->minval_s[b];
+                x *= mask_floor_m;
+                x *= tab[mask_idx_s[b]];
+                if (thr[b] > x) {
+                    thr[b] = x;
+                }
             }
-
             gfc->nb_s2[chn][b] = gfc->nb_s1[chn][b];
             gfc->nb_s1[chn][b] = ecb;
             assert(thr[b] >= 0);
