@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.234 2007/10/14 19:54:32 robert Exp $ */
+/* $Id: parse.c,v 1.235 2007/11/01 19:25:48 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -101,10 +101,9 @@ int     disable_wav_header;
 mp3data_struct mp3input_data; /* used by MP3 */
 int     print_clipping_info; /* print info whether waveform clips */
 
-#ifdef LIBSNDFILE
-int     in_signed = 1;
-int     in_unsigned = 0;
-#endif
+
+int     in_signed = -1;
+
 int     in_endian = order_littleEndian;
 int     in_bitwidth = 16;
 
@@ -1166,13 +1165,13 @@ parse_args(lame_global_flags * gfp, int argc, char **argv,
                 T_ELIF("bitwidth")
                     argUsed = 1;
                 in_bitwidth = atoi(nextArg);
-#ifdef LIBSNDFILE
+                
                 T_ELIF("signed")
                     in_signed = 1;
 
                 T_ELIF("unsigned")
                     in_signed = 0;
-#endif
+
                 T_ELIF("little-endian")
                     in_endian = order_littleEndian;
 
