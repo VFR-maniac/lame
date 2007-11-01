@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.312 2007/10/21 00:45:53 robert Exp $ */
+/* $Id: lame.c,v 1.313 2007/11/01 19:16:12 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -840,6 +840,9 @@ lame_init_params(lame_global_flags * const gfp)
                 return -1;
             }
         }
+    }
+    else {
+        gfc->bitrate_index = 1;
     }
 
     /* for CBR, we will write an "info" tag. */
