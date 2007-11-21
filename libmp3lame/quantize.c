@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.194 2007/10/21 00:45:54 robert Exp $ */
+/* $Id: quantize.c,v 1.195 2007/11/21 21:30:59 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -346,9 +346,8 @@ typedef enum {
     BINSEARCH_DOWN
 } binsearchDirection_t;
 
-int
-bin_search_StepSize(lame_internal_flags * const gfc,
-                    gr_info * const cod_info,
+static int
+bin_search_StepSize(lame_internal_flags * const gfc, gr_info * const cod_info,
                     int desired_rate, const int ch, const FLOAT xrpow[576])
 {
     int     nBits;
@@ -360,7 +359,7 @@ bin_search_StepSize(lame_internal_flags * const gfc,
     desired_rate -= cod_info->part2_length;
 
     assert(CurrentStep);
-    do {
+    for(;;) {
         int     step;
         nBits = count_bits(gfc, xrpow, cod_info, 0);
 
@@ -388,17 +387,20 @@ bin_search_StepSize(lame_internal_flags * const gfc,
             step = -CurrentStep;
         }
         cod_info->global_gain += step;
-    } while (cod_info->global_gain < 256u);
+        if (cod_info->global_gain < 0) {
+            cod_info->global_gain = 0;
+            flag_GoneOver = 1;
+        }
+        if (cod_info->global_gain > 255) {
+            cod_info->global_gain = 255;
+            flag_GoneOver = 1;
+        }
+    }
 
-    if (cod_info->global_gain < 0) {
-        cod_info->global_gain = 0;
-        nBits = count_bits(gfc, xrpow, cod_info, 0);
-    }
-    else if (cod_info->global_gain > 255) {
-        cod_info->global_gain = 255;
-        nBits = count_bits(gfc, xrpow, cod_info, 0);
-    }
-    else if (nBits > desired_rate) {
+    assert(cod_info->global_gain >= 0);
+    assert(cod_info->global_gain < 256);
+    
+    while (nBits > desired_rate && cod_info->global_gain < 255) {
         cod_info->global_gain++;
         nBits = count_bits(gfc, xrpow, cod_info, 0);
     }
