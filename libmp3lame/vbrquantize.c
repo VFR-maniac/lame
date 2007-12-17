@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: vbrquantize.c,v 1.122 2007/12/16 17:18:26 robert Exp $ */
+/* $Id: vbrquantize.c,v 1.123 2007/12/17 00:08:56 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #  include <config.h>
@@ -1320,8 +1320,8 @@ cutDistribution(const int sfwork[SFBMAX], int sf_out[SFBMAX], int cut)
 {
     unsigned int i, j;
     for (j = SFBMAX, i = 0; j > 0; --j, ++i) {
-        int const x = sfwork[SFBMAX];
-        sf_out[SFBMAX] = x < cut ? x : cut;
+        int const x = sfwork[i];
+        sf_out[i] = x < cut ? x : cut;
     }
 }
 
