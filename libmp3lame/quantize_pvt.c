@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.148 2007/12/09 22:47:38 robert Exp $ */
+/* $Id: quantize_pvt.c,v 1.149 2007/12/24 16:00:12 robert Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -360,7 +360,6 @@ iteration_init(lame_global_flags * gfp)
             pow20[i] = pow(2.0, (double) (i - 210 - Q_MAX2) * 0.25);
 
         huffman_init(gfc);
-        quantize_init(gfc);
         init_xrpow_core_init(gfc);
 
         if (gfp->psymodel >= PSY_NSPSYTUNE) {

@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.236 2007/11/26 00:14:36 robert Exp $ */
+/* $Id: parse.c,v 1.237 2007/12/24 16:00:08 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1741,13 +1741,6 @@ parse_args(lame_global_flags * gfp, int argc, char **argv,
                             ("Must specify cwlimit with --cwlimit freq, freq >= 0.001 kHz\n");
                         return -1;
                     }
-                }
-
-                T_ELIF_INTERNAL("quantization-type") /*  switch for developing, no DOCU */
-                    argUsed = 1; /* 0:depending on quality, 1:ISO, 2:x^3/4 */
-                {
-                    extern void lame_set_quantization_type(lame_t, int);
-                    lame_set_quantization_type(gfp, atoi(nextArg)); /* now: 0:off else:Jon */
                 }
 
                 T_ELIF_INTERNAL("debug-file") /* switch for developing, no DOCU */
