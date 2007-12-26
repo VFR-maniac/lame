@@ -22,7 +22,7 @@
  
 /*!
 	\author Steve Lhomme
-	\version \$Id: ACMStream.cpp,v 1.11 2006/12/25 21:37:34 robert Exp $
+	\version \$Id: ACMStream.cpp,v 1.12 2007/12/26 22:04:08 robert Exp $
 */
 
 #if !defined(STRICT)
@@ -231,7 +231,6 @@ bool ACMStream::open(const AEncodeProperties & the_Properties)
 	my_debug->OutPut(DEBUG_LEVEL_FUNC_DEBUG, "CRC                    =%s", lame_get_error_protection( gfp ) ? "on" : "off" );
 	my_debug->OutPut(DEBUG_LEVEL_FUNC_DEBUG, "Fast mode              =%s", ( lame_get_quality( gfp ) )? "enabled" : "disabled" );
 	my_debug->OutPut(DEBUG_LEVEL_FUNC_DEBUG, "Force mid/side stereo  =%s", ( lame_get_force_ms( gfp ) )?"enabled":"disabled" );
-	my_debug->OutPut(DEBUG_LEVEL_FUNC_DEBUG, "Padding Type           =%d", lame_get_padding_type( gfp ) );
 	my_debug->OutPut(DEBUG_LEVEL_FUNC_DEBUG, "Disable Resorvoir      =%d", lame_get_disable_reservoir( gfp ) );
 	my_debug->OutPut(DEBUG_LEVEL_FUNC_DEBUG, "VBR                    =%s, VBR_q =%d, VBR method =",
 					( lame_get_VBR( gfp ) !=vbr_off ) ? "enabled": "disabled",
