@@ -28,7 +28,7 @@
  * NOTE: See http://id3.org/ for more information about ID3 tag formats.
  */
 
-/* $Id: id3tag.c,v 1.43 2007/10/14 19:54:33 robert Exp $ */
+/* $Id: id3tag.c,v 1.44 2008/01/02 20:30:24 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -610,6 +610,10 @@ id3tag_write_v2(lame_global_flags * gfp)
             playlength_length = snprintf(playlength, sizeof(playlength), "%lu", playlength_ms);
 #endif
 #endif
+            if (gfp->num_samples >= MAX_U_32_NUM) {
+                /* we don't know the number of samples, so don't write TLEN tag */
+                playlength_length = 0;
+            }
             tag_size += 11 + encoder_length;
             tag_size += 11 + playlength_length;
             if (title_length) {
