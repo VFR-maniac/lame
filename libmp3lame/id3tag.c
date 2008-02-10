@@ -28,7 +28,7 @@
  * NOTE: See http://id3.org/ for more information about ID3 tag formats.
  */
 
-/* $Id: id3tag.c,v 1.45 2008/02/10 17:35:59 robert Exp $ */
+/* $Id: id3tag.c,v 1.46 2008/02/10 18:38:03 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -549,6 +549,7 @@ lame_get_id3v2_tag(lame_global_flags * gfp, unsigned char* buffer, size_t size)
     if (gfc == 0) {
         return 0;
     }
+    {
     /* calculate length of four fields which may not fit in verion 1 tag */
     size_t  title_length = gfc->tag_spec.title ? strlen(gfc->tag_spec.title) : 0;
     size_t  artist_length = gfc->tag_spec.artist ? strlen(gfc->tag_spec.artist) : 0;
@@ -731,6 +732,7 @@ lame_get_id3v2_tag(lame_global_flags * gfp, unsigned char* buffer, size_t size)
         /* clear any padding bytes */
         memset(p, 0, tag_size - (p - buffer));
         return tag_size;
+    }
     }
     return 0;
 }

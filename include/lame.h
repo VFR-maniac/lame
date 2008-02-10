@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.h,v 1.165 2008/02/10 17:35:59 robert Exp $ */
+/* $Id: lame.h,v 1.166 2008/02/10 18:38:04 robert Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -630,6 +630,7 @@ const char*  CDECL get_lame_short_version ( void );
 const char*  CDECL get_lame_very_short_version ( void );
 const char*  CDECL get_psy_version        ( void );
 const char*  CDECL get_lame_url           ( void );
+const char*  CDECL get_lame_os_bitness    ( void );
 
 /*
  * OPTIONAL:
