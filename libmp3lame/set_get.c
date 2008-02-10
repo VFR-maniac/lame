@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.82 2007/12/26 13:12:53 robert Exp $ */
+/* $Id: set_get.c,v 1.83 2008/02/10 17:36:00 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1784,7 +1784,23 @@ lame_set_asm_optimizations(lame_global_flags * gfp, int optim, int mode)
 }
 
 
+void
+lame_set_write_id3tag_automatic(lame_global_flags * gfp, int v)
+{
+    if (gfp) {
+        gfp->write_id3tag_automatic = v;
+    }
+}
 
+
+int
+lame_get_write_id3tag_automatic(lame_global_flags const* gfp)
+{
+    if (gfp) {
+        return gfp->write_id3tag_automatic;
+    }
+    return 1;
+}
 
 
 /*
