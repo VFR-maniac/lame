@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: vbrquantize.c,v 1.126 2007/12/25 16:15:49 robert Exp $ */
+/* $Id: vbrquantize.c,v 1.127 2008/02/22 02:38:46 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #  include <config.h>
@@ -594,7 +594,7 @@ set_subblock_gain(gr_info * cod_info, const int mingain_s[3], int sf[])
     unsigned int const psymax = (unsigned int) cod_info->psymax;
     unsigned int psydiv = 18;
     int     sbg0, sbg1, sbg2;
-    unsigned int sfb, i, min_sbg = 7;;
+    unsigned int sfb, i, min_sbg = 7;
 
     if (psydiv > psymax) {
         psydiv = psymax;

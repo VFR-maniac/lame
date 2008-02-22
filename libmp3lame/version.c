@@ -26,7 +26,7 @@
   Contains functions which describe the version of LAME.
 
   \author A.L. Faber
-  \version \$Id: version.c,v 1.28 2007/07/24 17:46:12 bouvigne Exp $
+  \version \$Id: version.c,v 1.29 2008/02/22 02:38:46 robert Exp $
   \ingroup libmp3lame
 */
 
@@ -186,7 +186,7 @@ get_lame_url(void)
   \param lvp    
 */
 void
-get_lame_version_numerical(lame_version_t * const lvp)
+get_lame_version_numerical(lame_version_t * lvp)
 {
     static /*@observer@ */ const char *const features = ""; /* obsolete */
 
