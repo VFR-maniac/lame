@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.137 2008/02/22 02:48:52 robert Exp $ */
+/* $Id: util.c,v 1.138 2008/02/23 12:58:59 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -80,31 +80,19 @@ free_id3tag(lame_internal_flags * const gfc)
         gfc->tag_spec.values = 0;
         gfc->tag_spec.num_values = 0;
     }
-    if (gfc->tag_spec.id3v2_head != 0) {
-        ID3v2FrameNode* node = gfc->tag_spec.id3v2_head;
+    if (gfc->tag_spec.v2_head != 0) {
+        FrameDataNode* node = gfc->tag_spec.v2_head;
         do {
-            void* p = node;
-            void* q = node->text.l;
-            node = node->next;
-            free(p);
-            free(q);
-        } while (node != 0);
-        gfc->tag_spec.id3v2_head = 0;
-        gfc->tag_spec.id3v2_tail = 0;
-    }
-    if (gfc->tag_spec.id3v2_comm_head != 0) {
-        ID3v2CommentNode* node = gfc->tag_spec.id3v2_comm_head;
-        do {
-            void* p = node;
-            void* q = node->text.l;
-            void* r = node->desc.l;
-            node = node->next;
+            void* p = node->dsc.ptr.b;
+            void* q = node->txt.ptr.b;
+            void* r = node;
+            node = node->nxt;
             free(p);
             free(q);
             free(r);
         } while (node != 0);
-        gfc->tag_spec.id3v2_comm_head = 0;
-        gfc->tag_spec.id3v2_comm_tail = 0;
+        gfc->tag_spec.v2_head = 0;
+        gfc->tag_spec.v2_tail = 0;
     }
 }
 
