@@ -19,10 +19,15 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.h,v 1.167 2008/03/09 17:13:23 robert Exp $ */
+/* $Id: lame.h,v 1.168 2008/03/09 22:29:50 robert Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
+
+/* for size_t typedef */
+#include <stddef.h>
+/* for va_list typedef */
+#include <stdarg.h>
 
 #if defined(__cplusplus)
 extern "C" {
