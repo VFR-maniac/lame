@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: brhist.c,v 1.51 2007/10/08 20:59:50 robert Exp $ */
+/* $Id: brhist.c,v 1.52 2008/03/09 17:13:23 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -40,6 +40,7 @@
 /* #includes */
 
 #ifdef STDC_HEADERS
+# include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
 #endif

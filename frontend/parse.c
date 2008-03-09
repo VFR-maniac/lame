@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.239 2008/02/23 20:58:08 robert Exp $ */
+/* $Id: parse.c,v 1.240 2008/03/09 17:13:23 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -29,6 +29,7 @@
 #include <ctype.h>
 
 #ifdef STDC_HEADERS
+# include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
 #else

@@ -1,8 +1,10 @@
-/* $Id: mp3x.c,v 1.24 2007/10/14 19:54:32 robert Exp $ */
+/* $Id: mp3x.c,v 1.25 2008/03/09 17:13:23 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
+
+#include <stdio.h>
 
 #include "lame.h"
 #include "machine.h"
