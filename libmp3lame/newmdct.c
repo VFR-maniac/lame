@@ -24,7 +24,7 @@
  *         Special Thanks to Patrick De Smet for your advices.
  */
 
-/* $Id: newmdct.c,v 1.34 2007/07/24 17:46:10 bouvigne Exp $ */
+/* $Id: newmdct.c,v 1.35 2008/03/10 23:47:44 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -979,11 +979,11 @@ mdct_sub48(lame_internal_flags * gfc, const sample_t * w0, const sample_t * w1)
                 FLOAT  *const band1 = gfc->sb_sample[ch][1 - gr][0] + order[band];
                 if (gi->mixed_block_flag && band < 2)
                     type = 0;
-                if (gfc->amp_filter[band] == 0.0) {
+                if (EQ(gfc->amp_filter[band], 0.0)) {
                     memset(mdct_enc, 0, 18 * sizeof(FLOAT));
                 }
                 else {
-                    if (gfc->amp_filter[band] != 1.0) {
+                    if (NEQ(gfc->amp_filter[band], 1.0)) {
                         for (k = 0; k < 18; k++)
                             band1[k * 32] *= gfc->amp_filter[band];
                     }

@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.83 2008/02/10 17:36:00 robert Exp $ */
+/* $Id: set_get.c,v 1.84 2008/03/10 23:47:44 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1352,6 +1352,9 @@ lame_get_athaa_sensitivity(const lame_global_flags * gfp)
 
 
 /* Predictability limit (ISO tonality formula) */
+int lame_set_cwlimit(lame_global_flags * gfp, int cwlimit);
+int lame_get_cwlimit(const lame_global_flags * gfp);
+        
 int
 lame_set_cwlimit(lame_global_flags * gfp, int cwlimit)
 {
@@ -1435,7 +1438,7 @@ lame_set_interChRatio(lame_global_flags * gfp, float ratio)
 float
 lame_get_interChRatio(const lame_global_flags * gfp)
 {
-    assert((0 <= gfp->interChRatio && gfp->interChRatio <= 1.0) || (gfp->interChRatio == -1));
+    assert((0 <= gfp->interChRatio && gfp->interChRatio <= 1.0) || EQ(gfp->interChRatio,-1));
 
     return gfp->interChRatio;
 }

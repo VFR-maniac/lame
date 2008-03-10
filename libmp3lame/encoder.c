@@ -23,7 +23,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: encoder.c,v 1.101 2007/12/26 13:12:52 robert Exp $ */
+/* $Id: encoder.c,v 1.102 2008/03/10 23:47:43 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -154,8 +154,8 @@ static void
 updateStats(lame_internal_flags * const gfc)
 {
     int     gr, ch;
-    assert(gfc->bitrate_index < 16u);
-    assert(gfc->mode_ext < 4u);
+    assert(0 <= gfc->bitrate_index && gfc->bitrate_index < 16);
+    assert(0 <= gfc->mode_ext && gfc->mode_ext < 4);
 
     /* count bitrate indices */
     gfc->bitrate_stereoMode_Hist[gfc->bitrate_index][4]++;

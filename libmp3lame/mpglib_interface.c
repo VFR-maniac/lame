@@ -21,7 +21,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: mpglib_interface.c,v 1.32 2007/07/24 17:46:10 bouvigne Exp $ */
+/* $Id: mpglib_interface.c,v 1.33 2008/03/10 23:47:44 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -34,6 +34,7 @@
 #include "encoder.h"
 #include "interface.h"
 
+#include "util.h"
 
 
 MPSTR   mp;
@@ -82,7 +83,7 @@ lame_decode_init(void)
  *  n     number of samples output.  either 576 or 1152 depending on MP3 file.
  */
 
-int
+static int
 lame_decode1_headersB_clipchoice(unsigned char *buffer, int len,
                                  char pcm_l_raw[], char pcm_r_raw[], mp3data_struct * mp3data,
                                  int *enc_delay, int *enc_padding,
