@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.138 2008/02/23 12:58:59 robert Exp $ */
+/* $Id: util.c,v 1.139 2008/03/11 21:17:58 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -738,12 +738,17 @@ lame_errorf(const lame_internal_flags * gfc, const char *format, ...)
  *
  ***********************************************************************/
 
+#ifdef HAVE_NASM
+    extern int has_MMX_nasm(void);
+    extern int has_3DNow_nasm(void);
+    extern int has_SSE_nasm(void);
+    extern int has_SSE2_nasm(void);
+#endif
 
 int
 has_MMX(void)
 {
 #ifdef HAVE_NASM
-    extern int has_MMX_nasm(void);
     return has_MMX_nasm();
 #else
     return 0;           /* don't know, assume not */
@@ -754,7 +759,6 @@ int
 has_3DNow(void)
 {
 #ifdef HAVE_NASM
-    extern int has_3DNow_nasm(void);
     return has_3DNow_nasm();
 #else
     return 0;           /* don't know, assume not */
@@ -765,7 +769,6 @@ int
 has_SSE(void)
 {
 #ifdef HAVE_NASM
-    extern int has_SSE_nasm(void);
     return has_SSE_nasm();
 #else
 #ifdef _M_X64
@@ -780,7 +783,6 @@ int
 has_SSE2(void)
 {
 #ifdef HAVE_NASM
-    extern int has_SSE2_nasm(void);
     return has_SSE2_nasm();
 #else
 #ifdef _M_X64

@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.320 2008/03/10 23:47:44 robert Exp $ */
+/* $Id: lame.c,v 1.321 2008/03/11 21:17:58 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1129,9 +1129,9 @@ lame_print_config(const lame_global_flags * gfp)
 
     MSGF(gfc, "LAME %s %s (%s)\n", get_lame_version(), get_lame_os_bitness(), get_lame_url());
 
-    if (LAME_ALPHA_VERSION)
-        MSGF(gfc, "warning: alpha versions should be used for testing only\n");
-
+#if (LAME_ALPHA_VERSION)
+    MSGF(gfc, "warning: alpha versions should be used for testing only\n");
+#endif
     if (gfc->CPU_features.MMX
         || gfc->CPU_features.AMD_3DNow || gfc->CPU_features.SSE || gfc->CPU_features.SSE2) {
         int fft_asm_used = 0;

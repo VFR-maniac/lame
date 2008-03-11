@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: takehiro.c,v 1.69 2008/03/09 19:31:27 robert Exp $ */
+/* $Id: takehiro.c,v 1.70 2008/03/11 21:17:58 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1306,6 +1306,9 @@ scale_bitcount_lsf(const lame_internal_flags * gfc, gr_info * const cod_info)
 }
 
 
+#ifdef MMX_choose_table
+    extern int choose_table_MMX(const int *ix, const int *const end, int *const s);
+#endif
 
 void
 huffman_init(lame_internal_flags * const gfc)
@@ -1316,7 +1319,6 @@ huffman_init(lame_internal_flags * const gfc)
 
 #ifdef MMX_choose_table
     if (gfc->CPU_features.MMX) {
-        extern int choose_table_MMX(const int *ix, const int *const end, int *const s);
         gfc->choose_table = choose_table_MMX;
     }
 #endif

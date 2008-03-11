@@ -32,7 +32,7 @@
 **           Takehiro  - some dirty hack for speed up
 */
 
-/* $Id: fft.c,v 1.31 2007/01/07 14:30:32 robert Exp $ */
+/* $Id: fft.c,v 1.32 2008/03/11 21:17:58 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -287,6 +287,10 @@ fft_long(lame_internal_flags const *const gfc,
     /* BLKSIZE/2 because of 3DNow! ASM routine */
 }
 
+#ifdef HAVE_NASM
+    extern void fht_3DN(FLOAT * fz, int n);
+    extern void fht_SSE(FLOAT * fz, int n);
+#endif
 
 void
 init_fft(lame_internal_flags * const gfc)
@@ -305,11 +309,9 @@ init_fft(lame_internal_flags * const gfc)
 
 #ifdef HAVE_NASM
     if (gfc->CPU_features.AMD_3DNow) {
-        extern void fht_3DN(FLOAT * fz, int n);
         gfc->fft_fht = fht_3DN;
     }
     else if (gfc->CPU_features.SSE) {
-        extern void fht_SSE(FLOAT * fz, int n);
         gfc->fft_fht = fht_SSE;
     }
     else
