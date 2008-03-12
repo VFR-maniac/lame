@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.176 2008/03/10 23:47:44 robert Exp $ */
+/* $Id: psymodel.c,v 1.177 2008/03/12 11:23:29 robert Exp $ */
 
 
 /*
@@ -1944,7 +1944,7 @@ vbrpsy_compute_masking_s(lame_global_flags const *gfp, FLOAT(*fftenergy_s)[HBLKS
 
         assert(thr[b] >= 0);
     }
-    for (; b <= CBANDS; ++b) {
+    for (; b < CBANDS; ++b) {
         eb[b] = 0;
         thr[b] = 0;
     }
