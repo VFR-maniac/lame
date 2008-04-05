@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.241 2008/03/09 22:37:15 robert Exp $ */
+/* $Id: parse.c,v 1.242 2008/04/05 17:38:50 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -70,9 +70,6 @@ char   *strchr(), *strrchr();
 #include <dmalloc.h>
 #endif
 
-#ifndef WIN32
-#  define HAVE_ICONV
-#endif
                  
 #ifdef HAVE_ICONV
 #include <iconv.h>

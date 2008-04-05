@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: timestatus.c,v 1.44 2007/07/24 17:46:09 bouvigne Exp $ */
+/* $Id: timestatus.c,v 1.45 2008/04/05 17:38:50 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -291,7 +291,6 @@ encoder_progress_end( lame_global_flags const* gf )
         if (brhist) {
             brhist_disp(gf);
         }
-        brhist_disp_total(gf);
 #endif
         timestatus_finish();
     }

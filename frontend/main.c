@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.104 2008/02/10 17:35:59 robert Exp $ */
+/* $Id: main.c,v 1.105 2008/04/05 17:38:50 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -804,11 +804,7 @@ main(int argc, char **argv)
         return i;
     }
 
-    if (silent > 0
-#ifndef RH_HIST
-        || lame_get_VBR(gf) == vbr_off
-#endif
-        ) {
+    if (silent > 0) {
         brhist = 0;     /* turn off VBR histogram */
     }
 
