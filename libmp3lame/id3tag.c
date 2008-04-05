@@ -19,7 +19,7 @@
  */
 
 /*
- * HISTORY: This source file is part of LAME (see http://www.mp3dev.org/mp3/)
+ * HISTORY: This source file is part of LAME (see http://www.mp3dev.org)
  * and was originally adapted by Conrad Sanderson <c.sanderson@me.gu.edu.au>
  * from mp3info by Ricardo Cerqueira <rmc@rccn.net> to write only ID3 version 1
  * tags.  Don Melton <don@blivet.com> COMPLETELY rewrote it to support version
@@ -28,7 +28,7 @@
  * NOTE: See http://id3.org/ for more information about ID3 tag formats.
  */
 
-/* $Id: id3tag.c,v 1.51 2008/03/11 21:17:58 robert Exp $ */
+/* $Id: id3tag.c,v 1.52 2008/04/05 17:13:43 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
