@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.105 2008/04/05 17:38:50 robert Exp $ */
+/* $Id: main.c,v 1.106 2008/04/06 15:07:55 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -349,14 +349,14 @@ lame_decoder(lame_global_flags * gfp, FILE * outf, int skip_start, char *inPath,
 
 
 static void
-        print_lame_tag_leading_info(lame_global_flags * gf)
+print_lame_tag_leading_info(lame_global_flags * gf)
 {
     if (lame_get_bWriteVbrTag(gf))
         console_printf("Writing LAME Tag...");
 }
 
 static void
-        print_trailing_info(lame_global_flags * gf)
+print_trailing_info(lame_global_flags * gf)
 {
     if (lame_get_bWriteVbrTag(gf))
         console_printf("done\n");
