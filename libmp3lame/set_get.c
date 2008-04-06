@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.86 2008/03/11 21:57:19 robert Exp $ */
+/* $Id: set_get.c,v 1.87 2008/04/06 02:38:27 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -916,16 +916,14 @@ lame_get_experimentalY(const lame_global_flags * gfp)
 int
 lame_set_experimentalZ(lame_global_flags * gfp, int experimentalZ)
 {
-    (void) gfp;
-    (void) experimentalZ;
+    gfp->experimentalZ = experimentalZ;
     return 0;
 }
 
 int
 lame_get_experimentalZ(const lame_global_flags * gfp)
 {
-    (void) gfp;
-    return 0;
+    return gfp->experimentalZ;
 }
 
 

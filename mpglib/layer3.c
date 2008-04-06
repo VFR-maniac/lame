@@ -5,7 +5,7 @@
  * All rights reserved. See also 'README'
  */
 
-/* $Id: layer3.c,v 1.49 2006/06/15 23:51:49 robert Exp $ */
+/* $Id: layer3.c,v 1.50 2008/04/06 02:38:28 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -19,6 +19,7 @@
 #include "encoder.h"
 #include "lame-analysis.h"
 #include "decode_i386.h"
+#include "layer3.h"
 
 #ifdef WITH_DMALLOC
 #include <dmalloc.h>
