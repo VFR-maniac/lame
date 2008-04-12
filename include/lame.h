@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.h,v 1.169 2008/03/20 22:28:19 robert Exp $ */
+/* $Id: lame.h,v 1.170 2008/04/12 18:18:06 robert Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -430,6 +430,10 @@ vbr_mode CDECL lame_get_VBR(const lame_global_flags *);
 /* VBR quality level.  0=highest  9=lowest  */
 int CDECL lame_set_VBR_q(lame_global_flags *, int);
 int CDECL lame_get_VBR_q(const lame_global_flags *);
+
+/* VBR quality level.  0=highest  9=lowest, Range [0,...,10[  */
+int CDECL lame_set_VBR_quality(lame_global_flags *, float);
+float CDECL lame_get_VBR_quality(const lame_global_flags *);
 
 /* Ignored except for VBR=vbr_abr (ABR mode) */
 int CDECL lame_set_VBR_mean_bitrate_kbps(lame_global_flags *, int);

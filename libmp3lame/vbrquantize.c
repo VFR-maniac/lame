@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: vbrquantize.c,v 1.131 2008/03/11 21:57:19 robert Exp $ */
+/* $Id: vbrquantize.c,v 1.132 2008/04/12 18:18:07 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #  include <config.h>
@@ -978,8 +978,8 @@ long_block_constrain(const algo_t * that, const int vbrsf[SFBMAX], const int vbr
 static void
 bitcount(const algo_t * that)
 {
-    int rc;
-    
+    int     rc;
+
     if (that->gfc->mode_gr == 2) {
         rc = scale_bitcount(that->cod_info);
     }
@@ -1108,7 +1108,7 @@ flattenDistribution(const int sfwork[SFBMAX], int sf_out[SFBMAX], int dm, int k,
     int     x, sfmax = 0;
     if (dm > 0) {
         for (j = SFBMAX, i = 0; j > 0; --j, ++i) {
-            int const di = p - sfwork[i];        
+            int const di = p - sfwork[i];
             x = sfwork[i] + (k * di) / dm;
             if (x < 0) {
                 x = 0;

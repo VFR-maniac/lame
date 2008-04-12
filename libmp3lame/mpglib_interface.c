@@ -21,7 +21,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: mpglib_interface.c,v 1.34 2008/03/11 21:17:58 robert Exp $ */
+/* $Id: mpglib_interface.c,v 1.35 2008/04/12 18:18:06 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -104,7 +104,7 @@ lame_decode1_headersB_clipchoice(unsigned char *buffer, int len,
 
     mp3data->header_parsed = 0;
 
-    ret = (*decodeMP3_ptr) (&mp, buffer, len, p, (int)psize, &processed_bytes);
+    ret = (*decodeMP3_ptr) (&mp, buffer, len, p, (int) psize, &processed_bytes);
     /* three cases:  
      * 1. headers parsed, but data not complete
      *       mp.header_parsed==1 
@@ -189,7 +189,7 @@ lame_decode1_headersB_clipchoice(unsigned char *buffer, int len,
         break;
 
     default:
-	processed_samples = -1;
+        processed_samples = -1;
         assert(0);
         break;
     }

@@ -32,7 +32,7 @@
 **           Takehiro  - some dirty hack for speed up
 */
 
-/* $Id: fft.c,v 1.32 2008/03/11 21:17:58 robert Exp $ */
+/* $Id: fft.c,v 1.33 2008/04/12 18:18:06 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -288,8 +288,8 @@ fft_long(lame_internal_flags const *const gfc,
 }
 
 #ifdef HAVE_NASM
-    extern void fht_3DN(FLOAT * fz, int n);
-    extern void fht_SSE(FLOAT * fz, int n);
+extern void fht_3DN(FLOAT * fz, int n);
+extern void fht_SSE(FLOAT * fz, int n);
 #endif
 
 void
