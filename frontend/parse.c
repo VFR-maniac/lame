@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.243 2008/04/12 18:18:06 robert Exp $ */
+/* $Id: parse.c,v 1.244 2008/04/13 21:27:14 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -110,7 +110,8 @@ int     print_clipping_info; /* print info whether waveform clips */
 
 int     in_signed = -1;
 
-int     in_endian = order_littleEndian;
+enum ByteOrder in_endian = ByteOrderLittleEndian;
+
 int     in_bitwidth = 16;
 
 int     flush_write = 0;
@@ -1413,10 +1414,10 @@ parse_args(lame_global_flags * gfp, int argc, char **argv,
                     in_signed = 0;
 
                 T_ELIF("little-endian")
-                    in_endian = order_littleEndian;
+                    in_endian = ByteOrderLittleEndian;
 
                 T_ELIF("big-endian")
-                    in_endian = order_bigEndian;
+                    in_endian = ByteOrderBigEndian;
 
                 T_ELIF("mp1input")
                     input_format = sf_mp1;
