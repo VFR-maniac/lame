@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.122 2007/11/26 00:14:36 robert Exp $ */
+/* $Id: get_audio.c,v 1.123 2008/04/13 13:45:25 robert Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -113,6 +113,13 @@ min_size_t(size_t a, size_t b)
         return a;
     }
     return b;
+}
+
+static int
+machine_byte_order(void)
+{
+    long one= 1;
+    return !(*((char *)(&one))) ? order_bigEndian : order_littleEndian;
 }
 
 
@@ -304,8 +311,8 @@ SwapBytesInWords(short *ptr, int short_words)
 
 
 static int
-        get_audio_common(lame_global_flags * const gfp,
-                         int buffer[2][1152], short buffer16[2][1152]);
+get_audio_common(lame_global_flags * const gfp,
+                 int buffer[2][1152], short buffer16[2][1152]);
 
 /************************************************************************
 *
@@ -650,18 +657,18 @@ OpenSndFile(lame_global_flags * gfp, char *inPath, int *enc_delay, int *enc_padd
             }
             else {
                 /* we will never get here. it seems in_endian is always either little or big endian */
-#ifndef WORDS_BIGENDIAN
-                /* little endian */
-                if (swapbytes)
-                    gs_wfInfo.format |= SF_ENDIAN_BIG;
-                else
-                    gs_wfInfo.format |= SF_ENDIAN_LITTLE;
-#else
-                if (swapbytes)
-                    gs_wfInfo.format |= SF_ENDIAN_LITTLE;
-                else
-                    gs_wfInfo.format |= SF_ENDIAN_BIG;
-#endif
+                if (machine_byte_order() == order_littleEndian) {
+                    if (swapbytes)
+                        gs_wfInfo.format |= SF_ENDIAN_BIG;
+                    else
+                        gs_wfInfo.format |= SF_ENDIAN_LITTLE;
+                }
+                else {
+                    if (swapbytes)
+                        gs_wfInfo.format |= SF_ENDIAN_LITTLE;
+                    else
+                        gs_wfInfo.format |= SF_ENDIAN_BIG;
+                }
             }
             switch (in_bitwidth) {
             case 8:
@@ -1001,13 +1008,8 @@ read_samples_pcm(FILE * musicin, int sample_buffer[2304], int samples_to_read)
             exit(1);
         }
         {
-#ifndef WORDS_BIGENDIAN
-            int const machine_byte_order = order_littleEndian;
-#else
-            int const machine_byte_order = order_bigEndian;
-#endif
             if (in_endian != order_unknown) {
-                hi_lo_order = in_endian != machine_byte_order;
+                hi_lo_order = in_endian != machine_byte_order();
             }
             else {
                 /* assume only recognized wav files are */
