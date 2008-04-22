@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.152 2008/04/12 18:18:07 robert Exp $ */
+/* $Id: quantize_pvt.c,v 1.153 2008/04/22 23:01:22 robert Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -664,7 +664,7 @@ calc_xmin(lame_global_flags const *gfp,
     max_nonzero = 575;
     if (cod_info->block_type != SHORT_TYPE) { /* NORM, START or STOP type, but not SHORT */
         k = 576;
-        while (k-- && NEQ(xr[k], 0)) {
+        while (k-- && EQ(xr[k], 0)) {
             max_nonzero = k;
         }
     }

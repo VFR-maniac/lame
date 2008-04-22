@@ -8,7 +8,7 @@
  *
  */
 
-/* $Id: layer1.c,v 1.21 2007/07/01 20:05:52 robert Exp $ */
+/* $Id: layer1.c,v 1.22 2008/04/22 23:01:22 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -21,6 +21,8 @@
 #ifdef WITH_DMALLOC
 #include <dmalloc.h>
 #endif
+
+#include "layer1.h"
 
 static void 
 I_step_one(PMPSTR mp, unsigned int balloc[], unsigned int scale_index[2][SBLIMIT],struct frame *fr)
