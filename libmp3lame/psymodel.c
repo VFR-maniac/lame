@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.181 2008/04/13 21:27:14 robert Exp $ */
+/* $Id: psymodel.c,v 1.182 2008/04/23 01:50:31 robert Exp $ */
 
 
 /*
@@ -1899,7 +1899,6 @@ vbrpsy_compute_masking_s(lame_global_flags const *gfp, FLOAT(*fftenergy_s)[HBLKS
 #endif
         gfc->nb_s2[chn][b] = gfc->nb_s1[chn][b];
         gfc->nb_s1[chn][b] = ecb;
-
         {
             /*  if THR exceeds EB, the quantization routines will take the difference
              *  from other bands. in case of strong tonal samples (tonaltest.wav)
