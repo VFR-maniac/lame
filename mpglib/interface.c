@@ -1,4 +1,4 @@
-/* $Id: interface.c,v 1.51 2008/04/22 23:01:22 robert Exp $ */
+/* $Id: interface.c,v 1.52 2008/06/25 08:20:15 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -24,7 +24,7 @@
 #endif
 
 
-BOOL InitMP3( PMPSTR mp)
+int InitMP3( PMPSTR mp)
 {
         memset(mp,0,sizeof(MPSTR));
 
@@ -46,7 +46,7 @@ BOOL InitMP3( PMPSTR mp)
         mp->fr.single = -1;
         mp->bsnum = 0;
         mp->wordpointer = mp->bsspace[mp->bsnum] + 512;
-    mp->bitindex = 0;
+        mp->bitindex = 0;
         mp->synth_bo = 1;
         mp->sync_bitstream = 1;
 
@@ -56,7 +56,7 @@ BOOL InitMP3( PMPSTR mp)
 
         init_layer2();
 
-        return !0;
+        return 1;
 }
 
 void ExitMP3( PMPSTR mp)

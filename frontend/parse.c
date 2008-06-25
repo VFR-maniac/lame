@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.245 2008/06/17 20:57:53 robert Exp $ */
+/* $Id: parse.c,v 1.246 2008/06/25 08:20:15 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -2050,7 +2050,7 @@ parse_args(lame_global_flags * gfp, int argc, char **argv,
                         /* to change VBR default look in lame.h */
                         if (lame_get_VBR(gfp) == vbr_off)
                             lame_set_VBR(gfp, vbr_default);
-                        lame_set_VBR_quality(gfp, atof(arg));
+                        lame_set_VBR_quality(gfp, (float)atof(arg));
                         break;
                     case 'v':
                         /* to change VBR default look in lame.h */

@@ -5,7 +5,7 @@
  *
  */
 
-/* $Id: layer2.c,v 1.21 2007/07/01 20:05:52 robert Exp $ */
+/* $Id: layer2.c,v 1.22 2008/06/25 08:20:15 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -157,7 +157,8 @@ II_step_two(PMPSTR mp, unsigned int *bit_alloc,real fraction[2][4][SBLIMIT],int 
       step = alloc1->bits;
       for (j=0;j<stereo;j++)
       {
-        if ( (ba=*bita++) ) 
+        ba = *bita++;
+        if ( ba ) 
         {
           k=(alloc2 = alloc1+ba)->bits;
           if( (d1=alloc2->d) < 0) 
@@ -188,7 +189,8 @@ II_step_two(PMPSTR mp, unsigned int *bit_alloc,real fraction[2][4][SBLIMIT],int 
     {
       step = alloc1->bits;
       bita++;	/* channel 1 and channel 2 bitalloc are the same */
-      if ( (ba=*bita++) )
+      ba = *bita++;
+      if ( ba )
       {
         k=(alloc2 = alloc1+ba)->bits;
         if( (d1=alloc2->d) < 0)
