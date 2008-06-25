@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.36 2007/01/09 10:18:18 aleidinger Exp $
+## $Id: Makefile.am,v 1.37 2008/06/25 12:12:58 aleidinger Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -19,7 +19,8 @@ else
 decoder_ldadd =
 endif
 
-libmp3lame_la_LIBADD = $(cpu_ldadd) $(vector_ldadd) $(decoder_ldadd)
+libmp3lame_la_LIBADD =	$(cpu_ldadd) $(vector_ldadd) $(decoder_ldadd) \
+			$(CONFIG_MATH_LIB)
 libmp3lame_la_LDFLAGS = -version-info @LIB_MAJOR_VERSION@:@LIB_MINOR_VERSION@ \
 			-no-undefined
 
