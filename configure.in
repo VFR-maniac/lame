@@ -1,4 +1,4 @@
-dnl $Id: configure.in,v 1.131 2008/05/24 08:28:58 aleidinger Exp $
+dnl $Id: configure.in,v 1.132 2008/06/25 12:13:48 aleidinger Exp $
 dnl
 dnl
 dnl don't forget to set ASM_FOR_ARCH to a space delimited list of
@@ -375,7 +375,12 @@ AC_CHECK_LIB(m, cos, USE_LIBM="-lm")
 dnl free fast math library
 AC_CHECK_LIB(ffm, cos, USE_LIBM="-lffm -lm")
 dnl Compaq fast math library.
-AC_CHECK_LIB(cpml, cos, USE_LIBM="-lcpml")
+dnl XXX: test this!
+AC_ARG_DISABLE(cpml,
+  [  --disable-cpml              Do not use Compaq's fast Math Library],
+  [if test "$enableval" = yes; then
+      AC_CHECK_LIB(cpml, cos, USE_LIBM="-lcpml")
+   fi])
 CONFIG_MATH_LIB="${USE_LIBM}"
 
 dnl configure use of features
@@ -1142,6 +1147,7 @@ AC_SUBST(INCLUDES)
 AC_SUBST(FRONTEND_LDFLAGS)
 AC_SUBST(FRONTEND_CFLAGS)
 AC_SUBST(FRONTEND_LDADD)
+AC_SUBST(CONFIG_MATH_LIB)
 AC_SUBST(LDADD)
 
 AC_SUBST(LIB_MAJOR_VERSION)
