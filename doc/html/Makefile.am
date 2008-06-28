@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.4 2002/10/15 09:54:04 aleidinger Exp $
+## $Id: Makefile.am,v 1.5 2008/06/28 22:36:22 robert Exp $
 
 AUTOMAKE_OPTIONS = foreign ansi2knr
 
@@ -17,7 +17,6 @@ pkghtml_DATA = \
 	lame.css \
 	modes.html \
 	node6.html \
-	presets.html \
 	switchs.html
 
 EXTRA_DIST = $(pkghtml_DATA)
