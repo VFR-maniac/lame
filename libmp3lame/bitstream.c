@@ -19,7 +19,7 @@
  * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: bitstream.c,v 1.82 2008/04/12 18:18:06 robert Exp $
+ * $Id: bitstream.c,v 1.83 2008/07/18 22:43:25 robert Exp $
  */
 
 
@@ -51,7 +51,7 @@
 
 
 #ifdef DEBUG
-static int hoge, hogege;
+static int hogege;
 #endif
 
 
@@ -89,7 +89,6 @@ putheader_bits(lame_internal_flags * gfc)
     Bit_stream_struc *bs;
     bs = &gfc->bs;
 #ifdef DEBUG
-    hoge += gfc->sideinfo_len * 8;
     hogege += gfc->sideinfo_len * 8;
 #endif
     memcpy(&bs->buf[bs->buf_byte_idx], gfc->header[gfc->w_ptr].buf, gfc->sideinfo_len);
