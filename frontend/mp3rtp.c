@@ -1,4 +1,4 @@
-/* $Id: mp3rtp.c,v 1.25 2005/11/29 21:21:01 robert Exp $ */
+/* $Id: mp3rtp.c,v 1.26 2008/07/19 12:54:52 rbrito Exp $ */
 
 /* Still under work ..., need a client for test, where can I get one? */
 
@@ -12,8 +12,10 @@
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
-/* std int types already defined in config.h */
-#define _STDINT_H
+#endif
+
+#ifdef HAVE_STDINT_H
+# include <stdint.h>
 #endif
 
 #ifdef STDC_HEADERS
