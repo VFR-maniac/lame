@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.140 2008/04/12 18:18:07 robert Exp $ */
+/* $Id: util.c,v 1.141 2008/07/23 14:59:51 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -564,7 +564,6 @@ fill_buffer_resample(lame_global_flags const *gfp,
     fcn = 1.00 / gfc->resample_ratio;
     if (fcn > 1.00)
         fcn = 1.00;
-    filter_l = gfp->quality < 7 ? 31 : 7;
     filter_l = 31;
     if (0 == filter_l % 2)
         --filter_l;     /* must be odd */
