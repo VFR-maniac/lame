@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.h,v 1.170 2008/04/12 18:18:06 robert Exp $ */
+/* $Id: lame.h,v 1.171 2008/07/28 16:38:03 robert Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -505,9 +505,12 @@ float CDECL lame_get_ATHlower(const lame_global_flags *);
 int CDECL lame_set_athaa_type( lame_global_flags *, int);
 int CDECL lame_get_athaa_type( const lame_global_flags *);
 
+#if DEPRECATED_OR_OBSOLETE_CODE_REMOVED
+#else
 /* select the loudness approximation used by the ATH adaptive auto-leveling  */
 int CDECL lame_set_athaa_loudapprox( lame_global_flags *, int);
 int CDECL lame_get_athaa_loudapprox( const lame_global_flags *);
+#endif
 
 /* adjust (in dB) the point below which adaptive ATH level adjustment occurs */
 int CDECL lame_set_athaa_sensitivity( lame_global_flags *, float);
