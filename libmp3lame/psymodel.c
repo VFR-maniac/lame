@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.187 2008/07/28 16:38:03 robert Exp $ */
+/* $Id: psymodel.c,v 1.188 2008/07/28 16:57:02 robert Exp $ */
 
 
 /*
@@ -2764,6 +2764,7 @@ psymodel_init(lame_global_flags * gfp)
     lame_internal_flags *const gfc = gfp->internal_flags;
     SessionConfig_t *const cfg = &gfc->cfg;
     PsyStateVar_t *const psv = &gfc->sv_psy;
+    PsyConst_t *gd;
     int     i, j, b, sb, k;
     int     use_old_s3 = 1;
     FLOAT   bvl_a = 13, bvl_b = 24;
@@ -2778,7 +2779,7 @@ psymodel_init(lame_global_flags * gfp)
     if (gfc->cd_psy != 0) {
         return 0;
     }
-    PsyConst_t *gd = calloc(1, sizeof(PsyConst_t));
+    gd = calloc(1, sizeof(PsyConst_t));
     gfc->cd_psy = gd;
 
     switch (gfp->experimentalZ) {
