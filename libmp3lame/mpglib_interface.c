@@ -21,7 +21,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: mpglib_interface.c,v 1.35 2008/04/12 18:18:06 robert Exp $ */
+/* $Id: mpglib_interface.c,v 1.36 2008/08/04 19:53:56 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -37,7 +37,7 @@
 #include "util.h"
 
 
-MPSTR   mp;
+static MPSTR   mp;
 plotting_data *mpg123_pinfo = NULL;
 
 int

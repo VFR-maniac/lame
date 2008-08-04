@@ -23,7 +23,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: encoder.c,v 1.105 2008/07/28 16:38:03 robert Exp $ */
+/* $Id: encoder.c,v 1.106 2008/08/04 19:53:56 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -186,21 +186,23 @@ updateStats(lame_internal_flags * const gfc)
 
 
 static void
-lame_encode_frame_init(lame_internal_flags * gfc, const sample_t * inbuf[2])
+lame_encode_frame_init(lame_internal_flags * gfc, const sample_t *const inbuf[2])
 {
     SessionConfig_t const *const cfg = &gfc->cfg;
 
     int     ch, gr;
 
     if (gfc->lame_encode_frame_init == 0) {
-        int     framesize = 576 * cfg->mode_gr;
-        /* prime the MDCT/polyphase filterbank with a short block */
-        int     i, j;
         sample_t primebuff0[286 + 1152 + 576];
         sample_t primebuff1[286 + 1152 + 576];
+        int const framesize = 576 * cfg->mode_gr;
+        /* prime the MDCT/polyphase filterbank with a short block */
+        int     i, j;
         gfc->lame_encode_frame_init = 1;
+        memset(primebuff0, 0, sizeof(primebuff0));
+        memset(primebuff1, 0, sizeof(primebuff1));
         for (i = 0, j = 0; i < 286 + 576 * (1 + cfg->mode_gr); ++i) {
-            if (i < 576 * cfg->mode_gr) {
+            if (i < framesize) {
                 primebuff0[i] = 0;
                 if (cfg->channels_out == 2)
                     primebuff1[i] = 0;
@@ -360,7 +362,7 @@ lame_encode_mp3_frame(       /* Output */
          * (mt 6/99).
          */
         int     ret;
-        const sample_t *bufp[2]; /* address of beginning of left & right granule */
+        const sample_t *bufp[2] = {0, 0}; /* address of beginning of left & right granule */
         int     blocktype[2];
 
         for (gr = 0; gr < cfg->mode_gr; gr++) {

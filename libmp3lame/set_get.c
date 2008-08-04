@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.89 2008/07/28 16:38:04 robert Exp $ */
+/* $Id: set_get.c,v 1.90 2008/08/04 19:53:56 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -380,7 +380,7 @@ lame_get_mode(const lame_global_flags * gfp)
         assert(gfp->mode < MAX_INDICATOR);
         return gfp->mode;
     }
-    return 0;
+    return NOT_SET;
 }
 
 
@@ -1104,7 +1104,7 @@ lame_get_VBR(const lame_global_flags * gfp)
         assert(gfp->VBR < vbr_max_indicator);
         return gfp->VBR;
     }
-    return 0;
+    return vbr_off;
 }
 
 

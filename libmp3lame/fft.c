@@ -32,7 +32,7 @@
 **           Takehiro  - some dirty hack for speed up
 */
 
-/* $Id: fft.c,v 1.33 2008/04/12 18:18:06 robert Exp $ */
+/* $Id: fft.c,v 1.34 2008/08/04 19:53:56 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -191,7 +191,7 @@ static const unsigned char rv_tbl[] = {
 
 void
 fft_short(lame_internal_flags const *const gfc,
-          FLOAT x_real[3][BLKSIZE_s], int chn, const sample_t * buffer[2])
+          FLOAT x_real[3][BLKSIZE_s], int chn, const sample_t *const buffer[2])
 {
     int     i;
     int     j;
@@ -243,7 +243,7 @@ fft_short(lame_internal_flags const *const gfc,
 
 void
 fft_long(lame_internal_flags const *const gfc,
-         FLOAT x[BLKSIZE], int chn, const sample_t * buffer[2])
+         FLOAT x[BLKSIZE], int chn, const sample_t *const buffer[2])
 {
     int     i;
     int     jj = BLKSIZE / 8 - 1;

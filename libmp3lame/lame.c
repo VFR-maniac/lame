@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.326 2008/07/28 17:18:27 robert Exp $ */
+/* $Id: lame.c,v 1.327 2008/08/04 19:53:56 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -221,6 +221,7 @@ optimum_bandwidth(double *const lowerlimit, double *const upperlimit, const unsi
 
     table_index = nearestBitrateFullIndex(bitrate);
 
+    (void) freq_map[table_index].bitrate;
     *lowerlimit = freq_map[table_index].lowpass;
 
 
