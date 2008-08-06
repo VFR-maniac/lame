@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.249 2008/08/06 16:10:54 robert Exp $ */
+/* $Id: parse.c,v 1.250 2008/08/06 16:14:35 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -76,10 +76,10 @@ char   *strchr(), *strrchr();
 #include <errno.h>
 #endif
 
-#if defined DEBUG || _DEBUG || _ALLOW_INTERNAL_OPTIONS
+#if defined _ALLOW_INTERNAL_OPTIONS
 #define INTERNAL_OPTS 1
 #else
-#define INTERNAL_OPTS LAME_ALPHA_VERSION
+#define INTERNAL_OPTS 0
 #endif
 
 #if (INTERNAL_OPTS!=0)
