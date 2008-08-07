@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.329 2008/08/07 14:52:44 robert Exp $ */
+/* $Id: lame.c,v 1.330 2008/08/07 20:55:36 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -363,7 +363,8 @@ lame_init_qval(lame_global_flags * gfp)
 {
     lame_internal_flags *const gfc = gfp->internal_flags;
     SessionConfig_t *const cfg = &gfc->cfg;
-
+///if (gfp->quality > 6) gfp->quality = 6;
+///if (gfp->quality < 6) gfp->quality = 3;
     switch (gfp->quality) {
     default:
     case 9:            /* no psymodel, no noise shaping */
