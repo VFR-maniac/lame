@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: takehiro.c,v 1.74 2008/08/08 20:34:51 robert Exp $ */
+/* $Id: takehiro.c,v 1.75 2008/08/11 20:56:07 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -788,12 +788,7 @@ count_bits(lame_internal_flags const *const gfc,
             else {
                 int     k;
                 for (k = j, j += width; k < j; ++k) {
-                    FLOAT const xr_k = xr[k];
-                    int ix_k = ix[k];
-                    if (xr_k < roundfac) {
-                        ix_k = 0;
-                    }
-                    ix[k] = ix_k;
+                    ix[k] = (xr[k] >= roundfac) ? ix[k] : 0;
                 }
             }
         }
