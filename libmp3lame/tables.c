@@ -19,11 +19,13 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: tables.c,v 1.26 2008/08/04 19:53:56 robert Exp $ */
+/* $Id: tables.c,v 1.27 2008/08/13 20:38:38 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
+
+#include "machine.h"
 
 #include "lame.h"
 #include "tables.h"
