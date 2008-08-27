@@ -1,8 +1,10 @@
-## $Id: Makefile.am,v 1.22 2007/01/09 10:23:35 aleidinger Exp $
+## $Id: Makefile.am,v 1.23 2008/08/27 10:27:21 rbrito Exp $
 
 AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
 
 DEFS = @DEFS@ @CONFIG_DEFS@
+
+ECHO ?= echo
 
 nasm_sources = \
 	choose_table.nas \
