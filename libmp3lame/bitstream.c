@@ -19,7 +19,7 @@
  * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: bitstream.c,v 1.86 2008/08/05 12:32:18 robert Exp $
+ * $Id: bitstream.c,v 1.87 2008/08/31 16:14:48 robert Exp $
  */
 
 
@@ -1017,7 +1017,7 @@ copy_buffer(lame_internal_flags * gfc, unsigned char *buffer, int size, int mp3d
             /* re-synthesis to pcm.  Repeat until we get a samples_out=0 */
             while (samples_out != 0) {
 
-                samples_out = lame_decode1_unclipped(buffer, mp3_in, pcm_buf[0], pcm_buf[1]);
+                samples_out = hip_decode1_unclipped(gfc->hip, buffer, mp3_in, pcm_buf[0], pcm_buf[1]);
                 /* samples_out = 0:  need more data to decode
                  * samples_out = -1:  error.  Lets assume 0 pcm output
                  * samples_out = number of samples output */

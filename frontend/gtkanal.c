@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: gtkanal.c,v 1.41 2007/07/24 17:46:09 bouvigne Exp $ */
+/* $Id: gtkanal.c,v 1.42 2008/08/31 16:14:49 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -118,6 +118,7 @@ struct gtkinfostruct {
 
 static lame_global_flags *gfp;
 lame_internal_flags *gfc;
+hip_t hip;
 
 /**********************************************************************
  * read one frame and encode it
@@ -135,7 +136,6 @@ gtkmakeframe(void)
     int     mp3out = 0;
     int     channels_out;
     char    mp3buffer[LAME_MAXMP3BUFFER];
-    extern plotting_data *mpg123_pinfo;
     static int frameNum = 0;
     int     framesize = lame_get_framesize(gfp);
 
@@ -150,7 +150,7 @@ gtkmakeframe(void)
      * and mpg123 will write data into mpg123_pinfo.  Set these so
      * the libraries put this data in the right place: */
     gfc->pinfo = pinfo;
-    mpg123_pinfo = pinfo;
+    hip_decode_set_pinfo(hip, pinfo);
 
     if (is_mpeg_file_format(input_format)) {
         iread = get_audio16(gfp, Buffer);
@@ -177,7 +177,10 @@ gtkmakeframe(void)
             if (!init) {
                 init = 1;
                 mpglag = 1;
-                lame_decode_init();
+                if (hip) {
+                    hip_decode_exit(hip);
+                }
+                hip = hip_decode_init();
             }
 
             iread = get_audio16(gfp, Buffer);
@@ -203,7 +206,7 @@ gtkmakeframe(void)
 
 
         /* decode one frame of output */
-        mp3out = lame_decode1(mp3buffer, mp3count, mpg123pcm[0], mpg123pcm[1]); /* re-synthesis to pcm */
+        mp3out = hip_decode1(hip, mp3buffer, mp3count, mpg123pcm[0], mpg123pcm[1]); /* re-synthesis to pcm */
         /* mp3out = 0:  need more data to decode */
         /* mp3out = -1:  error.  Lets assume 0 pcm output */
         /* mp3out = number of samples output */

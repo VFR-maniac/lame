@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.330 2008/08/07 20:55:36 robert Exp $ */
+/* $Id: lame.c,v 1.331 2008/08/31 16:14:48 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -750,8 +750,12 @@ lame_init_params(lame_global_flags * gfp)
     }
 
 #ifdef DECODE_ON_THE_FLY
-    if (cfg->decode_on_the_fly && !gfp->decode_only)
-        (void) lame_decode_init(); /* initialize the decoder  */
+    if (cfg->decode_on_the_fly && !gfp->decode_only) {
+        if (gfc->hip) {
+            hip_decode_exit(gfc->hip);
+        }
+        gfc->hip = hip_decode_init();
+    }
 #endif
 
     cfg->disable_reservoir = gfp->disable_reservoir;
