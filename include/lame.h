@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.h,v 1.173 2008/08/31 17:52:10 robert Exp $ */
+/* $Id: lame.h,v 1.174 2008/08/31 19:31:58 robert Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -140,8 +140,11 @@ struct hip_global_struct;
 typedef struct hip_global_struct hip_global_flags;
 typedef hip_global_flags *hip_t;
 
+#ifndef plotting_data_defined
+#define plotting_data_defined
 struct plotting_data;
 typedef struct plotting_data plotting_data;
+#endif
 
 /***********************************************************************
  *
