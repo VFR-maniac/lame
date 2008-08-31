@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.h,v 1.172 2008/08/31 16:14:49 robert Exp $ */
+/* $Id: lame.h,v 1.173 2008/08/31 17:52:10 robert Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -1065,30 +1065,30 @@ int CDECL hip_decode_exit(hip_t gfp);
 /*
  * OBSOLETE:
  */
-int CDECL lame_decode_init__API_FIX(void);
-int CDECL lame_decode__API_FIX(
+int CDECL lame_decode_init(void);
+int CDECL lame_decode(
         unsigned char *  mp3buf,
         int              len,
         short            pcm_l[],
         short            pcm_r[] );
-int CDECL lame_decode_headers__API_FIX(
+int CDECL lame_decode_headers(
         unsigned char*   mp3buf,
         int              len,
         short            pcm_l[],
         short            pcm_r[],
         mp3data_struct*  mp3data );
-int CDECL lame_decode1__API_FIX(
+int CDECL lame_decode1(
         unsigned char*  mp3buf,
         unsigned int    len,
         short           pcm_l[],
         short           pcm_r[] );
-int CDECL lame_decode1_headers__API_FIX(
+int CDECL lame_decode1_headers(
         unsigned char*   mp3buf,
         int              len,
         short            pcm_l[],
         short            pcm_r[],
         mp3data_struct*  mp3data );
-int CDECL lame_decode1_headersB__API_FIX(
+int CDECL lame_decode1_headersB(
         unsigned char*   mp3buf,
         int              len,
         short            pcm_l[],
@@ -1096,7 +1096,7 @@ int CDECL lame_decode1_headersB__API_FIX(
         mp3data_struct*  mp3data,
         int              *enc_delay,
         int              *enc_padding );
-int CDECL lame_decode_exit__API_FIX(void);
+int CDECL lame_decode_exit(void);
 #endif
 
 
