@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.h,v 1.174 2008/08/31 19:31:58 robert Exp $ */
+/* $Id: lame.h,v 1.175 2008/09/08 22:46:13 robert Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -1082,7 +1082,7 @@ int CDECL lame_decode_headers(
         mp3data_struct*  mp3data );
 int CDECL lame_decode1(
         unsigned char*  mp3buf,
-        unsigned int    len,
+        int             len,
         short           pcm_l[],
         short           pcm_r[] );
 int CDECL lame_decode1_headers(

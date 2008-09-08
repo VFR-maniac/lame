@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.107 2008/04/23 01:50:31 robert Exp $ */
+/* $Id: main.c,v 1.108 2008/09/08 22:46:12 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -597,6 +597,7 @@ parse_nogap_filenames(int nogapout, char *inPath, char *outPath, char *outdir)
     char   *slasher;
     size_t  n;
 
+    /* FIXME: replace strcpy by safer strncpy */
     strcpy(outPath, outdir);
     if (!nogapout) {
         strncpy(outPath, inPath, PATH_MAX + 1 - 4);
@@ -634,12 +635,13 @@ parse_nogap_filenames(int nogapout, char *inPath, char *outPath, char *outdir)
                  && (outPath[strlen(outPath) - 1] != '/'
                      &&
                      outPath[strlen(outPath) - 1] != '\\' && outPath[strlen(outPath) - 1] != ':'))
+            /* FIXME: replace strcat by safer strncat */
 #ifdef _WIN32
-            strcat(outPath, "\\");
+            strncat(outPath, "\\", PATH_MAX + 1 - 4);
 #elif __OS2__
-            strcat(outPath, "\\");
+            strncat(outPath, "\\", PATH_MAX + 1 - 4);
 #else
-            strcat(outPath, "/");
+            strncat(outPath, "/", PATH_MAX + 1 - 4);
 #endif
 
         strncat(outPath, slasher, PATH_MAX + 1 - 4);

@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.253 2008/08/31 16:14:49 robert Exp $ */
+/* $Id: parse.c,v 1.254 2008/09/08 22:46:13 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1893,6 +1893,7 @@ parse_args(lame_global_flags * gfp, int argc, char **argv,
                     nogap_tags = 1;
 
                 T_ELIF("nogapout")
+                    /* FIXME: replace strcpy by safer strncpy */
                     strcpy(outPath, nextArg);
                 argUsed = 1;
 
