@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: gtkanal.c,v 1.42 2008/08/31 16:14:49 robert Exp $ */
+/* $Id: gtkanal.c,v 1.43 2008/10/11 18:04:45 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -147,10 +147,12 @@ gtkmakeframe(void)
     pinfo->stereo = channels_out;
 
     /* If the analsys code is enabled, lame will writes data into gfc->pinfo,
-     * and mpg123 will write data into mpg123_pinfo.  Set these so
+     * and mpg123 will write data into pinfo.  Set these so
      * the libraries put this data in the right place: */
     gfc->pinfo = pinfo;
-    hip_decode_set_pinfo(hip, pinfo);
+    if (hip) {
+        hip->pinfo = pinfo;
+    }
 
     if (is_mpeg_file_format(input_format)) {
         iread = get_audio16(gfp, Buffer);
@@ -181,6 +183,9 @@ gtkmakeframe(void)
                     hip_decode_exit(hip);
                 }
                 hip = hip_decode_init();
+                if (hip) {
+                	hip->pinfo = pinfo;
+                }
             }
 
             iread = get_audio16(gfp, Buffer);

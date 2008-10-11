@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: mpglib_interface.c,v 1.38 2008/09/08 22:46:13 robert Exp $ */
+/* $Id: mpglib_interface.c,v 1.39 2008/10/11 18:04:45 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -258,23 +258,6 @@ lame_decode1_headersB(unsigned char *buffer,
 }
 
 
-/* we forbid input with more than 1152 samples per channel for output in the unclipped mode */
-#define OUTSIZE_UNCLIPPED (1152*2*sizeof(FLOAT))
-
-int
-hip_decode1_unclipped(hip_t hip, unsigned char *buffer, size_t len, sample_t pcm_l[], sample_t pcm_r[])
-{
-    static char out[OUTSIZE_UNCLIPPED];
-    mp3data_struct mp3data;
-    int     enc_delay, enc_padding;
-
-    if (hip) {
-        return decode1_headersB_clipchoice(hip, buffer, len, (char *) pcm_l, (char *) pcm_r, &mp3data,
-                                           &enc_delay, &enc_padding, out, OUTSIZE_UNCLIPPED,
-                                           sizeof(FLOAT), decodeMP3_unclipped);
-    }
-    return 0;
-}
 
 
 
@@ -362,16 +345,26 @@ int hip_decode_exit(hip_t hip)
 }
 
 
-void hip_decode_set_pinfo(hip_t hip, plotting_data* pinfo)
+/* we forbid input with more than 1152 samples per channel for output in the unclipped mode */
+#define OUTSIZE_UNCLIPPED (1152*2*sizeof(FLOAT))
+
+int
+hip_decode1_unclipped(hip_t hip, unsigned char *buffer, size_t len, sample_t pcm_l[], sample_t pcm_r[])
 {
+    static char out[OUTSIZE_UNCLIPPED];
+    mp3data_struct mp3data;
+    int     enc_delay, enc_padding;
+
     if (hip) {
-        hip->mpg123_pinfo = pinfo;
+        return decode1_headersB_clipchoice(hip, buffer, len, (char *) pcm_l, (char *) pcm_r, &mp3data,
+                                           &enc_delay, &enc_padding, out, OUTSIZE_UNCLIPPED,
+                                           sizeof(FLOAT), decodeMP3_unclipped);
     }
+    return 0;
 }
 
-
 /*
- * For lame_decode:  return code
+ * For hip_decode:  return code
  *  -1     error
  *   0     ok, but need more data before outputing any samples
  *   n     number of samples output.  Will be at most one frame of
@@ -396,7 +389,7 @@ hip_decode1(hip_t hip, unsigned char *buffer, size_t len, short pcm_l[], short p
 
 
 /*
- * For lame_decode:  return code
+ * For hip_decode:  return code
  *  -1     error
  *   0     ok, but need more data before outputing any samples
  *   n     number of samples output.  a multiple of 576 or 1152 depending on MP3 file.

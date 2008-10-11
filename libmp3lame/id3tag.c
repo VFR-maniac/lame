@@ -29,7 +29,7 @@
  * NOTE: See http://id3.org/ for more information about ID3 tag formats.
  */
 
-/* $Id: id3tag.c,v 1.59 2008/09/14 11:54:53 robert Exp $ */
+/* $Id: id3tag.c,v 1.60 2008/10/11 18:04:45 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -395,7 +395,7 @@ as follows.
 (although some are not exactly same)*/
 
 int
-id3tag_set_albumart(lame_global_flags * gfp, const char *image, unsigned long size)
+id3tag_set_albumart(lame_global_flags * gfp, const char *image, size_t size)
 {
     int     mimetype = 0;
     unsigned char const *data = (unsigned char const *) image;
