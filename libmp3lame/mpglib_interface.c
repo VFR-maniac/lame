@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: mpglib_interface.c,v 1.39 2008/10/11 18:04:45 robert Exp $ */
+/* $Id: mpglib_interface.c,v 1.40 2008/10/11 18:58:53 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -438,6 +438,14 @@ hip_decode1_headersB(hip_t hip, unsigned char *buffer,
                                            sizeof(short), decodeMP3);
     }
     return -1;
+}
+
+
+void hip_set_pinfo(hip_t hip, plotting_data* pinfo)
+{
+    if (hip) {
+        hip->pinfo = pinfo;
+    }
 }
 
 #endif
