@@ -46,15 +46,15 @@
  * conversions, and accommodated conversions involving +/- infinity,
  * NaN's, and denormalized numbers.
  *
- * $Id: portableio.h,v 1.4 2005/11/01 13:01:57 robert Exp $
+ * $Id: portableio.h,v 1.5 2008/10/23 23:17:50 robert Exp $
  */
 
-#include	<stdio.h>
+#include <stdio.h>
 
-#ifndef	__cplusplus
-# define	CLINK
+#ifndef __cplusplus
+# define CLINK
 #else
-# define	CLINK "C"
+# define CLINK "C"
 #endif
 
 extern CLINK int ReadByte(FILE * fp);
@@ -86,6 +86,6 @@ extern CLINK void WriteIeeeDoubleHighLow(FILE * fp, double num);
 extern CLINK void WriteIeeeExtendedLowHigh(FILE * fp, double num);
 extern CLINK void WriteIeeeExtendedHighLow(FILE * fp, double num);
 
-#define	Read32BitsLowHigh(f)	Read32Bits(f)
-#define WriteString(f,s)	fwrite(s,strlen(s),sizeof(char),f)
+#define Read32BitsLowHigh(f) Read32Bits(f)
+#define WriteString(f,s) fwrite(s,strlen(s),sizeof(char),f)
 #endif

@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.108 2008/09/08 22:46:12 robert Exp $ */
+/* $Id: main.c,v 1.109 2008/10/23 23:17:50 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -336,9 +336,9 @@ lame_decoder(lame_global_flags * gfp, FILE * outf, int skip_start, char *inPath,
 
     /* if outf is seekable, rewind and adjust length */
     if (!disable_wav_header && strcmp("-", outPath)
-	&& !fseek(outf, 0l, SEEK_SET))
-	WriteWaveHeader(outf, (int) wavsize, lame_get_in_samplerate(gfp),
-			tmp_num_channels, 16);
+        && !fseek(outf, 0l, SEEK_SET))
+        WriteWaveHeader(outf, (int) wavsize, lame_get_in_samplerate(gfp),
+                        tmp_num_channels, 16);
     fclose(outf);
 
     if (silent <= 0)

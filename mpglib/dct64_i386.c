@@ -8,7 +8,7 @@
  *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the GNU
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * Library General Public License for more details.
  *
  * You should have received a copy of the GNU Library General Public
@@ -23,7 +23,7 @@
  * even for Intel processors.
  */
 
-/* $Id: dct64_i386.c,v 1.11 2008/10/21 22:35:23 robert Exp $ */
+/* $Id: dct64_i386.c,v 1.12 2008/10/23 23:17:50 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
