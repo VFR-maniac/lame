@@ -28,7 +28,7 @@
  * even for Intel processors.
  */
 
-/* $Id: decode_i386.c,v 1.20 2008/10/23 23:17:50 robert Exp $ */
+/* $Id: decode_i386.c,v 1.21 2008/10/23 23:26:27 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -42,7 +42,7 @@
 #  define strchr index
 #  define strrchr rindex
 # endif
-char *strchr (), *strrchr ();
+char   *strchr(), *strrchr();
 # ifndef HAVE_MEMCPY
 #  define memcpy(d, s, n) bcopy ((s), (d), (n))
 #  define memmove(d, s, n) bcopy ((s), (d), (n))
@@ -97,14 +97,14 @@ char *strchr (), *strrchr ();
   /* *INDENT-ON* */
 
 
-int synth_1to1_mono(PMPSTR mp, real *bandPtr,unsigned char *out,int *pnt)
+int
+synth_1to1_mono(PMPSTR mp, real * bandPtr, unsigned char *out, int *pnt)
 {
-  SYNTH_1TO1_MONO_CLIPCHOICE(short,synth_1to1)
-}
-
-int synth_1to1_mono_unclipped(PMPSTR mp, real *bandPtr, unsigned char *out,int *pnt)
+    SYNTH_1TO1_MONO_CLIPCHOICE(short, synth_1to1)
+} int
+synth_1to1_mono_unclipped(PMPSTR mp, real * bandPtr, unsigned char *out, int *pnt)
 {
-  SYNTH_1TO1_MONO_CLIPCHOICE(real,synth_1to1_unclipped)
+    SYNTH_1TO1_MONO_CLIPCHOICE(real, synth_1to1_unclipped)
 }
 
     /* *INDENT-OFF* */
@@ -214,14 +214,12 @@ int synth_1to1_mono_unclipped(PMPSTR mp, real *bandPtr, unsigned char *out,int *
     /* *INDENT-ON* */
 
 
-int synth_1to1(PMPSTR mp, real *bandPtr,int channel,unsigned char *out, int *pnt)
+int
+synth_1to1(PMPSTR mp, real * bandPtr, int channel, unsigned char *out, int *pnt)
 {
-  SYNTH_1TO1_CLIPCHOICE(short,WRITE_SAMPLE_CLIPPED)
-}
-
-int synth_1to1_unclipped(PMPSTR mp, real *bandPtr,int channel, unsigned char *out, int *pnt)
+    SYNTH_1TO1_CLIPCHOICE(short, WRITE_SAMPLE_CLIPPED)
+} int
+synth_1to1_unclipped(PMPSTR mp, real * bandPtr, int channel, unsigned char *out, int *pnt)
 {
-  SYNTH_1TO1_CLIPCHOICE(real,WRITE_SAMPLE_UNCLIPPED)
+    SYNTH_1TO1_CLIPCHOICE(real, WRITE_SAMPLE_UNCLIPPED)
 }
-
-
