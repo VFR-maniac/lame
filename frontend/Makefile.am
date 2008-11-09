@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.28 2006/09/30 09:17:05 bouvigne Exp $
+## $Id: Makefile.am,v 1.29 2008/11/09 13:50:16 aleidinger Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -9,9 +9,8 @@ brhist_sources = brhist.c brhist.h
 
 EXTRA_DIST = \
 	$(brhist_sources) \
-	lame_vc6.dsp \
 	lame_vc8.vcproj \
-	mp3x_vc6.dsp \
+	mp3x_vc8.vcproj \
 	amiga_mpega.c
 
 DEFS = @DEFS@ @CONFIG_DEFS@
