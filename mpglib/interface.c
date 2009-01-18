@@ -16,7 +16,7 @@
 * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 * Boston, MA 02111-1307, USA.
 */
-/* $Id: interface.c,v 1.57 2008/10/23 23:26:27 robert Exp $ */
+/* $Id: interface.c,v 1.58 2009/01/18 15:57:19 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -367,7 +367,7 @@ decode_reset(PMPSTR mp)
 #if 0
     remove_buf(mp);
     /* start looking for next frame */
-    // mp->fsizeold = mp->framesize;
+    /* mp->fsizeold = mp->framesize; */
     mp->fsizeold = -1;
     mp->old_free_format = mp->free_format;
     mp->framesize = 0;

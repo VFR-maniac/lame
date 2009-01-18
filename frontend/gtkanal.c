@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: gtkanal.c,v 1.44 2008/10/11 18:58:53 robert Exp $ */
+/* $Id: gtkanal.c,v 1.45 2009/01/18 15:57:19 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1107,7 +1107,7 @@ key_press_event(GtkWidget * widget, GdkEventKey * event)
         subblock_draw[2] = 1;
         analyze();
     }
-    /* analyze(); *//* dont redraw entire window for every key! */
+    /* analyze(); */ /* dont redraw entire window for every key! */
     return 0;
 }
 
@@ -1625,7 +1625,7 @@ gtkcontrol(lame_global_flags * gfp2, char *inPath)
     /* make window bigger.   */
     /* now the user will be able to shrink it, if desired */
     /* gtk_widget_set_usize(mbox,500,500);  */
-    /* gtk_widget_show (window); *//* show smallest allowed window */
+    /* gtk_widget_show (window); */ /* show smallest allowed window */
 
 
 

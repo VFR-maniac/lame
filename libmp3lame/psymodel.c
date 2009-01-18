@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.192 2008/12/26 11:58:33 robert Exp $ */
+/* $Id: psymodel.c,v 1.193 2009/01/18 15:57:19 robert Exp $ */
 
 
 /*
@@ -2951,7 +2951,7 @@ psymodel_init(lame_global_flags const* gfp)
         for (k = 0; k < gd->l.numlines[i]; k++, j++) {
             FLOAT const freq = sfreq * j / (1000.0 * BLKSIZE);
             FLOAT   level;
-            /* freq = Min(.1,freq); *//* ATH below 100 Hz constant, not further climbing */
+            /* freq = Min(.1,freq); */ /* ATH below 100 Hz constant, not further climbing */
             level = ATHformula(cfg, freq * 1000) - 20; /* scale to FFT units; returned value is in dB */
             level = pow(10., 0.1 * level); /* convert from dB -> energy */
             level *= gd->l.numlines[i];
@@ -3029,7 +3029,7 @@ psymodel_init(lame_global_flags const* gfp)
         for (k = 0; k < gd->s.numlines[i]; k++, j++) {
             FLOAT const freq = sfreq * j / (1000.0 * BLKSIZE_s);
             FLOAT   level;
-            /* freq = Min(.1,freq); *//* ATH below 100 Hz constant, not further climbing */
+            /* freq = Min(.1,freq); */ /* ATH below 100 Hz constant, not further climbing */
             level = ATHformula(cfg, freq * 1000) - 20; /* scale to FFT units; returned value is in dB */
             level = pow(10., 0.1 * level); /* convert from dB -> energy */
             level *= gd->s.numlines[i];

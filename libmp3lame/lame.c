@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.331 2008/08/31 16:14:48 robert Exp $ */
+/* $Id: lame.c,v 1.332 2009/01/18 15:57:19 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -363,8 +363,7 @@ lame_init_qval(lame_global_flags * gfp)
 {
     lame_internal_flags *const gfc = gfp->internal_flags;
     SessionConfig_t *const cfg = &gfc->cfg;
-///if (gfp->quality > 6) gfp->quality = 6;
-///if (gfp->quality < 6) gfp->quality = 3;
+
     switch (gfp->quality) {
     default:
     case 9:            /* no psymodel, no noise shaping */
@@ -2156,7 +2155,11 @@ lame_close(lame_global_flags * gfp)
 /* flush internal mp3 buffers, and free internal buffers         */
 /*****************************************************************/
 #if DEPRECATED_OR_OBSOLETE_CODE_REMOVED
+int CDECL
+lame_encode_finish(lame_global_flags * gfp, unsigned char *mp3buffer, int mp3buffer_size);
 #else
+#endif
+
 int
 lame_encode_finish(lame_global_flags * gfp, unsigned char *mp3buffer, int mp3buffer_size)
 {
@@ -2166,7 +2169,6 @@ lame_encode_finish(lame_global_flags * gfp, unsigned char *mp3buffer, int mp3buf
 
     return ret;
 }
-#endif
 
 /*****************************************************************/
 /* write VBR Xing header, and ID3 version 1 tag, if asked for    */

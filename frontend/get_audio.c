@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.127 2008/10/23 23:17:50 robert Exp $ */
+/* $Id: get_audio.c,v 1.128 2009/01/18 15:57:19 robert Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -1040,9 +1040,9 @@ static int const IFF_ID_COMM = 0x434f4d4d; /* "COMM" */
 static int const IFF_ID_SSND = 0x53534e44; /* "SSND" */
 static int const IFF_ID_MPEG = 0x4d504547; /* "MPEG" */
 
-static int const IFF_ID_NONE = 0x4e4f4e45; /* "NONE" *//* AIFF-C data format */
-static int const IFF_ID_2CBE = 0x74776f73; /* "twos" *//* AIFF-C data format */
-static int const IFF_ID_2CLE = 0x736f7774; /* "sowt" *//* AIFF-C data format */
+static int const IFF_ID_NONE = 0x4e4f4e45; /* "NONE" */ /* AIFF-C data format */
+static int const IFF_ID_2CBE = 0x74776f73; /* "twos" */ /* AIFF-C data format */
+static int const IFF_ID_2CLE = 0x736f7774; /* "sowt" */ /* AIFF-C data format */
 
 static int const WAV_ID_RIFF = 0x52494646; /* "RIFF" */
 static int const WAV_ID_WAVE = 0x57415645; /* "WAVE" */

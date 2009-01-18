@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lametime.c,v 1.18 2007/07/24 17:46:09 bouvigne Exp $ */
+/* $Id: lametime.c,v 1.19 2009/01/18 15:57:19 robert Exp $ */
 
 /*
  * name:        GetCPUTime ( void )
@@ -111,7 +111,7 @@ GetRealTime(void)
 
 double
 GetRealTime(void)
-{                       /* conforming:  SVr4, SVID, POSIX, X/OPEN, BSD 4.3 *//* BUT NOT GUARANTEED BY ANSI */
+{                       /* conforming:  SVr4, SVID, POSIX, X/OPEN, BSD 4.3 */ /* BUT NOT GUARANTEED BY ANSI */
     time_t  t;
 
     t = time(NULL);
