@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: vbrquantize.c,v 1.136 2008/08/05 12:32:18 robert Exp $ */
+/* $Id: vbrquantize.c,v 1.137 2009/02/06 00:16:39 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #  include <config.h>
@@ -63,7 +63,11 @@ struct algo_s {
  */
 
 #ifdef _MSC_VER
+#  if _MSC_VER < 1400
 #  define VOLATILE volatile
+#  else
+#  define VOLATILE
+#  endif
 #else
 #  define VOLATILE
 #endif
@@ -75,8 +79,12 @@ typedef VOLATILE union {
 
 
 
+#ifdef TAKEHIRO_IEEE754_HACK
 #define DOUBLEX double
-
+#else
+#define DOUBLEX FLOAT
+#endif
+ 
 #define MAGIC_FLOAT_def (65536*(128))
 #define MAGIC_INT_def    0x4b000000
 
