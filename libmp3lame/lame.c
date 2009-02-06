@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.332 2009/01/18 15:57:19 robert Exp $ */
+/* $Id: lame.c,v 1.333 2009/02/06 23:26:00 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1987,7 +1987,7 @@ lame_init_bitstream(lame_global_flags * gfp)
             gfc->ov_rpg.PeakSample = 0.0;
 
             /* Write initial VBR Header to bitstream and init VBR data */
-            if (gfp->write_lame_tag)
+            if (gfc->cfg.write_lame_tag)
                 (void) InitVbrTag(gfp);
 
 

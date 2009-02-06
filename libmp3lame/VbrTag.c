@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.97 2008/08/04 19:53:56 robert Exp $ */
+/* $Id: VbrTag.c,v 1.98 2009/02/06 23:26:00 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -528,7 +528,7 @@ InitVbrTag(lame_global_flags * gfp)
         gfc->VBR_seek_table.TotalFrameSize = total_frame_size;
         if (total_frame_size < header_size || total_frame_size > MAXFRAMESIZE) {
             /* disable tag, it wont fit */
-            gfp->write_lame_tag = 0;
+            gfc->cfg.write_lame_tag = 0;
             return 0;
         }
     }
@@ -549,7 +549,7 @@ InitVbrTag(lame_global_flags * gfp)
         else {
             gfc->VBR_seek_table.size = 0;
             ERRORF(gfc, "Error: can't allocate VbrFrames buffer\n");
-            gfp->write_lame_tag = 0;
+            gfc->cfg.write_lame_tag = 0;
             return -1;
         }
     }
