@@ -32,7 +32,7 @@
 **           Takehiro  - some dirty hack for speed up
 */
 
-/* $Id: fft.c,v 1.34 2008/08/04 19:53:56 robert Exp $ */
+/* $Id: fft.c,v 1.35 2009/02/12 11:35:37 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -44,7 +44,7 @@
 #include "util.h"
 #include "fft.h"
 
-
+#include "vector/lame_intrin.h"
 
 
 
@@ -146,6 +146,7 @@ fht(FLOAT * fz, int n)
         tri += 2;
     } while (k4 < n);
 }
+
 
 static const unsigned char rv_tbl[] = {
     0x00, 0x80, 0x40, 0xc0, 0x20, 0xa0, 0x60, 0xe0,
@@ -315,6 +316,11 @@ init_fft(lame_internal_flags * const gfc)
         gfc->fft_fht = fht_SSE;
     }
     else
+#else
+#ifdef HAVE_XMMINTRIN_H
+    gfc->fft_fht = fht_SSE2;
+    if(0)
+#endif
 #endif
     {
         gfc->fft_fht = fht;
