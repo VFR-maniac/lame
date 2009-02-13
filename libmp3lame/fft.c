@@ -32,7 +32,7 @@
 **           Takehiro  - some dirty hack for speed up
 */
 
-/* $Id: fft.c,v 1.35 2009/02/12 11:35:37 robert Exp $ */
+/* $Id: fft.c,v 1.36 2009/02/13 03:47:44 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -318,9 +318,11 @@ init_fft(lame_internal_flags * const gfc)
     else
 #else
 #ifdef HAVE_XMMINTRIN_H
+#ifdef MIN_ARCH_SSE
     gfc->fft_fht = fht_SSE2;
-    if(0)
 #endif
+#endif
+    if (0)
 #endif
     {
         gfc->fft_fht = fht;
