@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.334 2009/03/29 17:35:12 robert Exp $ */
+/* $Id: lame.c,v 1.335 2009/03/30 14:38:05 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -2055,7 +2055,7 @@ lame_encode_flush(lame_global_flags * gfp, unsigned char *mp3buffer, int mp3buff
     framesize = 576 * cfg->mode_gr;
     mf_needed = calcNeeded(cfg);
 
-    samples_to_encode = esv->mf_samples_to_encode - POSTDELAY;
+    samples_to_encode = esv->mf_samples_to_encode - POSTDELAY+288;
 
     memset(buffer, 0, sizeof(buffer));
     mp3count = 0;
@@ -2136,12 +2136,12 @@ lame_encode_flush(lame_global_flags * gfp, unsigned char *mp3buffer, int mp3buff
     }
 #if 0
     {
-        int const ed = gfp->encoder_delay;
-        int const ep = gfp->encoder_padding;
-        int const ns = (gfp->frameNum * framesize) - (ed + ep);
+        int const ed = gfc->ov_enc.encoder_delay;
+        int const ep = gfc->ov_enc.encoder_padding;
+        int const ns = (gfc->ov_enc.frame_number * framesize) - (ed + ep);
         double  duration = ns;
         duration /= cfg->samplerate_out;
-        MSGF(gfc, "frames=%d\n", gfp->frameNum);
+        MSGF(gfc, "frames=%d\n", gfc->ov_enc.frame_number);
         MSGF(gfc, "framesize=%d\n", framesize);
         MSGF(gfc, "encoder delay=%d\n", ed);
         MSGF(gfc, "encoder padding=%d\n", ep);
