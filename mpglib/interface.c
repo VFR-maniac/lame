@@ -16,7 +16,7 @@
 * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 * Boston, MA 02111-1307, USA.
 */
-/* $Id: interface.c,v 1.59 2009/04/17 11:24:50 robert Exp $ */
+/* $Id: interface.c,v 1.60 2009/04/17 22:21:35 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -40,6 +40,8 @@
 #ifdef WITH_DMALLOC
 #include <dmalloc.h>
 #endif
+
+extern void lame_report_def(const char* format, va_list args);
 
 /* #define HIP_DEBUG */
 
@@ -69,6 +71,10 @@ InitMP3(PMPSTR mp)
     mp->bitindex = 0;
     mp->synth_bo = 1;
     mp->sync_bitstream = 1;
+
+    mp->report_dbg = &lame_report_def;
+    mp->report_err = &lame_report_def;
+    mp->report_msg = &lame_report_def;
 
     make_decode_tables(32767);
 

@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.336 2009/04/17 11:24:50 robert Exp $ */
+/* $Id: lame.c,v 1.337 2009/04/17 22:21:35 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -2364,6 +2364,10 @@ lame_init_old(lame_global_flags * gfp)
     gfp->preset = 0;
 
     gfp->write_id3tag_automatic = 1;
+
+    gfp->report.debugf = &lame_report_def;
+    gfp->report.errorf = &lame_report_def;
+    gfp->report.msgf = &lame_report_def;
     return 0;
 }
 

@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: timestatus.c,v 1.46 2008/04/12 18:18:06 robert Exp $ */
+/* $Id: timestatus.c,v 1.47 2009/04/17 22:21:35 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -195,7 +195,7 @@ encoder_progress_begin( lame_global_flags const* gf
                       , char              const* outPath
                       )
 {
-    if (silent < 10) {
+    if (silent < 9) {
         lame_print_config(gf); /* print useful information about options being used */
 
         console_printf("Encoding %s%s to %s\n",
