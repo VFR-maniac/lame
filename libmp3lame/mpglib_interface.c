@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: mpglib_interface.c,v 1.40 2008/10/11 18:58:53 robert Exp $ */
+/* $Id: mpglib_interface.c,v 1.41 2009/04/17 11:24:50 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -445,6 +445,29 @@ void hip_set_pinfo(hip_t hip, plotting_data* pinfo)
 {
     if (hip) {
         hip->pinfo = pinfo;
+    }
+}
+
+
+
+void hip_set_errorf(hip_t hip, lame_report_function func)
+{
+    if (hip) {
+        hip->report_err = func;
+    }
+}
+
+void hip_set_debugf(hip_t hip, lame_report_function func)
+{
+    if (hip) {
+        hip->report_dbg = func;
+    }
+}
+
+void hip_set_msgf  (hip_t hip, lame_report_function func)
+{
+    if (hip) {
+        hip->report_msg = func;
     }
 }
 

@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.146 2009/03/31 22:38:21 robert Exp $ */
+/* $Id: util.c,v 1.147 2009/04/17 11:24:50 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -703,59 +703,54 @@ fill_buffer(lame_internal_flags * gfc,
 *  Message Output
 *
 ***********************************************************************/
-void
-lame_debugf(const lame_internal_flags * gfc, const char *format, ...)
+static void
+lame_report(lame_report_function f, const char *format, va_list args)
 {
-    va_list args;
-
-    va_start(args, format);
-
-    if (gfc->report.debugf != NULL) {
-        gfc->report.debugf(format, args);
+    if (f != NULL) {
+        f(format, args);
     }
     else {
         (void) vfprintf(stderr, format, args);
         fflush(stderr); /* an debug function should flush immediately */
     }
+}
 
+void 
+lame_report_fnc(lame_report_function f, const char *format, ...)
+{
+    va_list args;
+    va_start(args, format);
+    lame_report(f, format, args);
     va_end(args);
 }
 
 
 void
-lame_msgf(const lame_internal_flags * gfc, const char *format, ...)
+lame_debugf(const lame_internal_flags* gfc, const char *format, ...)
 {
     va_list args;
-
     va_start(args, format);
-
-    if (gfc->report.msgf != NULL) {
-        gfc->report.msgf(format, args);
-    }
-    else {
-        (void) vfprintf(stderr, format, args);
-        fflush(stderr); /* we print to stderr, so me may want to flush */
-    }
-
+    lame_report(gfc->report_dbg, format, args);
     va_end(args);
 }
 
 
 void
-lame_errorf(const lame_internal_flags * gfc, const char *format, ...)
+lame_msgf(const lame_internal_flags* gfc, const char *format, ...)
 {
     va_list args;
-
     va_start(args, format);
+    lame_report(gfc->report_msg, format, args);
+    va_end(args);
+}
 
-    if (gfc->report.errorf != NULL) {
-        gfc->report.errorf(format, args);
-    }
-    else {
-        (void) vfprintf(stderr, format, args);
-        fflush(stderr); /* an error function should flush immediately */
-    }
 
+void
+lame_errorf(const lame_internal_flags* gfc, const char *format, ...)
+{
+    va_list args;
+    va_start(args, format);
+    lame_report(gfc->report_err, format, args);
     va_end(args);
 }
 

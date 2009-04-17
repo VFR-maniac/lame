@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.128 2009/01/18 15:57:19 robert Exp $ */
+/* $Id: get_audio.c,v 1.129 2009/04/17 11:24:50 robert Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -1629,6 +1629,9 @@ lame_decode_initfile(FILE * fd, mp3data_struct * mp3data, int *enc_delay, int *e
         hip_decode_exit(global.hip);
     }
     global.hip = hip_decode_init();
+    hip_set_errorf(global.hip, &frontend_errorf);
+    hip_set_debugf(global.hip, &frontend_debugf);
+    hip_set_msgf(global.hip, &frontend_msgf);
 
     len = 4;
     if (fread(buf, 1, len, fd) != len)
