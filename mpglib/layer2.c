@@ -21,7 +21,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: layer2.c,v 1.26 2008/10/23 23:26:27 robert Exp $ */
+/* $Id: layer2.c,v 1.27 2009/04/18 18:33:20 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -88,7 +88,7 @@ II_step_one(PMPSTR mp, unsigned int *bit_alloc, int *scale, struct frame *fr)
 {
     int     stereo = fr->stereo - 1;
     int     sblimit = fr->II_sblimit;
-    int     jsbound = fr->jsbound;
+    int     jsbound = (fr->mode == MPG_MD_JOINT_STEREO) ? (fr->mode_ext << 2) + 4 : fr->II_sblimit;
     int     sblimit2 = fr->II_sblimit << stereo;
     struct al_table2 const *alloc1 = fr->alloc;
     int     i;
@@ -160,7 +160,7 @@ II_step_two(PMPSTR mp, unsigned int *bit_alloc, real fraction[2][4][SBLIMIT], in
     int     i, j, k, ba;
     int     stereo = fr->stereo;
     int     sblimit = fr->II_sblimit;
-    int     jsbound = fr->jsbound;
+    int     jsbound = (fr->mode == MPG_MD_JOINT_STEREO) ? (fr->mode_ext << 2) + 4 : fr->II_sblimit;
     struct al_table2 const *alloc2, *alloc1 = fr->alloc;
     unsigned int *bita = bit_alloc;
     int     d1, step;
@@ -291,7 +291,6 @@ do_layer2(PMPSTR mp, unsigned char *pcm_sample, int *pcm_point)
     int     single = fr->single;
 
     II_select_table(fr);
-    fr->jsbound = (fr->mode == MPG_MD_JOINT_STEREO) ? (fr->mode_ext << 2) + 4 : fr->II_sblimit;
 
     if (stereo == 1 || single == 3)
         single = 0;

@@ -16,7 +16,7 @@
 * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 * Boston, MA 02111-1307, USA.
 */
-/* $Id: interface.c,v 1.60 2009/04/17 22:21:35 robert Exp $ */
+/* $Id: interface.c,v 1.61 2009/04/18 18:33:20 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -80,7 +80,7 @@ InitMP3(PMPSTR mp)
 
     init_layer3(SBLIMIT);
 
-    init_layer2();
+    init_layer2(); /* layer1 shares some global vars with layer2 */
 
     return 1;
 }
