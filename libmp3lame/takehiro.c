@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: takehiro.c,v 1.77 2009/02/13 03:47:43 robert Exp $ */
+/* $Id: takehiro.c,v 1.78 2009/04/19 22:17:59 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -587,7 +587,11 @@ count_bit_noESC_from3(const int *ix, const int *end, int max, unsigned int * s)
 */
 static int count_bit_null(const int* ix, const int* end, int max, unsigned int* s)
 {
-  return 0;
+    (void) ix;
+    (void) end;
+    (void) max;
+    (void) s;
+    return 0;
 }
 
 typedef int (*count_fnc)(const int* ix, const int* end, int max, unsigned int* s);
