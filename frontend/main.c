@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.112 2009/04/17 22:21:35 robert Exp $ */
+/* $Id: main.c,v 1.113 2009/04/20 21:48:00 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -110,7 +110,7 @@ parse_args_from_string(lame_global_flags * const gfp, const char *p, char *inPat
     strcpy(q, p);
 
     r[c++] = "lhama";
-    while (1) {
+    for (;;) {
         r[c++] = q;
         while (*q != ' ' && *q != '\0')
             q++;

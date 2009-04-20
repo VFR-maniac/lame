@@ -17,7 +17,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: common.c,v 1.37 2009/04/17 11:24:50 robert Exp $ */
+/* $Id: common.c,v 1.38 2009/04/20 21:47:59 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -38,6 +38,8 @@
 #include  <sys/types.h>
 #include  <sys/stat.h>
 #endif
+
+#include <assert.h>
 
 #include "common.h"
 
@@ -322,6 +324,19 @@ getbits_fast(PMPSTR mp, int number_of_bits)
     return rval;
 }
 
+unsigned char
+get_leq_8_bits(PMPSTR mp, unsigned int number_of_bits)
+{
+    assert(number_of_bits <= 8);
+    return (unsigned char) getbits_fast(mp, number_of_bits);
+}
+
+unsigned short
+get_leq_16_bits(PMPSTR mp, unsigned int number_of_bits)
+{
+    assert(number_of_bits <= 16);
+    return (unsigned short) getbits_fast(mp, number_of_bits);
+}
 
 int
 set_pointer(PMPSTR mp, long backstep)
