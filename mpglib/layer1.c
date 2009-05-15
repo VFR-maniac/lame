@@ -26,7 +26,7 @@
  *
  */
 
-/* $Id: layer1.c,v 1.28 2009/04/20 21:47:59 robert Exp $ */
+/* $Id: layer1.c,v 1.29 2009/05/15 23:09:43 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -41,6 +41,17 @@
 #endif
 
 #include "layer1.h"
+
+static int gd_are_hip_tables_layer1_initialized = 0;
+
+void
+hip_init_tables_layer1(void)
+{
+    if (gd_are_hip_tables_layer1_initialized) {
+        return;
+    }
+    gd_are_hip_tables_layer1_initialized = 1;
+}
 
 typedef struct sideinfo_layer_I_struct
 {
@@ -173,9 +184,16 @@ I_step_two(PMPSTR mp, sideinfo_layer_I *si, real fraction[2][SBLIMIT])
     }
 }
 
-/*int do_layer1(struct frame *fr,int outmode,struct audio_info_struct *ai) */
 int
-do_layer1(PMPSTR mp, unsigned char *pcm_sample, int *pcm_point)
+decode_layer1_sideinfo(PMPSTR mp)
+{
+    (void) mp;
+    /* FIXME: extract side information and check values */
+    return 0;
+}
+
+int
+decode_layer1_frame(PMPSTR mp, unsigned char *pcm_sample, int *pcm_point)
 {
     real    fraction[2][SBLIMIT]; /* FIXME: change real -> double ? */
     sideinfo_layer_I si;
