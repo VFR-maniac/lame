@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.6 2008/11/09 13:50:16 aleidinger Exp $
+## $Id: Makefile.am,v 1.7 2009/05/16 10:19:34 rbrito Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -7,11 +7,11 @@ EXTRA_DIST = \
 	compat \
 	control \
 	copyright \
-	libmp3lame0-dev.docs \
-	libmp3lame0-dev.files \
-	libmp3lame0.files \
+	libmp3lame-dev.docs \
+	libmp3lame-dev.install \
+	libmp3lame0.install \
 	lame.docs \
-	lame.files \
+	lame.install \
 	lame.manpages \
 	rules \
 	watch
