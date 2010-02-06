@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.90 2008/08/04 19:53:56 robert Exp $ */
+/* $Id: set_get.c,v 1.91 2010/02/06 23:01:49 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -891,16 +891,16 @@ lame_get_extension(const lame_global_flags * gfp)
 
 /* Enforce strict ISO compliance. */
 int
-lame_set_strict_ISO(lame_global_flags * gfp, int strict_ISO)
+lame_set_strict_ISO(lame_global_flags * gfp, int val)
 {
     if (is_lame_global_flags_valid(gfp)) {
         /* default = 0 (disabled) */
         /* enforce disable/enable meaning, if we need more than two values
            we need to switch to an enum to have an apropriate representation
            of the possible meanings of the value */
-        if (0 > strict_ISO || 1 < strict_ISO)
+        if (val < MDB_DEFAULT || MDB_MAXIMUM < val)
             return -1;
-        gfp->strict_ISO = strict_ISO;
+        gfp->strict_ISO = val;
         return 0;
     }
     return -1;
@@ -910,7 +910,6 @@ int
 lame_get_strict_ISO(const lame_global_flags * gfp)
 {
     if (is_lame_global_flags_valid(gfp)) {
-        assert(0 <= gfp->strict_ISO && 1 >= gfp->strict_ISO);
         return gfp->strict_ISO;
     }
     return 0;
