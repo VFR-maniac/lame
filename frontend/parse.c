@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.264 2010/02/06 23:01:49 robert Exp $ */
+/* $Id: parse.c,v 1.265 2010/02/13 23:21:19 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -850,7 +850,7 @@ long_help(const lame_global_flags * gfp, FILE * const fp, const char *ProgramNam
             "    --strictly-enforce-ISO   comply as much as possible to ISO MPEG spec\n");
     fprintf(fp,
             "    --buffer-constraint <constraint> available values for constraint:\n"
-            "                                     default, strict, minimum, lax, maximum\n"
+            "                                     default, strict, maximum\n"
             "\n"
             );
     fprintf(fp,
@@ -1689,10 +1689,6 @@ parse_args(lame_global_flags * gfp, int argc, char **argv,
                   (void) lame_set_strict_ISO(gfp, MDB_DEFAULT);
                 else if (strcmp(nextArg, "strict") == 0)
                   (void) lame_set_strict_ISO(gfp, MDB_STRICT_ISO);
-                else if (strcmp(nextArg, "minimum") == 0)
-                  (void) lame_set_strict_ISO(gfp, MDB_MINIMUM);
-                else if (strcmp(nextArg, "lax") == 0)
-                  (void) lame_set_strict_ISO(gfp, MDB_LAX);
                 else if (strcmp(nextArg, "maximum") == 0)
                   (void) lame_set_strict_ISO(gfp, MDB_MAXIMUM);
                 else {

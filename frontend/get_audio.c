@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.131 2009/04/20 21:48:00 robert Exp $ */
+/* $Id: get_audio.c,v 1.132 2010/02/13 23:21:19 robert Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -75,7 +75,7 @@ char   *strchr(), *strrchr();
 
 
 /* global data for get_audio.c. */
-typedef struct get_audio_global_data {
+typedef struct get_audio_global_data_struct {
     int     count_samples_carefully;
     int     pcmbitwidth;
     int     pcmswapbytes;

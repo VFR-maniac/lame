@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.h,v 1.180 2010/02/06 23:01:49 robert Exp $ */
+/* $Id: lame.h,v 1.181 2010/02/13 23:21:19 robert Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -138,9 +138,7 @@ typedef enum Psy_model_e {
 typedef enum buffer_constraint_e {
     MDB_DEFAULT=0,
     MDB_STRICT_ISO=1,
-    MDB_MINIMUM=2,
-    MDB_LAX=3,
-    MDB_MAXIMUM=4
+    MDB_MAXIMUM=2
 } buffer_constraint;
 
 

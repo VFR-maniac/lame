@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: timestatus.c,v 1.47 2009/04/17 22:21:35 robert Exp $ */
+/* $Id: timestatus.c,v 1.48 2010/02/13 23:21:19 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -56,7 +56,7 @@
 #include <dmalloc.h>
 #endif
 
-typedef struct {
+typedef struct time_status_struct {
     double  last_time;       /* result of last call to clock */
     double  elapsed_time;    /* total time */
     double  estimated_time;  /* estimated total duration time [s] */

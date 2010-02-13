@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: brhist.c,v 1.53 2008/04/05 17:38:50 robert Exp $ */
+/* $Id: brhist.c,v 1.54 2010/02/13 23:21:18 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -61,7 +61,7 @@
 
 extern Console_IO_t Console_IO;
 
-static struct {
+static struct brhist_struct {
     int     vbr_bitrate_min_index;
     int     vbr_bitrate_max_index;
     int     kbps[BRHIST_WIDTH];
