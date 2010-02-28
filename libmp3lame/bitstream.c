@@ -19,7 +19,7 @@
  * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: bitstream.c,v 1.90 2010/02/13 23:21:19 robert Exp $
+ * $Id: bitstream.c,v 1.91 2010/02/28 16:52:57 robert Exp $
  */
 
 
@@ -92,7 +92,13 @@ get_max_frame_buffer_size_by_constraint(SessionConfig_t const * cfg, int constra
     int     maxmp3buf = 0;
     if (cfg->avg_bitrate > 320) {
         /* in freeformat the buffer is constant */
-        maxmp3buf = calcFrameLength(cfg, cfg->avg_bitrate, 0);
+        if (constraint == MDB_STRICT_ISO) {
+            maxmp3buf = calcFrameLength(cfg, cfg->avg_bitrate, 0);
+        }
+        else {
+            /* maximum allowed bits per granule are 7680 */
+            maxmp3buf = 7680 * (cfg->version + 1);
+        }
     }
     else {
         int const resvLimit = (8 * 256) * cfg->mode_gr - 8;
@@ -115,7 +121,7 @@ get_max_frame_buffer_size_by_constraint(SessionConfig_t const * cfg, int constra
             maxmp3buf = calcFrameLength(cfg, max_kbps, 0);
             break;
         case MDB_MAXIMUM:
-            maxmp3buf = 8 * 1440 + resvLimit;
+            maxmp3buf = 7680 * (cfg->version + 1);
             break;
         }
     }
