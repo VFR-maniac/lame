@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: gtkanal.c,v 1.45 2009/01/18 15:57:19 robert Exp $ */
+/* $Id: gtkanal.c,v 1.46 2010/03/02 01:21:58 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -152,7 +152,7 @@ gtkmakeframe(void)
     gfc->pinfo = pinfo;
     hip_set_pinfo(hip, pinfo);
 
-    if (is_mpeg_file_format(input_format)) {
+    if (is_mpeg_file_format(global_reader.input_format)) {
         iread = get_audio16(gfp, Buffer);
 
 
@@ -1448,11 +1448,11 @@ gtkcontrol(lame_global_flags * gfp2, char *inPath)
     gfc = gfp->internal_flags;
 
     /* set some global defaults/variables */
-    gtkinfo.filetype = is_mpeg_file_format(input_format) ? 1 : 0;
+    gtkinfo.filetype = is_mpeg_file_format(global_reader.input_format) ? 1 : 0;
     gtkinfo.msflag = 0;
     gtkinfo.chflag = 0;
     gtkinfo.kbflag = 0;
-    gtkinfo.flag123 = is_mpeg_file_format(input_format) ? 1 : 0; /* MP3 file=use mpg123 output */
+    gtkinfo.flag123 = is_mpeg_file_format(global_reader.input_format) ? 1 : 0; /* MP3 file=use mpg123 output */
     gtkinfo.pupdate = 0;
     gtkinfo.avebits = 0;
     gtkinfo.maxbits = 0;

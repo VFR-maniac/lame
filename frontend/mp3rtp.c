@@ -1,4 +1,4 @@
-/* $Id: mp3rtp.c,v 1.26 2008/07/19 12:54:52 rbrito Exp $ */
+/* $Id: mp3rtp.c,v 1.27 2010/03/02 01:21:58 robert Exp $ */
 
 /* Still under work ..., need a client for test, where can I get one? */
 
@@ -247,8 +247,8 @@ main(int argc, char **argv)
 
     lame_print_config(gf); /* print useful information about options being used */
 
-    if (update_interval < 0.)
-        update_interval = 2.;
+    if (global_ui_config.update_interval < 0.)
+        global_ui_config.update_interval = 2.;
 
     /* encode until we hit EOF */
     while ((wavsamples = get_audio(gf, Buffer)) > 0) { /* read in 'wavsamples' samples */
