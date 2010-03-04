@@ -22,13 +22,10 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: rtp.c,v 1.20 2010/03/04 20:03:12 robert Exp $ */
+/* $Id: rtp.c,v 1.21 2010/03/04 21:37:35 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
-#endif
-
-#ifdef _MSC_VER
 #endif
 
 #ifdef HAVE_STDINT_H
@@ -53,7 +50,7 @@ struct rtpheader {           /* in network byte order */
 };
 
 
-#ifndef _MSC_VER
+#ifndef _WINDOWS
 
 #ifdef STDC_HEADERS
 # include <stdio.h>
@@ -349,13 +346,8 @@ rtp_initialization(void)
     foo->b.cc = 0;
     foo->b.m = 0;
     foo->b.pt = 14;     /* MPEG Audio */
-#ifdef FEFE
-    foo->b.sequence = 42;
-    foo->timestamp = 0;
-#else
     foo->b.sequence = rand() & 65535;
     foo->timestamp = rand();
-#endif
     foo->ssrc = rand();
     foo->iAudioHeader = 0;
     rtp_initialization_extra();
