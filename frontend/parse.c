@@ -2,6 +2,7 @@
  *      Command line parsing related functions
  *
  *      Copyright (c) 1999 Mark Taylor
+ *                    2010 Robert Hegemann
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -19,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.266 2010/03/02 01:21:58 robert Exp $ */
+/* $Id: parse.c,v 1.267 2010/03/06 02:15:36 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -95,7 +96,7 @@ extern void lame_set_tune(lame_t, float); /* FOR INTERNAL USE ONLY */
 /* GLOBAL VARIABLES.  set by parse_args() */
 /* we need to clean this up */
 
-ReaderConfig global_reader = { 0, 0, 0 };
+ReaderConfig global_reader = { sf_unknown, 0, 0 };
 WriterConfig global_writer = { 0 };
 
 UiConfig global_ui_config = {0,0,0,0};
