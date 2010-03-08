@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: timestatus.c,v 1.50 2010/03/07 21:14:07 robert Exp $ */
+/* $Id: timestatus.c,v 1.51 2010/03/08 00:17:33 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -66,7 +66,7 @@ static struct EncoderProgress {
     double  last_time;
     int     last_frame_num;
     int     time_status_init;
-} global_encoder_progress = {0,0,0,0,0,0,0};
+} global_encoder_progress;
 
 
 /*
@@ -198,8 +198,9 @@ encoder_progress_begin( lame_global_flags const* gf
                       , char              const* outPath
                       )
 {
-    global_encoder_progress.last_frame_num = 0;
     global_encoder_progress.time_status_init = 0;
+    global_encoder_progress.last_time = 0;
+    global_encoder_progress.last_frame_num = 0;
     if (global_ui_config.silent < 9) {
         lame_print_config(gf); /* print useful information about options being used */
 
