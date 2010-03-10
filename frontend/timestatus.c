@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: timestatus.c,v 1.53 2010/03/10 00:43:04 robert Exp $ */
+/* $Id: timestatus.c,v 1.54 2010/03/10 01:41:54 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -353,7 +353,7 @@ decoder_progress_init(unsigned long n, int framesize)
 {
     DecoderProgress dp = &global_decoder_progress;
     dp->last_mode_ext =0;
-    dp->frames_total = n;
+    dp->frames_total = 0;
     dp->frame_ctr = 0;
     dp->framesize = framesize;
     dp->samples = 0;
@@ -361,6 +361,12 @@ decoder_progress_init(unsigned long n, int framesize)
         if (framesize == 576 || framesize == 1152) {
             dp->frames_total = calcNumBlocks(n, framesize);
             dp->samples = 576 + calcEndPadding(n, framesize);
+        }
+        else if (framesize > 0) {
+            dp->frames_total = n / framesize;
+        }
+        else {
+            dp->frames_total = n;
         }
     }
     return dp;
@@ -372,6 +378,9 @@ addSamples(DecoderProgress dp, int iread)
     dp->samples += iread;
     dp->frame_ctr += dp->samples / dp->framesize;
     dp->samples %= dp->framesize;
+    if (dp->frames_total < dp->frame_ctr) {
+        dp->frames_total = dp->frame_ctr;
+    }
 }
 
 void
