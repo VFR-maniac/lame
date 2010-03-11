@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.267 2010/03/06 02:15:36 robert Exp $ */
+/* $Id: parse.c,v 1.268 2010/03/11 00:59:03 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -256,7 +256,7 @@ typedef enum TextEncoding
 } TextEncoding;
 
 #ifdef HAVE_ICONV
-
+#define ID3TAGS_EXTENDED
 /* search for Zero termination in multi-byte strings */
 static size_t
 strlenMultiByte(char const* str, size_t w)
@@ -414,6 +414,21 @@ char* toUcs2( char* src )
     }
     return dst;
 }
+#endif
+
+#if defined( _WIN32 ) && !defined(__MINGW32__)
+#define ID3TAGS_EXTENDED
+
+char* toLatin1(char const* s)
+{
+    return utf8ToLatin1(s);
+}
+
+unsigned short* toUcs2(char const* s)
+{
+    return utf8ToUcs2(s);
+}
+#endif
 
 
 static int
@@ -430,7 +445,7 @@ set_id3v2tag(lame_global_flags* gfp, int type, unsigned short const* str)
     }
     return 0;
 }
-#endif
+
 
 static int
 set_id3tag(lame_global_flags* gfp, int type, char const* str)
@@ -458,7 +473,7 @@ id3_tag(lame_global_flags* gfp, int type, TextEncoding enc, char* str)
     {
         default:
         case TENC_RAW:    x = strdup(str);   break;
-#ifdef HAVE_ICONV
+#ifdef ID3TAGS_EXTENDED
         case TENC_LATIN1: x = toLatin1(str); break;
         case TENC_UCS2:   x = toUcs2(str);   break;
 #endif
@@ -468,7 +483,7 @@ id3_tag(lame_global_flags* gfp, int type, TextEncoding enc, char* str)
         default:
         case TENC_RAW:
         case TENC_LATIN1: result = set_id3tag(gfp, type, x);   break;
-#ifdef HAVE_ICONV
+#ifdef ID3TAGS_EXTENDED
         case TENC_UCS2:   result = set_id3v2tag(gfp, type, x); break;
 #endif
     }
@@ -1482,7 +1497,7 @@ set_id3_albumart(lame_t gfp, char const* file_name)
     if (file_name == 0) {
         return 0;
     }
-    fpi = fopen(file_name, "rb");
+    fpi = lame_fopen(file_name, "rb");
     if (!fpi) {
         ret = 1;
     }
@@ -1871,7 +1886,7 @@ parse_args(lame_global_flags * gfp, int argc, char **argv,
                     id3tag_genre_list(genre_list_handler, NULL);
                     return -2;
 
-#ifdef HAVE_ICONV
+#ifdef ID3TAGS_EXTENDED
                     /* some experimental switches for setting ID3 tags
                      * with proper character encodings
                     */

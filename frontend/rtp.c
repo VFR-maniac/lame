@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: rtp.c,v 1.21 2010/03/04 21:37:35 robert Exp $ */
+/* $Id: rtp.c,v 1.22 2010/03/11 00:59:03 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -50,7 +50,7 @@ struct rtpheader {           /* in network byte order */
 };
 
 
-#ifndef _WINDOWS
+#if !defined( _WIN32 ) && !defined(__MINGW32__)
 
 #ifdef STDC_HEADERS
 # include <stdio.h>

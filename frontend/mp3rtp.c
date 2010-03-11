@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: mp3rtp.c,v 1.30 2010/03/07 21:14:07 robert Exp $ */
+/* $Id: mp3rtp.c,v 1.31 2010/03/11 00:59:03 robert Exp $ */
 
 /* Still under work ..., need a client for test, where can I get one? */
 
@@ -206,7 +206,7 @@ main(int argc, char **argv)
         lame_set_stream_binary_mode(outf = stdout);
     }
     else {
-        if ((outf = fopen(outPath, "wb+")) == NULL) {
+        if ((outf = lame_fopen(outPath, "wb+")) == NULL) {
             rtp_deinitialization();
             error_printf("Could not create \"%s\".\n", outPath);
             frontend_close_console();

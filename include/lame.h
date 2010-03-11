@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.h,v 1.181 2010/02/13 23:21:19 robert Exp $ */
+/* $Id: lame.h,v 1.182 2010/03/11 00:59:04 robert Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -1212,6 +1212,22 @@ size_t CDECL lame_get_id3v2_tag(lame_t gfp, unsigned char* buffer, size_t size);
  */
 void CDECL lame_set_write_id3tag_automatic(lame_global_flags * gfp, int);
 int CDECL lame_get_write_id3tag_automatic(lame_global_flags const* gfp);
+
+/* experimental */
+int CDECL id3tag_set_textinfo_latin1(lame_global_flags * gfp, char const *id, char const *text);
+
+/* experimental */
+int CDECL id3tag_set_textinfo_ucs2(lame_global_flags * gfp,
+                                   char const *id, unsigned short const *text);
+
+/* experimental */
+int CDECL id3tag_set_comment_latin1(lame_global_flags * gfp,
+                                    char const *lang, char const *desc, char const *text);
+
+/* experimental */
+int CDECL id3tag_set_comment_ucs2(lame_global_flags * gfp,
+                                  char const *lang,
+                                  unsigned short const *desc, unsigned short const *text);
 
 /***********************************************************************
 *
