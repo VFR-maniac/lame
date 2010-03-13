@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.30 2008/11/09 14:00:16 aleidinger Exp $
+## $Id: Makefile.am,v 1.31 2010/03/13 20:45:39 robert Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -16,6 +16,7 @@ EXTRA_DIST = \
 DEFS = @DEFS@ @CONFIG_DEFS@
 
 common_sources = \
+	main.c \
 	console.c \
 	get_audio.c \
 	lametime.c \
@@ -39,13 +40,13 @@ noinst_HEADERS = \
 ## EXTRA_mp3x__EXEEXT__SOURCES = $(brhist_sources)
 
 if WITH_BRHIST
-lame_SOURCES = main.c $(common_sources) $(brhist_sources)
+lame_SOURCES = lame_main.c $(common_sources) $(brhist_sources)
 mp3rtp_SOURCES = mp3rtp.c rtp.c rtp.h $(common_sources) \
 	$(brhist_sources)
 mp3x_SOURCES = mp3x.c gtkanal.c gpkplotting.c \
 	$(common_sources) $(brhist_sources)
 else
-lame_SOURCES = main.c $(common_sources)
+lame_SOURCES = lame_main.c $(common_sources)
 mp3rtp_SOURCES = mp3rtp.c rtp.c rtp.h $(common_sources)
 mp3x_SOURCES = mp3x.c gtkanal.c gpkplotting.c $(common_sources)
 endif
