@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: timestatus.c,v 1.57 2010/03/14 17:23:35 robert Exp $ */
+/* $Id: timestatus.c,v 1.58 2010/03/14 19:48:30 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -356,7 +356,7 @@ decoder_progress_init(unsigned long n, int framesize)
     dp->frame_ctr = 0;
     dp->framesize = framesize;
     dp->samples = 0;
-    if (n != -1ul) {
+    if (n != (0ul-1ul)) {
         if (framesize == 576 || framesize == 1152) {
             dp->frames_total = calcNumBlocks(n, framesize);
             dp->samples = 576 + calcEndPadding(n, framesize);
