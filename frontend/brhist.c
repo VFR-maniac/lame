@@ -19,13 +19,11 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: brhist.c,v 1.54 2010/02/13 23:21:18 robert Exp $ */
+/* $Id: brhist.c,v 1.55 2010/03/14 17:23:35 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
-
-#ifdef BRHIST
 
 /* basic #define's */
 
@@ -385,4 +383,4 @@ brhist_jump_back(void)
  * But one day, for one kind of terminal, that was not enough.)
  */
 
-#endif /* ifdef BRHIST */
+
