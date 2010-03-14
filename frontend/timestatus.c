@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: timestatus.c,v 1.58 2010/03/14 19:48:30 robert Exp $ */
+/* $Id: timestatus.c,v 1.59 2010/03/14 22:47:13 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -190,12 +190,28 @@ timestatus_finish(void)
 }
 
 
+static void
+brhist_init_package(lame_global_flags const* gf)
+{
+    if (global_ui_config.brhist) {
+        if (brhist_init(gf, lame_get_VBR_min_bitrate_kbps(gf), lame_get_VBR_max_bitrate_kbps(gf))) {
+            /* fail to initialize */
+            global_ui_config.brhist = 0;
+        }
+    }
+    else {
+        brhist_init(gf, 128, 128); /* Dirty hack */
+    }
+}
+
+
 void
 encoder_progress_begin( lame_global_flags const* gf
                       , char              const* inPath
                       , char              const* outPath
                       )
 {
+    brhist_init_package(gf);
     global_encoder_progress.time_status_init = 0;
     global_encoder_progress.last_time = 0;
     global_encoder_progress.last_frame_num = 0;

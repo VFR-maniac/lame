@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.141 2010/03/13 01:17:58 robert Exp $ */
+/* $Id: get_audio.c,v 1.142 2010/03/14 22:47:13 robert Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -66,7 +66,6 @@ char   *strchr(), *strrchr();
 #include "main.h"
 #include "get_audio.h"
 #include "portableio.h"
-#include "timestatus.h"
 #include "lametime.h"
 #include "console.h"
 
