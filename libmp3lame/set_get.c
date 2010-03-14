@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.93 2010/03/14 15:39:32 robert Exp $ */
+/* $Id: set_get.c,v 1.94 2010/03/14 16:15:32 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -2121,7 +2121,7 @@ lame_get_totalframes(const lame_global_flags * gfp)
             unsigned long end_padding = 0;
 
             /* estimate based on user set num_samples: */
-            if (pcm_samples_to_encode == -1ul) {
+            if (pcm_samples_to_encode == (0ul-1ul)) {
                 return 0;
             }
             if (gfp->samplerate_in != gfp->samplerate_out && gfp->samplerate_in > 0) {
