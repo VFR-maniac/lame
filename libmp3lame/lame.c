@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.341 2010/02/20 21:08:22 robert Exp $ */
+/* $Id: lame.c,v 1.342 2010/03/15 01:07:34 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -45,6 +45,7 @@
 #include "psymodel.h"
 #include "version.h"
 #include "VbrTag.h"
+#include "tables.h"
 
 
 #if defined(__FreeBSD__) && !defined(__alpha__)

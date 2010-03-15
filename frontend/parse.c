@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.269 2010/03/14 22:47:13 robert Exp $ */
+/* $Id: parse.c,v 1.270 2010/03/15 01:07:35 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -796,7 +796,7 @@ display_bitrate(FILE * const fp, const char *const version, const int d, const i
             "\nMPEG-%-3s layer III sample frequencies (kHz):  %2d  %2d  %g\n"
             "bitrates (kbps):", version, 32 / d, 48 / d, 44.1 / d);
     for (i = 1; i <= nBitrates; i++)
-        fprintf(fp, " %2i", bitrate_table[indx][i]);
+        fprintf(fp, " %2i", lame_get_bitrate(indx, i));
     fprintf(fp, "\n");
 }
 

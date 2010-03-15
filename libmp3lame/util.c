@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.149 2009/12/11 23:19:26 robert Exp $ */
+/* $Id: util.c,v 1.150 2010/03/15 01:07:35 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -30,6 +30,7 @@
 #include "machine.h"
 #include "encoder.h"
 #include "util.h"
+#include "tables.h"
 
 #define PRECOMPUTE
 #if defined(__FreeBSD__) && !defined(__alpha__)

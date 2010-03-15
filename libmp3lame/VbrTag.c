@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: VbrTag.c,v 1.100 2010/02/20 20:58:41 robert Exp $ */
+/* $Id: VbrTag.c,v 1.101 2010/03/15 01:07:35 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -33,6 +33,7 @@
 #include "bitstream.h"
 #include "VbrTag.h"
 #include "lame_global_flags.h"
+#include "tables.h"
 
 #ifdef __sun__
 /* woraround for SunOS 4.x, it has SEEK_* defined here */

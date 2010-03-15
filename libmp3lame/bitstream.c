@@ -19,7 +19,7 @@
  * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: bitstream.c,v 1.92 2010/03/08 00:17:34 robert Exp $
+ * $Id: bitstream.c,v 1.93 2010/03/15 01:07:34 robert Exp $
  */
 
 
@@ -40,6 +40,7 @@
 #include "gain_analysis.h"
 #include "VbrTag.h"
 #include "bitstream.h"
+#include "tables.h"
 
 
 
