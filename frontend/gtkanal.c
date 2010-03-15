@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: gtkanal.c,v 1.46 2010/03/02 01:21:58 robert Exp $ */
+/* $Id: gtkanal.c,v 1.47 2010/03/15 01:32:22 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -256,7 +256,7 @@ plot_frame(void)
     plotting_data *pplot2 = NULL;
 
     double  en, samp;
-    int     sampindex, version = 0;
+    /*int     sampindex, version = 0;*/
     int     barthick;
     static int firstcall = 1;
     static GdkColor *barcolor, *color, *grcolor[2];
@@ -315,7 +315,7 @@ plot_frame(void)
         samp = pplot1->sampfreq;
     else
         samp = 1;
-    sampindex = SmpFrqIndex((long) samp, &version);
+    /*sampindex = SmpFrqIndex((long) samp, &version);*/
 
     ch = gtkinfo.chflag;
 
