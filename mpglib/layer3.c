@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: layer3.c,v 1.60 2010/03/03 00:32:31 robert Exp $ */
+/* $Id: layer3.c,v 1.61 2010/03/21 22:22:15 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -68,7 +68,7 @@ static int shortLimit[9][14];
 
 /* *INDENT-OFF* */
 
-const struct bandInfoStruct bandInfo[9] = { 
+static const struct bandInfoStruct bandInfo[9] = { 
 
 /* MPEG 1.0 */
  { {0,4,8,12,16,20,24,30,36,44,52,62,74, 90,110,134,162,196,238,288,342,418,576},

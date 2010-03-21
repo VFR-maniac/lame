@@ -17,7 +17,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: common.c,v 1.38 2009/04/20 21:47:59 robert Exp $ */
+/* $Id: common.c,v 1.39 2010/03/21 22:22:15 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -49,7 +49,6 @@
 
 /* In C++ the array first must be prototyped, why ? */
 
-extern const int tabsel_123[2][3][16];
 
     /* *INDENT-OFF* */
 const int tabsel_123 [2] [3] [16] = {

@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.270 2010/03/15 01:07:35 robert Exp $ */
+/* $Id: parse.c,v 1.271 2010/03/21 22:22:15 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -326,10 +326,11 @@ id3_tag(lame_global_flags* gfp, int type, TextEncoding enc, char* str)
     switch (enc) 
     {
         default:
-        case TENC_RAW:    x = strdup(str);   break;
 #ifdef ID3TAGS_EXTENDED
         case TENC_LATIN1: x = toLatin1(str); break;
         case TENC_UCS2:   x = toUcs2(str);   break;
+#else
+        case TENC_RAW:    x = strdup(str);   break;
 #endif
     }
     switch (enc)
@@ -2121,17 +2122,7 @@ parse_args(lame_global_flags * gfp, int argc, char **argv,
 
                     case 'q':
                         argUsed = 1;
-                        {
-                            int     tmp_quality = atoi(arg);
-
-                            /* XXX should we move this into lame_set_quality()? */
-                            if (tmp_quality < 0)
-                                tmp_quality = 0;
-                            if (tmp_quality > 9)
-                                tmp_quality = 9;
-
-                            (void) lame_set_quality(gfp, tmp_quality);
-                        }
+                        (void) lame_set_quality(gfp, atoi(arg));
                         break;
                     case 'f':
                         (void) lame_set_quality(gfp, 7);

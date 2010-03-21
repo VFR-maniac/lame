@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.94 2010/03/14 16:15:32 robert Exp $ */
+/* $Id: set_get.c,v 1.95 2010/03/21 22:22:15 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -342,7 +342,15 @@ int
 lame_set_quality(lame_global_flags * gfp, int quality)
 {
     if (is_lame_global_flags_valid(gfp)) {
-        gfp->quality = quality;
+        if (quality < 0) {
+            gfp->quality = 0;
+        }
+        else if (quality > 9) {
+            gfp->quality = 9;
+        }
+        else {
+            gfp->quality = quality;
+        }
         return 0;
     }
     return -1;
