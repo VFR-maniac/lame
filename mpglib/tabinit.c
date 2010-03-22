@@ -1,5 +1,9 @@
 /*
- * Copyright (C) 2000 Albert L. Faber
+ * tabinit.c
+ *
+ * Copyright (C) 1999-2010 The L.A.M.E. project
+ *
+ * Initially written by Michael Hipp, see also AUTHORS and README.
  *  
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -16,7 +20,7 @@
  * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  */
-/* $Id: tabinit.c,v 1.15 2008/10/23 23:26:27 robert Exp $ */
+/* $Id: tabinit.c,v 1.16 2010/03/22 14:30:19 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>

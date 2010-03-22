@@ -1,10 +1,9 @@
 /* 
- * Mpeg Layer-2 audio decoder 
- * --------------------------
- * copyright (c) 1995 by Michael Hipp, All rights reserved. See also 'README'
+ * layer2.c: Mpeg Layer-2 audio decoder 
  *
- * Copyright (C) 2000 Albert L. Faber
- *               2009 Robert Hegemann
+ * Copyright (C) 1999-2010 The L.A.M.E. project
+ *
+ * Initially written by Michael Hipp, see also AUTHORS and README.
  *  
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -21,8 +20,7 @@
  * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  */
-
-/* $Id: layer2.c,v 1.30 2009/05/15 23:09:43 robert Exp $ */
+/* $Id: layer2.c,v 1.31 2010/03/22 14:30:19 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>

@@ -1,10 +1,12 @@
-## $Id: Makefile.am,v 1.16 2008/11/09 13:50:16 aleidinger Exp $
+## $Id: Makefile.am,v 1.17 2010/03/22 14:30:19 robert Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
 INCLUDES = @INCLUDES@ -I$(top_srcdir)/libmp3lame -I$(top_builddir)
 
 EXTRA_DIST = \
+	AUTHORS \
+	README \
 	mpglib_vc8.vcproj
 
 DEFS = @DEFS@ @CONFIG_DEFS@

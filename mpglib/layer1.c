@@ -1,11 +1,9 @@
 /* 
- * Mpeg Layer-1 audio decoder 
- * --------------------------
- * copyright (c) 1995 by Michael Hipp, All rights reserved. See also 'README'
- * near unoptimzed ...
+ * layer1.c: Mpeg Layer-1 audio decoder 
  *
- * Copyright (C) 2000 Albert L. Faber
- *               2009 Robert Hegemann
+ * Copyright (C) 1999-2010 The L.A.M.E. project
+ *
+ * Initially written by Michael Hipp, see also AUTHORS and README.
  *  
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -21,12 +19,9 @@
  * License along with this library; if not, write to the
  * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
- *
- * may have a few bugs after last optimization ... 
- *
  */
 
-/* $Id: layer1.c,v 1.29 2009/05/15 23:09:43 robert Exp $ */
+/* $Id: layer1.c,v 1.30 2010/03/22 14:30:19 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>

@@ -1,5 +1,9 @@
 /*
- * Copyright (C) 2000 Albert L. Faber
+ * common.c: some common bitstream operations
+ *
+ * Copyright (C) 1999-2010 The L.A.M.E. project
+ *
+ * Initially written by Michael Hipp, see also AUTHORS and README.
  *  
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -17,7 +21,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: common.c,v 1.39 2010/03/21 22:22:15 robert Exp $ */
+/* $Id: common.c,v 1.40 2010/03/22 14:30:19 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
