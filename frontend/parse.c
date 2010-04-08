@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.272 2010/04/06 11:13:03 robert Exp $ */
+/* $Id: parse.c,v 1.273 2010/04/08 11:07:50 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -2348,11 +2348,6 @@ parse_args(lame_global_flags * gfp, int argc, char **argv,
     }
 #endif
 
-
-    if (global_reader.input_format == sf_ogg) {
-        error_printf("sorry, vorbis support in LAME is deprecated.\n");
-        return -1;
-    }
     /* default guess for number of channels */
     if (autoconvert)
         (void) lame_set_num_channels(gfp, 2);

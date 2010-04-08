@@ -21,7 +21,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame_main.c,v 1.4 2010/04/06 11:13:02 robert Exp $ */
+/* $Id: lame_main.c,v 1.5 2010/04/08 11:07:50 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -148,7 +148,10 @@ init_files(lame_global_flags * gf, char const *inPath, char const *outPath)
      * if you want to do your own file input, skip this call and set
      * samplerate, num_channels and num_samples yourself.
      */
-    init_infile(gf, inPath);
+    if (init_infile(gf, inPath) < 0) {
+        error_printf("Can't init infile '%s'\n", inPath);
+        return NULL;
+    }
     if ((outf = init_outfile(outPath, lame_get_decode_only(gf))) == NULL) {
         error_printf("Can't init outfile '%s'\n", outPath);
         return NULL;
