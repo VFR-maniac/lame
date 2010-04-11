@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.h,v 1.185 2010/04/06 11:13:03 robert Exp $ */
+/* $Id: lame.h,v 1.186 2010/04/11 13:07:54 robert Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -755,7 +755,7 @@ int CDECL lame_encode_buffer_float(
                                               stream                        */
 
 /* as lame_encode_buffer, but for 'float's.
- * !! NOTE: !! data must be scaled to +/- 1
+ * !! NOTE: !! data must be scaled to +/- 1 full scale
  */
 int CDECL lame_encode_buffer_ieee_float(
         lame_t          gfp,
@@ -767,6 +767,24 @@ int CDECL lame_encode_buffer_ieee_float(
 int CDECL lame_encode_buffer_interleaved_ieee_float(
         lame_t          gfp,
         const float     pcm[],             /* PCM data for left and right
+                                              channel, interleaved          */
+        const int       nsamples,
+        unsigned char * mp3buf,
+        const int       mp3buf_size);
+
+/* as lame_encode_buffer, but for 'double's.
+ * !! NOTE: !! data must be scaled to +/- 1 full scale
+ */
+int CDECL lame_encode_buffer_ieee_double(
+        lame_t          gfp,
+        const double    pcm_l [],          /* PCM data for left channel     */
+        const double    pcm_r [],          /* PCM data for right channel    */
+        const int       nsamples,
+        unsigned char * mp3buf,
+        const int       mp3buf_size);
+int CDECL lame_encode_buffer_interleaved_ieee_double(
+        lame_t          gfp,
+        const double    pcm[],             /* PCM data for left and right
                                               channel, interleaved          */
         const int       nsamples,
         unsigned char * mp3buf,
