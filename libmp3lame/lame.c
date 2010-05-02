@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.346 2010/04/29 00:29:43 robert Exp $ */
+/* $Id: lame.c,v 1.347 2010/05/02 20:29:17 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -691,7 +691,7 @@ lame_init_params(lame_global_flags * gfp)
             }
         case vbr_mt:{
                 int const x[11] = {
-                    20500, 19500, 18500, 18000, 17500, 16500, 16500, 16500, 16500, 15100, 3950
+                    20500, 19500, 18500, 18000, 17500, 17000, 16500, 16100, 15200, 9960, 3950
                 };
                 if (0 <= gfp->VBR_q && gfp->VBR_q <= 9) {
                     double  a = x[gfp->VBR_q], b = x[gfp->VBR_q + 1], m = gfp->VBR_q_frac;

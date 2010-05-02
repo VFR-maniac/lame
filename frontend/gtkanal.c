@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: gtkanal.c,v 1.47 2010/03/15 01:32:22 robert Exp $ */
+/* $Id: gtkanal.c,v 1.48 2010/05/02 20:29:17 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -153,6 +153,7 @@ gtkmakeframe(void)
     hip_set_pinfo(hip, pinfo);
 
     if (is_mpeg_file_format(global_reader.input_format)) {
+        hip_set_pinfo(get_hip(), pplot);
         iread = get_audio16(gfp, Buffer);
 
 

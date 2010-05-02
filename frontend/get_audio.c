@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.144 2010/04/09 21:51:44 robert Exp $ */
+/* $Id: get_audio.c,v 1.145 2010/05/02 20:29:17 robert Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -2095,6 +2095,11 @@ put_audio16(FILE* outf, short Buffer[2][1152], int iread, int nch)
     if (global_writer.flush_write == 1) {
         fflush(outf);
     }
+}
+
+hip_t get_hip(void)
+{
+    return global.hip;
 }
 
 /* end of get_audio.c */
