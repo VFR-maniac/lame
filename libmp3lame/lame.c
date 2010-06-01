@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.348 2010/06/01 15:59:55 robert Exp $ */
+/* $Id: lame.c,v 1.349 2010/06/01 16:21:55 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1786,10 +1786,10 @@ lame_copy_inbuffer(lame_internal_flags* gfc,
     T const *bl = l, *br = r; \
     int     i; \
     for (i = 0; i < nsamples; i++) { \
-        sample_t const l = *bl; \
-        sample_t const r = *br; \
-        sample_t const u = l * m[0][0] + r * m[0][1]; \
-        sample_t const v = l * m[1][0] + r * m[1][1]; \
+        sample_t const xl = *bl; \
+        sample_t const xr = *br; \
+        sample_t const u = xl * m[0][0] + xr * m[0][1]; \
+        sample_t const v = xl * m[1][0] + xr * m[1][1]; \
         ib0[i] = u; \
         ib1[i] = v; \
         bl += jump; \
