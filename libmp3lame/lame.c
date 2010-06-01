@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.349 2010/06/01 16:21:55 robert Exp $ */
+/* $Id: lame.c,v 1.350 2010/06/01 18:51:31 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -2280,7 +2280,7 @@ lame_init_old(lame_global_flags * gfp)
      * best value, UNLESS the calling program as set it
      * (and the value is no longer -1)
      */
-
+    gfp->strict_ISO = -1; /* not set */
 
     gfp->mode = NOT_SET;
     gfp->original = 1;
