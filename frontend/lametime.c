@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lametime.c,v 1.19 2009/01/18 15:57:19 robert Exp $ */
+/* $Id: lametime.c,v 1.20 2010/06/01 15:59:54 robert Exp $ */
 
 /*
  * name:        GetCPUTime ( void )
@@ -145,25 +145,5 @@ lame_set_stream_binary_mode(FILE * const fp)
     return 0;
 }
 
-
-#if defined(__riscos__)
-# include <kernel.h>
-# include <sys/swis.h>
-#elif defined(_WIN32)
-# include <sys/types.h>
-# include <sys/stat.h>
-#else
-# include <sys/stat.h>
-#endif
-
-off_t
-lame_get_file_size(const char *const filename)
-{
-    struct stat sb;
-
-    if (0 == stat(filename, &sb))
-        return sb.st_size;
-    return (off_t) - 1;
-}
 
 /* End of lametime.c */

@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.151 2010/05/02 20:29:18 robert Exp $ */
+/* $Id: util.c,v 1.152 2010/06/01 15:59:55 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -267,7 +267,7 @@ ATHformula(SessionConfig_t const *cfg, FLOAT f)
         ath = ATHformula_GB(f, cfg->ATHcurve, 0.1f, 24.0f);
         break;
     case 5:
-        ath = ATHformula_GB(f, cfg->ATHcurve, 3.41f, 14.5f);
+        ath = ATHformula_GB(f, cfg->ATHcurve, 3.41f, 16.1f);
         break;
     default:
         ath = ATHformula_GB(f, 0, 0.1f, 24.0f);

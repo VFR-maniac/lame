@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.209 2010/04/29 00:29:44 robert Exp $ */
+/* $Id: quantize.c,v 1.210 2010/06/01 15:59:55 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -170,7 +170,6 @@ psfb21_analogsilence(lame_internal_flags const *gfc, gr_info * const cod_info)
             FLOAT x = xr[j];
             xr[j] = (fabs(x) >= 1e-12f) ? x : 0;
         }
-        return;
     }
     if (cod_info->block_type != SHORT_TYPE) { /* NORM, START or STOP type, but not SHORT blocks */
         int     gsfb;
