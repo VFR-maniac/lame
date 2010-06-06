@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: set_get.c,v 1.95 2010/03/21 22:22:15 robert Exp $ */
+/* $Id: set_get.c,v 1.96 2010/06/06 01:04:18 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1537,7 +1537,7 @@ int
 lame_set_ATHlower(lame_global_flags * gfp, float ATHlower)
 {
     if (is_lame_global_flags_valid(gfp)) {
-        gfp->ATHlower = -ATHlower / 10.0;
+        gfp->ATH_lower_db = ATHlower;
         return 0;
     }
     return -1;
@@ -1547,7 +1547,7 @@ float
 lame_get_ATHlower(const lame_global_flags * gfp)
 {
     if (is_lame_global_flags_valid(gfp)) {
-        return -gfp->ATHlower * 10.0;
+        return gfp->ATH_lower_db;
     }
     return 0;
 }

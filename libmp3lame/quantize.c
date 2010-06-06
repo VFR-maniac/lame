@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.211 2010/06/01 21:55:21 robert Exp $ */
+/* $Id: quantize.c,v 1.212 2010/06/06 01:04:18 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -179,7 +179,7 @@ psfb21_analogsilence(lame_internal_flags const *gfc, gr_info * const cod_info)
             int const end = gfc->scalefac_band.psfb21[gsfb + 1];
             int     j;
             FLOAT   ath21;
-            ath21 = athAdjust(ATH->adjust, ATH->psfb21[gsfb], ATH->floor, ATHfixpoint);
+            ath21 = athAdjust(ATH->adjust_factor, ATH->psfb21[gsfb], ATH->floor, ATHfixpoint);
 
             if (gfc->sv_qnt.longfact[21] > 1e-12f)
                 ath21 *= gfc->sv_qnt.longfact[21];
@@ -209,7 +209,7 @@ psfb21_analogsilence(lame_internal_flags const *gfc, gr_info * const cod_info)
                     start + (gfc->scalefac_band.psfb12[gsfb + 1] - gfc->scalefac_band.psfb12[gsfb]);
                 int     j;
                 FLOAT   ath12;
-                ath12 = athAdjust(ATH->adjust, ATH->psfb12[gsfb], ATH->floor, ATHfixpoint);
+                ath12 = athAdjust(ATH->adjust_factor, ATH->psfb12[gsfb], ATH->floor, ATHfixpoint);
 
                 if (gfc->sv_qnt.shortfact[12] > 1e-12f)
                     ath12 *= gfc->sv_qnt.shortfact[12];
