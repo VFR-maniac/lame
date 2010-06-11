@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.5 2008/06/28 22:36:22 robert Exp $
+## $Id: Makefile.am,v 1.6 2010/06/11 17:44:36 jaz001 Exp $
 
 AUTOMAKE_OPTIONS = foreign ansi2knr
 
@@ -8,16 +8,19 @@ htmldir = $(docdir)/html
 pkghtmldir = $(pkgdocdir)/html
 
 pkghtml_DATA = \
-        basic.html \
+    about.html \
+	abr.html \
+	cbr.html \
+	contact.html \
 	contributors.html \
-	examples.html \
-	history.html \
-	id3.html \
+	detailed.html \
 	index.html \
-	lame.css \
-	modes.html \
-	node6.html \
-	switchs.html
+	introduction \
+	links.html \
+	list.html \
+	ms_stereo.html \
+	usage.html \
+	vbr.html
 
 EXTRA_DIST = $(pkghtml_DATA)
 
