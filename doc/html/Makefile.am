@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.6 2010/06/11 17:44:36 jaz001 Exp $
+## $Id: Makefile.am,v 1.7 2010/09/30 20:58:40 jaz001 Exp $
 
 AUTOMAKE_OPTIONS = foreign ansi2knr
 
@@ -14,8 +14,9 @@ pkghtml_DATA = \
 	contact.html \
 	contributors.html \
 	detailed.html \
+	history.html \
 	index.html \
-	introduction \
+	introduction.html \
 	links.html \
 	list.html \
 	ms_stereo.html \
