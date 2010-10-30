@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.32 2010/03/14 17:23:35 robert Exp $
+## $Id: Makefile.am,v 1.33 2010/10/30 13:21:02 robert Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -6,8 +6,6 @@ bin_PROGRAMS = @WITH_FRONTEND@ @WITH_MP3RTP@ @WITH_MP3X@
 EXTRA_PROGRAMS = lame$(EXEEXT) mp3rtp$(EXEEXT) mp3x$(EXEEXT)
 
 EXTRA_DIST = \
-	lame_vc8.vcproj \
-	mp3x_vc8.vcproj \
 	amiga_mpega.c
 
 DEFS = @DEFS@ @CONFIG_DEFS@
