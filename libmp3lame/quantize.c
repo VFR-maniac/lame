@@ -3,7 +3,7 @@
  *
  *      Copyright (c) 1999-2000 Mark Taylor
  *      Copyright (c) 1999-2003 Takehiro Tominaga
- *      Copyright (c) 2000-2007 Robert Hegemann
+ *      Copyright (c) 2000-2011 Robert Hegemann
  *      Copyright (c) 2001-2005 Gabriel Bouvigne
  *
  * This library is free software; you can redistribute it and/or
@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.212 2010/06/06 01:04:18 robert Exp $ */
+/* $Id: quantize.c,v 1.213 2011/02/11 20:17:25 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -334,7 +334,9 @@ init_outer_loop(lame_internal_flags const *gfc, gr_info * const cod_info)
      */
     memset(cod_info->scalefac, 0, sizeof(cod_info->scalefac));
 
-    psfb21_analogsilence(gfc, cod_info);
+    if (cfg->vbr != vbr_mt && cfg->vbr != vbr_mtrh) {
+        psfb21_analogsilence(gfc, cod_info);
+    }
 }
 
 
