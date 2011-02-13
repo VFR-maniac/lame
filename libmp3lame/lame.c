@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.353 2011/02/11 20:17:25 robert Exp $ */
+/* $Id: lame.c,v 1.354 2011/02/13 13:50:55 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1158,9 +1158,6 @@ lame_init_params(lame_global_flags * gfp)
     /* select psychoacoustic model */
     (void) lame_set_exp_nspsytune(gfp, lame_get_exp_nspsytune(gfp) | 1);
 
-    if (gfp->scale < 0)
-        gfp->scale = 1;
-
     if (gfp->ATHtype < 0)
         gfp->ATHtype = 4;
 
@@ -1221,22 +1218,16 @@ lame_init_params(lame_global_flags * gfp)
         FLOAT   m[2][2] = { {1.0f, 0.0f}, {0.0f, 1.0f} };
 
         /* user selected scaling of the samples */
-        if (NEQ(gfp->scale, 0) && NEQ(gfp->scale, 1.0)) {
-            m[0][0] *= gfp->scale;
-            m[0][1] *= gfp->scale;
-            m[1][0] *= gfp->scale;
-            m[1][1] *= gfp->scale;
-        }
+        m[0][0] *= gfp->scale;
+        m[0][1] *= gfp->scale;
+        m[1][0] *= gfp->scale;
+        m[1][1] *= gfp->scale;
         /* user selected scaling of the channel 0 (left) samples */
-        if (NEQ(gfp->scale_left, 0) && NEQ(gfp->scale_left, 1.0)) {
-            m[0][0] *= gfp->scale_left;
-            m[0][1] *= gfp->scale_left;
-        }
+        m[0][0] *= gfp->scale_left;
+        m[0][1] *= gfp->scale_left;
         /* user selected scaling of the channel 1 (right) samples */
-        if (NEQ(gfp->scale_right, 0) && NEQ(gfp->scale_right, 1.0)) {
-            m[1][0] *= gfp->scale_right;
-            m[1][1] *= gfp->scale_right;
-        }
+        m[1][0] *= gfp->scale_right;
+        m[1][1] *= gfp->scale_right;
         /* Downsample to Mono if 2 channels in and 1 channel out */
         if (cfg->channels_in == 2 && cfg->channels_out == 1) {
             m[0][0] = 0.5f * (m[0][0] + m[1][0]);
@@ -2330,7 +2321,9 @@ lame_init_old(lame_global_flags * gfp)
     gfp->attackthre = -1;
     gfp->attackthre_s = -1;
 
-    gfp->scale = -1;
+    gfp->scale = 1;
+    gfp->scale_left = 1;
+    gfp->scale_right = 1;
 
     gfp->athaa_type = -1;
     gfp->ATHtype = -1;  /* default = -1 = set in lame_init_params */

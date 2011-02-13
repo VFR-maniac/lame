@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.h,v 1.186 2010/04/11 13:07:54 robert Exp $ */
+/* $Id: lame.h,v 1.187 2011/02/13 13:50:55 robert Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -193,23 +193,21 @@ int CDECL lame_set_num_channels(lame_global_flags *, int);
 int CDECL lame_get_num_channels(const lame_global_flags *);
 
 /*
-  scale the input by this amount before encoding.  default=0 (disabled)
+  scale the input by this amount before encoding.  default=1
   (not used by decoding routines)
 */
 int CDECL lame_set_scale(lame_global_flags *, float);
 float CDECL lame_get_scale(const lame_global_flags *);
 
 /*
-  scale the channel 0 (left) input by this amount before encoding.
-    default=0 (disabled)
+  scale the channel 0 (left) input by this amount before encoding.  default=1
   (not used by decoding routines)
 */
 int CDECL lame_set_scale_left(lame_global_flags *, float);
 float CDECL lame_get_scale_left(const lame_global_flags *);
 
 /*
-  scale the channel 1 (right) input by this amount before encoding.
-    default=0 (disabled)
+  scale the channel 1 (right) input by this amount before encoding.  default=1
   (not used by decoding routines)
 */
 int CDECL lame_set_scale_right(lame_global_flags *, float);
