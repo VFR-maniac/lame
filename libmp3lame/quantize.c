@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.213 2011/02/11 20:17:25 robert Exp $ */
+/* $Id: quantize.c,v 1.214 2011/02/13 16:36:24 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -161,16 +161,7 @@ psfb21_analogsilence(lame_internal_flags const *gfc, gr_info * const cod_info)
 {
     ATH_t const *const ATH = gfc->ATH;
     FLOAT  *const xr = cod_info->xr;
-    int const vbr = gfc->cfg.vbr;
-    FLOAT const ATHfixpoint = (gfc->cfg.vbr == vbr_mt) ? gfc->cfg.ATHfixpoint : 0;
 
-    if (vbr == vbr_mt) {
-        int     j;
-        for (j = 0; j < 576; ++j) {
-            FLOAT x = xr[j];
-            xr[j] = (fabs(x) >= 1e-12f) ? x : 0;
-        }
-    }
     if (cod_info->block_type != SHORT_TYPE) { /* NORM, START or STOP type, but not SHORT blocks */
         int     gsfb;
         int     stop = 0;
@@ -179,7 +170,7 @@ psfb21_analogsilence(lame_internal_flags const *gfc, gr_info * const cod_info)
             int const end = gfc->scalefac_band.psfb21[gsfb + 1];
             int     j;
             FLOAT   ath21;
-            ath21 = athAdjust(ATH->adjust_factor, ATH->psfb21[gsfb], ATH->floor, ATHfixpoint);
+            ath21 = athAdjust(ATH->adjust_factor, ATH->psfb21[gsfb], ATH->floor, 0);
 
             if (gfc->sv_qnt.longfact[21] > 1e-12f)
                 ath21 *= gfc->sv_qnt.longfact[21];
@@ -209,7 +200,7 @@ psfb21_analogsilence(lame_internal_flags const *gfc, gr_info * const cod_info)
                     start + (gfc->scalefac_band.psfb12[gsfb + 1] - gfc->scalefac_band.psfb12[gsfb]);
                 int     j;
                 FLOAT   ath12;
-                ath12 = athAdjust(ATH->adjust_factor, ATH->psfb12[gsfb], ATH->floor, ATHfixpoint);
+                ath12 = athAdjust(ATH->adjust_factor, ATH->psfb12[gsfb], ATH->floor, 0);
 
                 if (gfc->sv_qnt.shortfact[12] > 1e-12f)
                     ath12 *= gfc->sv_qnt.shortfact[12];

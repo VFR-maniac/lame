@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.354 2011/02/13 13:50:55 robert Exp $ */
+/* $Id: lame.c,v 1.355 2011/02/13 16:36:24 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -611,6 +611,11 @@ lame_init_params(lame_global_flags * gfp)
 
     if (gfp->VBR == vbr_off && gfp->VBR_mean_bitrate_kbps != 128 && gfp->brate == 0)
         gfp->brate = gfp->VBR_mean_bitrate_kbps;
+
+    /* FIXME: make mtrh and mt modes the same */
+    if (gfp->VBR == vbr_mtrh) {
+        gfp->VBR = vbr_mt;
+    }
 
     switch (gfp->VBR) {
     case vbr_off:
