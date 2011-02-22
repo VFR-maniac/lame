@@ -19,7 +19,7 @@
  * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: bitstream.c,v 1.95 2011/02/22 17:58:21 robert Exp $
+ * $Id: bitstream.c,v 1.96 2011/02/22 19:00:21 robert Exp $
  */
 
 
@@ -108,9 +108,6 @@ get_max_frame_buffer_size_by_constraint(SessionConfig_t const * cfg, int constra
         }
         else {
             max_kbps = bitrate_table[cfg->version][14];
-        }
-        if ((cfg->vbr == vbr_mtrh || cfg->vbr == vbr_mt) && constraint == -1) {
-            constraint = MDB_MAXIMUM;
         }
         switch (constraint) 
         {

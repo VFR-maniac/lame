@@ -2,7 +2,7 @@
  *      quantize_pvt source file
  *
  *      Copyright (c) 1999-2002 Takehiro Tominaga
- *      Copyright (c) 2000-2008 Robert Hegemann
+ *      Copyright (c) 2000-2011 Robert Hegemann
  *      Copyright (c) 2001 Naoki Shibata
  *      Copyright (c) 2002-2005 Gabriel Bouvigne
  *
@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.164 2011/02/22 17:58:22 robert Exp $ */
+/* $Id: quantize_pvt.c,v 1.165 2011/02/22 19:00:21 robert Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -811,6 +811,12 @@ calc_xmin_new(lame_internal_flags const *gfc,
             }
             *pxmin++ = xmin;
         }               /* b */
+        if (cfg->use_temporal_masking_effect) {
+            if (pxmin[-3] > pxmin[-3 + 1])
+                pxmin[-3 + 1] += (pxmin[-3] - pxmin[-3 + 1]) * gfc->cd_psy->decay;
+            if (pxmin[-3 + 1] > pxmin[-3 + 2])
+                pxmin[-3 + 2] += (pxmin[-3 + 1] - pxmin[-3 + 2]) * gfc->cd_psy->decay;
+        }
     }                   /* end of short block sfb loop */
 
     return ath_over;
@@ -823,6 +829,8 @@ calc_xmin(lame_internal_flags const *gfc,
     switch ( gfc->cfg.vbr ) {
         default:
             return calc_xmin_(gfc, ratio, cod_info, pxmin);
+        case vbr_off:
+        case vbr_abr:
         case vbr_mtrh:
         case vbr_mt:
             return calc_xmin_new(gfc, ratio, cod_info, pxmin);

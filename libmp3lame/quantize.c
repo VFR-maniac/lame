@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.214 2011/02/13 16:36:24 robert Exp $ */
+/* $Id: quantize.c,v 1.215 2011/02/22 19:00:21 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -325,7 +325,7 @@ init_outer_loop(lame_internal_flags const *gfc, gr_info * const cod_info)
      */
     memset(cod_info->scalefac, 0, sizeof(cod_info->scalefac));
 
-    if (cfg->vbr != vbr_mt && cfg->vbr != vbr_mtrh) {
+    if (cfg->vbr != vbr_mt && cfg->vbr != vbr_mtrh && cfg->vbr != vbr_abr && cfg->vbr != vbr_off) {
         psfb21_analogsilence(gfc, cod_info);
     }
 }
