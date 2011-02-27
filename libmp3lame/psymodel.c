@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.201 2011/02/22 19:00:21 robert Exp $ */
+/* $Id: psymodel.c,v 1.202 2011/02/27 00:52:55 robert Exp $ */
 
 
 /*
@@ -3063,7 +3063,7 @@ psymodel_init(lame_global_flags const* gfp)
     {
         float sk_s = -10.f, sk_l = -4.7f;
         static float const sk[] = { -7.4, -7.4, -7.4, -9.5, -7.4, -6.1, -5.5, -4.7, -4.7, -4.7, -4.7 };
-        if (gfp->VBR_q < 3) {
+        if (gfp->VBR_q < 4) {
             sk_l = sk_s = sk[0];
         }
         else {
