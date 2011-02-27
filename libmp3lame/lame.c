@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.358 2011/02/27 00:52:55 robert Exp $ */
+/* $Id: lame.c,v 1.359 2011/02/27 01:52:37 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -690,7 +690,9 @@ lame_init_params(lame_global_flags * gfp)
                     float const q_ = m[i].qb-m[i].qa;
                     float const t_ = m[i].tb-m[i].ta;
                     gfp->samplerate_out = m[i].sr_a;
-                    gfp->lowpassfreq = m[i].lp;
+                    if (gfp->lowpassfreq == 0) {
+                        gfp->lowpassfreq = m[i].lp;
+                    }
                     {
                         double d = (qval-m[i].qa) / q_;
                         d = m[i].ta + d * t_;
