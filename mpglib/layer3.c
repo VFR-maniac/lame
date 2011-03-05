@@ -20,7 +20,7 @@
  * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  */
-/* $Id: layer3.c,v 1.62 2010/03/22 14:30:19 robert Exp $ */
+/* $Id: layer3.c,v 1.63 2011/03/05 14:06:54 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -423,13 +423,23 @@ III_get_side_info_1(PMPSTR mp, int stereo,
                 gr_infos->region2start = 576 >> 1;
             }
             else {
-                int     i, r0c, r1c;
+                unsigned int i, r0c, r1c, region0index, region1index;
                 for (i = 0; i < 3; i++)
                     gr_infos->table_select[i] = getbits_fast(mp, 5);
                 r0c = getbits_fast(mp, 4);
                 r1c = getbits_fast(mp, 3);
-                gr_infos->region1start = bandInfo[sfreq].longIdx[r0c + 1] >> 1;
-                gr_infos->region2start = bandInfo[sfreq].longIdx[r0c + 1 + r1c + 1] >> 1;
+                region0index = r0c+1;
+                if (region0index > 22) {
+                    region0index = 22;
+                    lame_report_fnc(mp->report_err, "region0index > 22\n");
+                }
+                region1index = r0c+1 + r1c+1;
+                if (region1index > 22) {
+                    region1index = 22;
+                    lame_report_fnc(mp->report_err, "region1index > 22\n");
+                }
+                gr_infos->region1start = bandInfo[sfreq].longIdx[region0index] >> 1;
+                gr_infos->region2start = bandInfo[sfreq].longIdx[region1index] >> 1;
                 gr_infos->block_type = 0;
                 gr_infos->mixed_block_flag = 0;
             }
@@ -517,13 +527,23 @@ III_get_side_info_2(PMPSTR mp, int stereo, int ms_stereo, long sfreq, int single
             gr_infos->region2start = 576 >> 1;
         }
         else {
-            int     i, r0c, r1c;
+            unsigned int i, r0c, r1c, region0index, region1index;
             for (i = 0; i < 3; i++)
                 gr_infos->table_select[i] = getbits_fast(mp, 5);
             r0c = getbits_fast(mp, 4);
             r1c = getbits_fast(mp, 3);
-            gr_infos->region1start = bandInfo[sfreq].longIdx[r0c + 1] >> 1;
-            gr_infos->region2start = bandInfo[sfreq].longIdx[r0c + 1 + r1c + 1] >> 1;
+            region0index = r0c+1;
+            if (region0index > 22) {
+                region0index = 22;
+                lame_report_fnc(mp->report_err, "region0index > 22\n");
+            }
+            region1index = r0c+1 + r1c+1;
+            if (region1index > 22) {
+                region1index = 22;
+                lame_report_fnc(mp->report_err, "region1index > 22\n");
+            }
+            gr_infos->region1start = bandInfo[sfreq].longIdx[region0index] >> 1;
+            gr_infos->region2start = bandInfo[sfreq].longIdx[region1index] >> 1;
             gr_infos->block_type = 0;
             gr_infos->mixed_block_flag = 0;
         }
