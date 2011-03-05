@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.166 2011/03/05 18:54:08 robert Exp $ */
+/* $Id: quantize_pvt.c,v 1.167 2011/03/05 20:05:18 robert Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -368,7 +368,7 @@ iteration_init(lame_internal_flags * gfc)
         huffman_init(gfc);
         init_xrpow_core_init(gfc);
 
-        sel = (cfg->vbr == vbr_mt || cfg->vbr == vbr_mtrh) ? 1 : 0;
+        sel = 1;/* RH: all modes like vbr-new (cfg->vbr == vbr_mt || cfg->vbr == vbr_mtrh) ? 1 : 0;*/
 
         /* long */
         db = cfg->adjust_bass_db + payload_long[sel][0];
