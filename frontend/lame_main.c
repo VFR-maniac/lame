@@ -21,7 +21,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame_main.c,v 1.5 2010/04/08 11:07:50 robert Exp $ */
+/* $Id: lame_main.c,v 1.6 2011/04/08 19:26:27 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -634,7 +634,11 @@ int lame_main(lame_t gf, int argc, char** argv)
      * skip this call and set the values of interest in the gf struct.
      * (see the file API and lame.h for documentation about these parameters)
      */
-    parse_args_from_string(gf, getenv("LAMEOPT"), inPath, outPath);
+    {
+        char* str = lame_getenv("LAMEOPT");
+        parse_args_from_string(gf, str, inPath, outPath);
+        free(str);
+    }
     ret = parse_args(gf, argc, argv, inPath, outPath, nogap_inPath, &max_nogap);
     if (ret < 0) {
         return ret == -2 ? 0 : 1;
