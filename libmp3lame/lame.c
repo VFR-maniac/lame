@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.362 2011/04/15 20:17:30 robert Exp $ */
+/* $Id: lame.c,v 1.363 2011/05/06 20:14:00 rbrito Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -2138,7 +2138,7 @@ lame_encode_flush(lame_global_flags * gfp, unsigned char *mp3buffer, int mp3buff
 
         mp3buffer += imp3;
         mp3count += imp3;
-        frames_left -= (frame_num != gfc->ov_enc.frame_number) ? 1 : 0;
+        frames_left -= ((frame_num != gfc->ov_enc.frame_number) ? 1 : 0);
     }
     /* Set esv->mf_samples_to_encode to 0, so we may detect
      * and break loops calling it more than once in a row.
