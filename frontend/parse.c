@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.281 2011/04/19 15:36:08 robert Exp $ */
+/* $Id: parse.c,v 1.282 2011/05/07 15:56:43 rbrito Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -365,11 +365,11 @@ lame_version_print(FILE * const fp)
     const char *b = get_lame_os_bitness();
     const char *v = get_lame_version();
     const char *u = get_lame_url();
-    const size_t lenb = strlen(b);
-    const size_t lenv = strlen(v);
-    const size_t lenu = strlen(u);
-    const size_t lw = 80;       /* line width of terminal in characters */
-    const size_t sw = 16;       /* static width of text */
+    const unsigned int lenb = strlen(b);
+    const unsigned int lenv = strlen(v);
+    const unsigned int lenu = strlen(u);
+    const unsigned int lw = 80;       /* line width of terminal in characters */
+    const unsigned int sw = 16;       /* static width of text */
 
     if (lw >= lenb + lenv + lenu + sw || lw < lenu + 2)
         /* text fits in 80 chars per line, or line even too small for url */
