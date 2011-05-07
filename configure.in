@@ -1,4 +1,4 @@
-dnl $Id: configure.in,v 1.139 2011/04/20 12:51:31 aleidinger Exp $
+dnl $Id: configure.in,v 1.140 2011/05/07 15:44:18 rbrito Exp $
 dnl
 dnl
 dnl don't forget to set ASM_FOR_ARCH to a space delimited list of
@@ -884,6 +884,13 @@ if test "x$GCC" = "xyes"; then
 			*86)
 				OPTIMIZATION="${OPTIMIZATION} -march=native \
 					-mtune=native"
+				;;
+			arm*-gnueabi)
+				if [ -z "$(echo ${GCC_version} | awk '/4\.0/')" ]; then
+					# Work round buggy softfloat optimization in ARM EABI compilers
+					# -gnueabi in only gcc-4.1 onwards
+					OPTIMIZATION="${OPTIMIZATION} -fno-finite-math-only"
+				fi
 				;;
 			esac
 			;;
