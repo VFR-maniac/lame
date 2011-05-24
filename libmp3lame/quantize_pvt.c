@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.168 2011/05/07 16:05:17 rbrito Exp $ */
+/* $Id: quantize_pvt.c,v 1.169 2011/05/24 20:45:55 robert Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -323,11 +323,11 @@ compute_ath(lame_internal_flags const* gfc)
 
 static float const payload_long[2][4] = 
 { {-0.000f, -0.000f, -0.000f, +0.000f}
-, {-1.000f, -0.500f, -0.025f, +0.500f}
+, {-0.500f, -0.250f, -0.025f, +0.500f}
 };
 static float const payload_short[2][4] = 
 { {-0.000f, -0.000f, -0.000f, +0.000f}
-, {-3.000f, -1.500f, -0.500f, +0.500f}
+, {-2.000f, -1.000f, -0.050f, +0.500f}
 };
 
 /************************************************************************/
