@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.286 2011/10/02 14:52:20 robert Exp $ */
+/* $Id: parse.c,v 1.287 2011/10/02 18:24:06 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1957,9 +1957,9 @@ parse_args(lame_global_flags * gfp, int argc, char **argv,
 
                 T_ELIF("?")
 #ifdef __unix__
-                FILE   *fp = popen("less -Mqc", "w");
-                long_help(gfp, fp, ProgramName, 0 /* lessmode=NO */ );
-                pclose(fp);
+                    FILE   *fp = popen("less -Mqc", "w");
+                    long_help(gfp, fp, ProgramName, 0 /* lessmode=NO */ );
+                    pclose(fp);
 #else
                     long_help(gfp, stdout, ProgramName, 1 /* lessmode=YES */ );
 #endif
