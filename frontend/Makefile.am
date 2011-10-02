@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.33 2010/10/30 13:21:02 robert Exp $
+## $Id: Makefile.am,v 1.34 2011/10/02 17:13:22 robert Exp $
 
 include $(top_srcdir)/Makefile.am.global
 
@@ -17,7 +17,6 @@ common_sources = \
 	get_audio.c \
 	lametime.c \
 	parse.c \
-	portableio.c \
 	timestatus.c
 
 noinst_HEADERS = \
@@ -29,7 +28,6 @@ noinst_HEADERS = \
 	lametime.h \
 	main.h \
 	parse.h \
-	portableio.h \
 	timestatus.h
 
 lame_SOURCES = lame_main.c $(common_sources)

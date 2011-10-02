@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: mp3rtp.c,v 1.35 2011/05/07 16:05:17 rbrito Exp $ */
+/* $Id: mp3rtp.c,v 1.36 2011/10/02 17:13:22 robert Exp $ */
 
 /* Still under work ..., need a client for test, where can I get one? */
 
@@ -31,7 +31,7 @@
 /* 
  *  experimental translation:
  *
- *  gcc -I..\include -I..\libmp3lame -o mp3rtp mp3rtp.c ../libmp3lame/libmp3lame.a lametime.c get_audio.c portableio.c ieeefloat.c timestatus.c parse.c rtp.c -lm
+ *  gcc -I..\include -I..\libmp3lame -o mp3rtp mp3rtp.c ../libmp3lame/libmp3lame.a lametime.c get_audio.c ieeefloat.c timestatus.c parse.c rtp.c -lm
  *
  *  wavrec -t 14400 -s 44100 -S /proc/self/fd/1 | ./mp3rtp 10.1.1.42 -V2 -b128 -B256 - my_mp3file.mp3
  */
