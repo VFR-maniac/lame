@@ -21,7 +21,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.126 2011/05/07 16:05:17 rbrito Exp $ */
+/* $Id: main.c,v 1.127 2011/10/02 14:52:20 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -353,7 +353,7 @@ char* utf8ToLatin1(char const* str)
   return mbsToMbs(str, CP_UTF8, 28591); /* Latin-1 is code page 28591 */
 }
 
-unsigned short* utf8ToUcs2(char const* mbstr) /* additional Byte-Order-Marker */
+unsigned short* utf8ToUtf16(char const* mbstr) /* additional Byte-Order-Marker */
 {
   int n = MultiByteToWideChar(CP_UTF8, 0, mbstr, -1, NULL, 0);
   wchar_t* wstr = malloc( (n+1)*sizeof(wstr[0]) );
