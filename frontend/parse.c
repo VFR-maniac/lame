@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.287 2011/10/02 18:24:06 robert Exp $ */
+/* $Id: parse.c,v 1.288 2011/10/03 13:22:01 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -325,6 +325,9 @@ id3_tag(lame_global_flags* gfp, int type, TextEncoding enc, char* str)
 {
     void* x = 0;
     int result;
+    if (enc == TENC_UTF16 && type != 'v' ) {
+        id3_tag(gfp, type, TENC_LATIN1, str); /* for id3v1 */
+    }
     switch (enc) 
     {
         default:
