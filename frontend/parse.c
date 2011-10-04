@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.289 2011/10/04 11:42:21 robert Exp $ */
+/* $Id: parse.c,v 1.290 2011/10/04 15:37:00 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -2160,7 +2160,7 @@ parse_args(lame_global_flags * gfp, int argc, char **argv,
                         argUsed = 1;
                         val = atof(arg);
                         val = (int) (val * (val <= 192 ? 1.e3 : 1.e0) + 0.5);
-                        global_reader.input_samplerate = val;
+                        global_reader.input_samplerate = (int)val;
                         (void) lame_set_in_samplerate(gfp, (int)val);
                         break;
                     case 'b':
