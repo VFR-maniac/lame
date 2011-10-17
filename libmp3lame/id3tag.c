@@ -29,7 +29,7 @@
  * NOTE: See http://id3.org/ for more information about ID3 tag formats.
  */
 
-/* $Id: id3tag.c,v 1.72 2011/10/03 13:22:00 robert Exp $ */
+/* $Id: id3tag.c,v 1.73 2011/10/17 23:15:45 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -227,7 +227,7 @@ id3v2AddLameVersion(lame_internal_flags * gfc)
     else {
         sprintf(buffer, "LAME version %s (%s)", v, u);
     }
-    id3v2_add_latin1(gfc, ID_ENCODER, 0, 0, buffer);
+    copyV1ToV2(gfc, ID_ENCODER, buffer);
 }
 
 static void
@@ -250,7 +250,7 @@ id3v2AddAudioDuration(lame_internal_flags * gfc, double ms)
         playlength_ms = ms;
     }
     sprintf(buffer, "%lu", playlength_ms);
-    id3v2_add_latin1(gfc, ID_PLAYLENGTH, 0, 0, buffer);
+    copyV1ToV2(gfc, ID_PLAYLENGTH, buffer);
 }
 
 void
