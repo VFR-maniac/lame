@@ -29,7 +29,7 @@
  * NOTE: See http://id3.org/ for more information about ID3 tag formats.
  */
 
-/* $Id: id3tag.c,v 1.74 2011/11/01 16:59:58 robert Exp $ */
+/* $Id: id3tag.c,v 1.75 2011/11/01 19:50:23 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -1274,8 +1274,8 @@ writeUcs2s(unsigned char *frame, unsigned short const *str, size_t n)
         unsigned short const bom = *str;
         while (n--) {
             unsigned short const c = toLittleEndian(bom, *str++);
-            *frame++ = 0x00ffu & (c >> 8);
             *frame++ = 0x00ffu & c;
+            *frame++ = 0x00ffu & (c >> 8);
         }
     }
     return frame;
