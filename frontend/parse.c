@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.291 2011/10/06 23:07:48 robert Exp $ */
+/* $Id: parse.c,v 1.292 2011/11/01 16:59:57 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -260,7 +260,7 @@ char* toUtf16( char* src )
                 char* i_ptr = (char*)src;
                 char* o_ptr = &dst[2];
                 size_t srcln = l*w;
-                size_t avail = n;                
+                size_t avail = n;
                 iconv(xiconv, &i_ptr, &srcln, &o_ptr, &avail);
                 iconv_close(xiconv);
             }
