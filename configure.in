@@ -1,4 +1,4 @@
-dnl $Id: configure.in,v 1.140 2011/05/07 15:44:18 rbrito Exp $
+dnl $Id: configure.in,v 1.141 2011/11/05 17:53:25 robert Exp $
 dnl
 dnl
 dnl don't forget to set ASM_FOR_ARCH to a space delimited list of
@@ -18,7 +18,7 @@ dnl FRONTEND_CFLAGS
 dnl FRONTEND_LDADD
 
 AC_PREREQ(2.68)
-AC_INIT([lame],[3.99],[lame-dev@lists.sf.net])
+AC_INIT([lame],[3.100],[lame-dev@lists.sf.net])
 AC_CONFIG_SRCDIR([libmp3lame/lame.c])
 AC_LANG([C])
 
