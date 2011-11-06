@@ -23,7 +23,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: encoder.c,v 1.111 2011/05/07 16:05:17 rbrito Exp $ */
+/* $Id: encoder.c,v 1.112 2011/11/06 18:34:31 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -485,7 +485,7 @@ lame_encode_mp3_frame(       /* Output */
     *   Stage 4: quantization loop          *
     ****************************************/
 
-    if (cfg->vbr == vbr_off || cfg->vbr == vbr_abr) {
+    {
         static FLOAT const fircoef[9] = {
             -0.0207887 * 5, -0.0378413 * 5, -0.0432472 * 5, -0.031183 * 5,
             7.79609e-18 * 5, 0.0467745 * 5, 0.10091 * 5, 0.151365 * 5,
