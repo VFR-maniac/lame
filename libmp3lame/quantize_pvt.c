@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize_pvt.c,v 1.170 2011/11/08 19:36:45 robert Exp $ */
+/* $Id: quantize_pvt.c,v 1.171 2011/11/09 00:15:56 robert Exp $ */
 #ifdef HAVE_CONFIG_H
 # include <config.h>
 #endif
@@ -445,8 +445,12 @@ on_pe(lame_internal_flags * gfc, const FLOAT pe[][2], int targ_bits[2], int mean
          * allocate bits for each channel 
          ******************************************************************/
         targ_bits[ch] = Min(MAX_BITS_PER_CHANNEL, tbits / cfg->channels_out);
-
-        add_bits[ch] = targ_bits[ch] * pe[gr][ch] / 700.0 - targ_bits[ch];
+        if (cbr) {
+            add_bits[ch] = targ_bits[ch] * pe[gr][ch] / 700.0 - targ_bits[ch];
+        }
+        else {
+            add_bits[ch] = targ_bits[ch] * pe[gr][ch] / 1800.0;
+        }
 
         /* at most increase bits by 1.5*average */
         if (add_bits[ch] > mean_bits * 3 / 4)

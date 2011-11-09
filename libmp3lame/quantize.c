@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.217 2011/11/08 18:19:58 robert Exp $ */
+/* $Id: quantize.c,v 1.218 2011/11/09 00:15:56 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1594,12 +1594,15 @@ VBR_new_prepare(lame_internal_flags * gfc,
     int     maximum_framebits;
 
     if (!cfg->free_format) {
+        int   act_resv;
         eov->bitrate_index = cfg->vbr_max_bitrate_index;
         (void) ResvFrameBegin(gfc, &avg);
         *max_resv = gfc->sv_enc.ResvMax;
+        act_resv = Min(gfc->sv_enc.ResvSize, gfc->sv_enc.ResvMax);
 
         get_framebits(gfc, frameBits);
         maximum_framebits = frameBits[cfg->vbr_max_bitrate_index];
+        maximum_framebits -= act_resv * 0.5; /* don't use all at once */
     }
     else {
         eov->bitrate_index = 0;
