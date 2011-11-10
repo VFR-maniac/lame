@@ -21,7 +21,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame_main.c,v 1.9 2011/10/04 11:42:21 robert Exp $ */
+/* $Id: lame_main.c,v 1.10 2011/11/10 13:19:43 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -428,6 +428,18 @@ lame_encoder_loop(lame_global_flags * gf, FILE * outf, int nogap, char *inPath, 
             owrite = (int) fwrite(id3v2tag, 1, imp3, outf);
             free(id3v2tag);
             if (owrite != imp3) {
+                encoder_progress_end(gf);
+                error_printf("Error writing ID3v2 tag \n");
+                return 1;
+            }
+        }
+    }
+    else {
+        unsigned char* id3v2tag = getOldTag(gf);
+        id3v2_size = sizeOfOldTag(gf);
+        if ( id3v2_size > 0 ) {
+            size_t owrite = fwrite(id3v2tag, 1, id3v2_size, outf);
+            if (owrite != id3v2_size) {
                 encoder_progress_end(gf);
                 error_printf("Error writing ID3v2 tag \n");
                 return 1;
