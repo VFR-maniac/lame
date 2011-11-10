@@ -26,7 +26,7 @@
   Contains functions which describe the version of LAME.
 
   \author A.L. Faber
-  \version \$Id: version.c,v 1.32 2011/05/07 16:05:17 rbrito Exp $
+  \version \$Id: version.c,v 1.33 2011/11/10 18:46:55 robert Exp $
   \ingroup libmp3lame
 */
 
@@ -122,9 +122,9 @@ get_lame_very_short_version(void)
 #elif LAME_BETA_VERSION
 #define P "b"
 #elif LAME_RELEASE_VERSION && (LAME_PATCH_VERSION > 0)
-#define P "r";
+#define P "r"
 #else
-#define P " ";
+#define P " "
 #endif
     static /*@observer@ */ const char *const str =
 #if (LAME_PATCH_VERSION > 0)
