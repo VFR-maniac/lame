@@ -22,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: mpglib_interface.c,v 1.42 2011/05/07 16:05:17 rbrito Exp $ */
+/* $Id: mpglib_interface.c,v 1.43 2012/02/14 14:24:08 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -329,7 +329,7 @@ lame_decode(unsigned char *buffer, int len, short pcm_l[], short pcm_r[])
 
 hip_t hip_decode_init(void)
 {
-    hip_t hip = calloc(1, sizeof(hip_global_flags));
+    hip_t hip = lame_calloc(hip_global_flags, 1);
     InitMP3(hip);
     return hip;
 }

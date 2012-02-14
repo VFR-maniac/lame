@@ -19,7 +19,7 @@
  * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
  *
- * $Id: bitstream.c,v 1.97 2011/05/07 16:05:17 rbrito Exp $
+ * $Id: bitstream.c,v 1.98 2012/02/14 14:24:08 robert Exp $
  */
 
 
@@ -1101,7 +1101,7 @@ init_bit_stream_w(lame_internal_flags * gfc)
     esv->h_ptr = esv->w_ptr = 0;
     esv->header[esv->h_ptr].write_timing = 0;
 
-    gfc->bs.buf = (unsigned char *) malloc(BUFFER_SIZE);
+    gfc->bs.buf = lame_calloc(unsigned char, BUFFER_SIZE);
     gfc->bs.buf_size = BUFFER_SIZE;
     gfc->bs.buf_byte_idx = -1;
     gfc->bs.buf_bit_idx = 0;

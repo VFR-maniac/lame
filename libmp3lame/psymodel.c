@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: psymodel.c,v 1.209 2011/05/24 20:45:55 robert Exp $ */
+/* $Id: psymodel.c,v 1.210 2012/02/14 14:24:08 robert Exp $ */
 
 
 /*
@@ -1852,7 +1852,7 @@ init_s3_values(FLOAT ** p, int (*s3ind)[2], int npart,
         s3ind[i][1] = j;
         numberOfNoneZero += (s3ind[i][1] - s3ind[i][0] + 1);
     }
-    *p = malloc(sizeof(FLOAT) * numberOfNoneZero);
+    *p = lame_calloc(FLOAT, numberOfNoneZero);
     if (!*p)
         return -1;
 
@@ -1889,7 +1889,7 @@ psymodel_init(lame_global_flags const *gfp)
     }
     memset(norm, 0, sizeof(norm));
 
-    gd = calloc(1, sizeof(PsyConst_t));
+    gd = lame_calloc(PsyConst_t, 1);
     gfc->cd_psy = gd;
 
     gd->force_short_block_calc = gfp->experimentalZ;

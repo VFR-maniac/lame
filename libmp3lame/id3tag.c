@@ -29,7 +29,7 @@
  * NOTE: See http://id3.org/ for more information about ID3 tag formats.
  */
 
-/* $Id: id3tag.c,v 1.77 2012/01/08 23:50:21 robert Exp $ */
+/* $Id: id3tag.c,v 1.78 2012/02/14 14:24:08 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -60,7 +60,6 @@ char   *strchr(), *strrchr();
 #include "util.h"
 #include "bitstream.h"
 
-#define lame_calloc(TYPE, COUNT) ((TYPE*)calloc(COUNT, sizeof(TYPE)))
 
 static const char *const genre_names[] = {
     /*
