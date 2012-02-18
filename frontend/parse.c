@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.293 2012/01/19 12:15:56 robert Exp $ */
+/* $Id: parse.c,v 1.294 2012/02/18 13:09:00 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -385,7 +385,7 @@ lame_version_print(FILE * const fp)
         else
             fprintf(fp, "LAME version %s (%s)\n\n", v, u);
     else {
-        int const n_white_spaces = ((lenu+2) > lw ? 0 : lw-2-lenu);
+        int const n_white_spaces = (int)((lenu+2) > lw ? 0 : lw-2-lenu);
         /* text too long, wrap url into next line, right aligned */
         if (lenb > 0)
             fprintf(fp, "LAME %s version %s\n%*s(%s)\n\n", b, v, n_white_spaces, "", u);

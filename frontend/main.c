@@ -21,7 +21,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.127 2011/10/02 14:52:20 robert Exp $ */
+/* $Id: main.c,v 1.128 2012/02/18 13:09:00 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -142,7 +142,7 @@ dosToLongFileName(char *fn)
     WIN32_FIND_DATAA lpFindFileData;
     HANDLE  h = FindFirstFileA(fn, &lpFindFileData);
     if (h != INVALID_HANDLE_VALUE) {
-        int     a;
+        size_t  a;
         char   *q, *p;
         FindClose(h);
         for (a = 0; a < MSIZE; a++) {
