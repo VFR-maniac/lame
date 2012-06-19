@@ -1,4 +1,4 @@
-dnl $Id: configure.in,v 1.143 2012/06/18 20:48:33 rbrito Exp $
+dnl $Id: configure.in,v 1.144 2012/06/19 00:00:55 rbrito Exp $
 dnl
 dnl
 dnl don't forget to set ASM_FOR_ARCH to a space delimited list of
@@ -1164,7 +1164,6 @@ AC_CONFIG_FILES([Makefile \
 		 include/Makefile \
 		 Dll/Makefile \
 		 misc/Makefile \
-		 debian/Makefile \
 		 dshow/Makefile \
 		 ACM/Makefile \
 		 ACM/ADbg/Makefile \
