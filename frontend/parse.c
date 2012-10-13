@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.297 2012/10/13 09:33:50 robert Exp $ */
+/* $Id: parse.c,v 1.298 2012/10/13 10:36:18 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1743,8 +1743,11 @@ parse_args(lame_global_flags * gfp, int argc, char **argv,
                     }
 
                 T_ELIF("tg")
-                    int ret = id3_tag(gfp, 'g', id3_tenc, nextArg);
+                    int ret = 0;
                     argUsed = 1;
+                    if (nextArg != 0 && strlen(nextArg) > 0) {
+                        ret = id3_tag(gfp, 'g', id3_tenc, nextArg);
+                    }
                     if (ret != 0) {
                         if (0 == ignore_tag_errors) {
                             if (ret == -1) {
