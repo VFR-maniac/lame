@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.296 2012/10/09 21:35:02 robert Exp $ */
+/* $Id: parse.c,v 1.297 2012/10/13 09:33:50 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1196,6 +1196,7 @@ resample_rate(double freq)
 
 #ifdef _WIN32
 #define SLASH '\\'
+#define COLON ':'
 #elif __OS2__
 #define SLASH '\\'
 #else
@@ -1211,14 +1212,18 @@ size_t scanPath(char const* s, char const** a, char const** b)
         for (; *s; ++s) {
             switch (*s) {
             case SLASH:
-            case ':':
+#ifdef _WIN32
+            case COLON:
+#endif
                 s2 = s;
                 break;
             }
         }
-        if (*s2 == ':') {
+#ifdef _WIN32
+        if (*s2 == COLON) {
             ++s2;
         }
+#endif
     }
     if (a) {
         *a = s1;
@@ -1238,7 +1243,9 @@ size_t scanBasename(char const* s, char const** a, char const** b)
         for (; *s; ++s) {
             switch (*s) {
             case SLASH:
-            case ':':
+#ifdef _WIN32
+            case COLON:
+#endif
                 s1 = s2 = s;
                 break;
             case '.':
@@ -1249,7 +1256,11 @@ size_t scanBasename(char const* s, char const** a, char const** b)
         if (s2 == s1) {
             s2 = s;
         }
-        if (*s1 == SLASH || *s1 == ':') {
+        if (*s1 == SLASH 
+#ifdef _WIN32
+          || *s1 == COLON
+#endif
+           ) {
             ++s1;
         }
     }
