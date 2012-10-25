@@ -3,7 +3,7 @@
  *
  *      Copyright (c) 1999 Mark Taylor
  *                    2000 Takehiro TOMINAGA
- *                    2010-2011 Robert Hegemann
+ *                    2010-2012 Robert Hegemann
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -21,7 +21,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.128 2012/02/18 13:09:00 robert Exp $ */
+/* $Id: main.c,v 1.129 2012/10/25 18:46:21 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -407,13 +407,13 @@ char* lame_getenv(char const* var)
 {
     char* str = 0;
     wchar_t* wvar = utf8ToUnicode(var);
-    wchar_t* wstr = 0;
     if (wvar != 0) {
-        wstr = _wgetenv(wvar);
-        str = unicodeToUtf8(wstr);
+        wchar_t* wstr = _wgetenv(wvar);
+        if (wstr != 0) {
+            str = unicodeToUtf8(wstr);
+        }
     }
     free(wvar);
-    free(wstr);
     return str;
 }
 
